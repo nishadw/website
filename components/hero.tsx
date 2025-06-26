@@ -1,0 +1,81 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+
+export function Hero() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  return (
+    <section className="min-h-screen flex items-center justify-center pt-16 relative">
+      <div className="container mx-auto px-4 text-center">
+        <div className={`space-y-8 ${isVisible ? "fade-in" : "opacity-0"}`}>
+          <div className="mb-12">
+            <div className="relative inline-block">
+              <img
+                src="/placeholder.svg?height=180&width=180"
+                alt="Nishad Wajge"
+                className="w-44 h-44 rounded-full mx-auto object-cover elegant-shadow-lg hover:scale-105 transition-all duration-500 float-animation"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <h1 className="text-6xl md:text-8xl text-gradient leading-tight tracking-wider font-heading">
+              NISHAD WAJGE
+            </h1>
+
+            <div className="space-y-2">
+              <p className="text-xl md:text-2xl text-muted-foreground font-heading tracking-wider">
+                SOFTWARE ENGINEER & ML RESEARCHER
+              </p>
+              <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
+            </div>
+
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed body-text">
+              Crafting intelligent solutions at the intersection of{" "}
+              <span className="text-primary font-medium">artificial intelligence</span> and{" "}
+              <span className="text-accent font-medium">software engineering</span>
+            </p>
+          </div>
+
+          <div className="flex justify-center space-x-4 pt-4">
+            {[
+              { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
+              { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
+            ].map(({ icon: Icon, href, label }, index) => (
+              <Button
+                key={index}
+                variant="outline"
+                size="icon"
+                className={`elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 stagger-${index + 1}`}
+                asChild
+              >
+                <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                  <Icon className="h-5 w-5" />
+                </a>
+              </Button>
+            ))}
+          </div>
+
+          <div className="pt-8">
+            <Button
+              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+              variant="ghost"
+              className="group hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider"
+            >
+              <span className="mr-2">DISCOVER MORE</span>
+              <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
