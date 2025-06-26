@@ -61,8 +61,7 @@ export function EducationLeadership() {
                     <p className="text-lg font-semibold text-primary mb-1">
                       BS Computer Science (Concentration: Machine Learning)
                     </p>
-                    <p className="text-muted-foreground mb-2">Minors: Business, Statistics</p>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
                         <span>2023 – 2026</span>
@@ -72,6 +71,7 @@ export function EducationLeadership() {
                         <span>College Park, MD</span>
                       </div>
                     </div>
+                    <p className="text-muted-foreground">Minors: Business, Statistics</p>
                   </div>
                 </div>
               </CardHeader>
