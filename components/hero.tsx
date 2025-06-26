@@ -16,7 +16,7 @@ export function Hero() {
       <div className="container mx-auto px-4 text-center">
         <div className={`space-y-8 ${isVisible ? "fade-in" : "opacity-0"}`}>
           <div className="mb-12">
-            <div className="relative inline-block">
+            <div className="relative inline-block mt-20">
               <img
                 src="/p2.png?height=180&width=180"
                 alt="Nishad Wajge"
