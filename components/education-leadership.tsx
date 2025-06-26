@@ -65,7 +65,7 @@ export function EducationLeadership() {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
-                        <span>Aug 2023 – Dec 2026</span>
+                        <span>2023 – 2026</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
@@ -94,7 +94,7 @@ export function EducationLeadership() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <Trophy className="h-6 w-6 text-primary" />
-                      <CardTitle className="text-xl">Club Golf - President</CardTitle>
+                      <CardTitle className="text-xl">Club Golf – President</CardTitle>
                     </div>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
@@ -111,19 +111,17 @@ export function EducationLeadership() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Directed practices, tournaments, and fundraisers, leading team to rank third in the national ranking
-                  and 2x National bids. Collaborated with other clubs to organize events while serving as a liaison for
-                  alumni and prospective club members.
+                  Previous Position: Social Media Chair (Handicap: 4.4)
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="outline" className="text-primary border-primary">
-                    3rd National Ranking
+                    3rd National Ranking (2024)
                   </Badge>
                   <Badge variant="outline" className="text-primary border-primary">
                     2x National Bids
                   </Badge>
-                  <Badge variant="secondary">Leadership</Badge>
-                  <Badge variant="secondary">Event Management</Badge>
+                  {/* <Badge variant="secondary">Leadership</Badge>
+                  <Badge variant="secondary">Event Management</Badge> */}
                 </div>
               </CardContent>
             </Card>
