@@ -20,7 +20,7 @@ export function Hero() {
               <img
                 src="/p2.png?height=180&width=180"
                 alt="Nishad Wajge"
-                className="w-72 h-96 rounded-3xl mx-auto object-cover object-center scale-125 elegant-shadow-lg hover:scale-150 transition-transform duration-500 float-animation"
+                className="w-72 h-80 rounded-3xl mx-auto object-cover object-center scale-125 elegant-shadow-lg hover:scale-150 transition-transform duration-500 float-animation"
               />
             </div>
           </div>
@@ -37,11 +37,11 @@ export function Hero() {
               <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed body-text">
-              Developing solutions that integrate{" "}
-              <span className="text-accent font-medium">agentic AI</span> with{" "}
-              <span className="text-accent font-medium">human-centered decision-making</span>
-            </p>
+            {/* <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed body-text">
+              Building {" "} <span className="text-accent font-medium">AI solutions </span> 
+              that don't just think — but aide{" "}
+              <span className="text-accent font-medium">human decision-making</span>
+            </p> */}
           </div>
 
           <div className="flex justify-center space-x-2 pt-2">
