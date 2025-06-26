@@ -13,7 +13,7 @@ const experiences = [
     location: "Annapolis Junction, MD",
     description:
       "Developing multimodal deep learning software for precision targeting, navigation intelligence, and situational awareness",
-    technologies: ["Deep Learning", "Computer Vision", "Android"],
+    technologies: ["Tensorflow", "Keras", "Scikit-Learn", "Android Studio"],
     current: true
   },
   {
@@ -23,7 +23,7 @@ const experiences = [
     location: "College Park, MD",
     description:
       "Engineered a scalable RAG-powered LLM in AWS Bedrock for email insight and AI analysis for global email database",
-    technologies: ["Generative AI", "Natural Language Processing", "Full Stack"]
+    technologies: ["AWS Bedrock", "AWS EC2", "LangChain", "Neo4J", "Qdrant", "NLTK", "Flask", "Next.js", "Tailwind CSS"]
   },
   {
     company: "Booz Allen Hamilton",
@@ -32,7 +32,7 @@ const experiences = [
     location: "College Park, MD",
     description:
       "Created Medicaid/CHIP web application for policy comparison, user annotation, and analysis for US Government contract",
-    technologies: ["Web Scraping", "Natural Language Processing", "Full Stack"]
+    technologies: ["PyTorch", "Scikit-Learn", "Selenium", "PostgreSQL", "Express.js", "Next.js", "Tailwind CSS"]
   },
   {
     company: "Internal Revenue Service",
@@ -40,8 +40,8 @@ const experiences = [
     period: "Jan 2024 - Dec 2024",
     location: "Washington, DC",
     description:
-      "Modernized post-ETL data pipeline for criminal auditing and idenity compliance tool and resolved defects in build system",
-    technologies: ["CI/CD", "DevSecOps", "Agile Methodologies"],
+      "Modernized post-ETL CI/CD pipeline for criminal auditing and idenity compliance tool and resolved defects in build system",
+    technologies: ["IBM Rational Team Concert", "Jenkins", "Ant", "Maven"],
   },
 ]
 
