@@ -13,7 +13,7 @@ const bebasNeue = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: "Nishad Wajge - Portfolio",
-  description: "Software Engineer & Machine Learning Researcher",
+  description: "SWE & ML Researcher",
     generator: 'v0.dev'
 }
 

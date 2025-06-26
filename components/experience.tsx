@@ -12,10 +12,9 @@ const experiences = [
     period: "Jun 2025 - Present",
     location: "Annapolis Junction, MD",
     description:
-      "Developing multimodal deep learning software for precision targeting, navigation intelligence, and situational awareness.",
-    technologies: ["Python", "Deep Learning", "Computer Vision", "AWS"],
-    current: true,
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/General_Dynamics_logo.svg/2560px-General_Dynamics_logo.svg.png",
+      "Developing multimodal deep learning software for precision targeting, navigation intelligence, and situational awareness",
+    technologies: ["Deep Learning", "Computer Vision", "Android"],
+    current: true
   },
   {
     company: "General Dynamics Information Technology",
@@ -23,9 +22,8 @@ const experiences = [
     period: "Jan 2025 - May 2025",
     location: "College Park, MD",
     description:
-      "Engineered a scalable RAG-powered LLM in AWS Bedrock for email insight and analysis on 600,000+ email database. Built LangChain pipeline to populate Neo4J and Qdrant for relationship mapping and similarity search across 150+ entities. Boosted MMR accuracy by 40% with Microsoft E5 semantic chunking, NER analysis, and email metadata.",
-    technologies: ["AWS Bedrock", "LangChain", "Neo4J", "Qdrant", "Python", "NLP"],
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/General_Dynamics_logo.svg/2560px-General_Dynamics_logo.svg.png",
+      "Engineered a scalable RAG-powered LLM in AWS Bedrock for email insight and AI analysis for global email database",
+    technologies: ["Generative AI", "Natural Language Processing", "Full Stack"]
   },
   {
     company: "Booz Allen Hamilton",
@@ -33,9 +31,8 @@ const experiences = [
     period: "Sep 2024 - Dec 2024",
     location: "College Park, MD",
     description:
-      "Enabled employees to query and annotate 500+ Medicaid/CHIP claims by creating application for U.S. Government contract. Automated policy retrieval with Selenium CRON job, cutting manual effort by 80% and saving $50,000+ annually. Developed policy comparison, keyword generation, and sentiment analysis with BART, Scikit-learn, and GLiNER.",
-    technologies: ["Selenium", "PostgreSQL", "Express.js", "BART", "Scikit-learn", "GLiNER"],
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Booz_Allen_Hamilton_logo.svg/2560px-Booz_Allen_Hamilton_logo.svg.png",
+      "Created Medicaid/CHIP web application for policy comparison, user annotation, and analysis for US Government contract",
+    technologies: ["Web Scraping", "Natural Language Processing", "Full Stack"]
   },
   {
     company: "Internal Revenue Service",
@@ -43,9 +40,8 @@ const experiences = [
     period: "Jan 2024 - Dec 2024",
     location: "Washington, DC",
     description:
-      "Modernized 100% of post-ETL processes for criminal auditing tool that analyzes 750,000+ taxpayer applications each day. Resolved 50+ defects in Java and migrated 20-year-old build system from Ant to Maven in IBM Rational Team Concert. Deployed division-wide Jenkins CI/CD pipeline upgrade from JDK 11 to 17 with 100% path coverage in JUnit.",
-    technologies: ["Java", "Maven", "Jenkins", "IBM RTC", "JUnit", "CI/CD"],
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Seal_of_the_United_States_Internal_Revenue_Service.svg/2048px-Seal_of_the_United_States_Internal_Revenue_Service.svg.png",
+      "Modernized post-ETL data pipeline for criminal auditing and idenity compliance tool and resolved defects in build system",
+    technologies: ["CI/CD", "DevSecOps", "Agile Methodologies"],
   },
 ]
 
@@ -97,24 +93,6 @@ export function Experience() {
 
                     {/* Content */}
                     <Card className="flex-1 bg-card elegant-shadow hover:elegant-shadow-lg transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
-                      {/* Company Logo Background */}
-                      <div className="absolute top-4 right-4 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-                        <img
-                          src={exp.logo || "/placeholder.svg"}
-                          alt={`${exp.company} logo`}
-                          className="w-full h-full object-contain filter grayscale logo-float"
-                        />
-                      </div>
-
-                      {/* Large Background Logo */}
-                      <div className="absolute -bottom-8 -right-8 w-32 h-32 opacity-3 group-hover:opacity-5 transition-opacity duration-500">
-                        <img
-                          src={exp.logo || "/placeholder.svg"}
-                          alt={`${exp.company} logo`}
-                          className="w-full h-full object-contain filter grayscale logo-float"
-                          style={{ animationDelay: "1s" }}
-                        />
-                      </div>
 
                       <CardHeader className="pb-4 relative z-10">
                         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">

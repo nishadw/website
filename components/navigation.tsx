@@ -1,14 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ThemeToggle } from "./theme-toggle"
+import { ThemeToggle } from "./theme-toggle" // Make sure this import path is correct
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      // A small threshold (10px) makes the transition feel immediate
+      setIsScrolled(window.scrollY > 10)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -20,13 +21,15 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b" : "bg-transparent"
+      className={`w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "fixed top-0 bg-background/80 backdrop-blur-md shadow-md" // Scrolled state
+          : "absolute top-0 bg-transparent" // Initial state
       }`}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="font-bold text-xl">Portfolio</div>
-        <div className="hidden md:flex space-x-8">
+      <div className="container mx-auto px-4 relative flex items-center h-24"> {/* Adjusted height */}
+        {/* Centered Navigation Links */}
+        <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex space-x-8">
           <button onClick={() => scrollToSection("about")} className="hover:text-primary transition-colors">
             About
           </button>
@@ -40,7 +43,11 @@ export function Navigation() {
             Publications
           </button>
         </div>
-        <ThemeToggle />
+
+        {/* Theme Toggle on the Right */}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   )

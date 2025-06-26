@@ -4,25 +4,21 @@ import { useEffect, useRef, useState } from "react"
 
 const skills = [
   { name: "PYTHON", level: 95, category: "LANGUAGES" },
-  { name: "JAVASCRIPT", level: 90, category: "LANGUAGES" },
-  { name: "JAVA", level: 85, category: "LANGUAGES" },
-  { name: "RUST", level: 70, category: "LANGUAGES" },
-  { name: "PYTORCH", level: 90, category: "ML/AI" },
-  { name: "TENSORFLOW", level: 85, category: "ML/AI" },
-  { name: "LANGCHAIN", level: 88, category: "ML/AI" },
-  { name: "AWS", level: 85, category: "CLOUD" },
-  { name: "REACT.JS", level: 90, category: "FRONTEND" },
-  { name: "NODE.JS", level: 85, category: "BACKEND" },
-  { name: "POSTGRESQL", level: 80, category: "DATABASE" },
+  { name: "JAVA", level: 92, category: "LANGUAGES" },
+  { name: "JAVASCRIPT", level: 73, category: "LANGUAGES" },
+  { name: "R", level: 85, category: "LANGUAGES" },
+  { name: "TENSORFLOW/KERAS", level: 90, category: "ML/AI" },
+  { name: "AWS", level: 78, category: "CLOUD" },
+  { name: "EXCEL", level: 90, category: "BI" },
 ]
 
-const interests = [
-  { name: "MACHINE LEARNING", description: "Deep learning & neural networks" },
-  { name: "DATA SCIENCE", description: "Statistical analysis & insights" },
-  { name: "GOVERNMENT TECH", description: "National security applications" },
-  { name: "RESEARCH", description: "Academic publications & innovation" },
-  { name: "GOLF", description: "Club president & national competitor" },
-]
+// const interests = [
+//   { name: "MACHINE LEARNING", description: "Deep learning & neural networks" },
+//   { name: "DATA SCIENCE", description: "Statistical analysis & insights" },
+//   { name: "GOVERNMENT TECH", description: "National security applications" },
+//   { name: "RESEARCH", description: "Academic publications & innovation" },
+//   { name: "GOLF", description: "Club president & national competitor" },
+// ]
 
 export function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -58,20 +54,29 @@ export function About() {
               {/* Bio Section */}
               <div className="space-y-8">
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                    I'm a Computer Science student at the{" "}
-                    <span className="text-primary font-medium">University of Maryland</span> with a concentration in
-                    Machine Learning. I specialize in developing scalable AI solutions and building robust software
-                    systems for government and enterprise clients.
+                  <p className="text-xl text-muted-foreground leading-relaxed body-text mb-6">
+                    I am a student at the University of Maryland studying Computer Science with an emphasis in 
+                    Machine Learning, alongside minors in Business and Statistics. 
                   </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                    My experience spans from <span className="text-accent font-medium">RAG-powered LLMs</span>{" "}
-                    processing 600,000+ emails to modernizing critical government systems handling 750,000+ daily
-                    transactions.
+
+                  <p className="text-xl text-muted-foreground leading-relaxed body-text mb-6">
+                    My work has focused on modernizing pipelines and building zero-to-one solutions. 
+                    My research focus lies in reinforcement learning  with the goal to empower human decision-making through AGI.
                   </p>
+
+                  <p className="text-xl text-muted-foreground leading-relaxed body-text mb-6">
+                    In my free time, I enjoy playing golf, going hiking, travelling to new places, or just being outdoors.
+                  </p>
+
+                  <p className="text-xl text-muted-foreground leading-relaxed body-text">
+                    I'm always eager to create meaningful impact through my work. Feel free to reach out with any 
+                    opportunities, volunteering, or just to chat!
+                  </p>
+
+                  
                 </div>
 
-                <div className="grid grid-cols-2 gap-6">
+                {/* <div className="grid grid-cols-2 gap-6">
                   {[
                     { label: "YEARS EXPERIENCE", value: "3+", delay: "stagger-1" },
                     { label: "PROJECTS COMPLETED", value: "15+", delay: "stagger-2" },
@@ -86,13 +91,13 @@ export function About() {
                       <div className="text-sm text-muted-foreground body-text">{stat.label}</div>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
 
               {/* Skills Section */}
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl mb-8 text-primary tracking-wider font-heading">TECHNICAL EXPERTISE</h3>
+                  <h3 className="text-2xl mb-8 text-primary tracking-wider font-heading">TOP TECHNICAL SKILLS</h3>
                   <div className="space-y-6">
                     {skills.map((skill, index) => (
                       <div key={skill.name} className="group">
@@ -120,7 +125,7 @@ export function About() {
               </div>
             </div>
 
-            {/* Interests Section */}
+            {/* Interests Section
             <div className="mt-20">
               <h3 className="text-2xl mb-12 text-center text-accent tracking-wider font-heading">AREAS OF INTEREST</h3>
               <div className="grid md:grid-cols-5 gap-6">
@@ -138,7 +143,7 @@ export function About() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -18,9 +18,9 @@ export function Hero() {
           <div className="mb-12">
             <div className="relative inline-block">
               <img
-                src="/placeholder.svg?height=180&width=180"
+                src="/p2.png?height=180&width=180"
                 alt="Nishad Wajge"
-                className="w-44 h-44 rounded-full mx-auto object-cover elegant-shadow-lg hover:scale-105 transition-all duration-500 float-animation"
+                className="w-72 h-96 rounded-3xl mx-auto object-cover object-center scale-125 elegant-shadow-lg hover:scale-150 transition-transform duration-500 float-animation"
               />
             </div>
           </div>
@@ -32,19 +32,19 @@ export function Hero() {
 
             <div className="space-y-2">
               <p className="text-xl md:text-2xl text-muted-foreground font-heading tracking-wider">
-                SOFTWARE ENGINEER & ML RESEARCHER
+                COMPUTER SCIENCE + MACHINE LEARNING @ UNIVERSITY OF MARYLAND, COLLEGE PARK
               </p>
               <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed body-text">
-              Crafting intelligent solutions at the intersection of{" "}
-              <span className="text-primary font-medium">artificial intelligence</span> and{" "}
-              <span className="text-accent font-medium">software engineering</span>
+              Developing solutions that integrate{" "}
+              <span className="text-accent font-medium">agentic AI</span> with{" "}
+              <span className="text-accent font-medium">human-centered decision-making</span>
             </p>
           </div>
 
-          <div className="flex justify-center space-x-4 pt-4">
+          <div className="flex justify-center space-x-2 pt-2">
             {[
               { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
               { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
@@ -70,7 +70,7 @@ export function Hero() {
               variant="ghost"
               className="group hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider"
             >
-              <span className="mr-2">DISCOVER MORE</span>
+              <span className="mr-2">EXPLORE MORE</span>
               <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
             </Button>
           </div>
