@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowDown, FileText } from "lucide-react"
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -49,6 +49,7 @@ export function Hero() {
               { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
               { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
               { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
+              { icon: FileText, href: "https://drive.google.com/file/d/1JgrXx7FReO7z0Fctw0d-SgJXlGtkTCbU/view?usp=sharing", label: "Resume" }
             ].map(({ icon: Icon, href, label }, index) => (
               <Button
                 key={index}
@@ -58,7 +59,7 @@ export function Hero() {
                 asChild
               >
                 <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-8 w-8" />
                 </a>
               </Button>
             ))}
