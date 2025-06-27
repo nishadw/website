@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ArrowDown, FileText } from "lucide-react"
+import { Link } from "react-scroll" // ✅ added for smooth scroll
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -36,12 +37,6 @@ export function Hero() {
               </p>
               <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
             </div>
-
-            {/* <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed body-text">
-              Building {" "} <span className="text-accent font-medium">AI solutions </span> 
-              that don't just think — but aide{" "}
-              <span className="text-accent font-medium">human decision-making</span>
-            </p> */}
           </div>
 
           <div className="flex justify-center space-x-2 pt-2">
@@ -66,14 +61,15 @@ export function Hero() {
           </div>
 
           <div className="pt-8">
-            <Button
-              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-              variant="ghost"
-              className="group hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider"
-            >
-              <span className="mr-2">EXPLORE MORE</span>
-              <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
-            </Button>
+            <Link to="about" smooth={true} duration={1000} offset={-96}>
+              <Button
+                variant="ghost"
+                className="group hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider"
+              >
+                <span className="mr-2">EXPLORE MORE</span>
+                <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
