@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ArrowDown, FileText } from "lucide-react"
 import { Link } from "react-scroll" // ✅ added for smooth scroll
+import { Analytics } from "@vercel/analytics/next"  // <-- added import
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -73,6 +74,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <Analytics /> {/* Added here to track page views */}
     </section>
   )
 }
