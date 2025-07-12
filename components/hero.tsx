@@ -45,7 +45,7 @@ export function Hero() {
               { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
               { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
               { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
-              { icon: FileText, href: "https://drive.google.com/file/d/1JgrXx7FReO7z0Fctw0d-SgJXlGtkTCbU/view?usp=sharing", label: "Resume" }
+              { icon: FileText, href: "https://drive.google.com/file/d/17JyEIwqFjnf9VDQoQ39DiKqNPmQqbm9E/view?usp=sharing", label: "Resume" }
             ].map(({ icon: Icon, href, label }, index) => (
               <Button
                 key={index}
