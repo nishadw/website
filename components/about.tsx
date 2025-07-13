@@ -12,7 +12,7 @@ const skills = [
   { name: "TENSORFLOW / KERAS", level: 93, category: "ML/AI" },
   { name: "LANGCHAIN", level: 90, category: "ML/AI" },
 
-  { name: "EXCEL", level: 90, category: "BI" },
+  // { name: "EXCEL", level: 90, category: "BI" },
 ]
 
 // const interests = [
