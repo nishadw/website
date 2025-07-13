@@ -6,11 +6,10 @@ const skills = [
   { name: "PYTHON", level: 95, category: "LANGUAGES" },
   { name: "JAVA", level: 92, category: "LANGUAGES" },
   { name: "R", level: 85, category: "LANGUAGES" },
-  { name: "C", level: 75, category: "LANGUAGES" },
 
   { name: "AWS (SageMaker, Lambda, Bedrock)", level: 83, category: "CLOUD" },
 
-  { name: "TENSORFLOW/KERAS", level: 93, category: "ML/AI" },
+  { name: "TENSORFLOW / KERAS", level: 93, category: "ML/AI" },
   { name: "LANGCHAIN", level: 90, category: "ML/AI" },
 
   { name: "EXCEL", level: 90, category: "BI" },
