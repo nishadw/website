@@ -58,22 +58,19 @@ export function About() {
               <div className="space-y-8">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-lg text-muted-foreground leading-relaxed body-text mb-6">
-                    I am a student at the University of Maryland studying Computer Science with an emphasis in 
-                    Machine Learning, alongside minors in Business and Statistics. 
+                    I’m a Computer Science student at the University of Maryland, specializing in <span className="font-medium">Machine Learning</span>, with minors in <span className="font-medium">Business</span> and <span className="font-medium">Statistics</span>.
                   </p>
 
                   <p className="text-lg text-muted-foreground leading-relaxed body-text mb-6">
-                    My work has focused on modernizing pipelines and building zero-to-one solutions. 
-                    My research focus lies in reinforcement learning  with the goal to empower human decision-making through AGI.
+                    My work centers around <span className="font-medium">modernizing data pipelines</span> and building <span className="font-medium">zero-to-one solutions</span>. My research explores <span className="font-medium">reinforcement learning</span> to help advance human decision-making through AGI.
                   </p>
 
                   <p className="text-lg text-muted-foreground leading-relaxed body-text mb-6">
-                    In my free time, I enjoy playing golf, going hiking, travelling to new places, or just being outdoors.
+                    Outside of tech, I enjoy <span className="font-medium">playing golf</span>, <span className="font-medium">hiking</span>, <span className="font-medium">traveling</span>, or just spending time outdoors.
                   </p>
 
                   <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                    I'm always eager to create meaningful impact through my work. Feel free to reach out with any 
-                    opportunities, volunteering, or just to chat!
+                    I’m always looking to make a <span className="font-medium">meaningful impact</span>—whether through work, volunteering, or collaboration. <span className="font-medium">Feel free to reach out</span> if you'd like to connect!
                   </p>
 
                   
