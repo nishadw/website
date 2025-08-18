@@ -1,10 +1,71 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ArrowDown, FileText } from "lucide-react"
-import { Link } from "react-scroll" // ✅ added for smooth scroll
-import { Analytics } from "@vercel/analytics/next"  // <-- added import
+import { Link } from "react-scroll"
+import { Analytics } from "@vercel/analytics/next"
+
+// The configurable scramble hook
+function useCharacterScramble(text, options = {}) {
+  const { revealSpeed = 2, scrambleDuration = 20 } = options;
+  const [displayText, setDisplayText] = useState('');
+  const chars = '!<>-_\\/[]{}—=+*^?#________';
+
+  useEffect(() => {
+    let frameRequest;
+    let frameCount = 0;
+    const queue = [];
+    
+    if (text) {
+        for (let i = 0; i < text.length; i++) {
+            const start = i * revealSpeed;
+            const end = start + scrambleDuration;
+            queue.push({ to: text[i], start, end, char: '' });
+        }
+        
+        setDisplayText(text.split('').map(() => '').join(''));
+
+        const animate = () => {
+            let complete = 0;
+            const updatedOutput = queue.map((item) => {
+                const { start, end } = item;
+                if (frameCount >= start) {
+                    if (frameCount <= end) {
+                        item.char = chars[Math.floor(Math.random() * chars.length)];
+                    } else {
+                        item.char = item.to;
+                    }
+                }
+                if (item.char === item.to) complete++;
+                return item.char;
+            });
+            
+            setDisplayText(updatedOutput.join(''));
+            
+            if (complete !== queue.length) {
+                frameRequest = requestAnimationFrame(animate);
+                frameCount++;
+            }
+        };
+        
+        animate();
+    } else {
+        setDisplayText('');
+    }
+
+    return () => cancelAnimationFrame(frameRequest);
+  }, [text, revealSpeed, scrambleDuration]); 
+
+  return displayText;
+}
+
+// A helper component to easily apply the hook
+function ScrambledText({ text, options }) {
+  const scrambledText = useCharacterScramble(text, options);
+  return <>{scrambledText}</>;
+}
+
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -14,7 +75,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 relative">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative">
       <div className="container mx-auto px-4 text-center">
         <div className={`space-y-8 ${isVisible ? "fade-in" : "opacity-0"}`}>
           <div className="mb-12">
@@ -29,12 +90,14 @@ export function Hero() {
 
           <div className="space-y-6">
             <h1 className="text-6xl md:text-8xl text-gradient leading-tight tracking-wider font-heading">
-              NISHAD WAJGE
+              {/* --- CHANGE #1: Slower reveal for the shorter text --- */}
+              <ScrambledText text="NISHAD WAJGE" options={{ revealSpeed: 6, scrambleDuration: 25 }}/>
             </h1>
 
             <div className="space-y-2">
-              <p className="text-xl md:text-2xl text-muted-foreground font-heading tracking-wider">
-                COMPUTER SCIENCE + MACHINE LEARNING @ UNIVERSITY OF MARYLAND, COLLEGE PARK
+              <p className="text-xl md:text-lg text-muted-foreground font-mono tracking-wider">
+                {/* --- CHANGE #2: Faster reveal for the longer text --- */}
+                <ScrambledText text="COMPUTER SCIENCE + MACHINE LEARNING @ UNIVERSITY OF MARYLAND — COLLEGE PARK" options={{ revealSpeed: 1, scrambleDuration: 15 }} />
               </p>
             </div>
           </div>
@@ -73,7 +136,7 @@ export function Hero() {
           </div>
         </div>
       </div>
-      <Analytics /> {/* Added here to track page views */}
+      <Analytics />
     </section>
   )
 }

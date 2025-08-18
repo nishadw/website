@@ -11,7 +11,7 @@ const experiences = [
         company: "General Dynamics Information Technology",
         logoURL: "https://images.ctfassets.net/szx3os6exj55/DoBJFVrzCjOUxN1W1uJ1P/f40b228666d952ea0dbdfea63f1095bb/PLACEHOLDER-GDIT-logo-sht_lg_cmyk_pringy-600x450px-09162024.jpg",
         position: "Software Engineer Intern",
-        startDate: "2025-06-01",
+        startDate: "2025-06-10",
         endDate: "Present",
         location: "Annapolis Junction, MD",
         description: [
@@ -20,14 +20,14 @@ const experiences = [
             "Achieved 90%+ accuracy using a hybrid of transfer learning and custom CNNs for lightweight deployment",
             "Accelerated inference to under 100ms on edge devices by designing a 3-stage deep learning pipeline"
           ],
-        technologies: ["AWS Lambda", "Tensorflow", "Keras", "Scikit-Learn", "Android Studio", "Java", "HTML"],
+        technologies: ["Python", "Java", "HTML", "AWS Lambda", "Android Studio", "Tensorflow", "Keras", "CleverHans", "Scikit-Learn"],
         current: true,
     },
     {
         company: "General Dynamics Information Technology",
         logoURL: "https://images.ctfassets.net/szx3os6exj55/DoBJFVrzCjOUxN1W1uJ1P/f40b228666d952ea0dbdfea63f1095bb/PLACEHOLDER-GDIT-logo-sht_lg_cmyk_pringy-600x450px-09162024.jpg",
         position: "Project Lead",
-        startDate: "2025-01-01",
+        startDate: "2025-01-10",
         endDate: "2025-05-31",
         location: "College Park, MD",
         description: [
@@ -35,13 +35,13 @@ const experiences = [
             "Improved data retrieval speed and discovery by 95% by implementing relationship mapping and similarity search",
             "Boosted search accuracy by 40% via custom semantic chunking, NER extraction, and metadata enrichment"
         ],
-        technologies: ["AWS Bedrock", "AWS EC2", "LangChain", "Neo4J", "Qdrant", "NLTK", "Flask", "Next.js", "Tailwind CSS"],
+        technologies: ["Python", "Javascript", "AWS Bedrock", "AWS EC2", "LangChain", "Neo4J", "Qdrant", "NLTK", "Flask", "Next.js", "Tailwind CSS"],
     },
     {
         company: "Booz Allen Hamilton",
         logoURL: "https://bizfayetteville.com/images/article/P6M2zix5T3DghFNRcWiXLbPz6qM9CqpWTAle7h2Y.jpg",
         position: "Project Manager",
-        startDate: "2024-09-01",
+        startDate: "2024-09-10",
         endDate: "2024-12-31",
         location: "College Park, MD",
         description: [
@@ -50,13 +50,13 @@ const experiences = [
             "Saved $50K+ annually by automating workflows and cron-based web scraping, cutting manual effort and errors",
             "Engineered document comparison, feature extraction, and sentiment analysis to streamline policy auditing"
         ],
-        technologies: ["PyTorch", "Scikit-Learn", "Selenium", "PostgreSQL", "Express.js", "Next.js", "Tailwind CSS"],
+        technologies: ["Python", "Javascript", "SQL","PyTorch", "Scikit-Learn", "Selenium", "PostgreSQL", "Express.js", "Next.js", "Tailwind CSS"],
     },
     {
         company: "Internal Revenue Service",
-        logoURL: "https://yt3.googleusercontent.com/ytc/AIdro_l7EQrwAPBISw10QVF36IsB-cpyKQ4weQOea7p4iPxQj3U=s900-c-k-c0x00ffffff-no-rj",
+        logoURL: "https://www.siegelgale.com/app/uploads/2016/04/SG_AmandaVoss_1-1.jpg",
         position: "Software Engineer Intern ", // Note: Added a space to make it unique for state key
-        startDate: "2024-01-01",
+        startDate: "2024-01-10",
         endDate: "2024-12-31",
         location: "Washington, DC",
         description: [
@@ -64,7 +64,7 @@ const experiences = [
             "Strengthened system reliability by resolving 50+ defects, modernizing a 20-year-old build and reducing downtime",
             "Deployed division-wide CI/CD pipeline upgrade with 100% code coverage, advancing enterprise modernization"
         ],
-        technologies: ["IBM Rational Team Concert", "Jenkins", "Ant", "Maven", "Java"],
+        technologies: ["Java", "HTML", "IBM Rational Team Concert", "Jenkins", "Ant", "Maven"],
     },
 ]
 
@@ -110,7 +110,8 @@ export function Experience() {
     }, []);
 
     return (
-        <section ref={sectionRef} id="experience" className="py-24">
+        // --- CHANGE HERE: Added font-mono to the parent container ---
+        <section ref={sectionRef} id="experience" className="py-24 font-mono">
             <div className="container mx-auto px-4">
                 <h2 className="text-5xl md:text-6xl text-center mb-20 text-gradient tracking-wider font-heading">
                     EXPERIENCE
@@ -175,6 +176,7 @@ export function Experience() {
                                                     <div className="overflow-hidden">
                                                         <CardContent className="p-6 pt-0">
                                                             <div className="border-t border-border pt-4">
+                                                                {/* --- CHANGE HERE: Removed redundant font-mono --- */}
                                                                 <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6 leading-relaxed body-text">
                                                                     {exp.description.map((point, idx) => (
                                                                         <li key={idx}>{point}</li>

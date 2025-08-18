@@ -1,54 +1,52 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Link } from "react-scroll"
-import { ThemeToggle } from "./theme-toggle"
+import { Link } from "react-scroll";
 
-const navLinks = [
-  { to: "about", label: "About" },
-  { to: "experience", label: "Experience" },
-  { to: "publications", label: "Research" },
+const navItems = [
+  { id: "hero", label: "HOME" },
+  { id: "about", label: "ABOUT" },
+  { id: "experience", label: "EXPERIENCE" },
+  { id: "publications", label: "RESEARCH" },
 ];
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
-    <nav
-      className={`w-full z-50 transition-all duration-500 ease-in-out ${
-        isScrolled
-          ? "fixed top-0 bg-background/80 backdrop-blur-md shadow-md"
-          : "absolute top-0 bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 relative flex items-center h-24">
-        <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex space-x-8">
-          {navLinks.map(({ to, label }) => (
+    <nav className="fixed top-1/2 -translate-y-1/2 left-8 z-50 hidden md:block">
+      <ul className="space-y-6">
+        {navItems.map((item) => (
+          <li key={item.id}>
             <Link
-              key={to}
-              to={to}
+              to={item.id}
+              spy={true}
               smooth={true}
-              duration={1000}
-              offset={-96}
-              className="font-heading text-lg tracking-wider text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+              duration={800}
+              offset={-50}
+              // --- CHANGE IS HERE ---
+              className="group flex items-center gap-x-3 cursor-pointer text-white hover:text-primary transition-colors duration-300"
+              activeClass="text-primary font-bold"
             >
-              {label}
-            </Link>
-          ))}
-        </div>
+              {/* The arrow that appears on hover */}
+              <span className="
+                opacity-0 
+                -translate-x-3
+                group-hover:opacity-100 
+                group-hover:translate-x-0
+                transition-all 
+                duration-300
+                font-bold
+                text-base
+              ">
+                →
+              </span>
 
-        <div className="absolute right-4 top-1/2 -translate-y-1/2">
-          <ThemeToggle />
-        </div>
-      </div>
+              {/* The navigation text */}
+              <span className="font-heading tracking-widest text-medium">
+                {item.label}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </nav>
-  )
+  );
 }
