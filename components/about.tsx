@@ -102,7 +102,8 @@ export function About() {
   const cardOptions = { revealSpeed: 4, scrambleDuration: 10 };
 
   return (
-    <section id="about" ref={ref} className="py-24 bg-muted/30 font-mono">
+    // bg-muted/30 for different background
+    <section id="about" ref={ref} className="py-24 font-mono"> 
       <div className="container mx-auto px-4">
         <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
           <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">ABOUT</h2>
@@ -115,10 +116,10 @@ export function About() {
                   <ScrambledText text="Studying Computer Science and Machine Learning with minors in Business and Statistics at UMD." options={bioOptions} startCondition={isVisible} />
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                  <ScrambledText text="Exploring the research and application of game theory, deep learning, and software engineering to advance human decision-making." options={bioOptions} startCondition={isVisible} />
+                  <ScrambledText text="Exploring the research and application of Game Theory, AI, and Software Engineering to aid human decision-making." options={bioOptions} startCondition={isVisible} />
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                  <ScrambledText text="Enjoy hiking, golfing, following the stock market, and just spending time outdoors." options={bioOptions} startCondition={isVisible} />
+                  <ScrambledText text="Enjoy hiking, golfing, investing, and spending time outdoors." options={bioOptions} startCondition={isVisible} />
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed body-text">
                   <ScrambledText text="Always looking to make a meaningful impact with my work, so feel free to reach out!" options={bioOptions} startCondition={isVisible} />
