@@ -20,7 +20,7 @@ export function Navigation() {
               spy={true}
               smooth={true}
               duration={800}
-              offset={-50}
+              offset={0}
               // --- CHANGE IS HERE ---
               className="group flex items-center gap-x-3 cursor-pointer text-white hover:text-primary transition-colors duration-300"
               activeClass="text-primary font-bold"
