@@ -112,16 +112,16 @@ export function About() {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               
               <div className="space-y-6">
-                <p className="text-lg text-muted-foreground leading-relaxed body-text">
+                <p className="text-md text-muted-foreground leading-relaxed body-text">
                   <ScrambledText text="Studying Computer Science and Machine Learning with minors in Business and Statistics at UMD." options={bioOptions} startCondition={isVisible} />
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed body-text">
+                <p className="text-md text-muted-foreground leading-relaxed body-text">
                   <ScrambledText text="Exploring the research and application of Game Theory, AI, and Software Engineering to aid human decision-making." options={bioOptions} startCondition={isVisible} />
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed body-text">
+                <p className="text-md text-muted-foreground leading-relaxed body-text">
                   <ScrambledText text="Enjoy hiking, golfing, investing, and spending time outdoors." options={bioOptions} startCondition={isVisible} />
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed body-text">
+                <p className="text-md text-muted-foreground leading-relaxed body-text">
                   <ScrambledText text="Always looking to make a meaningful impact with my work, so feel free to reach out!" options={bioOptions} startCondition={isVisible} />
                 </p>
               </div>
@@ -132,7 +132,7 @@ export function About() {
                     <div className="flex items-start gap-4">
                       <GraduationCap className="h-8 w-8 text-primary mt-1" />
                       <div>
-                        <CardTitle className="text-xl font-heading tracking-wide">
+                        <CardTitle className="text-2xl font-heading tracking-wide">
                           <ScrambledText text="University of Maryland" options={cardOptions} startCondition={isVisible} />
                         </CardTitle>
                         <p className="font-semibold text-primary">
@@ -159,7 +159,7 @@ export function About() {
                     <div className="flex items-start gap-4">
                       <Trophy className="h-8 w-8 text-primary mt-1" />
                       <div>
-                        <CardTitle className="text-xl font-heading tracking-wide">
+                        <CardTitle className="text-2xl font-heading tracking-wide">
                           <ScrambledText text="Club Golf – President" options={cardOptions} startCondition={isVisible} />
                         </CardTitle>
                         <p className="font-semibold text-primary">
