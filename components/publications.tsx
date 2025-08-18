@@ -8,7 +8,7 @@ import { ExternalLink, Award, ArrowLeft, BookOpen, Presentation } from "lucide-r
 const publications = [
     {
         title: "Easy2Hard-Bench: Standardized Difficulty Labels for Profiling LLM Performance and Generalization",
-        authors: "Nishad Wajge (contributed as an undergraduate researcher), Furong Huang, et al.",
+        authors: "Nishad Wajge, Furong Huang, et al.",
         conference: "NeurIPS",
         journal: "",
         year: "2024",
@@ -115,20 +115,21 @@ export function Publications() {
                                 {Object.entries(groupedPublications).map(([groupTitle, pubs]) => (
                                     <div key={groupTitle} className="mb-8">
                                         <div className="flex items-center mb-4">
-                                            <div className="z-10 flex items-center justify-center w-4 h-4 bg-primary rounded-full">
-                                                <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
-                                            </div>
+                                            {/* === CHANGE IS HERE === */}
+                                            {/* This is now a single div for a solid color dot */}
+                                            <div className="z-10 w-4 h-4 bg-border rounded-full"></div>
                                             <h3 className="ml-4 font-heading text-lg text-primary">{groupTitle}</h3>
                                         </div>
                                         <div className="space-y-2">
                                             {pubs.map((pub) => {
                                                 const venueDisplay = [pub.conference, pub.journal].filter(Boolean).join(' | ');
+                                                const isSelected = selectedPublication.title === pub.title;
                                                 return (
                                                     <div key={pub.title} className="relative pl-8">
-                                                        <div className={`absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors ${selectedPublication.title === pub.title ? 'bg-primary' : 'bg-border'}`}></div>
+                                                        <div className={`absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors ${isSelected ? 'bg-primary' : 'bg-primary-foreground ring-1 ring-border'}`}></div>
                                                         <button
                                                             onClick={() => handleSelectPublication(pub)}
-                                                            className={`w-full text-left p-3 rounded-lg transition-colors ${selectedPublication.title === pub.title
+                                                            className={`w-full text-left p-3 rounded-lg transition-colors ${isSelected
                                                                     ? "bg-muted font-semibold"
                                                                     : "hover:bg-muted/50"
                                                                 }`}
@@ -176,9 +177,7 @@ export function Publications() {
                                         <div className="space-y-4">
                                             <p className="text-base text-muted-foreground body-text">{selectedPublication.authors}</p>
                                             
-                                            {/* === MODIFIED SECTION START === */}
                                             <div className="flex justify-between items-start pt-2 gap-4">
-                                                {/* Left side: Conference/Journal info */}
                                                 <div className="space-y-3">
                                                     {selectedPublication.conference && (
                                                         <div className="flex items-center gap-3 text-base">
@@ -194,7 +193,6 @@ export function Publications() {
                                                     )}
                                                 </div>
 
-                                                {/* Right side: Button */}
                                                 <div className="flex-shrink-0">
                                                     <Button
                                                         variant="outline"
@@ -206,7 +204,6 @@ export function Publications() {
                                                     </Button>
                                                 </div>
                                             </div>
-                                            {/* === MODIFIED SECTION END === */}
 
                                             <p className="text-base text-muted-foreground leading-relaxed body-text pt-4">
                                                 {selectedPublication.description}

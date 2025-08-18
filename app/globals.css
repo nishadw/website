@@ -1,51 +1,54 @@
+/* 1. Import Noto Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 220 10% 96%;             /* soft cool gray */
-    --foreground: 220 10% 20%;             /* dark slate text */
-    --card: 220 10% 98%;                   /* very light cool gray */
-    --card-foreground: 220 10% 20%;
-    --popover: 220 10% 98%;
-    --popover-foreground: 220 10% 20%;
-    --primary: 215 100% 20%;               /* navy blue */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 220 8% 88%;               /* light gray-blue */
-    --secondary-foreground: 220 10% 20%;
-    --muted: 220 6% 85%;                   /* soft gray */
-    --muted-foreground: 220 6% 40%;        /* muted text */
-    --accent: 215 70% 25%;                 /* navy-ish accent */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 70% 55%;              /* muted red */
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 8% 85%;
-    --input: 220 8% 85%;
-    --ring: 215 100% 20%;                  /* matches navy primary */
+    --background: 216 12% 96%;           /* Very Light Steel Grey */
+    --foreground: 216 12% 20%;           /* Dark Steel Grey */
+    --card: 216 12% 100%;                /* White */
+    --card-foreground: 216 12% 20%;
+    --popover: 216 12% 100%;
+    --popover-foreground: 216 12% 20%;
+    --primary: 214 80% 16%;              /* HEX: #0B2545 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 12% 92%;            /* Light Steel Grey */
+    --secondary-foreground: 216 12% 30%;
+    --muted: 216 12% 92%;
+    --muted-foreground: 216 12% 50%;
+    --accent: 214 80% 16%;               /* HEX: #0B2545 */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 216 12% 88%;               /* Steel Grey Border */
+    --input: 216 12% 88%;
+    --ring: 214 80% 16%;                 /* HEX: #0B2545 */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 8%;               /* Neutral Dark Gray */
+    --foreground: 0 0% 95%;               /* Neutral Light Gray */
     --card: 0 0% 10%;
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
-    --primary: 210 100% 70%;
-    --primary-foreground: 0 0% 8%;
+    --primary: 214 80% 45%;              /* Lighter Blue */
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary-foreground: 0 0% 80%;
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 210 50% 60%;
-    --accent-foreground: 0 0% 8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 214 80% 45%;               /* Lighter Blue */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 95%;
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 210 100% 70%;
+    --ring: 214 80% 45%;                 /* Lighter Blue */
   }
 }
 
@@ -58,32 +61,32 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    /* 2. Set Noto Sans as the base font family */
+    font-family: 'Noto Sans', sans-serif;
     line-height: 1.6;
   }
 
+  /* 3. Removed specific font-family rules from here to allow inheritance */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: var(--font-bebas);
     letter-spacing: 0.05em;
     line-height: 1.1;
   }
 
   .heading-text {
-    font-family: var(--font-bebas);
     letter-spacing: 0.05em;
   }
 
   .body-text {
-    font-family: Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
   }
 }
 
+/* (The rest of your utilities and keyframes code remains the same) */
 @layer utilities {
   .elegant-shadow {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
