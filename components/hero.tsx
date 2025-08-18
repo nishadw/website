@@ -36,7 +36,6 @@ export function Hero() {
               <p className="text-xl md:text-2xl text-muted-foreground font-heading tracking-wider">
                 COMPUTER SCIENCE + MACHINE LEARNING @ UNIVERSITY OF MARYLAND, COLLEGE PARK
               </p>
-              <div className="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
             </div>
           </div>
 
