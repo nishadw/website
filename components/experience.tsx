@@ -150,10 +150,10 @@ export function Experience() {
                                             <Card className="bg-card/50 elegant-shadow py-2">
                                                 <CardHeader className="flex-row items-center justify-between p-6 cursor-pointer">
                                                     <div className="space-y-1">
-                                                        <CardTitle className="text-xl tracking-wider font-heading">
+                                                        <CardTitle className="text-2xl tracking-wider font-heading">
                                                             {exp.position.toUpperCase()}
                                                         </CardTitle>
-                                                        <div className="flex flex-wrap items-center gap-x-2 text-muted-foreground text-sm">
+                                                        <div className="flex flex-wrap items-center gap-x-2 text-muted-foreground text-medium">
                                                             <div className="flex items-center gap-2">
                                                                 <Building className="h-4 w-4" />
                                                                 <span>{exp.company}</span>

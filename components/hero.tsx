@@ -90,13 +90,12 @@ export function Hero() {
 
           <div className="space-y-6">
             <h1 className="text-6xl md:text-8xl text-gradient leading-tight tracking-wider font-heading">
-              {/* --- CHANGE #1: Slower reveal for the shorter text --- */}
               <ScrambledText text="NISHAD WAJGE" options={{ revealSpeed: 6, scrambleDuration: 25 }}/>
             </h1>
 
             <div className="space-y-2">
-              <p className="text-xl md:text-lg text-muted-foreground font-mono tracking-wider">
-                {/* --- CHANGE #2: Faster reveal for the longer text --- */}
+              {/* --- CHANGE IS HERE: Removed 'font-mono' to inherit Jet Brains Mono from the body --- */}
+              <p className="text-xl md:text-lg text-muted-foreground tracking-wider font-mono">
                 <ScrambledText text="COMPUTER SCIENCE + MACHINE LEARNING @ UNIVERSITY OF MARYLAND — COLLEGE PARK" options={{ revealSpeed: 1, scrambleDuration: 15 }} />
               </p>
             </div>

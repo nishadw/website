@@ -157,14 +157,14 @@ export function Publications() {
     }
 
     return (
-        <section id="publications" ref={ref} className="py-24 bg-muted/30 font-mono">
+        <section id="publications" ref={ref} className="py-24 font-mono">
             <div className="container mx-auto px-4">
                 <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
                     <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">
                         RESEARCH
                     </h2>
 
-                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:gap-8 rounded-lg elegant-shadow bg-card/50 md:min-h-[600px] overflow-hidden">
+                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:gap-8 rounded-lg elegant-shadow md:min-h-[600px] overflow-hidden">
                         {/* Master Pane (Left Column) - Timeline */}
                         <div
                             className={`w-full md:w-1/3 lg:w-2/5 p-4 border-b md:border-b-0 md:border-r ${isMobileDetailVisible ? "hidden md:block" : "block"
