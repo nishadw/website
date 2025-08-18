@@ -6,35 +6,25 @@
   :root {
     --background: 220 10% 96%;             /* soft cool gray */
     --foreground: 220 10% 20%;             /* dark slate text */
-
     --card: 220 10% 98%;                   /* very light cool gray */
     --card-foreground: 220 10% 20%;
-
     --popover: 220 10% 98%;
     --popover-foreground: 220 10% 20%;
-
     --primary: 215 100% 20%;               /* navy blue */
     --primary-foreground: 0 0% 98%;
-
     --secondary: 220 8% 88%;               /* light gray-blue */
     --secondary-foreground: 220 10% 20%;
-
     --muted: 220 6% 85%;                   /* soft gray */
     --muted-foreground: 220 6% 40%;        /* muted text */
-
     --accent: 215 70% 25%;                 /* navy-ish accent */
     --accent-foreground: 0 0% 98%;
-
     --destructive: 0 70% 55%;              /* muted red */
     --destructive-foreground: 0 0% 98%;
-
     --border: 220 8% 85%;
     --input: 220 8% 85%;
-
     --ring: 215 100% 20%;                  /* matches navy primary */
     --radius: 0.5rem;
   }
-
 
   .dark {
     --background: 0 0% 8%;
@@ -110,6 +100,7 @@
     background-clip: text;
   }
 
+  /* Animations */
   .fade-in {
     animation: fadeIn 0.8s ease-out forwards;
   }
@@ -118,6 +109,19 @@
     animation: slideUp 0.8s ease-out forwards;
   }
 
+  .animate-content-fade-in {
+    animation: contentFadeIn 1.0s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .logo-float {
+    animation: logoFloat 8s ease-in-out infinite;
+  }
+
+  /* Animation Stagger Delays */
   .stagger-1 {
     animation-delay: 0.1s;
   }
@@ -134,6 +138,7 @@
     animation-delay: 0.5s;
   }
 
+  /* Other Utilities */
   .company-logo {
     opacity: 0.08;
     transition: all 0.3s ease;
@@ -144,6 +149,7 @@
   }
 }
 
+/* Keyframe Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -166,6 +172,17 @@
   }
 }
 
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes float {
   0%,
   100% {
@@ -174,10 +191,6 @@
   50% {
     transform: translateY(-10px);
   }
-}
-
-.float-animation {
-  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes logoFloat {
@@ -190,6 +203,53 @@
   }
 }
 
-.logo-float {
-  animation: logoFloat 8s ease-in-out infinite;
+/* Base styles for elements before animation */
+.experience-logo,
+.experience-card {
+  opacity: 0; /* Start hidden */
+}
+
+/* Keyframe animations */
+@keyframes animate-logo {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes animate-card {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Trigger class to start animations */
+.timeline-in-view .experience-logo {
+  animation: animate-logo 0.75s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.timeline-in-view .experience-card {
+  animation: animate-card 0.75s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px hsl(var(--primary) / 0.4);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }

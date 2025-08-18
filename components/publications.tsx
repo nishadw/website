@@ -1,138 +1,224 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, FileText, Award } from "lucide-react"
+import { ExternalLink, Award, ArrowLeft, BookOpen, Presentation } from "lucide-react"
 
 const publications = [
-  {
-    title: "Easy2Hard-Bench: Standardized Difficulty Labels for Profiling LLM Performance and Generalization",
-    authors: "Contributed as an Undergraduate Researcher",
-    venue: "NeurIPS",
-    year: "2024",
-    type: "Conference",
-    description:
-      "Despite the abundance of datasets available for assessing large language models (LLMs), the scarcity of continuous and reliable difficulty labels for individual data points, in most cases, curtails their capacity to benchmark model generalization performance across different levels of complexity. Addressing this limitation, we present Easy2Hard, an innovative collection of 6 benchmark datasets featuring standardized difficulty labels spanning a wide range of domains, such as mathematics and programming problems, chess puzzles, and reasoning questions, providing a much-needed tool for those in demand of a dataset with varying degrees of difficulty for LLM assessment. We estimate the difficulty of individual problems by leveraging the performance data of many human subjects and LLMs on prominent leaderboards. Harnessing the rich human performance data, we employ widely recognized difficulty ranking systems, including the Item Response Theory (IRT) and Glicko-2 models, to uniformly assign difficulty scores to problems. The Easy2Hard datasets distinguish themselves from previous collections by incorporating a significantly higher proportion of challenging problems, presenting a novel and demanding test for state-of-the-art LLMs. Through extensive experiments conducted with six state-of-the-art LLMs on the Easy2Hard datasets, we offer valuable insights into their performance and generalization capabilities across varying degrees of difficulty, setting the stage for future research in LLM generalization.",
-    link: "https://neurips.cc/virtual/2024/poster/97554"
-  },
-  {
-    title: "Should PGA Tour Professionals Consider their Adversary's Strategy?",
-    authors: "Nishad Wajge and Gautier Stauffer",
-    venue: "INFORMS | Computational Statistics (Special Issue: Sports Data Science)",
-    year: "2022-2024",
-    type: "Conference & Journal",
-    description:
-      "This study explores strategic considerations in professional golf’s Match Play format. Leveraging Professional Golfers’ Association Tour data, we investigate the impact of factoring in an adversary’s strategy. Our findings suggest that while slight strategy adjustments can be advantageous in specific scenarios, the overall benefit of considering an opponent’s strategy remains modest. This confirms the common wisdom in golf, reinforcing the recommendation to adhere to optimal stroke-play strategies due to challenges in obtaining precise opponent statistics. The methodology employed here is generic and could offer valuable insights into whether opponents’ performances should also be considered in other two-player or team sports, such as tennis, darts, soccer, volleyball, etc. We hope that this research will pave the way for new avenues of study in these areas.",
-    link: "https://link.springer.com/article/10.1007/s00180-024-01555-5?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20241005&utm_content=10.1007%2Fs00180-024-01555-5#citeas",
-    highlight: true,
-  }, 
-  {
-    title: "Campaigns to Overcome Golfers’ Loss-Averse Cognitive Bias",
-    authors: "Nishad Wajge and Krista Hill-Cummings",
-    venue: "International Journal for High School Research",
-    year: "2024",
-    type: "Journal",
-    description:
-      "Loss-aversion is a type of conservative mindset that can negatively impact performance. In this study, we systematically surveyed a pool of golfers. We then analyzed, in detail, the relationships among participants’ attributes and the degree of loss-aversion. Based on these findings, we propose developing effective campaigns to help individuals or teams overcome their loss-aversion.",
-    link: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
-  },
-  {
-    title: "Using Model Classification to detect Bias in Hospital Triaging",
-    authors: "Nishad Wajge, Phil Mui, et al.",
-    venue: "Stanford JUST Health | Annals of Biomedical Science and Engineering",
-    year: "2022-2023",
-    type: "Conference & Journal",
-    description:
-      "In light of the COVID-19 pandemic and the health crisis left in its wake, our goal is to develop extensive machine-learning techniques to provide a clear picture of the treatment, and possible mistreatment, of specific patient demographics during hospital triaging. We aim to reveal whether a patient’s treatment and hospital disposition is related to the following attributes - Emergency Severity Index (ESI), gender, employment status, insurance status, race, or ethnicity which our 100 MB dataset included. Our work is separated into two parts - the classification task and data analysis. As part of the classification task, we used the k-Nearest-Neighbor classifier, the F1-score, and a random forest. We then analyze the data using SHapley Additive exPlanations (SHAP) values to determine the importance of each attribute. Our findings show that significance varies for each attribute. Notably, we found that patients with private insurance programs receive better treatment compared to patients with federal-run healthcare programs (e.g. Medicaid, Medicare). Furthermore, a patient’s ethnicity has a greater impact on treatment for patients under 40 years of age for any given ESI level. Surprisingly, our findings show language is not a barrier during treatment. Discussion and conclusion: We, therefore, conclude that although hospitals may not be doing so intentionally, there is a systemic bias in hospital triaging for specific patient demographics. For future works, we hope to aggregate additional patient data from hospitals to find whether specific demographics of patients receive better healthcare in different parts of the United States.",
-    link: "https://www.biomedscijournal.com/articles/abse-aid1022.php",
-  },
+    {
+        title: "Easy2Hard-Bench: Standardized Difficulty Labels for Profiling LLM Performance and Generalization",
+        authors: "Nishad Wajge (contributed as an undergraduate researcher), Furong Huang, et al.",
+        conference: "NeurIPS",
+        journal: "",
+        year: "2024",
+        date: "2024-12-10",
+        description:
+            "We present Easy2Hard, an innovative collection of 6 benchmark datasets featuring standardized difficulty labels spanning a wide range of domains. We estimate difficulty by leveraging performance data of human subjects and LLMs on prominent leaderboards, employing ranking systems like Item Response Theory (IRT) and Glicko-2.",
+        link: "https://neurips.cc/virtual/2024/poster/97554",
+    },
+    {
+        title: "Should PGA Tour Professionals Consider their Adversary's Strategy? A Case Study of Match Play in Golf",
+        authors: "Nishad Wajge and Gautier Stauffer",
+        conference: "INFORMS",
+        journal: "Computational Statistics",
+        year: "2022-2024",
+        date: "2024-10-05",
+        description:
+            "This study explores strategic considerations in professional golf’s Match Play format. Leveraging PGA Tour data, we investigate the impact of an adversary’s strategy. Our findings suggest that while slight adjustments can be advantageous, the overall benefit remains modest.",
+        link: "https://link.springer.com/article/10.1007/s00180-024-01555-5",
+        highlight: true,
+    },
+    {
+        title: "Campaigns to Overcome Golfers’ Loss-Averse Cognitive Bias",
+        authors: "Nishad Wajge and Krista Hill-Cummings",
+        conference: "",
+        journal: "International Journal for High School Research",
+        year: "2024",
+        date: "2024-05-20",
+        description:
+            "Loss-aversion is a conservative mindset that can negatively impact performance. In this study, we systematically surveyed golfers, analyzed relationships among their attributes and loss-aversion, and proposed effective campaigns to help individuals overcome it.",
+        link: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
+    },
+    {
+        title: "Trials of Triage: A Look into the Implicit Biases Prevalent in the American Medical System",
+        authors: "Nishad Wajge, Phil Mui, et al.",
+        conference: "Stanford JUST Health",
+        journal: "Annals of Biomedical Science and Engineering",
+        year: "2022-2023",
+        date: "2023-11-28",
+        description:
+            "We develop machine-learning techniques to picture the treatment of specific patient demographics during hospital triaging. Using k-NN, F1-scores, random forests, and SHAP values, we analyze patient attributes like insurance and race. Our findings show that patients with private insurance receive better treatment.",
+        link: "https://www.biomedscijournal.com/articles/abse-aid1022.php",
+    },
 ]
 
+// Sort publications by date descending (newest first)
+const sortedPublications = publications.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 export function Publications() {
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+    const [isVisible, setIsVisible] = useState(false)
+    const [selectedPublication, setSelectedPublication] = useState(sortedPublications[0])
+    const [isMobileDetailVisible, setIsMobileDetailVisible] = useState(false)
+    const ref = useRef < HTMLElement > (null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                    observer.disconnect()
+                }
+            },
+            { threshold: 0.1 }
+        )
+        const currentRef = ref.current
+        if (currentRef) observer.observe(currentRef)
+        return () => {
+            if (currentRef) observer.unobserve(currentRef)
         }
-      },
-      { threshold: 0.1 },
-    )
+    }, [])
 
-    if (ref.current) {
-      observer.observe(ref.current)
+    const groupedPublications = useMemo(() => {
+        return sortedPublications.reduce((acc, pub) => {
+            const pubDate = new Date(pub.date);
+            const key = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(pubDate);
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            acc[key].push(pub);
+            return acc;
+        }, {});
+    }, []);
+
+    const handleSelectPublication = (pub) => {
+        setSelectedPublication(pub)
+        setIsMobileDetailVisible(true)
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return (
+        <section id="publications" ref={ref} className="py-24 bg-muted/30">
+            <div className="container mx-auto px-4">
+                <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
+                    <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">
+                        RESEARCH
+                    </h2>
 
-  return (
-    <section id="publications" ref={ref} className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
-          <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">
-            RESEARCH & PUBLICATIONS
-          </h2>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              {publications.map((pub, index) => (
-                <Card
-                  key={index}
-                  className={`bg-card elegant-shadow hover:elegant-shadow-lg transition-all duration-300 hover:-translate-y-1 group ${
-                    pub.highlight ? "ring-1 ring-primary/20" : ""
-                  } slide-up stagger-${index + 1}`}
-                >
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1 space-y-3">
-                        <div className="flex items-start gap-3">
-                          <CardTitle className="text-xl leading-tight group-hover:text-primary transition-colors font-heading tracking-wide">
-                            {pub.title.toUpperCase()}
-                          </CardTitle>
-                          {pub.highlight && <Award className="h-5 w-5 text-primary mt-1 flex-shrink-0" />}
+                    <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:gap-8 rounded-lg elegant-shadow bg-card/50 md:min-h-[600px] overflow-hidden">
+                        {/* Master Pane (Left Column) - Timeline */}
+                        <div
+                            className={`w-full md:w-1/3 lg:w-2/5 p-4 border-b md:border-b-0 md:border-r ${isMobileDetailVisible ? "hidden md:block" : "block"
+                                }`}
+                        >
+                            <div className="relative h-full md:max-h-[600px] overflow-y-auto pr-4">
+                                <div className="absolute left-2 top-0 h-full w-0.5 bg-border -z-10"></div>
+                                {Object.entries(groupedPublications).map(([groupTitle, pubs]) => (
+                                    <div key={groupTitle} className="mb-8">
+                                        <div className="flex items-center mb-4">
+                                            <div className="z-10 flex items-center justify-center w-4 h-4 bg-primary rounded-full">
+                                                <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
+                                            </div>
+                                            <h3 className="ml-4 font-heading text-lg text-primary">{groupTitle}</h3>
+                                        </div>
+                                        <div className="space-y-2">
+                                            {pubs.map((pub) => {
+                                                const venueDisplay = [pub.conference, pub.journal].filter(Boolean).join(' | ');
+                                                return (
+                                                    <div key={pub.title} className="relative pl-8">
+                                                        <div className={`absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors ${selectedPublication.title === pub.title ? 'bg-primary' : 'bg-border'}`}></div>
+                                                        <button
+                                                            onClick={() => handleSelectPublication(pub)}
+                                                            className={`w-full text-left p-3 rounded-lg transition-colors ${selectedPublication.title === pub.title
+                                                                    ? "bg-muted font-semibold"
+                                                                    : "hover:bg-muted/50"
+                                                                }`}
+                                                        >
+                                                            <p className="text-base font-heading tracking-wide leading-snug">{pub.title.toUpperCase()}</p>
+                                                            <p className="text-xs text-muted-foreground mt-1.5">{venueDisplay}</p>
+                                                        </button>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
-                        <p className="text-sm text-muted-foreground body-text">{pub.authors}</p>
+                        {/* Detail Pane (Right Column) */}
+                        <div
+                            className={`w-full md:w-2/3 lg:w-3/5 p-6 ${isMobileDetailVisible ? "block" : "hidden md:block"
+                                }`}
+                        >
+                            <Button
+                                variant="ghost"
+                                onClick={() => setIsMobileDetailVisible(false)}
+                                className="mb-4 md:hidden"
+                            >
+                                <ArrowLeft className="h-4 w-4 mr-2" />
+                                Back to List
+                            </Button>
 
-                        <div className="flex flex-wrap items-center gap-3 text-sm">
-                          <span className="text-foreground font-medium body-text">{pub.venue}</span>
-                          <span className="text-muted-foreground">•</span>
-                          <span className="text-muted-foreground body-text">{pub.year}</span>
-                          <span className="text-muted-foreground">•</span>
-                          <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-heading tracking-wide">
-                            {pub.type.toUpperCase()}
-                          </span>
+                            {selectedPublication && (
+                                <div
+                                    key={selectedPublication.title}
+                                    className="animate-content-fade-in flex flex-col h-full"
+                                >
+                                    <CardHeader className="px-0 pt-0">
+                                        <div className="flex items-start justify-between gap-4">
+                                            <CardTitle className="text-2xl md:text-3xl leading-tight font-heading tracking-wide">
+                                                {selectedPublication.title.toUpperCase()}
+                                            </CardTitle>
+                                            {selectedPublication.highlight && <Award className="h-6 w-6 text-primary flex-shrink-0" />}
+                                        </div>
+                                    </CardHeader>
+                                    <CardContent className="px-0 flex-grow">
+                                        <div className="space-y-4">
+                                            <p className="text-base text-muted-foreground body-text">{selectedPublication.authors}</p>
+                                            
+                                            {/* === MODIFIED SECTION START === */}
+                                            <div className="flex justify-between items-start pt-2 gap-4">
+                                                {/* Left side: Conference/Journal info */}
+                                                <div className="space-y-3">
+                                                    {selectedPublication.conference && (
+                                                        <div className="flex items-center gap-3 text-base">
+                                                            <Presentation className="h-5 w-5 text-primary flex-shrink-0" title="Conference" />
+                                                            <span className="font-medium body-text">{selectedPublication.conference}</span>
+                                                        </div>
+                                                    )}
+                                                    {selectedPublication.journal && (
+                                                        <div className="flex items-center gap-3 text-base">
+                                                            <BookOpen className="h-5 w-5 text-sky-500 flex-shrink-0" title="Journal" />
+                                                            <span className="font-medium body-text">{selectedPublication.journal}</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Right side: Button */}
+                                                <div className="flex-shrink-0">
+                                                    <Button
+                                                        variant="outline"
+                                                        className="elegant-shadow hover:elegant-shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-heading tracking-wide"
+                                                        onClick={() => window.open(selectedPublication.link, "_blank", "noopener,noreferrer")}
+                                                    >
+                                                        <ExternalLink className="h-4 w-4 mr-2" />
+                                                        VIEW PUBLICATION
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                            {/* === MODIFIED SECTION END === */}
+
+                                            <p className="text-base text-muted-foreground leading-relaxed body-text pt-4">
+                                                {selectedPublication.description}
+                                            </p>
+                                        </div>
+                                    </CardContent>
+                                </div>
+                            )}
                         </div>
-                      </div>
-
-                      <FileText className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                     </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-muted-foreground mb-6 leading-relaxed body-text">{pub.description}</p>
-
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="elegant-shadow hover:elegant-shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-heading tracking-wide"
-                      onClick={() => window.open(pub.link, "_blank", "noopener,noreferrer")}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      VIEW PUBLICATION
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+        </section>
+    )
 }
