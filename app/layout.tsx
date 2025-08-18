@@ -12,7 +12,7 @@ const bebasNeue = Bebas_Neue({
 })
 
 export const metadata: Metadata = {
-  title: "Nishad Wajge - Portfolio",
+  title: "Nishad's Portfolio",
   description: "SWE & ML Researcher",
   icons: {
     icon: [

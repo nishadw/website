@@ -9,52 +9,112 @@ const publications = [
     {
         title: "Easy2Hard-Bench: Standardized Difficulty Labels for Profiling LLM Performance and Generalization",
         authors: "Nishad Wajge, Furong Huang, et al.",
-        conference: "NeurIPS",
-        journal: "",
+        conference: ["NeurIPS"],
+        journal: [],
         year: "2024",
         date: "2024-12-10",
         description:
-            "We present Easy2Hard, an innovative collection of 6 benchmark datasets featuring standardized difficulty labels spanning a wide range of domains. We estimate difficulty by leveraging performance data of human subjects and LLMs on prominent leaderboards, employing ranking systems like Item Response Theory (IRT) and Glicko-2.",
+            "While generalization over tasks from easy to hard is crucial to profile language models (LLMs), the datasets with fine-grained difficulty annotations for each problem across a broad range of complexity are still missing. Aiming to address this limitation, we present Easy2Hard-Bench, a consistently formatted collection of 6 benchmark datasets spanning various domains, such as mathematics and programming problems, chess puzzles, and reasoning questions. Each problem within these datasets is annotated with numerical difficulty scores. To systematically estimate problem difficulties, we collect abundant performance data on attempts to each problem by humans in the real world or LLMs on the prominent leaderboard. Leveraging the rich performance data, we apply well-established difficulty ranking systems, such as Item Response Theory (IRT) and Glicko-2 models, to uniformly assign numerical difficulty scores to problems. Moreover, datasets in Easy2Hard-Bench distinguish themselves from previous collections by a higher proportion of challenging problems. Through extensive experiments with six state-of-the-art LLMs, we provide a comprehensive analysis of their performance and generalization capabilities across varying levels of difficulty, with the aim of inspiring future research in LLM generalization.",
         link: "https://neurips.cc/virtual/2024/poster/97554",
     },
     {
         title: "Should PGA Tour Professionals Consider their Adversary's Strategy? A Case Study of Match Play in Golf",
         authors: "Nishad Wajge and Gautier Stauffer",
-        conference: "INFORMS",
-        journal: "Computational Statistics",
+        conference: ["INFORMS"],
+        journal: ["Computational Statistics"],
         year: "2022-2024",
         date: "2024-10-05",
         description:
-            "This study explores strategic considerations in professional golf’s Match Play format. Leveraging PGA Tour data, we investigate the impact of an adversary’s strategy. Our findings suggest that while slight adjustments can be advantageous, the overall benefit remains modest.",
+            "This study explores strategic considerations in professional golf’s Match Play format. Leveraging Professional Golfers’ Association Tour data, we investigate the impact of factoring in an adversary’s strategy. Our findings suggest that while slight strategy adjustments can be advantageous in specific scenarios, the overall benefit of considering an opponent’s strategy remains modest. This confirms the common wisdom in golf, reinforcing the recommendation to adhere to optimal stroke-play strategies due to challenges in obtaining precise opponent statistics. The methodology employed here is generic and could offer valuable insights into whether opponents’ performances should also be considered in other two-player or team sports, such as tennis, darts, soccer, volleyball, etc. We hope that this research will pave the way for new avenues of study in these areas.",
         link: "https://link.springer.com/article/10.1007/s00180-024-01555-5",
         highlight: true,
     },
     {
         title: "Campaigns to Overcome Golfers’ Loss-Averse Cognitive Bias",
         authors: "Nishad Wajge and Krista Hill-Cummings",
-        conference: "",
-        journal: "International Journal for High School Research",
+        conference: [],
+        journal: ["International Journal for High School Research"],
         year: "2024",
         date: "2024-05-20",
         description:
-            "Loss-aversion is a conservative mindset that can negatively impact performance. In this study, we systematically surveyed golfers, analyzed relationships among their attributes and loss-aversion, and proposed effective campaigns to help individuals overcome it.",
+            "Loss-aversion is a type of conservative mindset that can negatively impact performance. In this study, we systematically surveyed a pool of golfers. We then analyzed, in detail, the relationships among participants’ attributes and the degree of loss-aversion. Based on these findings, we propose developing effective campaigns to help individuals or teams overcome their loss-aversion.",
         link: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
     },
     {
         title: "Trials of Triage: A Look into the Implicit Biases Prevalent in the American Medical System",
         authors: "Nishad Wajge, Phil Mui, et al.",
-        conference: "Stanford JUST Health",
-        journal: "Annals of Biomedical Science and Engineering",
+        conference: ["SCCUR"],
+        journal: ["Stanford JUST Health", "Annals of Biomedical Science and Engineering"],
         year: "2022-2023",
         date: "2023-11-28",
         description:
-            "We develop machine-learning techniques to picture the treatment of specific patient demographics during hospital triaging. Using k-NN, F1-scores, random forests, and SHAP values, we analyze patient attributes like insurance and race. Our findings show that patients with private insurance receive better treatment.",
+            "In light of the COVID-19 pandemic and the health crisis left in its wake, our goal is to develop extensive machine-learning techniques to provide a clear picture of the treatment, and possible mistreatment, of specific patient demographics during hospital triaging. We aim to reveal whether a patient’s treatment and hospital disposition is related to the following attributes - Emergency Severity Index (ESI), gender, employment status, insurance status, race, or ethnicity which our 100 MB dataset included. Our work is separated into two parts - the classification task and data analysis. As part of the classification task, we used the k-Nearest-Neighbor classifier, the F1-score, and a random forest. We then analyze the data using SHapley Additive exPlanations (SHAP) values to determine the importance of each attribute. Our findings show that significance varies for each attribute. Notably, we found that patients with private insurance programs receive better treatment compared to patients with federal-run healthcare programs (e.g. Medicaid, Medicare). Furthermore, a patient’s ethnicity has a greater impact on treatment for patients under 40 years of age for any given ESI level. Surprisingly, our findings show language is not a barrier during treatment. We, therefore, conclude that although hospitals may not be doing so intentionally, there is a systemic bias in hospital triaging for specific patient demographics. For future works, we hope to aggregate additional patient data from hospitals to find whether specific demographics of patients receive better healthcare in different parts of the United States.",
         link: "https://www.biomedscijournal.com/articles/abse-aid1022.php",
     },
 ]
 
 // Sort publications by date descending (newest first)
 const sortedPublications = publications.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// The configurable scramble hook
+function useCharacterScramble(text, options = {}) {
+  const { revealSpeed = 2, scrambleDuration = 10 } = options;
+  const [displayText, setDisplayText] = useState('');
+  const chars = '!<>-_\\/[]{}—=+*^?#________';
+
+  useEffect(() => {
+    let frameRequest;
+    let frameCount = 0;
+    const queue = [];
+    
+    if (text) {
+        for (let i = 0; i < text.length; i++) {
+            const start = i * revealSpeed;
+            const end = start + scrambleDuration;
+            queue.push({ to: text[i], start, end, char: '' });
+        }
+        
+        setDisplayText(text.split('').map(() => '').join(''));
+
+        const animate = () => {
+            let complete = 0;
+            const updatedOutput = queue.map((item) => {
+                const { start, end } = item;
+                if (frameCount >= start) {
+                    if (frameCount <= end) {
+                        item.char = chars[Math.floor(Math.random() * chars.length)];
+                    } else {
+                        item.char = item.to;
+                    }
+                }
+                if (item.char === item.to) complete++;
+                return item.char;
+            });
+            
+            setDisplayText(updatedOutput.join(''));
+            
+            if (complete !== queue.length) {
+                frameRequest = requestAnimationFrame(animate);
+                frameCount++;
+            }
+        };
+        
+        animate();
+    } else {
+        setDisplayText('');
+    }
+
+    return () => cancelAnimationFrame(frameRequest);
+  }, [text, revealSpeed, scrambleDuration]); 
+
+  return displayText;
+}
+
+function ScrambledText({ text, options }) {
+  const scrambledText = useCharacterScramble(text, options);
+  return <>{scrambledText}</>;
+}
+
 
 export function Publications() {
     const [isVisible, setIsVisible] = useState(false)
@@ -97,7 +157,7 @@ export function Publications() {
     }
 
     return (
-        <section id="publications" ref={ref} className="py-24 bg-muted/30">
+        <section id="publications" ref={ref} className="py-24 bg-muted/30 font-mono">
             <div className="container mx-auto px-4">
                 <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
                     <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">
@@ -115,18 +175,16 @@ export function Publications() {
                                 {Object.entries(groupedPublications).map(([groupTitle, pubs]) => (
                                     <div key={groupTitle} className="mb-8">
                                         <div className="flex items-center mb-4">
-                                            {/* === CHANGE IS HERE === */}
-                                            {/* This is now a single div for a solid color dot */}
                                             <div className="z-10 w-4 h-4 bg-border rounded-full"></div>
                                             <h3 className="ml-4 font-heading text-lg text-primary">{groupTitle}</h3>
                                         </div>
                                         <div className="space-y-2">
                                             {pubs.map((pub) => {
-                                                const venueDisplay = [pub.conference, pub.journal].filter(Boolean).join(' | ');
+                                                const venueDisplay = [...pub.conference, ...pub.journal].filter(Boolean).join(' | ');
                                                 const isSelected = selectedPublication.title === pub.title;
                                                 return (
                                                     <div key={pub.title} className="relative pl-8">
-                                                        <div className={`absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors ${isSelected ? 'bg-primary' : 'bg-primary-foreground ring-1 ring-border'}`}></div>
+                                                        <div className={`absolute left-2 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors ${isSelected ? 'bg-primary' : 'bg-border'}`}></div>
                                                         <button
                                                             onClick={() => handleSelectPublication(pub)}
                                                             className={`w-full text-left p-3 rounded-lg transition-colors ${isSelected
@@ -168,29 +226,35 @@ export function Publications() {
                                     <CardHeader className="px-0 pt-0">
                                         <div className="flex items-start justify-between gap-4">
                                             <CardTitle className="text-2xl md:text-3xl leading-tight font-heading tracking-wide">
-                                                {selectedPublication.title.toUpperCase()}
+                                                <ScrambledText text={selectedPublication.title.toUpperCase()} options={{ revealSpeed: 1, scrambleDuration: 40 }}/>
                                             </CardTitle>
                                             {selectedPublication.highlight && <Award className="h-6 w-6 text-primary flex-shrink-0" />}
                                         </div>
                                     </CardHeader>
                                     <CardContent className="px-0 flex-grow">
                                         <div className="space-y-4">
-                                            <p className="text-base text-muted-foreground body-text">{selectedPublication.authors}</p>
+                                            <p className="text-base text-muted-foreground body-text">
+                                                <ScrambledText text={selectedPublication.authors} options={{ revealSpeed: 1, scrambleDuration: 30 }}/>
+                                            </p>
                                             
                                             <div className="flex justify-between items-start pt-2 gap-4">
                                                 <div className="space-y-3">
-                                                    {selectedPublication.conference && (
-                                                        <div className="flex items-center gap-3 text-base">
+                                                    {selectedPublication.conference?.map((conf, index) => (
+                                                        <div key={`conf-${index}`} className="flex items-center gap-3 text-base">
                                                             <Presentation className="h-5 w-5 text-primary flex-shrink-0" title="Conference" />
-                                                            <span className="font-medium body-text">{selectedPublication.conference}</span>
+                                                            <span className="font-medium body-text">
+                                                                <ScrambledText text={conf} options={{ revealSpeed: 2, scrambleDuration: 30 }} />
+                                                            </span>
                                                         </div>
-                                                    )}
-                                                    {selectedPublication.journal && (
-                                                        <div className="flex items-center gap-3 text-base">
+                                                    ))}
+                                                    {selectedPublication.journal?.map((jour, index) => (
+                                                        <div key={`jour-${index}`} className="flex items-center gap-3 text-base">
                                                             <BookOpen className="h-5 w-5 text-sky-500 flex-shrink-0" title="Journal" />
-                                                            <span className="font-medium body-text">{selectedPublication.journal}</span>
+                                                            <span className="font-medium body-text">
+                                                                <ScrambledText text={jour} options={{ revealSpeed: 2, scrambleDuration: 30 }} />
+                                                            </span>
                                                         </div>
-                                                    )}
+                                                    ))}
                                                 </div>
 
                                                 <div className="flex-shrink-0">
@@ -205,8 +269,9 @@ export function Publications() {
                                                 </div>
                                             </div>
 
-                                            <p className="text-base text-muted-foreground leading-relaxed body-text pt-4">
-                                                {selectedPublication.description}
+                                            <p className="text-base text-muted-foreground leading-relaxed body-text pt-4 whitespace-pre-wrap">
+                                                {/* --- CHANGE IS HERE --- */}
+                                                <ScrambledText text={selectedPublication.description} options={{ revealSpeed: 0.25, scrambleDuration: 5 }} />
                                             </p>
                                         </div>
                                     </CardContent>
