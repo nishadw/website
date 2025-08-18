@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Building, Calendar, MapPin, ChevronDown } from "lucide-react"
+import { Building, Calendar, ChevronDown } from "lucide-react"
 
 const experiences = [
     {
@@ -14,9 +14,13 @@ const experiences = [
         startDate: "2025-06-01",
         endDate: "Present",
         location: "Annapolis Junction, MD",
-        description:
-            "Developing multimodal deep learning software for precision targeting, navigation intelligence, and situational awareness.",
-        technologies: ["Tensorflow", "Keras", "Scikit-Learn", "Android Studio"],
+        description: [
+            "Deployed vehicle computer vision plugin on the Android Tactical Awareness Kit to enhance situational awareness",
+            "Improved reliability by 30% under adversarial stress tests through PGD training and MobileNet fine-tuning",
+            "Achieved 90%+ accuracy using a hybrid of transfer learning and custom CNNs for lightweight deployment",
+            "Accelerated inference to under 100ms on edge devices by designing a 3-stage deep learning pipeline"
+          ],
+        technologies: ["AWS Lambda", "Tensorflow", "Keras", "Scikit-Learn", "Android Studio", "Java", "HTML"],
         current: true,
     },
     {
@@ -26,8 +30,11 @@ const experiences = [
         startDate: "2025-01-01",
         endDate: "2025-05-31",
         location: "College Park, MD",
-        description:
-            "Engineered a scalable RAG-powered LLM in AWS Bedrock for email insight and AI analysis for a global email database.",
+        description: [
+            "Led cross-functional teams to build scalable RAG pipeline using Llama 3-70B for analysis of 600K+ emails",
+            "Improved data retrieval speed and discovery by 95% by implementing relationship mapping and similarity search",
+            "Boosted search accuracy by 40% via custom semantic chunking, NER extraction, and metadata enrichment"
+        ],
         technologies: ["AWS Bedrock", "AWS EC2", "LangChain", "Neo4J", "Qdrant", "NLTK", "Flask", "Next.js", "Tailwind CSS"],
     },
     {
@@ -37,8 +44,12 @@ const experiences = [
         startDate: "2024-09-01",
         endDate: "2024-12-31",
         location: "College Park, MD",
-        description:
-            "Created a Medicaid/CHIP web application for policy comparison, user annotation, and analysis for a US Government contract.",
+        description: [
+            "Developed in-house tool to automate medical policy scraping with real-time editing and annotation features",
+            "Met weekly with CTO and lead engineer to review progress, align on deliverables, and ensure achievement of KPIs",
+            "Saved $50K+ annually by automating workflows and cron-based web scraping, cutting manual effort and errors",
+            "Engineered document comparison, feature extraction, and sentiment analysis to streamline policy auditing"
+        ],
         technologies: ["PyTorch", "Scikit-Learn", "Selenium", "PostgreSQL", "Express.js", "Next.js", "Tailwind CSS"],
     },
     {
@@ -48,9 +59,12 @@ const experiences = [
         startDate: "2024-01-01",
         endDate: "2024-12-31",
         location: "Washington, DC",
-        description:
-            "Modernized a post-ETL CI/CD pipeline for a criminal auditing and identity compliance tool and resolved defects in the build system.",
-        technologies: ["IBM Rational Team Concert", "Jenkins", "Ant", "Maven"],
+        description: [
+            "Completed 100% of ETL tasks for Q2-Q4 on tax fraud detection system processing 22.5M+ monthly applications",
+            "Strengthened system reliability by resolving 50+ defects, modernizing a 20-year-old build and reducing downtime",
+            "Deployed division-wide CI/CD pipeline upgrade with 100% code coverage, advancing enterprise modernization"
+        ],
+        technologies: ["IBM Rational Team Concert", "Jenkins", "Ant", "Maven", "Java"],
     },
 ]
 
@@ -71,7 +85,6 @@ const formatPeriod = (startDateStr, endDateStr) => {
 
 
 export function Experience() {
-    // Nothing is open by default. Hovering will set the state.
     const [openExperience, setOpenExperience] = useState(null);
     const sectionRef = useRef(null);
     const [isInView, setIsInView] = useState(false);
@@ -83,9 +96,16 @@ export function Experience() {
                 observer.disconnect();
             }
         }, { threshold: 0.1 });
-        if (sectionRef.current) observer.observe(sectionRef.current);
+
+        const currentRef = sectionRef.current;
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
         return () => {
-            if (sectionRef.current) observer.disconnect();
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
         };
     }, []);
 
@@ -126,17 +146,22 @@ export function Experience() {
 
                                         {/* Accordion Content */}
                                         <div className="flex-1 overflow-hidden">
-                                            <Card className="bg-card/50 elegant-shadow">
-                                                <CardHeader className="flex-row items-center justify-between p-4">
+                                            <Card className="bg-card/50 elegant-shadow py-2">
+                                                <CardHeader className="flex-row items-center justify-between p-6 cursor-pointer">
                                                     <div className="space-y-1">
                                                         <CardTitle className="text-xl tracking-wider font-heading">
                                                             {exp.position.toUpperCase()}
                                                         </CardTitle>
-                                                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                                                            <Building className="h-4 w-4" />
-                                                            <span>{exp.company}</span>
-                                                            <span className="text-muted-foreground/50">•</span>
-                                                             <span>{formatPeriod(exp.startDate, exp.endDate)}</span>
+                                                        <div className="flex flex-wrap items-center gap-x-2 text-muted-foreground text-sm">
+                                                            <div className="flex items-center gap-2">
+                                                                <Building className="h-4 w-4" />
+                                                                <span>{exp.company}</span>
+                                                            </div>
+                                                            <span className="text-muted-foreground/50 hidden sm:inline">•</span>
+                                                             <div className="flex items-center gap-2">
+                                                                <Calendar className="h-4 w-4" />
+                                                                <span>{formatPeriod(exp.startDate, exp.endDate)}</span>
+                                                             </div>
                                                         </div>
                                                     </div>
                                                     <ChevronDown className={`h-6 w-6 text-muted-foreground transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
@@ -148,9 +173,13 @@ export function Experience() {
                                                     style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                                                 >
                                                     <div className="overflow-hidden">
-                                                        <CardContent className="p-4 pt-0">
+                                                        <CardContent className="p-6 pt-0">
                                                             <div className="border-t border-border pt-4">
-                                                                <p className="text-muted-foreground mb-6 leading-relaxed body-text">{exp.description}</p>
+                                                                <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6 leading-relaxed body-text">
+                                                                    {exp.description.map((point, idx) => (
+                                                                        <li key={idx}>{point}</li>
+                                                                    ))}
+                                                                </ul>
                                                                 <div className="flex flex-wrap gap-2">
                                                                     {exp.technologies.map((tech) => (
                                                                         <Badge key={tech} variant="secondary">{tech}</Badge>

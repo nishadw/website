@@ -41,7 +41,7 @@ export function About() {
     <section id="about" ref={ref} className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
-          <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">ABOUT ME</h2>
+          <h2 className="text-5xl md:text-6xl text-center mb-16 text-gradient tracking-wider font-heading">ABOUT</h2>
 
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -50,13 +50,13 @@ export function About() {
               <div className="space-y-6">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                    I’m a Computer Science student at the University of Maryland, specializing in <span className="font-medium text-foreground">Machine Learning</span>, with minors in <span className="font-medium text-foreground">Business</span> and <span className="font-medium text-foreground">Statistics</span>.
+                    I’m a Computer Science student at the University of Maryland, specializing in Machine Learning, with minors in Business and Statistics.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                    My work centers around <span className="font-medium text-foreground">modernizing data pipelines</span> and building <span className="font-medium text-foreground">zero-to-one solutions</span>. My research explores <span className="font-medium text-foreground">reinforcement learning</span> to help advance human decision-making through AGI.
+                    My work centers around modernizing data pipelines and building zero-to-one solutions. My research has been in game theory models to help advance human decision-making.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed body-text">
-                    Outside of tech, I enjoy <span className="font-medium text-foreground">playing golf</span>, <span className="font-medium text-foreground">hiking</span>, <span className="font-medium text-foreground">traveling</span>, or just spending time outdoors. I’m always looking to make a meaningful impact—<span className="font-medium text-foreground">feel free to reach out</span> if you'd like to connect!
+                    Outside of tech, I enjoy playing golf, hiking, traveling, or just spending time outdoors. I’m always looking to make a meaningful impact—feel free to reach out if you'd like to connect!
                   </p>
                 </div>
               </div>
