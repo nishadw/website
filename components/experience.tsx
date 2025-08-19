@@ -111,7 +111,7 @@ export function Experience() {
 
     return (
         // --- CHANGE HERE: Added font-mono to the parent container ---
-        <section ref={sectionRef} id="experience" className="py-16 font-mono">
+        <section ref={sectionRef} id="experience" className="py-12 font-mono">
             <div className="container mx-auto px-4">
                 <h2 className="text-5xl md:text-6xl text-center mb-20 text-gradient tracking-wider font-heading">
                     EXPERIENCE
