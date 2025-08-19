@@ -1,5 +1,4 @@
 import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
 import { Experience } from "@/components/experience"
 import { Publications } from "@/components/publications"
 import { Navigation } from "@/components/navigation"
@@ -12,7 +11,6 @@ export default function Page() {
       
       <main>
         <Hero />
-        <About />
         <Experience />
         <Publications />
       </main>

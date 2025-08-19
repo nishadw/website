@@ -122,6 +122,10 @@ export function Publications() {
     const [isMobileDetailVisible, setIsMobileDetailVisible] = useState(false)
     const ref = useRef < HTMLElement > (null)
 
+    // --- CHANGE IS HERE: Centralized options for a faster animation ---
+    const fastScrambleOptions = { revealSpeed: 0.5, scrambleDuration: 15 };
+    const veryFastScrambleOptions = { revealSpeed: 0.2, scrambleDuration: 5 };
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -226,7 +230,7 @@ export function Publications() {
                                     <CardHeader className="px-0 pt-0">
                                         <div className="flex items-start justify-between gap-4">
                                             <CardTitle className="text-2xl md:text-3xl leading-tight font-heading tracking-wide">
-                                                <ScrambledText text={selectedPublication.title.toUpperCase()} options={{ revealSpeed: 1, scrambleDuration: 40 }}/>
+                                                <ScrambledText text={selectedPublication.title.toUpperCase()} options={fastScrambleOptions}/>
                                             </CardTitle>
                                             {selectedPublication.highlight && <Award className="h-6 w-6 text-primary flex-shrink-0" />}
                                         </div>
@@ -234,7 +238,7 @@ export function Publications() {
                                     <CardContent className="px-0 flex-grow">
                                         <div className="space-y-4">
                                             <p className="text-base text-muted-foreground body-text">
-                                                <ScrambledText text={selectedPublication.authors} options={{ revealSpeed: 1, scrambleDuration: 30 }}/>
+                                                <ScrambledText text={selectedPublication.authors} options={fastScrambleOptions}/>
                                             </p>
                                             
                                             <div className="flex justify-between items-start pt-2 gap-4">
@@ -243,7 +247,7 @@ export function Publications() {
                                                         <div key={`conf-${index}`} className="flex items-center gap-3 text-base">
                                                             <Presentation className="h-5 w-5 text-primary flex-shrink-0" title="Conference" />
                                                             <span className="font-medium body-text">
-                                                                <ScrambledText text={conf} options={{ revealSpeed: 2, scrambleDuration: 30 }} />
+                                                                <ScrambledText text={conf} options={fastScrambleOptions} />
                                                             </span>
                                                         </div>
                                                     ))}
@@ -251,7 +255,7 @@ export function Publications() {
                                                         <div key={`jour-${index}`} className="flex items-center gap-3 text-base">
                                                             <BookOpen className="h-5 w-5 text-sky-500 flex-shrink-0" title="Journal" />
                                                             <span className="font-medium body-text">
-                                                                <ScrambledText text={jour} options={{ revealSpeed: 2, scrambleDuration: 30 }} />
+                                                                <ScrambledText text={jour} options={fastScrambleOptions} />
                                                             </span>
                                                         </div>
                                                     ))}
@@ -270,8 +274,7 @@ export function Publications() {
                                             </div>
 
                                             <p className="text-base text-muted-foreground leading-relaxed body-text pt-4 whitespace-pre-wrap">
-                                                {/* --- CHANGE IS HERE --- */}
-                                                <ScrambledText text={selectedPublication.description} options={{ revealSpeed: 0.25, scrambleDuration: 5 }} />
+                                                <ScrambledText text={selectedPublication.description} options={veryFastScrambleOptions} />
                                             </p>
                                         </div>
                                     </CardContent>
