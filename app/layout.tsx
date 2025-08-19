@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Bebas_Neue } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
+import { Navigation } from "@/components/navigation" // 1. IMPORT THE COMPONENT
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
       </head>
       <body className="font-body">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Navigation /> {/* 2. ADD THE COMPONENT HERE */}
           {children}
         </ThemeProvider>
       </body>

@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 216 12% 96%;           /* Very Light Steel Grey */
+    --background: 216 12% 99%;           /* Very Light Steel Grey */
     --foreground: 216 12% 20%;           /* Dark Steel Grey */
     --card: 216 12% 100%;                /* White */
     --card-foreground: 216 12% 20%;
@@ -15,7 +15,7 @@
     --popover-foreground: 216 12% 20%;
     --primary: 214 80% 16%;              /* HEX: #0B2545 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 216 12% 92%;            /* Light Steel Grey */
+    --secondary: 216 12% 93%;            /* Light Steel Grey */
     --secondary-foreground: 216 12% 30%;
     --muted: 216 12% 92%;
     --muted-foreground: 216 12% 50%;
