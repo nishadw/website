@@ -100,16 +100,17 @@ export function Hero() {
   }, [])
 
   const coursework = [
-    "Data Structures & Algorithms", "Machine Learning", "Data Science",
-    "Computational Game Theory", "Computer Systems", "Statistical Computing",
-    "Applied Probability & Statistics",
+    "Computational Game Theory", "Machine Learning", "Data Structures & Algorithms",
+    "Data Science", "Computer Systems", "Statistical Computing", "Discrete Mathematics",
+    "Probability & Statistics", "Multivariable Calculus", "Linear Algebra",
+    "Supply Chain Management", "Accounting"
   ]
 
   // Using 'totalDuration' for a fast, synchronized effect across all text
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
 
   return (
-    <section id="hero" ref={ref} className="min-h-screen container mx-auto px-4 flex items-center">
+    <section id="hero" ref={ref} className="relative min-h-screen container mx-auto px-4 flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full">
         
         {/* ============================================= */}
@@ -148,14 +149,8 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="pt-8">
-              <Link to="experience" smooth={true} duration={1000} offset={-96}>
-                <Button variant="ghost" className="group hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider">
-                  <span className="mr-2">EXPLORE MORE</span>
-                  <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
-                </Button>
-              </Link>
-            </div>
+            {/* The "EXPLORE MORE" button has been moved out of this column */}
+
           </div>
         </div>
 
@@ -166,7 +161,7 @@ export function Hero() {
           <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
             <div className="space-y-6 text-md text-muted-foreground leading-relaxed body-text">
               <p><ScrambledText text="Studying Computer Science and Machine Learning with minors in Business and Statistics at UMD." options={bioOptions} startCondition={isVisible} /></p>
-              <p><ScrambledText text="Exploring the research and application of Game Theory, AI, and Software Engineering to aid human decision-making." options={bioOptions} startCondition={isVisible} /></p>
+              <p><ScrambledText text="Exploring the research and application of Game Theory, AI/ML, NLP, and Software Engineering to aid human decision-making." options={bioOptions} startCondition={isVisible} /></p>
               <p><ScrambledText text="Always looking to make a meaningful impact with my work, so feel free to reach out!" options={bioOptions} startCondition={isVisible} /></p>
             </div>
 
@@ -176,7 +171,6 @@ export function Hero() {
                   <div className="flex items-start gap-4">
                     <GraduationCap className="h-8 w-8 text-primary mt-1" />
                     <div>
-                      {/* --- CHANGE IS HERE: Using bioOptions for synchronized timing --- */}
                       <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="University of Maryland" options={bioOptions} startCondition={isVisible} /></CardTitle>
                       <p className="font-semibold text-primary"><ScrambledText text="BS Computer Science (Machine Learning)" options={bioOptions} startCondition={isVisible} /></p>
                       <p className="text-sm text-muted-foreground"><ScrambledText text="Minors: Business, Statistics • 2023 – 2026" options={bioOptions} startCondition={isVisible} /></p>
@@ -196,7 +190,6 @@ export function Hero() {
                   <div className="flex items-start gap-4">
                     <Trophy className="h-8 w-8 text-primary mt-1" />
                     <div>
-                      {/* --- CHANGE IS HERE: Using bioOptions for synchronized timing --- */}
                       <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="Club Golf – President" options={bioOptions} startCondition={isVisible} /></CardTitle>
                       <p className="font-semibold text-primary"><ScrambledText text="Jan 2025 – Present" options={bioOptions} startCondition={isVisible} /></p>
                       <p className="text-sm text-muted-foreground"><ScrambledText text="Previous Position: Social Media Chair" options={bioOptions} startCondition={isVisible} /></p>
@@ -208,6 +201,19 @@ export function Hero() {
           </div>
         </div>
       </div>
+      
+      {/* ========================================================= */}
+      {/* ========== CENTERED AND ANIMATED EXPLORE BUTTON ========= */}
+      {/* ========================================================= */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2"> 
+        <Link to="experience" smooth={true} duration={1000} offset={-50}>
+          <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider">
+            <span className="mr-2">EXPLORE MORE</span>
+            <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
+          </Button>
+        </Link>
+      </div>
+
       <Analytics />
     </section>
   )
