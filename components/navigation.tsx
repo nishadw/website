@@ -55,7 +55,7 @@ export function Navigation() {
                 spy={true}
                 smooth={true}
                 duration={800}
-                offset={-96} // Adjust offset as needed for your header height
+                offset={-50} // Adjust offset as needed for your header height
                 className="group flex items-center gap-x-3 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-300"
                 activeClass="text-primary font-bold"
               >
