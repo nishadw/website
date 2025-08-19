@@ -205,7 +205,7 @@ export function Hero() {
       {/* ========================================================= */}
       {/* ========== CENTERED AND ANIMATED EXPLORE BUTTON ========= */}
       {/* ========================================================= */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2"> 
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2"> 
         <Link to="experience" smooth={true} duration={1000} offset={-50}>
           <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider">
             <span className="mr-2">EXPLORE MORE</span>
