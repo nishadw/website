@@ -171,7 +171,7 @@ export function Hero() {
                   <div className="flex items-start gap-4">
                     <GraduationCap className="h-8 w-8 text-primary mt-1" />
                     <div>
-                      <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="University of Maryland" options={bioOptions} startCondition={isVisible} /></CardTitle>
+                      <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="University of Maryland – College Park" options={bioOptions} startCondition={isVisible} /></CardTitle>
                       <p className="font-semibold text-primary"><ScrambledText text="BS Computer Science (Machine Learning)" options={bioOptions} startCondition={isVisible} /></p>
                       <p className="text-sm text-muted-foreground"><ScrambledText text="Minors: Business, Statistics • 2023 – 2026" options={bioOptions} startCondition={isVisible} /></p>
                     </div>
