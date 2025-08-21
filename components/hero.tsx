@@ -190,7 +190,7 @@ export function Hero() {
                   <div className="flex items-start gap-4">
                     <Trophy className="h-8 w-8 text-primary mt-1" />
                     <div>
-                      <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="Club Golf – President" options={bioOptions} startCondition={isVisible} /></CardTitle>
+                      <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="Club Golf – Vice President" options={bioOptions} startCondition={isVisible} /></CardTitle>
                       <p className="font-semibold text-primary"><ScrambledText text="Jan 2025 – Present" options={bioOptions} startCondition={isVisible} /></p>
                       <p className="text-sm text-muted-foreground"><ScrambledText text="Previous Position: Social Media Chair" options={bioOptions} startCondition={isVisible} /></p>
                     </div>
