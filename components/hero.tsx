@@ -161,7 +161,7 @@ export function Hero() {
           <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
             <div className="space-y-6 text-md text-muted-foreground leading-relaxed body-text">
               <p><ScrambledText text="Studying Computer Science and Machine Learning with minors in Business and Statistics at UMD." options={bioOptions} startCondition={isVisible} /></p>
-              <p><ScrambledText text="Exploring the fields of AI/ML, NLP, and Software Engineering. Interested in AI alignment, Artificial General Intelligence, and Game Theory." options={bioOptions} startCondition={isVisible} /></p>
+              <p><ScrambledText text="Exploring the fields of AI/ML, NLP, and Software Engineering. Interested in Equity Trading, Game Theory, and AI alignment." options={bioOptions} startCondition={isVisible} /></p>
               <p><ScrambledText text="Always looking to make a meaningful impact with my work, so feel free to reach out!" options={bioOptions} startCondition={isVisible} /></p>
             </div>
 
