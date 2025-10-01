@@ -229,7 +229,7 @@ export function Publications() {
                                 >
                                     <CardHeader className="px-0 pt-0">
                                         <div className="flex items-start justify-between gap-4">
-                                            <CardTitle className="text-2xl md:text-3xl leading-tight font-heading tracking-wide">
+                                            <CardTitle className="text-xl md:text-2xl leading-tight font-heading tracking-wide">
                                                 <ScrambledText text={selectedPublication.title.toUpperCase()} options={fastScrambleOptions}/>
                                             </CardTitle>
                                             {selectedPublication.highlight && <Award className="h-6 w-6 text-primary flex-shrink-0" />}
