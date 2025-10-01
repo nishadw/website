@@ -20,7 +20,7 @@ const experiences = [
             "Achieved 90%+ accuracy using a hybrid of transfer learning and custom CNNs for lightweight deployment",
             "Accelerated inference to under 100ms on edge devices by designing a 3-stage deep learning pipeline"
           ],
-        technologies: ["Python", "Java", "HTML", "AWS Lambda", "Android Studio", "Tensorflow", "Keras", "CleverHans", "Scikit-Learn"],
+        technologies: ["Python", "Java", "HTML", "AWS SageMaker", "AWS Lambda", "Android Studio", "Tensorflow", "Keras", "CleverHans", "Scikit-Learn"],
         current: true,
     },
     {

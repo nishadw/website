@@ -273,7 +273,7 @@ export function Publications() {
                                                 </div>
                                             </div>
 
-                                            <p className="text-base text-muted-foreground leading-relaxed body-text pt-4 whitespace-pre-wrap">
+                                            <p className="text-sm text-muted-foreground leading-relaxed body-text pt-4 whitespace-pre-wrap">
                                                 <ScrambledText text={selectedPublication.description} options={veryFastScrambleOptions} />
                                             </p>
                                         </div>
