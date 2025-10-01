@@ -16,6 +16,7 @@ const publications = [
         description:
             "While generalization over tasks from easy to hard is crucial to profile language models (LLMs), the datasets with fine-grained difficulty annotations for each problem across a broad range of complexity are still missing. Aiming to address this limitation, we present Easy2Hard-Bench, a consistently formatted collection of 6 benchmark datasets spanning various domains, such as mathematics and programming problems, chess puzzles, and reasoning questions. Each problem within these datasets is annotated with numerical difficulty scores. To systematically estimate problem difficulties, we collect abundant performance data on attempts to each problem by humans in the real world or LLMs on the prominent leaderboard. Leveraging the rich performance data, we apply well-established difficulty ranking systems, such as Item Response Theory (IRT) and Glicko-2 models, to uniformly assign numerical difficulty scores to problems. Moreover, datasets in Easy2Hard-Bench distinguish themselves from previous collections by a higher proportion of challenging problems. Through extensive experiments with six state-of-the-art LLMs, we provide a comprehensive analysis of their performance and generalization capabilities across varying levels of difficulty, with the aim of inspiring future research in LLM generalization.",
         link: "https://neurips.cc/virtual/2024/poster/97554",
+        highlight: true,
     },
     {
         title: "Should PGA Tour Professionals Consider their Adversary's Strategy? A Case Study of Match Play in Golf",
@@ -171,10 +172,10 @@ export function Publications() {
                     <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:gap-8 rounded-lg elegant-shadow md:min-h-[600px] overflow-hidden">
                         {/* Master Pane (Left Column) - Timeline */}
                         <div
-                            className={`w-full md:w-1/3 lg:w-2/5 p-4 border-b md:border-b-0 md:border-r ${isMobileDetailVisible ? "hidden md:block" : "block"
+                            className={`w-full md:w-1/3 lg:w-1/3 p-4 border-b md:border-b-0 md:border-r ${isMobileDetailVisible ? "hidden md:block" : "block"
                                 }`}
                         >
-                            <div className="relative h-full md:max-h-[600px] overflow-y-auto pr-4">
+                            <div className="relative h-full pr-4">
                                 <div className="absolute left-2 top-0 h-full w-0.5 bg-border -z-10"></div>
                                 {Object.entries(groupedPublications).map(([groupTitle, pubs]) => (
                                     <div key={groupTitle} className="mb-8">
@@ -210,7 +211,7 @@ export function Publications() {
 
                         {/* Detail Pane (Right Column) */}
                         <div
-                            className={`w-full md:w-2/3 lg:w-3/5 p-6 ${isMobileDetailVisible ? "block" : "hidden md:block"
+                            className={`w-full md:w-2/3 lg:w-2/3 p-6 ${isMobileDetailVisible ? "block" : "hidden md:block"
                                 }`}
                         >
                             <Button
@@ -244,7 +245,7 @@ export function Publications() {
                                             <div className="flex justify-between items-start pt-2 gap-4">
                                                 <div className="space-y-3">
                                                     {selectedPublication.conference?.map((conf, index) => (
-                                                        <div key={`conf-${index}`} className="flex items-center gap-3 text-base">
+                                                        <div key={`conf-${index}`} className="flex items-center gap-3 text-sm">
                                                             <Presentation className="h-5 w-5 text-primary flex-shrink-0" title="Conference" />
                                                             <span className="font-medium body-text">
                                                                 <ScrambledText text={conf} options={fastScrambleOptions} />
@@ -252,7 +253,7 @@ export function Publications() {
                                                         </div>
                                                     ))}
                                                     {selectedPublication.journal?.map((jour, index) => (
-                                                        <div key={`jour-${index}`} className="flex items-center gap-3 text-base">
+                                                        <div key={`jour-${index}`} className="flex items-center gap-3 text-sm">
                                                             <BookOpen className="h-5 w-5 text-sky-500 flex-shrink-0" title="Journal" />
                                                             <span className="font-medium body-text">
                                                                 <ScrambledText text={jour} options={fastScrambleOptions} />
