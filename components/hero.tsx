@@ -94,10 +94,9 @@ export function Hero() {
   }, [])
 
   const coursework = [
-    "Computational Game Theory", "Machine Learning", "Data Structures & Algorithms",
-    "Data Science", "Computer Systems", "Statistical Computing", "Discrete Mathematics",
-    "Probability & Statistics", "Multivariable Calculus", "Linear Algebra",
-    "Supply Chain Management", "Accounting"
+    "Computational Game Theory", "Machine Learning", 
+    "Data Science", "Computer Systems", "Statistical Computing",
+    "Probability & Statistics", "Data Structures & Algorithms", "Supply Chain Management", "Accounting"
   ]
 
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
@@ -153,7 +152,7 @@ export function Hero() {
           <div className={`${isVisible ? "fade-in" : "opacity-0"} space-y-8`}>
 
             {/* University Card */}
-            <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl bg-card/75">
+            <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl bg-card/75 ">
               <CardHeader>
                 <div className="flex items-start gap-4">
                   <GraduationCap className="h-8 w-8 text-primary mt-1" />
@@ -170,11 +169,11 @@ export function Hero() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <h4 className="font-heading tracking-wide mb-3 text-large">Relevant Coursework:</h4>
+              <CardContent className = "ml-12">
+                <h4 className="font-heading tracking-wide mb-3 text-med">Relevant Coursework:</h4>
                 <div className="flex flex-wrap gap-2">
                   {coursework.map((course) => (
-                    <Badge key={course} variant="secondary" className="body-text">{course}</Badge>
+                    <Badge key={course} variant="secondary" className="font-mono px-3 py-1">{course}</Badge>
                   ))}
                 </div>
               </CardContent>
