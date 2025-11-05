@@ -148,24 +148,18 @@ export function Hero() {
                 </Button>
               ))}
             </div>
-
-            {/* The "EXPLORE MORE" button has been moved out of this column */}
-
+            
           </div>
         </div>
 
         {/* ============================================= */}
         {/* ========== RIGHT COLUMN (ABOUT) ============= */}
         {/* ============================================= */}
-        <div id="about" className="flex flex-col justify-center font-mono">
+        {/* Added 'items-center' to center the content horizontally */}
+        <div id="about" className="flex flex-col justify-center items-center font-mono">
           <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
-            <div className="space-y-6 text-md text-muted-foreground leading-relaxed body-text">
-              <p><ScrambledText text="Studying Computer Science and Machine Learning with minors in Business and Statistics at UMD." options={bioOptions} startCondition={isVisible} /></p>
-              <p><ScrambledText text="Exploring the fields of AI/ML, NLP, and Software Engineering. Interested in Equity Trading, Game Theory, and AI Alignment." options={bioOptions} startCondition={isVisible} /></p>
-              <p><ScrambledText text="Always looking to make a meaningful impact with my work, so feel free to reach out!" options={bioOptions} startCondition={isVisible} /></p>
-            </div>
-
-            <div className="space-y-8 mt-12">
+            
+            <div className="space-y-8"> 
               <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-start gap-4">
@@ -205,7 +199,8 @@ export function Hero() {
       {/* ========================================================= */}
       {/* ========== CENTERED AND ANIMATED EXPLORE BUTTON ========= */}
       {/* ========================================================= */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2"> 
+      {/* Changed bottom-10 to bottom-24 to move it up */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2"> 
         <Link to="experience" smooth={true} duration={1000} offset={-50}>
           <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider">
             <span className="mr-2">EXPLORE MORE</span>
