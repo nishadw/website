@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-// The hook now accepts a 'totalDuration' to synchronize animations
+// Scramble text hook
 function useCharacterScramble(text, options = {}, startCondition = true) {
   const { revealSpeed = 2, scrambleDuration = 20, totalDuration } = options
   const [displayText, setDisplayText] = useState("")
@@ -20,7 +20,6 @@ function useCharacterScramble(text, options = {}, startCondition = true) {
     const queue = []
 
     if (startCondition && text) {
-      // If totalDuration is provided, calculate revealSpeed dynamically
       const effectiveRevealSpeed = totalDuration
         ? (totalDuration - scrambleDuration) / text.length
         : revealSpeed
@@ -67,10 +66,9 @@ function useCharacterScramble(text, options = {}, startCondition = true) {
   return displayText
 }
 
-// Helper component to easily apply the hook
 function ScrambledText({ text, options, startCondition }) {
   const scrambledText = useCharacterScramble(text, options, startCondition)
-  return <>{scrambledText || " "}</> // Return a space to maintain layout height
+  return <>{scrambledText || " "}</>
 }
 
 export function Hero() {
@@ -88,14 +86,10 @@ export function Hero() {
       { threshold: 0.1 }
     )
 
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
+    if (ref.current) observer.observe(ref.current)
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
-      }
+      if (ref.current) observer.unobserve(ref.current)
     }
   }, [])
 
@@ -106,16 +100,13 @@ export function Hero() {
     "Supply Chain Management", "Accounting"
   ]
 
-  // Using 'totalDuration' for a fast, synchronized effect across all text
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
 
   return (
     <section id="hero" ref={ref} className="relative min-h-screen container mx-auto px-4 flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full">
-        
-        {/* ============================================= */}
-        {/* ========== LEFT COLUMN (HERO) =============== */}
-        {/* ============================================= */}
+
+        {/* Left Column */}
         <div className="flex flex-col items-center justify-center text-center">
           <div className={`space-y-8 ${isVisible ? "fade-in" : "opacity-0"}`}>
             <div className="mb-12">
@@ -129,7 +120,7 @@ export function Hero() {
             </div>
 
             <div className="space-y-6">
-              <h1 className="text-6xl md:text-8xl text-gradient leading-tight tracking-wider font-heading">
+              <h1 className="text-6xl md:text-8xl leading-tight tracking-wider font-heading text-white">
                 <ScrambledText text="NISHAD WAJGE" options={{ revealSpeed: 6, scrambleDuration: 10 }} startCondition={isVisible} />
               </h1>
             </div>
@@ -141,68 +132,112 @@ export function Hero() {
                 { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
                 { icon: FileText, href: "https://drive.google.com/file/d/17JyEIwqFjnf9VDQoQ39DiKqNPmQqbm9E/view?usp=sharing", label: "Resume" },
               ].map(({ icon: Icon, href, label }, index) => (
-                <Button key={index} variant="outline" size="icon" className={`elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 stagger-${index + 1}`} asChild>
+                <Button
+                  key={index}
+                  variant="outline"
+                  size="icon"
+                  className={`elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 stagger-${index + 1} rounded-xl bg-card/75`}
+                  asChild
+                >
                   <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                    <Icon className="h-8 w-8" />
+                    <Icon className="h-32 w-32 text-white" />
                   </a>
                 </Button>
               ))}
             </div>
-            
           </div>
         </div>
 
-        {/* ============================================= */}
-        {/* ========== RIGHT COLUMN (ABOUT) ============= */}
-        {/* ============================================= */}
-        {/* Added 'items-center' to center the content horizontally */}
+        {/* Right Column */}
         <div id="about" className="flex flex-col justify-center items-center font-mono">
-          <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
-            
-            <div className="space-y-8"> 
-              <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <GraduationCap className="h-8 w-8 text-primary mt-1" />
-                    <div>
-                      <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="University of Maryland – College Park" options={bioOptions} startCondition={isVisible} /></CardTitle>
-                      <p className="font-semibold text-primary"><ScrambledText text="BS Computer Science (Machine Learning)" options={bioOptions} startCondition={isVisible} /></p>
-                      <p className="text-sm text-muted-foreground"><ScrambledText text="Minors: Business, Statistics • 2023 – 2026" options={bioOptions} startCondition={isVisible} /></p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <h4 className="font-heading tracking-wide mb-3">Relevant Coursework:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {coursework.map((course) => (<Badge key={course} variant="secondary" className="body-text">{course}</Badge>))}
-                  </div>
-                </CardContent>
-              </Card>
+          <div className={`${isVisible ? "fade-in" : "opacity-0"} space-y-8`}>
 
-              <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <Trophy className="h-8 w-8 text-primary mt-1" />
-                    <div>
-                      <CardTitle className="text-2xl font-heading tracking-wide"><ScrambledText text="Club Golf – Vice President" options={bioOptions} startCondition={isVisible} /></CardTitle>
-                      <p className="font-semibold text-primary"><ScrambledText text="Jan 2025 – Present" options={bioOptions} startCondition={isVisible} /></p>
-                      <p className="text-sm text-muted-foreground"><ScrambledText text="Previous Position: Social Media Chair" options={bioOptions} startCondition={isVisible} /></p>
-                    </div>
+            {/* University Card */}
+            <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl bg-card/75">
+              <CardHeader>
+                <div className="flex items-start gap-4">
+                  <GraduationCap className="h-8 w-8 text-primary mt-1" />
+                  <div>
+                    <CardTitle className="text-2xl font-heading tracking-wide">
+                      <ScrambledText text="University of Maryland – College Park" options={bioOptions} startCondition={isVisible} />
+                    </CardTitle>
+                    <p className="font-semibold text-primary">
+                      <ScrambledText text="BS Computer Science (Machine Learning)" options={bioOptions} startCondition={isVisible} />
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <ScrambledText text="Minors: Business, Statistics • 2023 – 2026" options={bioOptions} startCondition={isVisible} />
+                    </p>
                   </div>
-                </CardHeader>
-              </Card>
-            </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <h4 className="font-heading tracking-wide mb-3 text-large">Relevant Coursework:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {coursework.map((course) => (
+                    <Badge key={course} variant="secondary" className="body-text">{course}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            
+            {/* App Dev */}
+            <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl bg-card/75">
+              <CardHeader>
+                <div className="flex items-start gap-4">
+                  <Trophy className="h-8 w-8 text-primary mt-1" />
+                  <div>
+                    <CardTitle className="text-2xl font-heading tracking-wide">
+                      <ScrambledText text="App Dev Club – Project Lead" options={bioOptions} startCondition={isVisible} />
+                    </CardTitle>
+                    <p className="font-semibold text-primary">
+                      <ScrambledText text="Sep 2024 – May 2025" options={bioOptions} startCondition={isVisible} />
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <ScrambledText text="Previous Position: Project Manager" options={bioOptions} startCondition={isVisible} />
+                    </p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            {/* Club Golf Card */}
+            <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl bg-card/75">
+              <CardHeader>
+                <div className="flex items-start gap-4">
+                  <Trophy className="h-8 w-8 text-primary mt-1" />
+                  <div>
+                    <CardTitle className="text-2xl font-heading tracking-wide">
+                      <ScrambledText text="Club Golf – Vice President" options={bioOptions} startCondition={isVisible} />
+                    </CardTitle>
+                    <p className="font-semibold text-primary">
+                      <ScrambledText text="Jan 2025 – Present" options={bioOptions} startCondition={isVisible} />
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <ScrambledText text="Previous Position: Social Media Chair" options={bioOptions} startCondition={isVisible} />
+                    </p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            
+
           </div>
         </div>
+
       </div>
-      
-      {/* ========================================================= */}
-      {/* ========== CENTERED AND ANIMATED EXPLORE BUTTON ========= */}
-      {/* ========================================================= */}
-      {/* Changed bottom-10 to bottom-24 to move it up */}
-      <div className="absolute bottom-14 left-1/2 -translate-x-1/2"> 
-        <Link to="experience" smooth={true} duration={1000} offset={-50}>
-          <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-primary transition-all duration-300 font-heading tracking-wider">
+
+      {/* Explore More Button */}
+      <div className="absolute bottom-14 left-1/2 -translate-x-1/2">
+        <Link
+          to="experience"
+          smooth={true}
+          duration={1000}
+          offset={-50}
+          // STEP 3: Add this prop
+          containerId="scroll-container"
+        >
+          <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-white transition-all duration-300 font-heading tracking-wider">
             <span className="mr-2">EXPLORE MORE</span>
             <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
           </Button>

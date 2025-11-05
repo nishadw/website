@@ -2,8 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Bebas_Neue } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "next-themes"
-import { Navigation } from "@/components/navigation" // 1. IMPORT THE COMPONENT
+import { Navigation } from "@/components/navigation"
+import VantaBackgroundClient from "@/components/VantaBackgroundClient" // Client-only
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -26,25 +26,16 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={bebasNeue.variable}>
-      <head>
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="icon" href="/favicon.ico?v=2" sizes="16x16" type="image/x-icon" />
-        <link rel="icon" href="/favicon.ico?v=2" sizes="32x32" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      </head>
-      <body className="font-body">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Navigation /> {/* 2. ADD THE COMPONENT HERE */}
-          {children}
-        </ThemeProvider>
+    <html lang="en" className={bebasNeue.variable}>
+      <body className="font-body relative min-h-screen">
+        {/* Persistent Vanta.js background */}
+        <VantaBackgroundClient />
+
+        {/* Navigation and page content */}
+        <Navigation />
+        {children}
       </body>
     </html>
   )
