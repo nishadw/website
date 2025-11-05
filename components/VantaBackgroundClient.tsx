@@ -36,9 +36,9 @@ export default function VantaBackgroundClient() {
             scaleMobile: 1.0,
             color: 0x3452bb,
             backgroundColor: 0x0,
-            points: 12.0,
-            maxDistance: 10.0,
-            spacing: 50.0,
+
+            // maxDistance: 20.0,
+            // spacing: 100.0,
           });
         };
         document.body.appendChild(vantaScript);
