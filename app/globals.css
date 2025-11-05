@@ -1,85 +1,53 @@
-/* 1. Import Noto Sans from Google Fonts */
+/* globals.css */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 216 12% 99%;           /* Very Light Steel Grey */
-    --foreground: 216 12% 20%;           /* Dark Steel Grey */
-    --card: 216 12% 100%;                /* White */
-    --card-foreground: 216 12% 20%;
-    --popover: 216 12% 100%;
-    --popover-foreground: 216 12% 20%;
-    --primary: 214 80% 16%;              /* HEX: #0B2545 */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 216 12% 93%;            /* Light Steel Grey */
-    --secondary-foreground: 216 12% 30%;
-    --muted: 216 12% 92%;
-    --muted-foreground: 216 12% 20%;
-    --accent: 214 80% 16%;               /* HEX: #0B2545 */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 216 12% 88%;               /* Steel Grey Border */
-    --input: 216 12% 88%;
-    --ring: 214 80% 16%;                 /* HEX: #0B2545 */
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 0 0% 8%;               /* Neutral Dark Gray */
-    --foreground: 0 0% 95%;               /* Neutral Light Gray */
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 214 80% 45%;              /* Lighter Blue */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 80%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 214 80% 45%;               /* Lighter Blue */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 50%;
-    --destructive-foreground: 0 0% 95%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 214 80% 45%;                 /* Lighter Blue */
-  }
-}
+:root { 
+  --background: 0 0% 8%; /* Neutral Dark Gray */ 
+  --foreground: 0 0% 95%; /* Neutral Light Gray */ 
+  --card: 0 0% 10%; 
+  --card-foreground: 0 0% 95%; 
+  --popover: 0 0% 10%; 
+  --popover-foreground: 0 0% 95%; 
+  --primary: 214 80% 45%; /* Lighter Blue */ 
+  --primary-foreground: 0 0% 100%; 
+  --secondary: 0 0% 15%; 
+  --secondary-foreground: 0 0% 80%; 
+  --muted: 0 0% 15%; 
+  --muted-foreground: 0 0% 60%; 
+  --accent: 214 80% 45%; /* Lighter Blue */ 
+  --accent-foreground: 0 0% 100%; 
+  --destructive: 0 63% 50%; 
+  --destructive-foreground: 0 0% 95%; 
+  --border: 0 0% 20%; 
+  --input: 0 0% 20%; 
+  --ring: 214 80% 45%; /* Lighter Blue */ 
+} 
 
 @layer base {
+  
   * {
     @apply border-border;
   }
-  
+
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Jet Brains Mono', monospace;
+    /* Make background transparent so Vanta shows */
+    background: transparent;
+    color: rgb(var(--foreground));
+    font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.05em;
     line-height: 1.1;
   }
 
-  .heading-text {
-    letter-spacing: 0.05em;
-  }
-
-  .body-text {
-    line-height: 1.6;
-  }
+  .heading-text { letter-spacing: 0.05em; }
+  .body-text { line-height: 1.6; }
 }
 
 /* (The rest of your utilities and keyframes code remains the same) */

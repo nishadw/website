@@ -111,9 +111,9 @@ export function Experience() {
 
     return (
         // --- CHANGE HERE: Added font-mono to the parent container ---
-        <section ref={sectionRef} id="experience" className="py-12 font-mono">
+        <section ref={sectionRef} id="experience" className="pb-12 font-mono">
             <div className="container mx-auto px-4">
-                <h2 className="text-5xl md:text-6xl text-center mb-20 text-gradient tracking-wider font-heading">
+                <h2 className="text-5xl md:text-6xl text-center mb-20 text-white tracking-wider font-heading">
                     EXPERIENCE
                 </h2>
 
@@ -147,7 +147,7 @@ export function Experience() {
 
                                         {/* Accordion Content */}
                                         <div className="flex-1 overflow-hidden">
-                                            <Card className="bg-card/50 elegant-shadow py-2">
+                                            <Card className="bg-card/75 elegant-shadow py-2 rounded-3xl">
                                                 <CardHeader className="flex-row items-center justify-between p-6 cursor-pointer">
                                                     <div className="space-y-1">
                                                         <CardTitle className="text-2xl tracking-wider font-heading">
