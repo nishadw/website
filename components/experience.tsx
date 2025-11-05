@@ -12,7 +12,7 @@ const experiences = [
         logoURL: "https://images.ctfassets.net/szx3os6exj55/DoBJFVrzCjOUxN1W1uJ1P/f40b228666d952ea0dbdfea63f1095bb/PLACEHOLDER-GDIT-logo-sht_lg_cmyk_pringy-600x450px-09162024.jpg",
         position: "Software Engineer Intern",
         startDate: "2025-06-10",
-        endDate: "Present",
+        endDate: "2025-08-13",
         location: "Annapolis Junction, MD",
         description: [
             "Deployed vehicle computer vision plugin on the Android Tactical Awareness Kit to enhance situational awareness",
