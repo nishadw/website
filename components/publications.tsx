@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Award, ArrowLeft, BookOpen, Presentation } from "lucide-react"
+import { ExternalLink, Award, BookOpen, Presentation } from "lucide-react"
 
 // --- DEFINITIONS (This is what was missing) ---
 const publications = [
