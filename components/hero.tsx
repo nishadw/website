@@ -118,13 +118,13 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-2">
               <h1 className="text-6xl md:text-8xl leading-tight tracking-wider font-heading text-white">
                 <ScrambledText text="NISHAD WAJGE" options={{ revealSpeed: 6, scrambleDuration: 10 }} startCondition={isVisible} />
               </h1>
             </div>
 
-            <div className="flex justify-center space-x-2 pt-2">
+            <div className="flex justify-center space-x-2">
               {[
                 { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
                 { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
@@ -135,11 +135,11 @@ export function Hero() {
                   key={index}
                   variant="outline"
                   size="icon"
-                  className={`elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 stagger-${index + 1} rounded-xl bg-card/75`}
+                  className={`bg-card/75 elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 stagger-${index + 1} rounded-xl`}
                   asChild
                 >
                   <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                    <Icon className="h-32 w-32 text-white" />
+                    <Icon className="h-32 w-32 text-white " />
                   </a>
                 </Button>
               ))}
@@ -237,7 +237,7 @@ export function Hero() {
           containerId="scroll-container"
         >
           <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-white transition-all duration-300 font-heading tracking-wider">
-            <span className="mr-2">EXPLORE MORE</span>
+            <span className="mr-2">EXPLORE MORE </span>
             <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
           </Button>
         </Link>

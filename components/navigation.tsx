@@ -1,6 +1,8 @@
 "use client"
 
 import { Link } from "react-scroll"
+import { ArrowRight } from "lucide-react"
+
 
 const navItems = [
   { id: "hero", label: "HOME" },
@@ -27,7 +29,7 @@ export function Navigation() {
             >
               {/* Arrow that appears on hover */}
               <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-large font-bold">
-                &gt;
+                <ArrowRight className="w-5 h-5" />
               </span>
 
               {/* Label text */}
