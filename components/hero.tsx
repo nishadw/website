@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 function useCharacterScramble(text, options = {}, startCondition = true) {
   const { revealSpeed = 2, scrambleDuration = 20, totalDuration } = options
   const [displayText, setDisplayText] = useState("")
-  const chars = "!<>-_\\/[]{}—=+*^?#________"
+  const chars = "!@#$%^&*!@#$%^&*"
 
   useEffect(() => {
     let frameRequest
