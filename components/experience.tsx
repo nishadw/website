@@ -3,39 +3,43 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Building, Calendar, ChevronDown } from "lucide-react"
 
 const experiences = [
     {
-        company: "General Dynamics Information Technology",
-        logoURL: "https://images.ctfassets.net/szx3os6exj55/DoBJFVrzCjOUxN1W1uJ1P/f40b228666d952ea0dbdfea63f1095bb/PLACEHOLDER-GDIT-logo-sht_lg_cmyk_pringy-600x450px-09162024.jpg",
-        position: "Software Engineer Intern",
-        startDate: "2025-06-10",
-        endDate: "2025-08-13",
-        location: "Annapolis Junction, MD",
+        company: "Mercor",
+        logoURL: "https://s3-eu-west-1.amazonaws.com/tpd/logos/623e9001c220860de22b0fde/0x0.png",
+        position: "Applied AI Engineer",
+        startDate: "2025-11-10",
+        endDate: "Present",
         description: [
-            "Deployed vehicle computer vision plugin on the Android Tactical Awareness Kit to enhance situational awareness",
-            "Improved reliability by 30% under adversarial stress tests through PGD training and MobileNet fine-tuning",
-            "Achieved 90%+ accuracy using a hybrid of transfer learning and custom CNNs for lightweight deployment",
-            "Accelerated inference to under 100ms on edge devices by designing a 3-stage deep learning pipeline"
+            "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using proprietary frameworks and large-scale human datasets",
           ],
-        technologies: ["Python", "Java", "HTML", "AWS SageMaker", "AWS Lambda", "Android Studio", "Tensorflow", "Keras", "CleverHans", "Scikit-Learn"],
         current: true,
     },
     {
         company: "General Dynamics Information Technology",
-        logoURL: "https://images.ctfassets.net/szx3os6exj55/DoBJFVrzCjOUxN1W1uJ1P/f40b228666d952ea0dbdfea63f1095bb/PLACEHOLDER-GDIT-logo-sht_lg_cmyk_pringy-600x450px-09162024.jpg",
+        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1765411200&v=beta&t=fkTyJHqVfNC_idR8IkeRRhGgA4Ylq-UCGroa522VOt4",
+        position: "Software Engineer Intern",
+        startDate: "2025-06-10",
+        endDate: "2025-08-13",
+        description: [
+            "Deployed vehicle computer vision plugin within a multi-modal ML system for the Android Tactical Awareness Kit to enhance situational awareness and navigation intelligence",
+            "Accelerated inference time by designing a 3-stage, hierarchical deep learning pipeline for lightweight deployment on edge devices in resource-constrained environments",
+            "Improved model reliability using Projected Gradient Descent (PGD) adversarial training on custom Convolutional Neural Networks (CNNs) and transfer learning fine-tuning",
+          ],
+    },
+    {
+        company: "General Dynamics Information Technology",
+        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1765411200&v=beta&t=fkTyJHqVfNC_idR8IkeRRhGgA4Ylq-UCGroa522VOt4",
         position: "Project Lead",
         startDate: "2025-01-10",
         endDate: "2025-05-31",
-        location: "College Park, MD",
         description: [
-            "Led cross-functional teams to build scalable RAG pipeline using Llama 3-70B for analysis of 600K+ emails",
-            "Improved data retrieval speed and discovery by 95% by implementing relationship mapping and similarity search",
-            "Boosted search accuracy by 40% via custom semantic chunking, NER extraction, and metadata enrichment"
+            "Led cross-functional teams in Frontend, Backend, UI/UX, and ML to build Retrieval Augmented Generation (RAG) pipeline for analysis of large document corpus",
+            "Improved data retrieval speed and discovery by 95% by implementing dual database management system with relationship mapping and similarity search",
+            "Increased search accuracy via custom semantic chunking, Name Entity Recognition (NER) extraction, and metadata enrichment"
         ],
-        technologies: ["Python", "Javascript", "AWS Bedrock", "AWS EC2", "LangChain", "Neo4J", "Qdrant", "NLTK", "Flask", "Next.js", "Tailwind CSS"],
     },
     {
         company: "Booz Allen Hamilton",
@@ -43,28 +47,23 @@ const experiences = [
         position: "Project Manager",
         startDate: "2024-09-10",
         endDate: "2024-12-31",
-        location: "College Park, MD",
         description: [
-            "Developed in-house tool to automate medical policy scraping with real-time editing and annotation features",
-            "Met weekly with CTO and lead engineer to review progress, align on deliverables, and ensure achievement of KPIs",
-            "Saved $50K+ annually by automating workflows and cron-based web scraping, cutting manual effort and errors",
-            "Engineered document comparison, feature extraction, and sentiment analysis to streamline policy auditing"
+            "Worked with the Digital Transformation for Healthcare team to develop an in-house, 0-to-1 software management platform to aggregate medical policies for auditors to review and edit",
+            "Met weekly with CTO and lead engineer to review progress, align on deliverables, and ensure achievement of Key Performance Indicators (KPIs)",
+            "Automated workflows through cron-based web scraping and engineering document comparison, feature extraction, and sentiment analysis, cutting manual labor costs and errors"
         ],
-        technologies: ["Python", "Javascript", "SQL","PyTorch", "Scikit-Learn", "Selenium", "PostgreSQL", "Express.js", "Next.js", "Tailwind CSS"],
     },
     {
         company: "Internal Revenue Service",
         logoURL: "https://www.siegelgale.com/app/uploads/2016/04/SG_AmandaVoss_1-1.jpg",
-        position: "Software Engineer Intern ", // Note: Added a space to make it unique for state key
+        position: "Software Engineer Intern ", 
         startDate: "2024-01-10",
         endDate: "2024-12-31",
-        location: "Washington, DC",
         description: [
-            "Completed 100% of ETL tasks for Q2-Q4 on tax fraud detection system processing 22.5M+ monthly applications",
-            "Strengthened system reliability by resolving 50+ defects, modernizing a 20-year-old build and reducing downtime",
-            "Deployed division-wide CI/CD pipeline upgrade with 100% code coverage, advancing enterprise modernization"
+            "Interned at the Fraud & Analytics division under the Return Review Program (RRP), the unified platform processing every U.S. tax return to detect identity theft, fraud, and civil non-compliance",
+            "Strengthened system reliability and security by modernizing 20-year-old legacy architecture, advancing enterprise modernization",
+            "Supported stakeholder relationships by working with cross-functional teams and divisions in Agile sprints and DevOps meetings"
         ],
-        technologies: ["Java", "HTML", "IBM Rational Team Concert", "Jenkins", "Ant", "Maven"],
     },
 ]
 
@@ -110,7 +109,6 @@ export function Experience() {
     }, []);
 
     return (
-        // --- CHANGE HERE: Added font-mono to the parent container ---
         <section ref={sectionRef} id="experience" className="pb-12 font-mono">
             <div className="container mx-auto px-4">
                 <h2 className="text-5xl md:text-6xl text-center mb-20 text-white tracking-wider font-heading">
@@ -176,17 +174,11 @@ export function Experience() {
                                                     <div className="overflow-hidden">
                                                         <CardContent className="p-6 pt-0">
                                                             <div className="border-t border-border pt-4">
-                                                                {/* --- CHANGE HERE: Removed redundant font-mono --- */}
-                                                                <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6 leading-relaxed body-text">
+                                                                <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed body-text text-sm">
                                                                     {exp.description.map((point, idx) => (
                                                                         <li key={idx}>{point}</li>
                                                                     ))}
                                                                 </ul>
-                                                                <div className="flex flex-wrap gap-2">
-                                                                    {exp.technologies.map((tech) => (
-                                                                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                                                                    ))}
-                                                                </div>
                                                             </div>
                                                         </CardContent>
                                                     </div>
