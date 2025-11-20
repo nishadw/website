@@ -161,7 +161,7 @@ export function Hero() {
                       <ScrambledText text="University of Maryland – College Park" options={bioOptions} startCondition={isVisible} />
                     </CardTitle>
                     <p className="font-semibold text-primary">
-                      <ScrambledText text="BS Computer Science (Machine Learning)" options={bioOptions} startCondition={isVisible} />
+                      <ScrambledText text="BS Computer Science (Concentration: Machine Learning)" options={bioOptions} startCondition={isVisible} />
                     </p>
                     <p className="text-sm text-muted-foreground">
                       <ScrambledText text="Minors: Business, Statistics • 2023 – 2026" options={bioOptions} startCondition={isVisible} />
