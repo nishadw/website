@@ -13,7 +13,7 @@ const experiences = [
         startDate: "2025-11-10",
         endDate: "Present",
         description: [
-            "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using proprietary frameworks and large-scale human datasets",
+            "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using proprietary frameworks and large-scale human intelligence",
           ],
         current: true,
     },
@@ -24,7 +24,7 @@ const experiences = [
         startDate: "2025-06-10",
         endDate: "2025-08-13",
         description: [
-            "Deployed vehicle computer vision plugin within a multi-modal ML system for the Android Tactical Awareness Kit (ATAK) to enhance situational awareness",
+            "Deployed vehicle computer vision plugin within a Multi-Modal ML (MML) system for the Android Tactical Awareness Kit (ATAK) to enhance situational awareness",
             "Accelerated inference time by designing a 3-stage, hierarchical pipeline for lightweight deployment on edge devices in resource-constrained operations",
             "Improved model reliability using Projected Gradient Descent (PGD) adversarial training on custom Convolutional Neural Networks (CNNs) and transfer learning",
           ],
