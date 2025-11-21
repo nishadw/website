@@ -170,33 +170,15 @@ export function Hero() {
                 </div>
               </CardHeader>
               <CardContent className = "ml-12">
-                <h4 className="font-heading tracking-wide mb-3 text-med">Relevant Coursework:</h4>
+                {/* <h4 className=" mb-3 font-mono text-sm text-muted-foreground">
+                  Relevant Coursework:
+                  </h4> */}
                 <div className="flex flex-wrap gap-2">
                   {coursework.map((course) => (
                     <Badge key={course} variant="secondary" className="font-mono px-3 py-1">{course}</Badge>
                   ))}
                 </div>
               </CardContent>
-            </Card>
-            
-            {/* App Dev */}
-            <Card className="elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl bg-card/75">
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <Trophy className="h-8 w-8 text-primary mt-1" />
-                  <div>
-                    <CardTitle className="text-2xl font-heading tracking-wide">
-                      <ScrambledText text="App Dev Club – Project Lead" options={bioOptions} startCondition={isVisible} />
-                    </CardTitle>
-                    <p className="font-semibold text-primary">
-                      <ScrambledText text="Sep 2024 – May 2025" options={bioOptions} startCondition={isVisible} />
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      <ScrambledText text="Previous Position: Project Manager" options={bioOptions} startCondition={isVisible} />
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
             </Card>
 
             {/* Club Golf Card */}
@@ -206,13 +188,13 @@ export function Hero() {
                   <Trophy className="h-8 w-8 text-primary mt-1" />
                   <div>
                     <CardTitle className="text-2xl font-heading tracking-wide">
-                      <ScrambledText text="Club Golf – Vice President" options={bioOptions} startCondition={isVisible} />
+                      <ScrambledText text="University Club Golf" options={bioOptions} startCondition={isVisible} />
                     </CardTitle>
                     <p className="font-semibold text-primary">
-                      <ScrambledText text="Jan 2025 – Present" options={bioOptions} startCondition={isVisible} />
+                      <ScrambledText text="Vice President • 2025 – Present" options={bioOptions} startCondition={isVisible} />
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      <ScrambledText text="Previous Position: Social Media Chair" options={bioOptions} startCondition={isVisible} />
+                      <ScrambledText text="Highest National Ranking: 3rd" options={bioOptions} startCondition={isVisible} />
                     </p>
                   </div>
                 </div>
