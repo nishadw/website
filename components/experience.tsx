@@ -24,9 +24,9 @@ const experiences = [
         startDate: "2025-06-10",
         endDate: "2025-08-13",
         description: [
-            "Deployed vehicle computer vision plugin within a multi-modal ML system for the Android Tactical Awareness Kit to enhance situational awareness and navigation intelligence",
-            "Accelerated inference time by designing a 3-stage, hierarchical deep learning pipeline for lightweight deployment on edge devices in resource-constrained environments",
-            "Improved model reliability using Projected Gradient Descent (PGD) adversarial training on custom Convolutional Neural Networks (CNNs) and transfer learning fine-tuning",
+            "Deployed vehicle computer vision plugin within a multi-modal ML system for the Android Tactical Awareness Kit (ATAK) to enhance situational awareness",
+            "Accelerated inference time by designing a 3-stage, hierarchical pipeline for lightweight deployment on edge devices in resource-constrained operations",
+            "Improved model reliability using Projected Gradient Descent (PGD) adversarial training on custom Convolutional Neural Networks (CNNs) and transfer learning",
           ],
     },
     {
@@ -48,9 +48,9 @@ const experiences = [
         startDate: "2024-09-10",
         endDate: "2024-12-31",
         description: [
-            "Worked with the Digital Transformation for Healthcare team to develop an in-house, 0-to-1 software management platform to aggregate medical policies for auditors to review and edit",
+            "Worked in the Digital Transformation team to develop an in-house, 0-to-1 software management platform to aggregate medical policies for auditors to review and edit",
             "Met weekly with CTO and lead engineer to review progress, align on deliverables, and ensure achievement of Key Performance Indicators (KPIs)",
-            "Automated workflows through cron-based web scraping and engineering document comparison, feature extraction, and sentiment analysis, cutting manual labor costs and errors"
+            "Automated workflows through cron-based web scraping with document comparison and feature extraction, cutting manual labor costs and errors"
         ],
     },
     {
@@ -60,7 +60,7 @@ const experiences = [
         startDate: "2024-01-10",
         endDate: "2024-12-31",
         description: [
-            "Interned at the Fraud & Analytics division under the Return Review Program (RRP), the unified platform processing every U.S. tax return to detect identity theft, fraud, and civil non-compliance",
+            "Interned at the Fraud & Analytics division under the Return Review Program (RRP), the unified platform screening all U.S. filings for fraud and non-compliance",
             "Strengthened system reliability and security by modernizing 20-year-old legacy architecture, advancing enterprise modernization",
             "Supported stakeholder relationships by working with cross-functional teams and divisions in Agile sprints and DevOps meetings"
         ],
