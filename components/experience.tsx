@@ -13,13 +13,13 @@ const experiences = [
         startDate: "2025-11-10",
         endDate: "Present",
         description: [
-            "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using proprietary frameworks and large-scale human intelligence",
+            "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using reinforcement learning with human feedback",
           ],
         current: true,
     },
     {
         company: "General Dynamics Information Technology",
-        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1765411200&v=beta&t=fkTyJHqVfNC_idR8IkeRRhGgA4Ylq-UCGroa522VOt4",
+        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1767225600&v=beta&t=Z2JEYq8dJTCAhU54rEPTCGAkfwA6DRz6PWTvsDsfHNM",
         position: "Software Engineer Intern",
         startDate: "2025-06-10",
         endDate: "2025-08-13",
@@ -31,7 +31,7 @@ const experiences = [
     },
     {
         company: "General Dynamics Information Technology",
-        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1765411200&v=beta&t=fkTyJHqVfNC_idR8IkeRRhGgA4Ylq-UCGroa522VOt4",
+        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1767225600&v=beta&t=Z2JEYq8dJTCAhU54rEPTCGAkfwA6DRz6PWTvsDsfHNM",
         position: "Project Lead",
         startDate: "2025-01-10",
         endDate: "2025-05-31",
