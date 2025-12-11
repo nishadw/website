@@ -37,7 +37,7 @@ const experiences = [
         endDate: "2025-05-31",
         description: [
             "Led cross-functional teams in Frontend, Backend, UI/UX, and ML to build Retrieval Augmented Generation (RAG) pipeline for analysis of large document corpus",
-            "Improved data retrieval speed and discovery by 95% by implementing dual database management system with relationship mapping and similarity search",
+            "Improved data retrieval speed and discovery by implementing dual database management system with relationship mapping and similarity search",
             "Increased search accuracy via custom semantic chunking, Name Entity Recognition (NER) extraction, and metadata enrichment"
         ],
     },
