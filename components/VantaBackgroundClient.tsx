@@ -35,7 +35,7 @@ export default function VantaBackgroundClient() {
             scale: 1.0,
             scaleMobile: 1.0,
             color: 0x3452bb,
-            backgroundColor: 0x0,
+            backgroundColor: 0x000000,
 
             // maxDistance: 20.0,
             // spacing: 100.0,
