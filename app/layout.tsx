@@ -3,7 +3,8 @@ import type { Metadata } from "next"
 import { Bebas_Neue } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
-import VantaBackgroundClient from "@/components/VantaBackgroundClient" // Client-only
+import VantaBackgroundClient from "@/components/VantaBackgroundClient"
+import { PHProvider } from "./providers" // <--- 1. Add this import
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -30,12 +31,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={bebasNeue.variable}>
       <body className="font-body relative min-h-screen">
-        {/* Persistent Vanta.js background */}
-        <VantaBackgroundClient />
+        <PHProvider> {/* <--- 2. Open Wrapper here */}
+          
+          {/* Persistent Vanta.js background */}
+          <VantaBackgroundClient />
 
-        {/* Navigation and page content */}
-        <Navigation />
-        {children}
+          {/* Navigation and page content */}
+          <Navigation />
+          {children}
+          
+        </PHProvider> {/* <--- 3. Close Wrapper here */}
       </body>
     </html>
   )
