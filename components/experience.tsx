@@ -32,7 +32,7 @@ const experiences = [
     {
         company: "General Dynamics Information Technology",
         logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1767225600&v=beta&t=Z2JEYq8dJTCAhU54rEPTCGAkfwA6DRz6PWTvsDsfHNM",
-        position: "Project Lead",
+        position: "Technical Project Lead",
         startDate: "2025-01-10",
         endDate: "2025-05-31",
         description: [
@@ -44,7 +44,7 @@ const experiences = [
     {
         company: "Booz Allen Hamilton",
         logoURL: "https://bizfayetteville.com/images/article/P6M2zix5T3DghFNRcWiXLbPz6qM9CqpWTAle7h2Y.jpg",
-        position: "Project Manager",
+        position: "Technical Project Manager",
         startDate: "2024-09-10",
         endDate: "2024-12-31",
         description: [
