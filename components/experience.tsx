@@ -11,7 +11,7 @@ const experiences = [
         logoURL: "https://s3-eu-west-1.amazonaws.com/tpd/logos/623e9001c220860de22b0fde/0x0.png",
         position: "Applied AI Engineer",
         startDate: "2025-11-10",
-        endDate: "Present",
+        endDate: "2025-12-31",
         description: [
             "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using reinforcement learning with human feedback",
           ],
