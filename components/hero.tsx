@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-// Added 'Network' for Operations Research
 import { Github, Linkedin, Mail, ArrowDown, FileText, Code2, BookOpen, User, TrendingUp, Brain, Gamepad2, Target, Network } from "lucide-react"
 import { Link } from "react-scroll"
 import { Analytics } from "@vercel/analytics/next"
@@ -116,6 +115,7 @@ export function Hero() {
     }
   ]
 
+  // Unified Speed Option
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
 
   return (
@@ -134,7 +134,7 @@ export function Hero() {
               />
             </div>
             <h1 className="text-4xl md:text-5xl leading-tight tracking-wider font-heading text-white mb-6">
-              <ScrambledText text="NISHAD WAJGE" options={{ revealSpeed: 4, scrambleDuration: 10 }} startCondition={isVisible} />
+              <ScrambledText text="NISHAD WAJGE" options={bioOptions} startCondition={isVisible} />
             </h1>
             
             <div className="flex justify-center space-x-3">
@@ -164,21 +164,23 @@ export function Hero() {
           <CardHeader>
              <div className="flex items-center gap-3">
                 <User className="h-6 w-6 text-primary" />
-                <CardTitle className="text-xl font-heading tracking-wide">About Me</CardTitle>
+                <CardTitle className="text-xl font-heading tracking-wide">
+                    <ScrambledText text="About Me" options={bioOptions} startCondition={isVisible} />
+                </CardTitle>
              </div>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground font-mono leading-relaxed">
               <ScrambledText 
                 text="I am a student at the University of Maryland studying Computer Science, Business, and Statistics. I enjoy building systems that leverage data to solve complex problems. I'm always looking to make a meaningful impact through my work, so feel free to reach out!" 
-                options={{ totalDuration: 40, scrambleDuration: 5 }} 
+                options={bioOptions} 
                 startCondition={isVisible} 
               />
             </p>
           </CardContent>
         </Card>
 
-        {/* 3. Areas of Interest (Added Operations Research) */}
+        {/* 3. Areas of Interest */}
         <Card className="bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-3">
@@ -197,9 +199,11 @@ export function Hero() {
                       <Brain className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">Artificial Intelligence</h3>
+                      <h3 className="font-semibold text-white text-sm">
+                        <ScrambledText text="Artificial Intelligence" options={bioOptions} startCondition={isVisible} />
+                      </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        Computer vision, natural language processing, & neural networks
+                        <ScrambledText text="Computer vision, natural language processing, & neural networks" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
@@ -210,9 +214,11 @@ export function Hero() {
                       <TrendingUp className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">Quantitative Finance</h3>
+                      <h3 className="font-semibold text-white text-sm">
+                        <ScrambledText text="Quantitative Finance" options={bioOptions} startCondition={isVisible} />
+                      </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        Algorithmic trading, statistical arbitrage, & stochastic modeling
+                        <ScrambledText text="Algorithmic trading, statistical arbitrage, & stochastic modeling" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
@@ -223,9 +229,11 @@ export function Hero() {
                       <Gamepad2 className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">Game Theory</h3>
+                      <h3 className="font-semibold text-white text-sm">
+                        <ScrambledText text="Game Theory" options={bioOptions} startCondition={isVisible} />
+                      </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        Markov decision processes, stochastic optimization, & reinforcement learning
+                        <ScrambledText text="Markov decision processes, stochastic optimization, & reinforcement learning" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
@@ -236,9 +244,11 @@ export function Hero() {
                       <Network className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">Data Science</h3>
+                      <h3 className="font-semibold text-white text-sm">
+                        <ScrambledText text="Data Science" options={bioOptions} startCondition={isVisible} />
+                      </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        Data visualization, predictive modeling, & statistical analysis
+                        <ScrambledText text="Data visualization, predictive modeling, & statistical analysis" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
@@ -252,7 +262,9 @@ export function Hero() {
             <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
                     <Code2 className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-xl font-heading tracking-wide">Technical Skills</CardTitle>
+                    <CardTitle className="text-xl font-heading tracking-wide">
+                        <ScrambledText text="Technical Skills" options={bioOptions} startCondition={isVisible} />
+                    </CardTitle>
                 </div>
             </CardHeader>
             <CardContent>
@@ -260,7 +272,7 @@ export function Hero() {
                   {skillCategories.map((group) => (
                     <div key={group.category} className="space-y-2">
                       <h4 className="text-xs font-semibold font-mono text-muted-foreground uppercase tracking-wider pl-1">
-                        {group.category}
+                        <ScrambledText text={group.category} options={bioOptions} startCondition={isVisible} />
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {group.items.map((skill) => (
@@ -284,7 +296,9 @@ export function Hero() {
              <CardHeader className="pb-3">
                 <div className="flex items-center gap-3">
                     <BookOpen className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-xl font-heading tracking-wide">Academic coursework</CardTitle>
+                    <CardTitle className="text-xl font-heading tracking-wide">
+                        <ScrambledText text="Academic coursework" options={bioOptions} startCondition={isVisible} />
+                    </CardTitle>
                 </div>
             </CardHeader>
              <CardContent>
@@ -303,22 +317,6 @@ export function Hero() {
         </Card>
 
       </div>
-
-      {/* Explore More Button */}
-      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <Link
-          to="experience"
-          smooth={true}
-          duration={1000}
-          offset={-50}
-          containerId="scroll-container"
-        >
-          <Button variant="ghost" className="group animate-hover-up-down hover:bg-transparent text-muted-foreground hover:text-white transition-all duration-300 font-heading tracking-wider">
-            <span className="mr-2">EXPLORE MORE </span>
-            <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
-          </Button>
-        </Link>
-      </div> */}
 
       <Analytics />
     </section>
