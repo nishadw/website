@@ -109,7 +109,7 @@ export function Experience() {
     }, []);
 
     return (
-        <section ref={sectionRef} id="experience" className="pb-12 font-mono">
+        <section ref={sectionRef} id="experience" className="py-12 font-mono">
             <div className="container mx-auto px-4">
                 <h2 className="text-5xl md:text-6xl text-center mb-20 text-white tracking-wider font-heading">
                     EXPERIENCE

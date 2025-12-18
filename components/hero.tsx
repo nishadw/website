@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ArrowDown, FileText, GraduationCap, Code2, BookOpen, User } from "lucide-react"
+// Added 'Network' for Operations Research
+import { Github, Linkedin, Mail, ArrowDown, FileText, Code2, BookOpen, User, TrendingUp, Brain, Gamepad2, Target, Network } from "lucide-react"
 import { Link } from "react-scroll"
 import { Analytics } from "@vercel/analytics/next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -95,19 +96,25 @@ export function Hero() {
 
   // Data
   const coursework = [
-    "Computational Game Theory", "Machine Learning", "Artificial Intelligence", "Computer Vision",
-    "Data Science", "Computer Systems", "Statistical Computing",
-    "Applied Probability & Statistics", "Data Structures & Algorithms", "Supply Chain Management", "Accounting", "Microeconomics", "Discrete Mathematics",
+    "Computational Game Theory", "Machine Learning", "Artificial Intelligence", "Computer Vision", "Data Science", "Computer Systems", "Data Structures & Algorithms", "Organization of Programming Languages", 
+    "Statistical Computing", "Applied Probability & Statistics", 
+     "Financial Markets", "Supply Chain Management", "Accounting", "Microeconomics", "Discrete Mathematics", "Multivariate Calculus", "Linear Algebra"
   ]
   
-  const skills = [
-      // Languages
-      "Python", "Java", "C/C++", "JavaScript", "SQL", "R", "Rust", "Bash", "Assembly",
-      // Frameworks & Libraries
-      "PyTorch", "TensorFlow", "Keras", "Scikit-learn", "LangChain", "React.js", "Node.js", "Flask",
-      // Tools & DBs
-      "Git", "Linux", "AWS", "PostgreSQL", "GraphQL", "Neo4J", "Qdrant", "SAS", "MatLab"
-    ]
+  const skillCategories = [
+    {
+      category: "Languages",
+      items: ["Python", "C/C++", "Java", "JavaScript", "SQL", "R", "Rust", "OCaml", "Bash", "Assembly"]
+    },
+    {
+      category: "AI & Data",
+      items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "LangChain", "RStudio", "MatLab", "SAS"]
+    },
+    {
+      category: "Dev & Cloud",
+      items: ["React.js", "Node.js", "Flask", "AWS", "Jenkins", "PostgreSQL", "Neo4J", "Qdrant", "Linux", "Git"]
+    }
+  ]
 
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
 
@@ -117,10 +124,9 @@ export function Hero() {
       {/* Bento Grid Layout */}
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
 
-        {/* 1. Profile Box (Larger Image, Left Side) */}
+        {/* 1. Profile Box */}
         <Card className="lg:row-span-2 bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl flex flex-col items-center justify-center p-8 text-center border-border/50">
            <div className="relative inline-block mb-8 mt-4">
-              {/* Image made significantly bigger */}
               <img
                 src="/p2.png?height=300&width=300"
                 alt="Nishad Wajge"
@@ -153,7 +159,7 @@ export function Hero() {
             </div>
         </Card>
 
-        {/* 2. About Me (Top Right - Wide) */}
+        {/* 2. About Me */}
         <Card className="md:col-span-2 bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
           <CardHeader>
              <div className="flex items-center gap-3">
@@ -164,7 +170,7 @@ export function Hero() {
           <CardContent>
             <p className="text-muted-foreground font-mono leading-relaxed">
               <ScrambledText 
-                text="I am a Computer Science student with a strong interest in software engineering, artificial intelligence, game theory, and securities trading. I enjoy building systems that leverage data to solve complex problems." 
+                text="I am a student at the University of Maryland studying Computer Science, Business, and Statistics. I enjoy building systems that leverage data to solve complex problems. I'm always looking to make a meaningful impact through my work, so feel free to reach out!" 
                 options={{ totalDuration: 40, scrambleDuration: 5 }} 
                 startCondition={isVisible} 
               />
@@ -172,54 +178,113 @@ export function Hero() {
           </CardContent>
         </Card>
 
-        {/* 3. Education (Middle Right - Small Box) */}
+        {/* 3. Areas of Interest (Added Operations Research) */}
         <Card className="bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-primary" />
+              <Target className="h-6 w-6 text-primary" />
               <CardTitle className="text-xl font-heading tracking-wide">
-                  <ScrambledText text="Education" options={bioOptions} startCondition={isVisible} />
+                  <ScrambledText text="Areas of Interest" options={bioOptions} startCondition={isVisible} />
               </CardTitle>
             </div>
           </CardHeader>
           <CardContent>
-             <div className="flex flex-col gap-1">
-                <p className="font-semibold text-primary text-lg leading-relaxed">
-                  University of Maryland, College Park
-                </p>
-                <p className="text-muted-foreground font-mono text-med leading-relaxed">
-                  2023 - 2026 <br/> 
-                  Computer Science & Machine Learning <br/>
-                  Minors: Business, Statistics <br/> <br/>
-                  Clubs: App Development Club, Google Developer Student Club, Club Golf
-                </p>
+             <div className="flex flex-col gap-4 mt-1">
+                
+                {/* ML/AI */}
+                <div className="flex items-start gap-3">
+                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                      <Brain className="h-4 w-4 text-primary" />
+                   </div>
+                   <div>
+                      <h3 className="font-semibold text-white text-sm">Artificial Intelligence</h3>
+                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                        Computer vision, natural language processing, & neural networks
+                      </p>
+                   </div>
+                </div>
+
+                {/* Quant */}
+                <div className="flex items-start gap-3">
+                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                      <TrendingUp className="h-4 w-4 text-primary" />
+                   </div>
+                   <div>
+                      <h3 className="font-semibold text-white text-sm">Quantitative Finance</h3>
+                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                        Algorithmic trading, statistical arbitrage, & stochastic modeling
+                      </p>
+                   </div>
+                </div>
+
+                {/* Game Theory */}
+                <div className="flex items-start gap-3">
+                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                      <Gamepad2 className="h-4 w-4 text-primary" />
+                   </div>
+                   <div>
+                      <h3 className="font-semibold text-white text-sm">Game Theory</h3>
+                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                        Markov decision processes, stochastic optimization, & reinforcement learning
+                      </p>
+                   </div>
+                </div>
+
+                {/* Data Science */}
+                <div className="flex items-start gap-3">
+                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                      <Network className="h-4 w-4 text-primary" />
+                   </div>
+                   <div>
+                      <h3 className="font-semibold text-white text-sm">Data Science</h3>
+                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                        Data visualization, predictive modeling, & statistical analysis
+                      </p>
+                   </div>
+                </div>
+
              </div>
           </CardContent>
         </Card>
 
-        {/* 4. Technical Skills (Middle Right - Small Box) */}
+        {/* 4. Technical Skills */}
         <Card className="bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
-            <CardHeader className="pb-3">
+            <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
                     <Code2 className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-xl font-heading tracking-wide">Tech Stack</CardTitle>
+                    <CardTitle className="text-xl font-heading tracking-wide">Technical Skills</CardTitle>
                 </div>
             </CardHeader>
             <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <Badge key={skill} variant="outline" className="font-mono bg-background/50 hover:bg-primary/20 transition-colors">{skill}</Badge>
+                <div className="flex flex-col gap-4">
+                  {skillCategories.map((group) => (
+                    <div key={group.category} className="space-y-2">
+                      <h4 className="text-xs font-semibold font-mono text-muted-foreground uppercase tracking-wider pl-1">
+                        {group.category}
+                      </h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {group.items.map((skill) => (
+                          <Badge 
+                            key={skill} 
+                            variant="outline" 
+                            className="font-mono bg-background/50 hover:bg-primary/20 transition-colors"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
             </CardContent>
         </Card>
 
-        {/* 5. Coursework / Interests (Bottom - Full Width) */}
+        {/* 5. Coursework */}
         <Card className="lg:col-span-3 bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
              <CardHeader className="pb-3">
                 <div className="flex items-center gap-3">
                     <BookOpen className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-xl font-heading tracking-wide">Academic Focus</CardTitle>
+                    <CardTitle className="text-xl font-heading tracking-wide">Academic coursework</CardTitle>
                 </div>
             </CardHeader>
              <CardContent>
