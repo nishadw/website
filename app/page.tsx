@@ -30,7 +30,7 @@ export default function Page() {
 
         <section
           id="experience"
-          className="min-h-[100dvh] mb-24 bg-background-dark/80 flex items-center justify-center"
+          className="min-h-[100dvh] bg-background-dark/80 flex items-center justify-center"
         >
           <Experience />
         </section>
