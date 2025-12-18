@@ -93,10 +93,13 @@ export function Publications() {
   }
 
   return (
-    <section id="publications" ref={ref} className="pb-12 font-mono">
+    // Added scroll-mt-28 here as well for consistent scrolling behavior
+    <section id="publications" ref={ref} className="pb-12 pt-4 scroll-mt-28 font-mono">
       <div className="container mx-auto px-4">
         <div className={`${isVisible ? "fade-in" : "opacity-0"}`}>
-          <h2 className="text-5xl md:text-6xl text-center mb-16 text-white tracking-wider font-heading">
+          
+          {/* Reduced mb-16 to mb-10 */}
+          <h2 className="text-5xl md:text-6xl text-center mb-10 text-white tracking-wider font-heading">
             RESEARCH
           </h2>
 
