@@ -1,8 +1,6 @@
 "use client"
 
 import { Link } from "react-scroll"
-import { ArrowRight } from "lucide-react"
-
 
 const navItems = [
   { id: "hero", label: "HOME" },
@@ -12,8 +10,8 @@ const navItems = [
 
 export function Navigation() {
   return (
-    <nav className="fixed top-1/2 -translate-y-1/2 left-8 z-50 hidden md:block">
-      <ul className="space-y-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center py-8">
+      <ul className="flex items-center gap-x-12">
         {navItems.map((item) => (
           <li key={item.id}>
             <Link
@@ -22,20 +20,31 @@ export function Navigation() {
               smooth={true}
               duration={800}
               offset={-50}
-              // This is the fix, just like the "Explore More" button
-              containerId="scroll-container" 
-              className="group flex items-center gap-x-4 cursor-pointer text-muted-foreground hover:text-white transition-colors duration-300"
-              activeClass="text-white font-bold"
+              containerId="scroll-container"
+              
+              // ANIMATION LOGIC:
+              // 1. Gradient: White (End) -> Blue (Middle) -> Grey (Start)
+              // 2. Size: 300% width so only one color shows at a time.
+              // 3. Position: Start at 'right' (Grey). Hover to 'left' (White).
+              // 4. Transition: As it slides from Right to Left, it passes through Blue.
+              className="
+                cursor-pointer font-bold tracking-widest text-sm
+                
+                bg-gradient-to-r from-white via-blue-500 to-zinc-500
+                bg-[length:300%_100%] 
+                bg-right 
+                
+                bg-clip-text text-transparent
+                
+                hover:bg-left
+                transition-all duration-500 ease-in-out
+              "
+              
+              // ACTIVE STATE:
+              // Keep it solid white when the user is actually on that section
+              activeClass="!text-white !bg-none"
             >
-              {/* Arrow that appears on hover */}
-              <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-large font-bold">
-                <ArrowRight className="w-5 h-5" />
-              </span>
-
-              {/* Label text */}
-              <span className="font-heading tracking-widest text-large font-semibold">
-                {item.label}
-              </span>
+              {item.label}
             </Link>
           </li>
         ))}

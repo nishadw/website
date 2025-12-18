@@ -107,7 +107,7 @@ export function Hero() {
     },
     {
       category: "AI & Data",
-      items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "LangChain", "RStudio", "MatLab", "SAS", "Pandas"]
+      items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "LangChain", "RStudio", "MatLab", "SAS", "NumPy"]
     },
     {
       category: "Dev & Cloud",
@@ -218,7 +218,7 @@ export function Hero() {
                         <ScrambledText text="Quantitative Finance" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Algorithmic Trading, Stochastic Modeling, & Risk Management" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="Algorithmic Trading, Stochastic Modeling, Time-Series Analysis, & Risk Management" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
