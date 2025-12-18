@@ -119,7 +119,7 @@ export function Hero() {
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
 
   return (
-    <section id="hero" ref={ref} className="relative min-h-screen container mx-auto pb-12 pt-4 flex items-center justify-center">
+    <section id="hero" ref={ref} className="relative min-h-screen container mx-auto pb-12 pt-12 flex items-center justify-center">
       
       {/* Bento Grid Layout */}
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
