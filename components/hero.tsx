@@ -103,11 +103,11 @@ export function Hero() {
   const skillCategories = [
     {
       category: "Languages",
-      items: ["Python", "C/C++", "Java", "JavaScript", "SQL", "R", "Rust", "OCaml", "Bash", "Assembly"]
+      items: ["Python", "C/C++", "Java", "JavaScript", "SQL", "R", "Rust", "OCaml", "Bash", "x86-64"]
     },
     {
       category: "AI & Data",
-      items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "LangChain", "RStudio", "MatLab", "SAS"]
+      items: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "LangChain", "RStudio", "MatLab", "SAS", "Pandas"]
     },
     {
       category: "Dev & Cloud",
@@ -203,7 +203,7 @@ export function Hero() {
                         <ScrambledText text="Artificial Intelligence" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Computer vision, natural language processing, & neural networks" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="Computer Vision, Generative AI, Natural Language Processing, & Neural Networks" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
@@ -218,7 +218,7 @@ export function Hero() {
                         <ScrambledText text="Quantitative Finance" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Algorithmic trading, statistical arbitrage, & stochastic modeling" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="Algorithmic Trading, Stochastic Modeling, & Risk Management" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
@@ -233,22 +233,22 @@ export function Hero() {
                         <ScrambledText text="Game Theory" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Markov decision processes, stochastic optimization, & reinforcement learning" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="Markov Decision Processes, Stochastic Optimization, & Reinforcement Learning" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
 
-                {/* Data Science */}
+                {/* Software Engineering */}
                 <div className="flex items-start gap-3">
                    <div className="mt-1 bg-primary/10 p-2 rounded-lg">
                       <Network className="h-4 w-4 text-primary" />
                    </div>
                    <div>
                       <h3 className="font-semibold text-white text-sm">
-                        <ScrambledText text="Data Science" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="Software Engineering" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Data visualization, predictive modeling, & statistical analysis" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="DevOps, Cloud Computing, Full Stack Development, & System Design" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>

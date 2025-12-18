@@ -15,7 +15,7 @@ const bebasNeue = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: "Nishad's Portfolio",
-  description: "Engineer | Researcher",
+  description: "Developer | Trader | Researcher",
   icons: {
     icon: [
       { url: "/favicon.ico?v=2", sizes: "any" },
