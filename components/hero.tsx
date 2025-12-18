@@ -97,7 +97,7 @@ export function Hero() {
   const coursework = [
     "Computational Game Theory", "Machine Learning", "Artificial Intelligence", "Computer Vision", "Data Science", "Computer Systems", "Data Structures & Algorithms", "Organization of Programming Languages", 
     "Statistical Computing", "Applied Probability & Statistics", 
-     "Financial Markets", "Supply Chain Management", "Accounting", "Microeconomics", "Discrete Mathematics", "Multivariate Calculus", "Linear Algebra"
+     "Financial Management", "Supply Chain Management", "Accounting", "Microeconomics", "Discrete Mathematics", "Multivariate Calculus", "Linear Algebra"
   ]
   
   const skillCategories = [
