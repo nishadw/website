@@ -110,7 +110,7 @@ export function Experience() {
 
     return (
         // scroll-mt-28 ensures the section title isn't hidden behind the sticky nav on scroll
-        <section ref={sectionRef} id="experience" className="pb-12 pt-16 scroll-mt-28 font-mono">
+        <section ref={sectionRef} id="experience" className="pb-12 pt-24 scroll-mt-28 font-mono">
             <div className="container mx-auto px-4">
                 {/* Changed mb-20 to mb-10 to pull the timeline up */}
                 <h2 className="text-5xl md:text-6xl text-center mb-10 text-white tracking-wider font-heading">
