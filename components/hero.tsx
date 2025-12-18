@@ -170,7 +170,7 @@ export function Hero() {
              </div>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground font-mono leading-relaxed">
+            <p className="text-muted-foreground text-sm font-mono leading-relaxed">
               <ScrambledText 
                 text="I am a student at the University of Maryland studying Computer Science, Business, and Statistics. I enjoy building systems that leverage data to solve complex problems. I'm always looking to make a meaningful impact through my work, so feel free to reach out!" 
                 options={bioOptions} 
