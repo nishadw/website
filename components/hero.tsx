@@ -305,7 +305,7 @@ export function Hero() {
       </div>
 
       {/* Explore More Button */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <Link
           to="experience"
           smooth={true}
@@ -318,7 +318,7 @@ export function Hero() {
             <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" />
           </Button>
         </Link>
-      </div>
+      </div> */}
 
       <Analytics />
     </section>
