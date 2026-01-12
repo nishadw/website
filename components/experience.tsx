@@ -8,7 +8,8 @@ import { Building, Calendar, ChevronDown } from "lucide-react"
 const experiences = [
     {
         company: "Mercor",
-        logoURL: "https://s3-eu-west-1.amazonaws.com/tpd/logos/623e9001c220860de22b0fde/0x0.png",
+        // UPDATED: Points to public/mercor.png
+        logoURL: "/mercor.png",
         position: "Applied AI Engineer",
         startDate: "2025-11-10",
         endDate: "2025-12-31",
@@ -19,7 +20,8 @@ const experiences = [
     },
     {
         company: "General Dynamics Information Technology",
-        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1767225600&v=beta&t=Z2JEYq8dJTCAhU54rEPTCGAkfwA6DRz6PWTvsDsfHNM",
+        // UPDATED: Points to public/gdit.png
+        logoURL: "/gdit.jpeg",
         position: "Software Engineer Intern",
         startDate: "2025-06-10",
         endDate: "2025-08-13",
@@ -31,7 +33,8 @@ const experiences = [
     },
     {
         company: "General Dynamics Information Technology",
-        logoURL: "https://media.licdn.com/dms/image/v2/D4E0BAQF4o2O-vRcJKQ/company-logo_200_200/B4EZmlTAR2KgAI-/0/1759414847092/gdit_logo?e=1767225600&v=beta&t=Z2JEYq8dJTCAhU54rEPTCGAkfwA6DRz6PWTvsDsfHNM",
+        // UPDATED: Points to public/gdit.png
+        logoURL: "/gdit.jpeg",
         position: "Technical Project Lead",
         startDate: "2025-01-10",
         endDate: "2025-05-31",
@@ -43,7 +46,8 @@ const experiences = [
     },
     {
         company: "Booz Allen Hamilton",
-        logoURL: "https://bizfayetteville.com/images/article/P6M2zix5T3DghFNRcWiXLbPz6qM9CqpWTAle7h2Y.jpg",
+        // UPDATED: Points to public/bah.png
+        logoURL: "/bah.jpg",
         position: "Technical Project Manager",
         startDate: "2024-09-10",
         endDate: "2024-12-31",
@@ -55,7 +59,8 @@ const experiences = [
     },
     {
         company: "Internal Revenue Service",
-        logoURL: "https://www.siegelgale.com/app/uploads/2016/04/SG_AmandaVoss_1-1.jpg",
+        // UPDATED: Points to public/irs.png
+        logoURL: "/irs.jpeg",
         position: "Software Engineer Intern ", 
         startDate: "2024-01-10",
         endDate: "2024-12-31",
@@ -68,9 +73,9 @@ const experiences = [
 ]
 
 // Helper to format the period string
-const formatPeriod = (startDateStr, endDateStr) => {
+const formatPeriod = (startDateStr: string, endDateStr: string) => {
     const startDate = new Date(startDateStr);
-    const options = { year: 'numeric', month: 'short' };
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short' };
     const startFormatted = startDate.toLocaleDateString('en-US', options);
 
     if (endDateStr === 'Present') {
@@ -84,8 +89,8 @@ const formatPeriod = (startDateStr, endDateStr) => {
 
 
 export function Experience() {
-    const [openExperience, setOpenExperience] = useState(null);
-    const sectionRef = useRef(null);
+    const [openExperience, setOpenExperience] = useState<string | null>(null);
+    const sectionRef = useRef<HTMLElement>(null);
     const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {

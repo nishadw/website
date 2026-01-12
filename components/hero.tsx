@@ -248,7 +248,7 @@ export function Hero() {
                         <ScrambledText text="Software Engineering" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="DevOps, Cloud Computing, Full Stack Development, Mobile Development, & System Design" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="DevOps, Cloud Computing, Full Stack Development, & System Design" options={bioOptions} startCondition={isVisible} />
                       </p>
                    </div>
                 </div>
