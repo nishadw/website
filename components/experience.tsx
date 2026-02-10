@@ -10,7 +10,7 @@ const experiences = [
         company: "Mercor",
         // UPDATED: Points to public/mercor.png
         logoURL: "/mercor.png",
-        position: "Applied AI Engineer",
+        position: "Software Engineer",
         startDate: "2025-11-10",
         endDate: "2025-12-31",
         description: [

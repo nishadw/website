@@ -20,9 +20,15 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
+        // Keeps Bebas for default sans/headings if that is your preference
         sans: ["var(--font-bebas)", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Calibri", "Segoe UI", "Tahoma", "Geneva", "Verdana", "sans-serif"],
+        
+        // UPDATED: Body font now uses Zalando Sans -> Inter -> System Default
+        body: ['"Zalando Sans"', '"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
+        
         heading: ["var(--font-bebas)", "ui-sans-serif", "system-ui", "sans-serif"],
+
+        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",

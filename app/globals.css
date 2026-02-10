@@ -1,5 +1,7 @@
 /* globals.css */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+/* 1. Import Zalando Sans & Inter (Fallback) */
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -37,7 +39,10 @@
     /* Make background transparent so Vanta shows */
     background: transparent;
     color: rgb(var(--foreground));
-    font-family: 'JetBrains Mono', monospace;
+    
+    /* UPDATED: Uses the new font stack */
+    font-family: "Zalando Sans", "Inter", sans-serif;
+    
     line-height: 1.6;
   }
 
@@ -50,7 +55,6 @@
   .body-text { line-height: 1.6; }
 }
 
-/* (The rest of your utilities and keyframes code remains the same) */
 @layer utilities {
   .elegant-shadow {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -92,7 +96,6 @@
     animation: pulse-glow 2.5s infinite ease-in-out;
   }
 
-  /* === ADDED THIS CLASS FOR THE BUTTON ANIMATION === */
   .animate-hover-up-down {
     animation: hover-up-down 2s ease-in-out infinite;
   }
@@ -179,7 +182,6 @@
   }
 }
 
-/* === ADDED THESE KEYFRAMES FOR THE BUTTON ANIMATION === */
 @keyframes hover-up-down {
   0%, 100% {
     transform: translateY(0);

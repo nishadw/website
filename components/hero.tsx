@@ -164,7 +164,7 @@ export function Hero() {
           <CardHeader>
              <div className="flex items-center gap-3">
                 <User className="h-6 w-6 text-primary" />
-                <CardTitle className="text-xl font-heading tracking-wide">
+                <CardTitle className="text-2xl font-heading tracking-wide">
                     <ScrambledText text="About Me" options={bioOptions} startCondition={isVisible} />
                 </CardTitle>
              </div>
@@ -185,7 +185,7 @@ export function Hero() {
           <CardHeader className="pb-2">
             <div className="flex items-center gap-3">
               <Target className="h-6 w-6 text-primary" />
-              <CardTitle className="text-xl font-heading tracking-wide">
+              <CardTitle className="text-2xl font-heading tracking-wide">
                   <ScrambledText text="Areas of Interest" options={bioOptions} startCondition={isVisible} />
               </CardTitle>
             </div>
@@ -199,7 +199,7 @@ export function Hero() {
                       <Brain className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">
+                      <h3 className="font-heading text-white text-m">
                         <ScrambledText text="Artificial Intelligence" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
@@ -214,7 +214,7 @@ export function Hero() {
                       <TrendingUp className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">
+                      <h3 className="font-heading text-white text-m">
                         <ScrambledText text="Quantitative Finance" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
@@ -229,7 +229,7 @@ export function Hero() {
                       <Gamepad2 className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">
+                      <h3 className="font-heading text-white text-m">
                         <ScrambledText text="Game Theory" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
@@ -244,7 +244,7 @@ export function Hero() {
                       <Network className="h-4 w-4 text-primary" />
                    </div>
                    <div>
-                      <h3 className="font-semibold text-white text-sm">
+                      <h3 className="font-heading text-white text-m">
                         <ScrambledText text="Software Engineering" options={bioOptions} startCondition={isVisible} />
                       </h3>
                       <p className="text-xs text-muted-foreground font-mono mt-0.5">
@@ -262,7 +262,7 @@ export function Hero() {
             <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
                     <Code2 className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-xl font-heading tracking-wide">
+                    <CardTitle className="text-2xl font-heading tracking-wide">
                         <ScrambledText text="Technical Skills" options={bioOptions} startCondition={isVisible} />
                     </CardTitle>
                 </div>
@@ -271,7 +271,7 @@ export function Hero() {
                 <div className="flex flex-col gap-4">
                   {skillCategories.map((group) => (
                     <div key={group.category} className="space-y-2">
-                      <h4 className="text-xs font-semibold font-mono text-muted-foreground uppercase tracking-wider pl-1">
+                      <h4 className="text-m font-heading text-white">
                         <ScrambledText text={group.category} options={bioOptions} startCondition={isVisible} />
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
@@ -296,7 +296,7 @@ export function Hero() {
              <CardHeader className="pb-3">
                 <div className="flex items-center gap-3">
                     <BookOpen className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-xl font-heading tracking-wide">
+                    <CardTitle className="text-2xl font-heading tracking-wide">
                         <ScrambledText text="Academic coursework" options={bioOptions} startCondition={isVisible} />
                     </CardTitle>
                 </div>
