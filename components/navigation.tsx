@@ -58,7 +58,7 @@ export function Navigation() {
               offset={-50}
               containerId="scroll-container"
               className="
-                cursor-pointer font-bold tracking-widest text-sm
+                cursor-pointer font-heading tracking-widest text-large
                 text-gray-400
                 hover:text-white
                 transition-colors duration-300
