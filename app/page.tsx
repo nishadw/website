@@ -23,13 +23,10 @@ export default function Page() {
 
   return (
     <>
-      {/* 1. LOADING OVERLAY 
-        - Covers the whole screen (z-50)
-        - Fades out when isLoaded is true
-      */}
+      {/* 1. LOADING OVERLAY */}
       <div 
         className={`
-          fixed inset-0 z-50 flex items-center justify-center bg-neutral-950
+          fixed inset-0 z-[60] flex items-center justify-center bg-neutral-950
           transition-opacity duration-1000 ease-in-out pointer-events-none
           ${isLoaded ? "opacity-0" : "opacity-100"}
         `}
@@ -42,38 +39,41 @@ export default function Page() {
         </div>
       </div>
 
-      {/* 2. MAIN SCROLL CONTAINER 
-        - We keep your existing layout structure.
+      {/* 2. NAVIGATION 
+          MOVED OUTSIDE: It must be outside the transformed/animated div below 
+          to stay truly "fixed" to the top of the viewport.
       */}
-      <div
-        id="scroll-container"
-        className="h-[100dvh] overflow-y-scroll"
-      >
-        {/* Vanta Background - Fixed position */}
-        <div className="fixed inset-0 z-0">
-          <VantaBackgroundClient onLoaded={() => setIsLoaded(true)} />
-        </div>
+      <div className={`transition-opacity duration-1000 delay-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
+        <Navigation />
+      </div>
 
+      {/* 3. BACKGROUND (Fixed) */}
+      <div className="fixed inset-0 z-0">
+        <VantaBackgroundClient onLoaded={() => setIsLoaded(true)} />
+      </div>
+
+      {/* 4. MAIN CONTENT 
+          - Changed h-[100dvh] to min-h-screen so the WINDOW scrolls naturally.
+          - This fixes the Navigation shrink effect.
+      */}
+      <div className="relative min-h-screen z-10">
+        
         {/* CONTENT WRAPPER 
-           - Wraps Navigation + Main Sections
-           - Adds a subtle slide-up and fade-in animation when loaded
+           - Adds the slide-up animation. 
+           - Navigation is NO LONGER inside here.
         */}
         <div 
           className={`
-            relative z-10 transition-all duration-1000 delay-300
+            transition-all duration-1000 delay-300
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          <div className="sticky top-0 z-20">
-            <Navigation />
-          </div>
-
-          <main className="relative z-10 [transform:translateZ(0)] flex flex-col">
+          <main className="flex flex-col">
             
             {/* Hero Section */}
             <section
               id="hero"
-              className="min-h-[100dvh] mb-24 bg-background-dark/80 flex items-center justify-center"
+              className="min-h-screen mb-24 flex items-center justify-center" // Removed bg-background-dark/80 to let Vanta show
             >
               <Hero />
             </section>
@@ -81,7 +81,7 @@ export default function Page() {
             {/* Experience Section */}
             <section
               id="experience"
-              className="min-h-[100dvh] bg-background-dark/80 flex items-center justify-center"
+              className="min-h-screen flex items-center justify-center"
             >
               <Experience />
             </section>
@@ -89,7 +89,7 @@ export default function Page() {
             {/* Publications Section */}
             <section
               id="publications"
-              className="py-20 bg-background-dark/80 flex items-center justify-center"
+              className="py-20 flex items-center justify-center"
             >
               <Publications />
             </section>
@@ -97,12 +97,12 @@ export default function Page() {
             {/* Footer */}
             <footer
               id="footer"
-              className="w-full pb-8 bg-background-dark/80"
+              className="w-full pb-8"
             >
               <div className="container mx-auto px-4">
-                <div className="h-[1px] w-full bg-zinc-700 mb-8" />
+                <div className="h-[1px] w-full bg-zinc-700/50 mb-8" />
                 <div className="text-center font-mono text-muted-foreground text-sm">
-                  <p>&copy; 2025 Nishad Wajge. All rights reserved.</p>
+                  <p>&copy; 2025 Nishad Wajge. All rights reserved. | [first] dot [last] at gmail dot com</p>
                 </div>
               </div>
             </footer>

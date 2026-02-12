@@ -191,7 +191,7 @@ export function Publications() {
                         <div className="flex-shrink-0">
                           <Button
                             variant="outline"
-                            className="elegant-shadow hover:elegant-shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-heading tracking-wide text-white rounded-2xl"
+                            className="elegant-shadow hover:elegant-shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-mono tracking-wide text-white rounded-2xl"
                             onClick={() => window.open(selectedPublication.link, "_blank", "noopener,noreferrer")}
                           >
                             <ExternalLink className="h-4 w-4 mr-2" />
