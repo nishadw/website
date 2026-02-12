@@ -6,15 +6,40 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building, Calendar, ChevronDown } from "lucide-react"
 
 const experiences = [
+    // {
+    //     company: "Amazon",
+    //     // UPDATED: Points to public/mercor.png
+    //     logoURL: "/amzn.jpg",
+    //     position: "Incoming Software Development Engineer",
+    //     startDate: "Summer 2026",
+    //     endDate: "",
+    //     description: [
+    //         "Amazon Smart Vehicles",
+    //       ],
+    //     current: true,
+    // },
+    {
+        company: "Amazon Leo",
+        // UPDATED: Points to public/mercor.png
+        logoURL: "/leo.jpg",
+        position: "Machine Learning Engineer",
+        startDate: "2026-02-10",
+        endDate: "Present",
+        description: [
+            "Working",
+          ],
+        current: true,
+    },
     {
         company: "Mercor",
         // UPDATED: Points to public/mercor.png
         logoURL: "/mercor.png",
         position: "Software Engineer",
         startDate: "2025-11-10",
-        endDate: "2025-12-31",
+        endDate: "Present",
         description: [
-            "Developing self-supervised Multi-Modal Large Language Models (MLLMs) using reinforcement learning with human feedback",
+            "Benchmarking developer efficiency across software and terminal environments to evaluate human vs. autonomous agents",
+            "Developing data to support the training of Large Language Models via reinforcement learning from human feedback",
           ],
         current: true,
     },
@@ -22,7 +47,7 @@ const experiences = [
         company: "General Dynamics Information Technology",
         // UPDATED: Points to public/gdit.png
         logoURL: "/gdit.jpeg",
-        position: "Software Engineer Intern",
+        position: "Software Engineer",
         startDate: "2025-06-10",
         endDate: "2025-08-13",
         description: [
@@ -61,7 +86,7 @@ const experiences = [
         company: "Internal Revenue Service",
         // UPDATED: Points to public/irs.png
         logoURL: "/irs.jpeg",
-        position: "Software Engineer Intern ", 
+        position: "Software Engineer", 
         startDate: "2024-01-10",
         endDate: "2024-12-31",
         description: [

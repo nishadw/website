@@ -7,6 +7,7 @@ import { Link } from "react-scroll"
 import { Analytics } from "@vercel/analytics/next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Tilt } from "react-tilt"
 
 // --- Scramble hooks (Unchanged) ---
 function useCharacterScramble(text: string, options = {}, startCondition = true) {
@@ -93,6 +94,19 @@ export function Hero() {
     }
   }, [])
 
+  // --- SMOOTHER TILT CONFIGURATION ---
+  const defaultTiltOptions = {
+    reverse:        false,
+    max:            5,      // Reduced for subtlety
+    perspective:    1200,   // Increased for flatter 3D effect
+    scale:          1.01,   // Reduced scale
+    speed:          2000,   // Slower speed for fluid motion
+    transition:     true,
+    axis:           null,
+    reset:          true,
+    easing:         "cubic-bezier(.03,.98,.52,.99)",
+  }
+
   // Data
   const coursework = [
     "Computational Game Theory", "Machine Learning", "Artificial Intelligence", "Computer Vision", "Data Science", "Computer Systems", "Data Structures & Algorithms", "Organization of Programming Languages", 
@@ -111,7 +125,7 @@ export function Hero() {
     },
     {
       category: "Dev & Cloud",
-      items: ["React.js", "Node.js", "Flask", "AWS", "Jenkins", "PostgreSQL", "Neo4J", "Qdrant", "Linux", "Git"]
+      items: ["AWS", "IBM RTC", "Jenkins", "Android SDK", "Git", "Neo4J", "Qdrant", "Linux", "Microsoft Office"]
     }
   ]
 
@@ -125,196 +139,206 @@ export function Hero() {
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
 
         {/* 1. Profile Box */}
-        <Card className="lg:row-span-2 bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl flex flex-col items-center justify-center p-8 text-center border-border/50">
-           <div className="relative inline-block mb-8 mt-4">
-              <img
-                src="/p2.png?height=300&width=300"
-                alt="Nishad Wajge"
-                className="w-72 h-80 rounded-3xl mx-auto object-cover object-center elegant-shadow-lg hover:scale-105 transition-transform duration-500 float-animation"
-              />
-            </div>
-            <h1 className="text-4xl md:text-5xl leading-tight tracking-wider font-heading text-white mb-6">
-              <ScrambledText text="NISHAD WAJGE" options={bioOptions} startCondition={isVisible} />
-            </h1>
-            
-            <div className="flex justify-center space-x-3">
-              {[
-                { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
-                { icon: FileText, href: "https://drive.google.com/file/d/17JyEIwqFjnf9VDQoQ39DiKqNPmQqbm9E/view?usp=sharing", label: "Resume" },
-              ].map(({ icon: Icon, href, label }, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="icon"
-                  className={`bg-card/50 elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 rounded-xl h-12 w-12`}
-                  asChild
-                >
-                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                    <Icon className="h-6 w-6 text-white" />
-                  </a>
-                </Button>
-              ))}
-            </div>
-        </Card>
+        <Tilt options={defaultTiltOptions} className="lg:row-span-2 h-full">
+            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl flex flex-col items-center justify-center p-8 text-center border-border/50">
+            <div className="relative inline-block mb-8 mt-4">
+                <img
+                    src="/p2.png?height=300&width=300"
+                    alt="Nishad Wajge"
+                    className="w-72 h-80 rounded-3xl mx-auto object-cover object-center elegant-shadow-lg hover:scale-105 transition-transform duration-500 float-animation"
+                />
+                </div>
+                <h1 className="text-4xl md:text-5xl leading-tight tracking-wider font-heading text-white mb-6">
+                <ScrambledText text="NISHAD WAJGE" options={bioOptions} startCondition={isVisible} />
+                </h1>
+                
+                <div className="flex justify-center space-x-3">
+                {[
+                    { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
+                    { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
+                    { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
+                    { icon: FileText, href: "https://drive.google.com/file/d/17JyEIwqFjnf9VDQoQ39DiKqNPmQqbm9E/view?usp=sharing", label: "Resume" },
+                ].map(({ icon: Icon, href, label }, index) => (
+                    <Button
+                    key={index}
+                    variant="outline"
+                    size="icon"
+                    className={`bg-card/50 elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 rounded-xl h-12 w-12`}
+                    asChild
+                    >
+                    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                        <Icon className="h-6 w-6 text-white" />
+                    </a>
+                    </Button>
+                ))}
+                </div>
+            </Card>
+        </Tilt>
 
         {/* 2. About Me */}
-        <Card className="md:col-span-2 bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
-          <CardHeader>
-             <div className="flex items-center gap-3">
-                <User className="h-6 w-6 text-primary" />
-                <CardTitle className="text-2xl font-heading tracking-wide">
-                    <ScrambledText text="About Me" options={bioOptions} startCondition={isVisible} />
-                </CardTitle>
-             </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground text-sm font-mono leading-relaxed">
-              <ScrambledText 
-                text="I am a student at the University of Maryland studying Computer Science, Business, and Statistics. I enjoy building systems that leverage data to solve complex problems. I'm always looking to make a meaningful impact through my work, so feel free to reach out!" 
-                options={bioOptions} 
-                startCondition={isVisible} 
-              />
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* 3. Areas of Interest */}
-        <Card className="bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-3">
-              <Target className="h-6 w-6 text-primary" />
-              <CardTitle className="text-2xl font-heading tracking-wide">
-                  <ScrambledText text="Areas of Interest" options={bioOptions} startCondition={isVisible} />
-              </CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-             <div className="flex flex-col gap-4 mt-1">
-                
-                {/* ML/AI */}
-                <div className="flex items-start gap-3">
-                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
-                      <Brain className="h-4 w-4 text-primary" />
-                   </div>
-                   <div>
-                      <h3 className="font-heading text-white text-m">
-                        <ScrambledText text="Artificial Intelligence" options={bioOptions} startCondition={isVisible} />
-                      </h3>
-                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Computer Vision, Generative AI, Natural Language Processing, & Neural Networks" options={bioOptions} startCondition={isVisible} />
-                      </p>
-                   </div>
-                </div>
-
-                {/* Quant */}
-                <div className="flex items-start gap-3">
-                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
-                      <TrendingUp className="h-4 w-4 text-primary" />
-                   </div>
-                   <div>
-                      <h3 className="font-heading text-white text-m">
-                        <ScrambledText text="Quantitative Finance" options={bioOptions} startCondition={isVisible} />
-                      </h3>
-                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Algorithmic Trading, Stochastic Modeling, Time-Series Analysis, & Risk Management" options={bioOptions} startCondition={isVisible} />
-                      </p>
-                   </div>
-                </div>
-
-                {/* Game Theory */}
-                <div className="flex items-start gap-3">
-                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
-                      <Gamepad2 className="h-4 w-4 text-primary" />
-                   </div>
-                   <div>
-                      <h3 className="font-heading text-white text-m">
-                        <ScrambledText text="Game Theory" options={bioOptions} startCondition={isVisible} />
-                      </h3>
-                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="Markov Decision Processes, Stochastic Optimization, & Reinforcement Learning" options={bioOptions} startCondition={isVisible} />
-                      </p>
-                   </div>
-                </div>
-
-                {/* Software Engineering */}
-                <div className="flex items-start gap-3">
-                   <div className="mt-1 bg-primary/10 p-2 rounded-lg">
-                      <Network className="h-4 w-4 text-primary" />
-                   </div>
-                   <div>
-                      <h3 className="font-heading text-white text-m">
-                        <ScrambledText text="Software Engineering" options={bioOptions} startCondition={isVisible} />
-                      </h3>
-                      <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                        <ScrambledText text="DevOps, Cloud Computing, Full Stack Development, & System Design" options={bioOptions} startCondition={isVisible} />
-                      </p>
-                   </div>
-                </div>
-
-             </div>
-          </CardContent>
-        </Card>
-
-        {/* 4. Technical Skills */}
-        <Card className="bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
-            <CardHeader className="pb-2">
+        <Tilt options={defaultTiltOptions} className="md:col-span-2 h-full">
+            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+            <CardHeader>
                 <div className="flex items-center gap-3">
-                    <Code2 className="h-6 w-6 text-primary" />
+                    <User className="h-6 w-6 text-primary" />
                     <CardTitle className="text-2xl font-heading tracking-wide">
-                        <ScrambledText text="Technical Skills" options={bioOptions} startCondition={isVisible} />
+                        <ScrambledText text="About Me" options={bioOptions} startCondition={isVisible} />
                     </CardTitle>
                 </div>
             </CardHeader>
             <CardContent>
-                <div className="flex flex-col gap-4">
-                  {skillCategories.map((group) => (
-                    <div key={group.category} className="space-y-2">
-                      <h4 className="text-m font-heading text-white">
-                        <ScrambledText text={group.category} options={bioOptions} startCondition={isVisible} />
-                      </h4>
-                      <div className="flex flex-wrap gap-1.5">
-                        {group.items.map((skill) => (
-                          <Badge 
-                            key={skill} 
-                            variant="outline" 
-                            className="font-mono bg-background/50 hover:bg-primary/20 transition-colors"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-muted-foreground text-sm font-mono leading-relaxed">
+                <ScrambledText 
+                    text="I am a student at the University of Maryland studying Computer Science with a specialization in Machine Learning, along with minors in Business and Statistics. I enjoy building tools that can aid human decision-making. I'm always looking to make a meaningful impact with my skills, so feel free to reach out!" 
+                    options={bioOptions} 
+                    startCondition={isVisible} 
+                />
+                </p>
             </CardContent>
-        </Card>
+            </Card>
+        </Tilt>
 
-        {/* 5. Coursework */}
-        <Card className="lg:col-span-3 bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
-             <CardHeader className="pb-3">
+        {/* 3. Areas of Interest */}
+        <Tilt options={defaultTiltOptions} className="h-full">
+            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+            <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
-                    <BookOpen className="h-6 w-6 text-primary" />
-                    <CardTitle className="text-2xl font-heading tracking-wide">
-                        <ScrambledText text="Academic coursework" options={bioOptions} startCondition={isVisible} />
-                    </CardTitle>
+                <Target className="h-6 w-6 text-primary" />
+                <CardTitle className="text-2xl font-heading tracking-wide">
+                    <ScrambledText text="Areas of Interest" options={bioOptions} startCondition={isVisible} />
+                </CardTitle>
                 </div>
             </CardHeader>
-             <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {coursework.map((course) => (
-                    <Badge 
-                        key={course} 
-                        variant="outline" 
-                        className="font-mono bg-background/50 hover:bg-primary/20 transition-colors"
-                    >
-                        {course}
-                    </Badge>
-                  ))}
+            <CardContent>
+                <div className="flex flex-col gap-4 mt-1">
+                    
+                    {/* ML/AI */}
+                    <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                        <Brain className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="font-heading text-white text-m">
+                            <ScrambledText text="Artificial Intelligence" options={bioOptions} startCondition={isVisible} />
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                            <ScrambledText text="Computer Vision, Generative AI, Natural Language Processing, & Neural Networks" options={bioOptions} startCondition={isVisible} />
+                        </p>
+                    </div>
+                    </div>
+
+                    {/* Quant */}
+                    <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                        <TrendingUp className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="font-heading text-white text-m">
+                            <ScrambledText text="Quantitative Finance" options={bioOptions} startCondition={isVisible} />
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                            <ScrambledText text="Algorithmic Trading, Stochastic Modeling, Time-Series Analysis, & Risk Management" options={bioOptions} startCondition={isVisible} />
+                        </p>
+                    </div>
+                    </div>
+
+                    {/* Game Theory */}
+                    <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                        <Gamepad2 className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="font-heading text-white text-m">
+                            <ScrambledText text="Game Theory" options={bioOptions} startCondition={isVisible} />
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                            <ScrambledText text="Markov Decision Processes, Stochastic Optimization, & Reinforcement Learning" options={bioOptions} startCondition={isVisible} />
+                        </p>
+                    </div>
+                    </div>
+
+                    {/* Software Engineering */}
+                    <div className="flex items-start gap-3">
+                    <div className="mt-1 bg-primary/10 p-2 rounded-lg">
+                        <Network className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="font-heading text-white text-m">
+                            <ScrambledText text="Software Engineering" options={bioOptions} startCondition={isVisible} />
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                            <ScrambledText text="DevOps, Cloud Computing, Full Stack Development, & System Design" options={bioOptions} startCondition={isVisible} />
+                        </p>
+                    </div>
+                    </div>
+
                 </div>
             </CardContent>
-        </Card>
+            </Card>
+        </Tilt>
+
+        {/* 4. Technical Skills */}
+        <Tilt options={defaultTiltOptions} className="h-full">
+            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+                <CardHeader className="pb-2">
+                    <div className="flex items-center gap-3">
+                        <Code2 className="h-6 w-6 text-primary" />
+                        <CardTitle className="text-2xl font-heading tracking-wide">
+                            <ScrambledText text="Technical Skills" options={bioOptions} startCondition={isVisible} />
+                        </CardTitle>
+                    </div>
+                </CardHeader>
+                <CardContent>
+                    <div className="flex flex-col gap-4">
+                    {skillCategories.map((group) => (
+                        <div key={group.category} className="space-y-2">
+                        <h4 className="text-m font-heading text-white">
+                            <ScrambledText text={group.category} options={bioOptions} startCondition={isVisible} />
+                        </h4>
+                        <div className="flex flex-wrap gap-1.5">
+                            {group.items.map((skill) => (
+                            <Badge 
+                                key={skill} 
+                                variant="outline" 
+                                className="font-mono bg-background/50 hover:bg-primary/20 transition-colors"
+                            >
+                                {skill}
+                            </Badge>
+                            ))}
+                        </div>
+                        </div>
+                    ))}
+                    </div>
+                </CardContent>
+            </Card>
+        </Tilt>
+
+        {/* 5. Coursework */}
+        <Tilt options={defaultTiltOptions} className="lg:col-span-3 h-full">
+            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+                <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                        <BookOpen className="h-6 w-6 text-primary" />
+                        <CardTitle className="text-2xl font-heading tracking-wide">
+                            <ScrambledText text="Academic coursework" options={bioOptions} startCondition={isVisible} />
+                        </CardTitle>
+                    </div>
+                </CardHeader>
+                <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                    {coursework.map((course) => (
+                        <Badge 
+                            key={course} 
+                            variant="outline" 
+                            className="font-mono bg-background/50 hover:bg-primary/20 transition-colors"
+                        >
+                            {course}
+                        </Badge>
+                    ))}
+                    </div>
+                </CardContent>
+            </Card>
+        </Tilt>
 
       </div>
 
