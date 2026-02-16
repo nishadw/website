@@ -6,33 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building, Calendar, ChevronDown } from "lucide-react"
 
 const experiences = [
-    // {
-    //     company: "Amazon",
-    //     // UPDATED: Points to public/mercor.png
-    //     logoURL: "/amzn.jpg",
-    //     position: "Incoming Software Development Engineer",
-    //     startDate: "Summer 2026",
-    //     endDate: "",
-    //     description: [
-    //         "Amazon Smart Vehicles",
-    //       ],
-    //     current: true,
-    // },
     {
         company: "Amazon Leo",
-        // UPDATED: Points to public/mercor.png
         logoURL: "/leo.jpg",
         position: "Machine Learning Engineer",
         startDate: "2026-02-10",
         endDate: "Present",
         description: [
             "Working",
-          ],
+        ],
         current: true,
     },
     {
         company: "Mercor",
-        // UPDATED: Points to public/mercor.png
         logoURL: "/mercor.png",
         position: "Software Engineer",
         startDate: "2025-11-10",
@@ -40,12 +26,11 @@ const experiences = [
         description: [
             "Benchmarking developer efficiency across software and terminal environments to evaluate human vs. autonomous agents",
             "Developing data to support the training of Large Language Models via reinforcement learning from human feedback",
-          ],
+        ],
         current: true,
     },
     {
         company: "General Dynamics Information Technology",
-        // UPDATED: Points to public/gdit.png
         logoURL: "/gdit.jpeg",
         position: "Software Engineer",
         startDate: "2025-06-10",
@@ -54,11 +39,10 @@ const experiences = [
             "Deployed vehicle computer vision plugin within a Multi-Modal ML (MML) system for the Android Tactical Awareness Kit (ATAK) to enhance situational awareness",
             "Accelerated inference time by designing a 3-stage, hierarchical pipeline for lightweight deployment on edge devices in resource-constrained operations",
             "Improved model reliability using Projected Gradient Descent (PGD) adversarial training on custom Convolutional Neural Networks (CNNs) and transfer learning",
-          ],
+        ],
     },
     {
         company: "General Dynamics Information Technology",
-        // UPDATED: Points to public/gdit.png
         logoURL: "/gdit.jpeg",
         position: "Technical Project Lead",
         startDate: "2025-01-10",
@@ -71,7 +55,6 @@ const experiences = [
     },
     {
         company: "Booz Allen Hamilton",
-        // UPDATED: Points to public/bah.png
         logoURL: "/bah.jpg",
         position: "Technical Project Manager",
         startDate: "2024-09-10",
@@ -84,9 +67,8 @@ const experiences = [
     },
     {
         company: "Internal Revenue Service",
-        // UPDATED: Points to public/irs.png
         logoURL: "/irs.jpeg",
-        position: "Software Engineer", 
+        position: "Software Engineer",
         startDate: "2024-01-10",
         endDate: "2024-12-31",
         description: [
@@ -114,7 +96,8 @@ const formatPeriod = (startDateStr: string, endDateStr: string) => {
 
 
 export function Experience() {
-    const [openExperience, setOpenExperience] = useState<string | null>(null);
+    // CHANGE 1: Changed state type from string to number to hold the index
+    const [openExperienceIndex, setOpenExperienceIndex] = useState<number | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
     const [isInView, setIsInView] = useState(false);
 
@@ -139,30 +122,28 @@ export function Experience() {
     }, []);
 
     return (
-        // scroll-mt-28 ensures the section title isn't hidden behind the sticky nav on scroll
         <section ref={sectionRef} id="experience" className="pb-12 pt-24 scroll-mt-28 font-mono">
             <div className="container mx-auto px-4">
-                {/* Changed mb-20 to mb-10 to pull the timeline up */}
                 <h2 className="text-5xl md:text-6xl text-center mb-10 text-white tracking-wider font-heading">
                     EXPERIENCE
                 </h2>
 
                 <div className={`max-w-4xl mx-auto transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="relative">
-                        {/* Timeline line */}
                         <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-border -ml-px" />
 
                         <div className="space-y-8">
                             {experiences.map((exp, index) => {
-                                const isOpen = openExperience === exp.position;
+                                // CHANGE 2: Compare against the index, not the position string
+                                const isOpen = openExperienceIndex === index;
                                 return (
                                     <div
                                         key={index}
                                         className="relative flex items-start gap-6"
-                                        onMouseEnter={() => setOpenExperience(exp.position)}
-                                        onMouseLeave={() => setOpenExperience(null)}
+                                        // CHANGE 3: Set state to the index
+                                        onMouseEnter={() => setOpenExperienceIndex(index)}
+                                        onMouseLeave={() => setOpenExperienceIndex(null)}
                                     >
-                                        {/* Logo on the timeline */}
                                         <div className="relative z-10 flex-shrink-0 mt-1">
                                             <div className={`w-20 h-20 rounded-full bg-muted flex items-center justify-center ring-4 ring-background transition-all duration-300 ${isOpen ? 'ring-primary' : 'ring-border'} ${exp.current ? 'animate-pulse-glow' : ''}`}>
                                                 <Image
@@ -175,7 +156,6 @@ export function Experience() {
                                             </div>
                                         </div>
 
-                                        {/* Accordion Content */}
                                         <div className="flex-1 overflow-hidden">
                                             <Card className="bg-card/75 elegant-shadow py-2 rounded-3xl">
                                                 <CardHeader className="flex-row items-center justify-between p-6 cursor-pointer">
@@ -198,7 +178,6 @@ export function Experience() {
                                                     <ChevronDown className={`h-6 w-6 text-muted-foreground transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                                                 </CardHeader>
 
-                                                {/* Collapsible Content */}
                                                 <div
                                                     className="grid transition-all duration-500 ease-in-out"
                                                     style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
