@@ -35,6 +35,18 @@
     @apply border-border;
   }
 
+  /* 1. Added no-scrollbar here to hide it globally */
+  html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* 2. Added webkit specific selector */
+  html::-webkit-scrollbar, 
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
   body {
     /* Make background transparent so Vanta shows */
     background: transparent;
@@ -125,6 +137,12 @@
 
   .company-logo-hover {
     opacity: 0.15;
+  }
+
+  .smooth-tilt {
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
 }
 

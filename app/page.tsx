@@ -33,9 +33,9 @@ export default function Page() {
       >
         <div className="flex flex-col items-center gap-4">
            <Loader2 className="h-10 w-10 text-white animate-spin" />
-           <p className="text-neutral-400 font-mono text-sm tracking-widest animate-pulse">
-             LOADING SYSTEM...
-           </p>
+           {/* <p className="text-neutral-400 font-mono text-sm tracking-widest animate-pulse">
+             LOADING...
+           </p> */}
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export default function Page() {
               <div className="container mx-auto px-4">
                 <div className="h-[1px] w-full bg-zinc-700/50 mb-8" />
                 <div className="text-center font-mono text-muted-foreground text-sm">
-                  <p>&copy; 2025 Nishad Wajge. All rights reserved. | [first] dot [last] at gmail dot com</p>
+                  <p>&copy; 2025 Nishad Wajge</p>
                 </div>
               </div>
             </footer>

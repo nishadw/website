@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ArrowDown, FileText, Code2, BookOpen, User, TrendingUp, Brain, Gamepad2, Target, Network } from "lucide-react"
-import { Link } from "react-scroll"
+import { Github, Linkedin, Mail, Code2, BookOpen, User, TrendingUp, Brain, Gamepad2, Target, Network } from "lucide-react"
 import { Analytics } from "@vercel/analytics/next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -94,13 +93,13 @@ export function Hero() {
     }
   }, [])
 
-  // --- SMOOTHER TILT CONFIGURATION ---
+  // --- OPTIMIZED TILT CONFIGURATION ---
   const defaultTiltOptions = {
     reverse:        false,
-    max:            5,      // Reduced for subtlety
-    perspective:    1200,   // Increased for flatter 3D effect
-    scale:          1.01,   // Reduced scale
-    speed:          2000,   // Slower speed for fluid motion
+    max:            12,     // Increased for a more noticeable lean
+    perspective:    1000,   // Lowered for a more dramatic 3D effect
+    scale:          1,      // Set to 1 because we handle scaling with CSS for smoothness
+    speed:          1000,   
     transition:     true,
     axis:           null,
     reset:          true,
@@ -129,23 +128,30 @@ export function Hero() {
     }
   ]
 
-  // Unified Speed Option
   const bioOptions = { totalDuration: 80, scrambleDuration: 15 }
+
+  // REUSABLE WRAPPER FOR SMOOTHNESS
+  const BentoCard = ({ children, className = "", tiltOptions = defaultTiltOptions }: any) => (
+    <div className={`group relative h-full transition-transform duration-500 ease-out hover:scale-[1.03] hover:z-50 ${className}`}>
+      <Tilt options={tiltOptions} className="h-full">
+        {children}
+      </Tilt>
+    </div>
+  )
 
   return (
     <section id="hero" ref={ref} className="relative min-h-screen container mx-auto pb-12 pt-24 flex items-center justify-center">
       
-      {/* Bento Grid Layout */}
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
 
         {/* 1. Profile Box */}
-        <Tilt options={defaultTiltOptions} className="lg:row-span-2 h-full">
-            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl flex flex-col items-center justify-center p-8 text-center border-border/50">
+        <BentoCard className="lg:row-span-2">
+            <Card className="h-full bg-card/75 elegant-shadow group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-500 rounded-3xl flex flex-col items-center justify-center p-8 text-center border-border/50">
             <div className="relative inline-block mb-8 mt-4">
                 <img
                     src="/p2.png?height=300&width=300"
                     alt="Nishad Wajge"
-                    className="w-72 h-80 rounded-3xl mx-auto object-cover object-center elegant-shadow-lg hover:scale-105 transition-transform duration-500 float-animation"
+                    className="w-72 h-80 rounded-3xl mx-auto object-cover object-center elegant-shadow-lg group-hover:scale-105 transition-transform duration-700 float-animation group-hover:animation-none"
                 />
                 </div>
                 <h1 className="text-4xl md:text-5xl leading-tight tracking-wider font-heading text-white mb-6">
@@ -154,16 +160,15 @@ export function Hero() {
                 
                 <div className="flex justify-center space-x-3">
                 {[
-                    { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
                     { icon: Linkedin, href: "https://linkedin.com/in/nishadwajge", label: "LinkedIn" },
-                    { icon: Mail, href: "mailto:nishad.wajge@gmail.com", label: "Email" },
-                    { icon: FileText, href: "https://drive.google.com/file/d/17JyEIwqFjnf9VDQoQ39DiKqNPmQqbm9E/view?usp=sharing", label: "Resume" },
+                    { icon: Github, href: "https://github.com/nishadw", label: "GitHub" },
+                    { icon: Mail, href: "mailto:nwajge@umd.edu", label: "Email" },
                 ].map(({ icon: Icon, href, label }, index) => (
                     <Button
                     key={index}
                     variant="outline"
                     size="icon"
-                    className={`bg-card/50 elegant-shadow hover:elegant-shadow-lg hover:scale-110 transition-all duration-300 rounded-xl h-12 w-12`}
+                    className="bg-card/50 elegant-shadow hover:scale-110 transition-all duration-300 rounded-xl h-12 w-12"
                     asChild
                     >
                     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
@@ -173,11 +178,11 @@ export function Hero() {
                 ))}
                 </div>
             </Card>
-        </Tilt>
+        </BentoCard>
 
         {/* 2. About Me */}
-        <Tilt options={defaultTiltOptions} className="md:col-span-2 h-full">
-            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+        <BentoCard className="md:col-span-2">
+            <Card className="h-full bg-card/75 elegant-shadow group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-500 rounded-3xl border-border/50">
             <CardHeader>
                 <div className="flex items-center gap-3">
                     <User className="h-6 w-6 text-primary" />
@@ -196,11 +201,11 @@ export function Hero() {
                 </p>
             </CardContent>
             </Card>
-        </Tilt>
+        </BentoCard>
 
         {/* 3. Areas of Interest */}
-        <Tilt options={defaultTiltOptions} className="h-full">
-            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+        <BentoCard>
+            <Card className="h-full bg-card/75 elegant-shadow group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-500 rounded-3xl border-border/50">
             <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
                 <Target className="h-6 w-6 text-primary" />
@@ -211,8 +216,6 @@ export function Hero() {
             </CardHeader>
             <CardContent>
                 <div className="flex flex-col gap-4 mt-1">
-                    
-                    {/* ML/AI */}
                     <div className="flex items-start gap-3">
                     <div className="mt-1 bg-primary/10 p-2 rounded-lg">
                         <Brain className="h-4 w-4 text-primary" />
@@ -227,7 +230,6 @@ export function Hero() {
                     </div>
                     </div>
 
-                    {/* Quant */}
                     <div className="flex items-start gap-3">
                     <div className="mt-1 bg-primary/10 p-2 rounded-lg">
                         <TrendingUp className="h-4 w-4 text-primary" />
@@ -242,7 +244,6 @@ export function Hero() {
                     </div>
                     </div>
 
-                    {/* Game Theory */}
                     <div className="flex items-start gap-3">
                     <div className="mt-1 bg-primary/10 p-2 rounded-lg">
                         <Gamepad2 className="h-4 w-4 text-primary" />
@@ -257,7 +258,6 @@ export function Hero() {
                     </div>
                     </div>
 
-                    {/* Software Engineering */}
                     <div className="flex items-start gap-3">
                     <div className="mt-1 bg-primary/10 p-2 rounded-lg">
                         <Network className="h-4 w-4 text-primary" />
@@ -271,15 +271,14 @@ export function Hero() {
                         </p>
                     </div>
                     </div>
-
                 </div>
             </CardContent>
             </Card>
-        </Tilt>
+        </BentoCard>
 
         {/* 4. Technical Skills */}
-        <Tilt options={defaultTiltOptions} className="h-full">
-            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+        <BentoCard>
+            <Card className="h-full bg-card/75 elegant-shadow group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-500 rounded-3xl border-border/50">
                 <CardHeader className="pb-2">
                     <div className="flex items-center gap-3">
                         <Code2 className="h-6 w-6 text-primary" />
@@ -311,11 +310,11 @@ export function Hero() {
                     </div>
                 </CardContent>
             </Card>
-        </Tilt>
+        </BentoCard>
 
         {/* 5. Coursework */}
-        <Tilt options={defaultTiltOptions} className="lg:col-span-3 h-full">
-            <Card className="h-full bg-card/75 elegant-shadow hover:elegant-shadow-lg transition-all duration-300 rounded-3xl border-border/50">
+        <BentoCard className="lg:col-span-3">
+            <Card className="h-full bg-card/75 elegant-shadow group-hover:shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-500 rounded-3xl border-border/50">
                 <CardHeader className="pb-3">
                     <div className="flex items-center gap-3">
                         <BookOpen className="h-6 w-6 text-primary" />
@@ -338,7 +337,7 @@ export function Hero() {
                     </div>
                 </CardContent>
             </Card>
-        </Tilt>
+        </BentoCard>
 
       </div>
 
