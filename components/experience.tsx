@@ -3,23 +3,27 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge" // NEW IMPORT
 import { Building, Calendar, ChevronDown } from "lucide-react"
 
 const experiences = [
     {
         company: "Amazon Leo",
-        logoURL: "/leo.jpg",
+        logoURL: "/amzn.jpg",
+        websiteURL: "https://leo.amazon.com",
         position: "Machine Learning Engineer",
+        affiliation: "Contract", // ADDED AFFILIATION
         startDate: "2026-02-10",
         endDate: "Present",
         description: [
-            "Working",
+            "Currently working",
         ],
         current: true,
     },
     {
         company: "Mercor",
         logoURL: "/mercor.png",
+        websiteURL: "https://www.mercor.com/research/",
         position: "Software Engineer",
         startDate: "2025-11-10",
         endDate: "Present",
@@ -32,7 +36,8 @@ const experiences = [
     {
         company: "General Dynamics Information Technology",
         logoURL: "/gdit.jpeg",
-        position: "Software Engineer",
+        websiteURL: "https://www.gdit.com/industries/defense/",
+        position: "Software Engineer Intern",
         startDate: "2025-06-10",
         endDate: "2025-08-13",
         description: [
@@ -44,11 +49,13 @@ const experiences = [
     {
         company: "General Dynamics Information Technology",
         logoURL: "/gdit.jpeg",
+        websiteURL: "https://www.gdit.com/industries/defense/",
         position: "Technical Project Lead",
+        affiliation: "Contract", // ADDED AFFILIATION
         startDate: "2025-01-10",
         endDate: "2025-05-31",
         description: [
-            "Led cross-functional teams in Frontend, Backend, UI/UX, and ML to build Retrieval Augmented Generation (RAG) pipeline for analysis of large document corpus",
+            "Led a cross-functional student engineering team contracted to build a Retrieval Augmented Generation (RAG) pipeline for analysis of large document corpus", // TWEAKED FIRST BULLET
             "Improved data retrieval speed and discovery by implementing dual database management system with relationship mapping and similarity search",
             "Increased search accuracy via custom semantic chunking, Name Entity Recognition (NER) extraction, and metadata enrichment"
         ],
@@ -56,11 +63,13 @@ const experiences = [
     {
         company: "Booz Allen Hamilton",
         logoURL: "/bah.jpg",
+        websiteURL: "https://www.boozallen.com",
         position: "Technical Project Manager",
+        affiliation: "Contract", // ADDED AFFILIATION
         startDate: "2024-09-10",
         endDate: "2024-12-31",
         description: [
-            "Worked in the Digital Transformation team to develop an in-house, 0-to-1 software management platform to aggregate medical policies for auditors to review and edit",
+            "Managed a student engineering team contracted by the Digital Transformation division to develop an in-house, 0-to-1 software management platform for auditor medical policy review", // TWEAKED FIRST BULLET
             "Met weekly with CTO and lead engineer to review progress, align on deliverables, and ensure achievement of Key Performance Indicators (KPIs)",
             "Automated workflows through cron-based web scraping with document comparison and feature extraction, cutting manual labor costs and errors"
         ],
@@ -68,7 +77,8 @@ const experiences = [
     {
         company: "Internal Revenue Service",
         logoURL: "/irs.jpeg",
-        position: "Software Engineer",
+        websiteURL: "https://www.irs.gov",
+        position: "Software Engineer Intern",
         startDate: "2024-01-10",
         endDate: "2024-12-31",
         description: [
@@ -96,7 +106,6 @@ const formatPeriod = (startDateStr: string, endDateStr: string) => {
 
 
 export function Experience() {
-    // CHANGE 1: Changed state type from string to number to hold the index
     const [openExperienceIndex, setOpenExperienceIndex] = useState<number | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
     const [isInView, setIsInView] = useState(false);
@@ -134,36 +143,50 @@ export function Experience() {
 
                         <div className="space-y-8">
                             {experiences.map((exp, index) => {
-                                // CHANGE 2: Compare against the index, not the position string
                                 const isOpen = openExperienceIndex === index;
                                 return (
                                     <div
                                         key={index}
                                         className="relative flex items-start gap-6"
-                                        // CHANGE 3: Set state to the index
                                         onMouseEnter={() => setOpenExperienceIndex(index)}
                                         onMouseLeave={() => setOpenExperienceIndex(null)}
                                     >
                                         <div className="relative z-10 flex-shrink-0 mt-1">
-                                            <div className={`w-20 h-20 rounded-full bg-muted flex items-center justify-center ring-4 ring-background transition-all duration-300 ${isOpen ? 'ring-primary' : 'ring-border'} ${exp.current ? 'animate-pulse-glow' : ''}`}>
-                                                <Image
-                                                    src={exp.logoURL}
-                                                    alt={`${exp.company} logo`}
-                                                    width={80}
-                                                    height={80}
-                                                    className="rounded-full object-cover w-full h-full p-1"
-                                                />
-                                            </div>
+                                            <a 
+                                                href={exp.websiteURL} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="block transition-transform duration-300 hover:scale-110 active:scale-95 cursor-pointer"
+                                                title={`Visit ${exp.company} website`}
+                                            >
+                                                <div className={`w-20 h-20 rounded-full bg-muted flex items-center justify-center ring-4 ring-background transition-all duration-300 ${isOpen ? 'ring-primary' : 'ring-border'} ${exp.current ? 'animate-pulse-glow' : ''}`}>
+                                                    <Image
+                                                        src={exp.logoURL}
+                                                        alt={`${exp.company} logo`}
+                                                        width={80}
+                                                        height={80}
+                                                        className="rounded-full object-cover w-full h-full p-1"
+                                                    />
+                                                </div>
+                                            </a>
                                         </div>
 
                                         <div className="flex-1 overflow-hidden">
                                             <Card className="bg-card/75 elegant-shadow py-2 rounded-3xl">
                                                 <CardHeader className="flex-row items-center justify-between p-6 cursor-pointer">
                                                     <div className="space-y-1">
-                                                        <CardTitle className="text-2xl tracking-wider font-heading">
+                                                        
+                                                        {/* UPDATED TITLE SECTION WITH BADGE */}
+                                                        <CardTitle className="text-2xl tracking-wider font-heading flex flex-wrap items-center gap-3">
                                                             {exp.position.toUpperCase()}
+                                                            {exp.affiliation && (
+                                                                <Badge variant="secondary" className="text-xs font-mono normal-case tracking-normal border-border/50 bg-secondary/50 text-secondary-foreground mt-1 sm:mt-0">
+                                                                    {exp.affiliation}
+                                                                </Badge>
+                                                            )}
                                                         </CardTitle>
-                                                        <div className="flex flex-wrap items-center gap-x-2 text-muted-foreground text-medium">
+
+                                                        <div className="flex flex-wrap items-center gap-x-2 text-muted-foreground text-medium mt-1">
                                                             <div className="flex items-center gap-2">
                                                                 <Building className="h-4 w-4" />
                                                                 <span>{exp.company}</span>
