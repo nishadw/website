@@ -14,7 +14,12 @@ import {
   LineChart,
   LayoutTemplate,
   GraduationCap,
-  Code
+  Code,
+  Focus,
+  Computer,
+  SquareTerminal,
+  Car
+
 } from "lucide-react"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -34,7 +39,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#121212] text-[#a1a1aa] antialiased flex h-screen overflow-hidden`}>
         
         {/* ================= SIDEBAR (NAVBAR) ================= */}
-        <aside className="w-64 bg-[#1a1a1a] border-r border-white/5 flex flex-col h-full shrink-0 hidden md:flex relative z-40">
+        <aside className="w-72 bg-[#1a1a1a] border-r border-white/5 flex flex-col h-full shrink-0 hidden md:flex relative z-40">
           
           {/* Profile Header */}
           <div className="h-12 flex items-center px-4 font-mono text-white tracking-tight border-b border-white/5 shrink-0">
@@ -58,29 +63,10 @@ export default function RootLayout({
               <h3 className="px-2 mb-2 text-[11px] font-semibold uppercase tracking-wider text-[#52525b]">Experience</h3>
               <div className="space-y-0.5">
                 {[
-                  { name: "Amazon", href: "/experience#amazon" },
-                  { name: "Mercor", href: "/experience#mercor" },
-                  { name: "General Dynamics", href: "/experience#gdit" },
-                  { name: "IRS", href: "/experience#irs" },
-                ].map((item, i) => (
-                  <a key={i} href={item.href} className="group flex items-center justify-between px-2 py-1.5 text-[13px] text-[#a1a1aa] hover:text-[#f4f4f5] hover:bg-white/[0.03] rounded-md transition-colors">
-                    <div className="flex items-center gap-2">
-                      <Terminal className="h-4 w-4 text-[#52525b] group-hover:text-[#a1a1aa] transition-colors" />
-                      {item.name}
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Projects Section */}
-            <div>
-              <h3 className="px-2 mb-2 text-[11px] font-semibold uppercase tracking-wider text-[#52525b]">Consulting Projects</h3>
-              <div className="space-y-0.5">
-                {[
-                  { name: "Amazon Leo", icon: LayoutTemplate, href: "/projects#amazon" },
-                  { name: "General Dynamics", icon: FolderGit2, href: "/projects#gdit" },
-                  { name: "Booz Allen Hamilton", icon: FolderGit2, href: "/projects#boozallen" },
+                  { name: "Amazon", icon: Car, href: "/experience#amazon" },
+                  { name: "Mercor", icon: SquareTerminal, href: "/experience#mercor" },
+                  { name: "General Dynamics", icon: Focus, href: "/experience#gdit" },
+                  { name: "Internal Revenue Service", icon: Computer, href: "/experience#irs" },
                 ].map((item, i) => (
                   <a key={i} href={item.href} className="group flex items-center justify-between px-2 py-1.5 text-[13px] text-[#a1a1aa] hover:text-[#f4f4f5] hover:bg-white/[0.03] rounded-md transition-colors">
                     <div className="flex items-center gap-2">

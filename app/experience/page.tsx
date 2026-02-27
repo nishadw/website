@@ -11,7 +11,7 @@ const experienceDetails = [
     role: "Software Development Engineer Intern",
     period: "Summer 2026",
     points: [
-      "Incoming Software Development Engineer Intern within the Amazon Smart Vehicles division."
+      "Division: Amazon Smart Vehicles",
     ]
   },
   {
@@ -21,7 +21,7 @@ const experienceDetails = [
     role: "Software Engineer",
     period: "Nov 2025 — Present",
     points: [
-      "Benchmarking developer efficiency across software and terminal environments to evaluate human vs. autonomous agents.",
+      "Division: SWE & Terminal Efficiency",
       "Developing data to support the training of Large Language Models via reinforcement learning from human feedback."
     ]
   },
@@ -32,9 +32,8 @@ const experienceDetails = [
     role: "Software Engineer Intern",
     period: "Jun 2025 — Aug 2025",
     points: [
-      "Deployed vehicle computer vision plugin within a Multi-Modal ML system for the Android Tactical Awareness Kit to enhance situational awareness.",
-      "Accelerated inference time by designing a 3-stage, hierarchical pipeline for lightweight deployment on edge devices.",
-      "Improved model reliability using Projected Gradient Descent adversarial training on custom CNNs."
+      "Division: Praxis Engineering",
+      "Deployed computer vision tool within a Multimodal Machine Learning system to enhance situational awareness.",
     ]
   },
   {
@@ -44,8 +43,8 @@ const experienceDetails = [
     role: "Software Engineer Intern",
     period: "Jan 2024 — Dec 2024",
     points: [
-      "Modernized 20-year-old legacy architecture from Java 11 to Java 17 to strengthen system reliability and security.",
-      "Supported the Fraud & Analytics division under the Return Review Program, screening U.S. filings for fraud."
+      "Division: Return Review Program",
+      "Modernized 20-year-old legacy fraud detection architecture to strengthen system reliability and security.",
     ]
   }
 ]
@@ -76,11 +75,11 @@ export default function ExperiencePage() {
               <section 
                 key={idx} 
                 id={exp.id} 
-                className="grid grid-cols-1 md:grid-cols-[350px_1fr] gap-12 md:gap-24 py-20 border-b border-white/5 last:border-0 scroll-mt-24"
+                className="grid grid-cols-1 md:grid-cols-[350px_1fr] md:gap-24 py-12 border-b border-white/5 last:border-0 scroll-mt-24"
               >
                 {/* LEFT: Logo height-aligned */}
                 <div className="flex flex-col justify-start">
-                  <div className="relative w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
+                  <div className="relative w-8 h-8 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
                     <Image
                       src={exp.logo}
                       alt={`${exp.company} Logo`}
