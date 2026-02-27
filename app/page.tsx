@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="mb-12">
             {/* Avatar */}
             <div className="mb-8 h-36 w-36 overflow-hidden rounded-full ring-1 ring-white/10">
-              <Image src="/pfp.jpg" alt="Nishad Wajge" width={256} height={256} className="h-full w-full object-cover" />
+              <Image src="/pfp.jpg" alt="Nishad Wajge" width={64} height={64} className="h-full w-full object-cover" />
             </div>
 
             {/* Headline */}
