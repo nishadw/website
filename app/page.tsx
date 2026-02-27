@@ -4,12 +4,19 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import VantaBackgroundClient from "@/components/VantaBackgroundClient"
 
+
 // Updated experience array with month and year dates
 const experiences = [
   { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
   { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png" },
   { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg" },
   { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.png" }, 
+]
+
+const contracts = [
+  { company: "Amazon Leo", position: "Advisor & Machine Learning Engineer", period: "Feb 2026 - Present", logo: "/leo2.jpg" },
+  { company: "General Dynamics Information Technology", position: "Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg" },
+  { company: "Booz Allen Hamilton", position: "Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg" }, 
 ]
 
 export default function HomePage() {
@@ -54,17 +61,18 @@ export default function HomePage() {
             </h1>
 
             {/* Bio Paragraphs */}
-            <div className="space-y-4 text-[15px] text-[#d4d4d8]">
+            <div className={`space-y-4 font-monotext-[15px] text-[#d4d4d8]`}>
               <p>
-                BS in Computer Science (Specialization: Machine Learning) @ UMD
+                BS in Computer Science (Specialization: Machine Learning) @ University of Maryland, College Park
               </p>
               <p>
-                Published in NeurIPS, INFORMS, and shortlisted for MIT SSAC
+                I'm always looking to make a meaningful impact with my skills, so feel free to reach out via Linkedin or Email!
               </p>
+
             </div>
 
             {/* Previous Roles list */}
-            <p className="mt-8 text-[14px] text-[#a1a1aa]">
+            <p className="mt-4 text-[14px] text-[#a1a1aa]">
               Prev. <span className="font-medium text-[#f4f4f5]">General Dynamics, Booz Allen Hamilton</span>
             </p>
           </div>
@@ -81,7 +89,7 @@ export default function HomePage() {
           </div>
 
           {/* ================= TEAM / EXPERIENCE LIST ================= */}
-          <div className="mb-24 w-full">
+          <div className="mb-16 w-full">
             <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Experience</h2>
             <div className="flex flex-col border-t border-white/5 w-full">
               {experiences.map((exp, idx) => (
@@ -92,8 +100,37 @@ export default function HomePage() {
                 >
                   {/* Left Side: Logo, Company, and Role stretched horizontally */}
                   <div className="flex items-center gap-6 overflow-hidden">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md">
-                      <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain" />
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
+                      <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
+                    </div>
+                    <div className="flex items-center gap-3 text-[16px] whitespace-nowrap">
+                      <span className="font-bold text-[#f4f4f5] tracking-tighter">{exp.company}</span>
+                      <span className="text-[#3f3f46]">/</span>
+                      <span className="text-[#a1a1aa]">{exp.position}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Right Side: Date remains anchored to the far right */}
+                  <span className="text-[14px] text-[#71717a] whitespace-nowrap ml-8">{exp.period}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* ================= CONTRACT LIST ================= */}
+          <div className="mb-24 w-full">
+            <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">UMD Consulting Projects</h2>
+            <div className="flex flex-col border-t border-white/5 w-full">
+              {contracts.map((exp, idx) => (
+                <a 
+                  key={idx}
+                  href={`#${exp.company.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group flex items-center justify-between border-b border-white/5 py-4 transition-colors hover:bg-white/[0.05] px-2 rounded-lg"
+                >
+                  {/* Left Side: Logo, Company, and Role stretched horizontally */}
+                  <div className="flex items-center gap-6 overflow-hidden">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
+                      <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
                     </div>
                     <div className="flex items-center gap-3 text-[16px] whitespace-nowrap">
                       <span className="font-bold text-[#f4f4f5] tracking-tighter">{exp.company}</span>
