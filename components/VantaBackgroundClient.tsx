@@ -39,7 +39,7 @@ export default function VantaBackgroundClient({ onLoaded }: VantaBackgroundProps
             minWidth: 200,
             scale: 1.0,
             scaleMobile: 1.0,
-            color: 0xFFFFFF,
+            color: 0xAAAAAA,
             backgroundColor: 0x121212, // This provides the background color!
           });
           
