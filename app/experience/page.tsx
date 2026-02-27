@@ -1,0 +1,133 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Image from "next/image"
+
+const experienceDetails = [
+  {
+    id: "amazon",
+    company: "Amazon",
+    logo: "/amzn.jpg", 
+    role: "Software Development Engineer Intern",
+    period: "Summer 2026",
+    points: [
+      "Incoming Software Development Engineer Intern within the Amazon Smart Vehicles division."
+    ]
+  },
+  {
+    id: "mercor",
+    company: "Mercor",
+    logo: "/mercor.png", 
+    role: "Software Engineer",
+    period: "Nov 2025 — Present",
+    points: [
+      "Benchmarking developer efficiency across software and terminal environments to evaluate human vs. autonomous agents.",
+      "Developing data to support the training of Large Language Models via reinforcement learning from human feedback."
+    ]
+  },
+  {
+    id: "gdit",
+    company: "General Dynamics Information Technology",
+    logo: "/gdit.jpg",
+    role: "Software Engineer Intern",
+    period: "Jun 2025 — Aug 2025",
+    points: [
+      "Deployed vehicle computer vision plugin within a Multi-Modal ML system for the Android Tactical Awareness Kit to enhance situational awareness.",
+      "Accelerated inference time by designing a 3-stage, hierarchical pipeline for lightweight deployment on edge devices.",
+      "Improved model reliability using Projected Gradient Descent adversarial training on custom CNNs."
+    ]
+  },
+  {
+    id: "irs",
+    company: "Internal Revenue Service",
+    logo: "/irs.png",
+    role: "Software Engineer Intern",
+    period: "Jan 2024 — Dec 2024",
+    points: [
+      "Modernized 20-year-old legacy architecture from Java 11 to Java 17 to strengthen system reliability and security.",
+      "Supported the Fraud & Analytics division under the Return Review Program, screening U.S. filings for fraud."
+    ]
+  }
+]
+
+export default function ExperiencePage() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  return (
+    <>
+      {/* === DEEP CHARCOAL SLATE BACKGROUND === */}
+      <div className={`fixed inset-0 z-[-1] bg-[#121212] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}></div>
+
+      <div className="h-full overflow-y-auto relative z-10 text-left font-mono">
+        <div className="w-full px-4 md:px-8 pt-20 pb-32">
+          
+          <div className="mb-12 border-b border-white/10 pb-10">
+            <h1 className="heading-text sm:text-[32px] font-mono leading-tight text-[#f4f4f5] tracking-tight">
+              Experience
+            </h1>
+          </div>
+
+          <div className="flex flex-col">
+            {experienceDetails.map((exp, idx) => (
+              <section 
+                key={idx} 
+                id={exp.id} 
+                className="grid grid-cols-1 md:grid-cols-[350px_1fr] gap-12 md:gap-24 py-20 border-b border-white/5 last:border-0 scroll-mt-24"
+              >
+                {/* LEFT: Logo height-aligned */}
+                <div className="flex flex-col justify-start">
+                  <div className="relative w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
+                    <Image
+                      src={exp.logo}
+                      alt={`${exp.company} Logo`}
+                      fill
+                      className="object-contain rounded-2xl"
+                    />
+                  </div>
+                </div>
+
+                {/* RIGHT: Text Content extending out */}
+                <div className="flex flex-col w-full font-mono">
+                  <div className="flex flex-col mb-6">
+                    {/* Header: Date and Company on top */}
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#f4f4f5] mb-4">
+                      {exp.company}
+                    </h2>
+
+                    {/* METADATA: Uniform font-mono */}
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[14px] sm:text-[16px]">
+                      <div className="flex items-center gap-2">
+                        <span>{exp.role}</span>
+                      </div>
+                      <span className="hidden sm:inline text-[#3f3f46]">•</span>
+                      <div className="flex items-center gap-2">
+                        <span>{exp.period}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Descriptions with font-mono and Tight Spacing */}
+                  <ul className="space-y-2 mb-1 w-full">
+                    {exp.points.map((point, pIdx) => (
+                      <li 
+                        key={pIdx} 
+                        className="flex gap-4 text-[17px] leading-relaxed text-[#d4d4d8] font-mono"
+                      >
+                        <span className="text-[#71717a] mt-2 shrink-0 text-sm">●</span>
+                        <span className="flex-1">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
