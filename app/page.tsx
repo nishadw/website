@@ -14,7 +14,7 @@ const experiences = [
 ]
 
 const contracts = [
-  { company: "Amazon Leo", position: "Advisor & Machine Learning Engineer", period: "Feb 2026 - Present", logo: "/leo2.jpg" },
+  { company: "Amazon Leo", position: "Advisory Machine Learning Engineer", period: "Feb 2026 - Present", logo: "/leo.jpg" },
   { company: "General Dynamics Information Technology", position: "Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg" },
   { company: "Booz Allen Hamilton", position: "Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg" }, 
 ]
@@ -36,7 +36,7 @@ export default function HomePage() {
       <div className={`fixed inset-0 z-[-1] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <VantaBackgroundClient onLoaded={() => setIsLoaded(true)} />
         {/* Deep background contrast for high legibility */}
-        <div className="absolute inset-0 bg-[#0a0a0a]/85 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-[#0a0a0a]/80 backdrop-blur-[2px]"></div>
       </div>
 
       {/* Main scrolling wrapper - strictly font-mono and left-aligned */}
@@ -52,29 +52,37 @@ export default function HomePage() {
           <div className="mb-12">
             {/* Avatar */}
             <div className="mb-8 h-36 w-36 overflow-hidden rounded-full ring-1 ring-white/10">
-              <Image src="/9505.jpg" alt="Nishad Wajge" width={256} height={256} className="h-full w-full object-cover" />
+              <Image src="/pfp.jpg" alt="Nishad Wajge" width={256} height={256} className="h-full w-full object-cover" />
             </div>
 
             {/* Headline */}
             <h1 className="mb-6 text-[28px] sm:text-[32px] font-bold leading-tight text-[#f4f4f5] tracking-tight">
-              Developer, Engineer, Researcher
+              Engineer · Researcher · Advisor
             </h1>
 
             {/* Bio Paragraphs */}
-            <div className={`space-y-4 font-monotext-[15px] text-[#d4d4d8]`}>
+            <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
-                BS in Computer Science (Specialization: Machine Learning) @ University of Maryland, College Park
+                B.S. in Computer Science (Machine Learning) at the University of Maryland. 
               </p>
               <p>
-                I'm always looking to make a meaningful impact with my skills, so feel free to reach out via Linkedin or Email!
+                I'm currently engineering at Mercor and advising machine learning at Amazon Leo. 
               </p>
 
+              <p>
+                My background bridges production engineering with academic research, having published (NeurIPS, INFORMS, MIT SSAC Shortlist) 
+                in the fields of game theory, benchmarking, and deep learning. 
+              </p>
+
+              <p>
+                I'm always looking to make a meaningful impact, so feel free to reach out via Linkedin or Email!
+              </p>
             </div>
 
-            {/* Previous Roles list */}
+            {/* Previous Roles list
             <p className="mt-4 text-[14px] text-[#a1a1aa]">
               Prev. <span className="font-medium text-[#f4f4f5]">General Dynamics, Booz Allen Hamilton</span>
-            </p>
+            </p> */}
           </div>
 
           {/* ================= FOCUS AREAS ================= */}
@@ -119,7 +127,7 @@ export default function HomePage() {
 
           {/* ================= CONTRACT LIST ================= */}
           <div className="mb-24 w-full">
-            <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">UMD Consulting Projects</h2>
+            <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Consulting Projects (through App Dev Club)</h2>
             <div className="flex flex-col border-t border-white/5 w-full">
               {contracts.map((exp, idx) => (
                 <a 
