@@ -61,7 +61,7 @@ export default function HomePage() {
             </h1>
 
             {/* Bio Paragraphs */}
-            <div className={`space-y-4 font-mono text-[10px] max-w-4xl text-[#d4d4d8]`}>
+            <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
                 B.S. in Computer Science (Machine Learning) at the University of Maryland. 
               </p>
@@ -88,7 +88,7 @@ export default function HomePage() {
           {/* ================= FOCUS AREAS ================= */}
           <div className="mb-16">
             <h2 className="mb-3 text-[13px] text-[#71717a] uppercase tracking-wider">Areas of Interest</h2>
-            <p className="text-[10px] text-[#d4d4d8] leading-relaxed">
+            <p className="text-[14.5px] text-[#d4d4d8] leading-relaxed">
               Game Theory <span className="text-[#71717a] mx-2">·</span> 
               Artificial Intelligence <span className="text-[#71717a] mx-2">·</span> 
               Quantitative Finance <span className="text-[#71717a] mx-2">·</span> 
@@ -111,7 +111,7 @@ export default function HomePage() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
                       <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
                     </div>
-                    <div className="flex items-center gap-3 text-[10px] whitespace-nowrap">
+                    <div className="flex items-center gap-3 text-[16px] whitespace-nowrap">
                       <span className="font-bold text-[#f4f4f5] tracking-tighter">{exp.company}</span>
                       <span className="text-[#3f3f46]">/</span>
                       <span className="text-[#a1a1aa]">{exp.position}</span>
@@ -140,7 +140,7 @@ export default function HomePage() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
                       <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
                     </div>
-                    <div className="flex items-center gap-3 text-[10px] whitespace-nowrap">
+                    <div className="flex items-center gap-3 text-[16px] whitespace-nowrap">
                       <span className="font-bold text-[#f4f4f5] tracking-tighter">{exp.company}</span>
                       <span className="text-[#3f3f46]">/</span>
                       <span className="text-[#a1a1aa]">{exp.position}</span>
