@@ -14,7 +14,7 @@ const experiences = [
 ]
 
 const contracts = [
-  { company: "Amazon Leo", position: "Advisory Machine Learning Engineer", period: "Feb 2026 - Present", logo: "/leo.jpg" },
+  { company: "Amazon Leo", position: "Technical Advisor, Machine Learning", period: "Feb 2026 - Present", logo: "/leo.jpg" },
   { company: "General Dynamics Information Technology", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg" },
   { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg" }, 
 ]
