@@ -39,7 +39,7 @@ const experienceDetails = [
   {
     id: "irs",
     company: "Internal Revenue Service",
-    logo: "/irs.png",
+    logo: "/irs.jpg",
     role: "Software Engineer Intern",
     period: "Jan 2024 — Dec 2024",
     points: [
@@ -98,25 +98,26 @@ export default function ExperiencePage() {
                     </h2>
 
                     {/* METADATA: Uniform font-mono */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[12px] sm:text-[14px]">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[14px] sm:text-[14px]">
                       <div className="flex items-center gap-2">
                         <span>{exp.role}</span>
                       </div>
                       <span className="hidden sm:inline text-[#3f3f46]">•</span>
-                      <div className="flex text-[12px] items-center gap-2">
+                      <div className="flex text-[14px] items-center gap-2">
                         <span>{exp.period}</span>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Descriptions with font-mono and reduced text size */}
                   <ul className="space-y-2 w-full pr-4">
                     {exp.points.map((point, pIdx) => (
                       <li 
                         key={pIdx} 
-                        className="flex gap-4 text-[14px] leading-relaxed text-[#d4d4d8] font-mono"
+                        // Added `items-start` to pin the dash to the top line of wrapped text
+                        className="flex items-start gap-4 text-[14px] leading-relaxed text-[#d4d4d8] font-mono"
                       >
-                        <span className="text-[#71717a] mt-1.5 shrink-0 text-[10px]">●</span>
+                        {/* Changed `mt-1.5` to `mt-0.5` (or remove it entirely) for better baseline alignment */}
+                        <span className="text-[#71717a] mt-0.5 shrink-0 text-[14px] leading-none">—</span>
                         <span className="flex-1">{point}</span>
                       </li>
                     ))}

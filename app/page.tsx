@@ -10,7 +10,7 @@ const experiences = [
   { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
   { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png" },
   { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg" },
-  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.png" }, 
+  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.jpg" }, 
 ]
 
 const contracts = [
@@ -56,19 +56,19 @@ export default function HomePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="mb-6 text-[28px] sm:text-[32px] font-bold leading-tight text-[#f4f4f5] tracking-tight">
-              Engineer & Researcher
+            <h1 className="mb-6 text-[24px] font-bold leading-tight text-[#f4f4f5] tracking-tight">
+              Analyst, Engineer, and Researcher
             </h1>
 
             {/* Bio Paragraphs */}
             <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
-                B.S. in Computer Science (Machine Learning) at the University of Maryland. 
-              </p>
-              <p>
                 I'm currently engineering at Mercor and advising machine learning at Amazon Leo. 
                 My background bridges production engineering with academic research, having published (NeurIPS, INFORMS, MIT SSAC Shortlist) 
-                in the fields of game theory, benchmarking, and deep learning. 
+                in the fields of stochastic optimization, predictive modeling, and algorithmic evaluation. 
+              </p>
+
+              <p> 
                 I'm always looking to make a meaningful impact, so feel free to reach out via email or Linkedin!
               </p>
 
