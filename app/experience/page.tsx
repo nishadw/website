@@ -79,7 +79,7 @@ export default function ExperiencePage() {
               >
                 {/* LEFT: Logo height-aligned */}
                 <div className="flex flex-col justify-start">
-                  <div className="relative w-8 h-8 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
+                  <div className="relative w-4 h-4 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
                     <Image
                       src={exp.logo}
                       alt={`${exp.company} Logo`}
