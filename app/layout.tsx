@@ -14,7 +14,7 @@ import {
   Focus,
   Computer,
   SquareTerminal,
-  Car,
+  Truck,
 } from "lucide-react"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -61,7 +61,7 @@ export default function RootLayout({
                 <h3 className="px-2 mb-2 text-[11px] font-semibold uppercase tracking-wider text-[#52525b]">Experience</h3>
                 <div className="space-y-0.5">
                   {[
-                    { name: "Amazon", icon: Car, href: "/experience#amazon" },
+                    { name: "Amazon", icon: Truck, href: "/experience#amazon" },
                     { name: "Mercor", icon: SquareTerminal, href: "/experience#mercor" },
                     { name: "General Dynamics", icon: Focus, href: "/experience#gdit" },
                     { name: "Internal Revenue Service", icon: Computer, href: "/experience#irs" },
@@ -82,9 +82,9 @@ export default function RootLayout({
                 <div className="space-y-0.5">
                   {[
                     { name: "Easy2Hard-Bench", href: "https://neurips.cc/virtual/2024/poster/97554" },
-                    { name: "MDPs for Stochastic Shortest Path in Golf", href: "https://link.springer.com/article/10.1007/s00180-024-01555-5" },
-                    { name: "Campaigns to Overcome Cognitive Bias", href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf" },
-                    { name: "Model Classification to detect Bias in Hospital Triaging", href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php" },
+                    { name: "Stochastic Optimization in Sports", href: "https://link.springer.com/article/10.1007/s00180-024-01555-5" },
+                    { name: "Campaigns to Overcome Loss-Aversion", href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf" },
+                    { name: "Trials of Triage", href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php" },
                   ].map((item, i) => (
                     <a 
                       key={i} 
@@ -96,7 +96,7 @@ export default function RootLayout({
                       <div className="flex items-center gap-2 overflow-hidden w-full">
                         <FileText className="h-4 w-4 shrink-0 text-[#52525b] group-hover:text-[#a1a1aa] transition-colors relative z-10 bg-inherit" />
                         <div className="relative overflow-hidden whitespace-nowrap w-full">
-                          <div className="inline-block transition-transform duration-[4000ms] ease-linear group-hover:-translate-x-[calc(100%-120px)]">
+                          <div className="inline-block transition-transform duration-[time:100s] ease-linear group-hover:-translate-x-[calc(100%-120px)]">
                             {item.name}
                           </div>
                         </div>
