@@ -98,12 +98,12 @@ export default function ExperiencePage() {
                     </h2>
 
                     {/* METADATA: Uniform font-mono */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[14px] sm:text-[16px]">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[12px] sm:text-[16px]">
                       <div className="flex items-center gap-2">
                         <span>{exp.role}</span>
                       </div>
                       <span className="hidden sm:inline text-[#3f3f46]">•</span>
-                      <div className="flex text-med items-center gap-2">
+                      <div className="flex text-[10px] items-center gap-2">
                         <span>{exp.period}</span>
                       </div>
                     </div>
