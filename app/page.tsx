@@ -14,7 +14,7 @@ const experiences = [
 ]
 
 const contracts = [
-  { company: "Amazon Leo", position: "Technical Advisor, Machine Learning", period: "Feb 2026 - Present", logo: "/leo.jpg" },
+  { company: "Amazon Leo", position: "Technical Advisor, ML Engineering", period: "Feb 2026 - Present", logo: "/leo.jpg" },
   { company: "General Dynamics Information Technology", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg" },
   { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg" }, 
 ]
@@ -63,8 +63,8 @@ export default function HomePage() {
             {/* Bio Paragraphs */}
             <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
-                I'm currently engineering at Mercor and advising machine learning at Amazon Leo. 
-                My background bridges production engineering with academic research, having published (NeurIPS, INFORMS, MIT SSAC Shortlist) 
+                I'm currently building at Mercor and engineering at Amazon Leo. 
+                My background bridges production engineering with academic research, having published (NeurIPS, INFORMS, MIT SSAC shortlist) 
                 in the fields of stochastic optimization, predictive modeling, and algorithmic evaluation. 
               </p>
 
