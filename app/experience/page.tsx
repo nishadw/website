@@ -93,7 +93,7 @@ export default function ExperiencePage() {
                 <div className="flex flex-col w-full font-mono">
                   <div className="flex flex-col mb-6">
                     {/* Header: Date and Company on top */}
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#f4f4f5] mb-4">
+                    <h2 className="text-2xl md:text-5xl font-bold tracking-tighter text-[#f4f4f5] mb-4">
                       {exp.company}
                     </h2>
 
