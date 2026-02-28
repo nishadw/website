@@ -67,16 +67,11 @@ export default function HomePage() {
               </p>
               <p>
                 I'm currently engineering at Mercor and advising machine learning at Amazon Leo. 
-              </p>
-
-              <p>
                 My background bridges production engineering with academic research, having published (NeurIPS, INFORMS, MIT SSAC Shortlist) 
                 in the fields of game theory, benchmarking, and deep learning. 
-              </p>
-
-              <p>
                 I'm always looking to make a meaningful impact, so feel free to reach out via email or Linkedin!
               </p>
+
             </div>
 
             {/* Previous Roles list
