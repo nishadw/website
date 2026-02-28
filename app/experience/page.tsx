@@ -22,7 +22,7 @@ const experienceDetails = [
     period: "Nov 2025 — Present",
     points: [
       "Division: SWE & Terminal Efficiency",
-      "Developing data to enhance Large Language Models via reinforcement learning from human feedback."
+      "Developing data to support the training of Large Language Models via reinforcement learning from human feedback."
     ]
   },
   {
@@ -33,7 +33,7 @@ const experienceDetails = [
     period: "Jun 2025 — Aug 2025",
     points: [
       "Division: Praxis Engineering",
-      "Deployed computer vision system within multimodal ML toolkit to enhance situational awareness.",
+      "Deployed computer vision tool within a Multimodal Machine Learning system to enhance situational awareness.",
     ]
   },
   {
@@ -44,7 +44,7 @@ const experienceDetails = [
     period: "Jan 2024 — Dec 2024",
     points: [
       "Division: Return Review Program",
-      "Modernized legacy fraud detection architecture to strengthen system reliability and security.",
+      "Modernized 20-year-old legacy fraud detection architecture to strengthen system reliability and security.",
     ]
   }
 ]
@@ -79,7 +79,7 @@ export default function ExperiencePage() {
               >
                 {/* LEFT: Logo height-aligned */}
                 <div className="flex flex-col justify-start">
-                  <div className="relative w-4 h-4 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
+                  <div className="relative w-8 h-8 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
                     <Image
                       src={exp.logo}
                       alt={`${exp.company} Logo`}
@@ -98,12 +98,12 @@ export default function ExperiencePage() {
                     </h2>
 
                     {/* METADATA: Uniform font-mono */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] sm:text-[14px]">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[12px] sm:text-[14px]">
                       <div className="flex items-center gap-2">
                         <span>{exp.role}</span>
                       </div>
                       <span className="hidden sm:inline text-[#3f3f46]">•</span>
-                      <div className="flex items-center gap-2">
+                      <div className="flex text-[12px] items-center gap-2">
                         <span>{exp.period}</span>
                       </div>
                     </div>

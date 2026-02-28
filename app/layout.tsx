@@ -112,7 +112,7 @@ export default function RootLayout({
                 <h3 className="px-2 mb-2 text-[11px] font-semibold uppercase tracking-wider text-[#52525b]">Contact</h3>
                 <div className="space-y-0.5">
                   {[
-                    { name: "Email", icon: Mail, href: "mailto:nwajge@umd.edu" },
+                    { name: "Email", icon: Mail, href: "mailto:nishad.wajge@gmail.com" },
                     { name: "Linkedin", icon: Linkedin, href: "https://linkedin.com/in/nishadwajge" },
                     { name: "GitHub", icon: Github, href: "https://github.com/nishadw" },
                     { name: "Google Scholar", icon: GraduationCap, href: "https://scholar.google.com/citations?user=8h70LbUAAAAJ&hl=en" },
