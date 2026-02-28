@@ -90,33 +90,33 @@ export default function ExperiencePage() {
                 </div>
 
                 {/* RIGHT: Text Content extending out */}
-                <div className="flex flex-col w-full font-mono">
+                <div className="flex flex-col w-full font-mono overflow-hidden">
                   <div className="flex flex-col mb-6">
-                    {/* Header: Date and Company on top */}
-                    <h2 className="text-xl md:text-5xl font-bold tracking-tighter text-[#f4f4f5] mb-4">
+                    {/* Header: Date and Company on top - Scaled down and forced to one line */}
+                    <h2 className="text-xl md:text-3xl lg:text-[32px] font-bold tracking-tighter text-[#f4f4f5] mb-3 whitespace-nowrap">
                       {exp.company}
                     </h2>
 
                     {/* METADATA: Uniform font-mono */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[12px] sm:text-[16px]">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[#f4f4f5] text-[12px] sm:text-[14px]">
                       <div className="flex items-center gap-2">
                         <span>{exp.role}</span>
                       </div>
                       <span className="hidden sm:inline text-[#3f3f46]">•</span>
-                      <div className="flex text-[10px] items-center gap-2">
+                      <div className="flex text-[12px] items-center gap-2">
                         <span>{exp.period}</span>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Descriptions with font-mono and Tight Spacing */}
-                  <ul className="space-y-2 mb-1 w-full">
+                  {/* Descriptions with font-mono and reduced text size */}
+                  <ul className="space-y-2 w-full pr-4">
                     {exp.points.map((point, pIdx) => (
                       <li 
                         key={pIdx} 
-                        className="flex gap-4 text-[17px] leading-relaxed text-[#d4d4d8] font-mono"
+                        className="flex gap-4 text-[14px] leading-relaxed text-[#d4d4d8] font-mono"
                       >
-                        <span className="text-[#71717a] mt-2 shrink-0 text-sm">●</span>
+                        <span className="text-[#71717a] mt-1.5 shrink-0 text-[10px]">●</span>
                         <span className="flex-1">{point}</span>
                       </li>
                     ))}
