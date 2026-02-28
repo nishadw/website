@@ -65,7 +65,7 @@ export default function ExperiencePage() {
         <div className="w-full px-4 md:px-8 pt-20 pb-32">
           
           <div className="mb-12 border-b border-white/10 pb-10">
-            <h1 className="heading-text sm:text-[32px] font-mono leading-tight text-[#f4f4f5] tracking-tight">
+            <h1 className="heading-text sm:text-[32px] font-mono uppercase font-bold leading-tight text-[#f4f4f5] tracking-tight">
               Experience
             </h1>
           </div>
@@ -77,9 +77,9 @@ export default function ExperiencePage() {
                 id={exp.id} 
                 className="grid grid-cols-1 md:grid-cols-[350px_1fr] md:gap-24 py-12 border-b border-white/5 last:border-0 scroll-mt-24"
               >
-                {/* LEFT: Logo height-aligned */}
-                <div className="flex flex-col justify-start">
-                  <div className="relative w-8 h-8 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
+                {/* LEFT: Logo horizontally centered within its column */}
+                <div className="flex flex-col justify-start items-center">
+                  <div className="relative w-16 h-16 md:w-32 md:h-32 lg:w-64 lg:h-64 overflow-hidden rounded-2xl">
                     <Image
                       src={exp.logo}
                       alt={`${exp.company} Logo`}
