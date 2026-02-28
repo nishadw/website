@@ -7,7 +7,7 @@ import VantaBackgroundClient from "@/components/VantaBackgroundClient"
 
 // Updated experience array with month and year dates
 const experiences = [
-  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
+  { company: "Amazon Smart Vehicles", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
   { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png" },
   { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg" },
   { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.png" }, 
@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="mb-12">
             {/* Avatar */}
             <div className="mb-8 h-36 w-36 overflow-hidden rounded-full ring-1 ring-white/10">
-              <Image src="/IMG_9505_Original.JPG" alt="Nishad Wajge" width={32} height={32} className="h-full w-full object-cover" />
+              <Image src="/pfp.JPG" alt="Nishad Wajge" width={32} height={32} className="h-full w-full object-cover" />
             </div>
 
             {/* Headline */}

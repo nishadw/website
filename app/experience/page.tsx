@@ -93,7 +93,7 @@ export default function ExperiencePage() {
                 <div className="flex flex-col w-full font-mono">
                   <div className="flex flex-col mb-6">
                     {/* Header: Date and Company on top */}
-                    <h2 className="text-2xl md:text-5xl font-bold tracking-tighter text-[#f4f4f5] mb-4">
+                    <h2 className="text-xl md:text-5xl font-bold tracking-tighter text-[#f4f4f5] mb-4">
                       {exp.company}
                     </h2>
 
@@ -103,7 +103,7 @@ export default function ExperiencePage() {
                         <span>{exp.role}</span>
                       </div>
                       <span className="hidden sm:inline text-[#3f3f46]">•</span>
-                      <div className="flex items-center gap-2">
+                      <div className="flex text-med items-center gap-2">
                         <span>{exp.period}</span>
                       </div>
                     </div>
