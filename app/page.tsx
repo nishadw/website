@@ -61,7 +61,7 @@ export default function HomePage() {
             </h1>
 
             {/* Bio Paragraphs */}
-            <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
+            <div className={`space-y-4 font-mono text-[15px] max-w-3xl text-[#d4d4d8]`}>
               <p>
                 B.S. in Computer Science (Machine Learning) at the University of Maryland. 
               </p>
