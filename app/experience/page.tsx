@@ -33,7 +33,7 @@ const experienceDetails = [
     period: "Jun 2025 — Aug 2025",
     points: [
       "Division: Praxis Engineering",
-      "Deployed computer vision tool within a Multimodal Machine Learning system to enhance situational awareness.",
+      "Deployed computer vision system within multimodal ML toolkit to enhance situational awareness.",
     ]
   },
   {
@@ -44,7 +44,7 @@ const experienceDetails = [
     period: "Jan 2024 — Dec 2024",
     points: [
       "Division: Return Review Program",
-      "Modernized 20-year-old legacy fraud detection architecture to strengthen system reliability and security.",
+      "Modernized legacy fraud detection architecture to strengthen system reliability and security.",
     ]
   }
 ]
