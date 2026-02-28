@@ -7,7 +7,7 @@ import VantaBackgroundClient from "@/components/VantaBackgroundClient"
 
 // Updated experience array with month and year dates
 const experiences = [
-  { company: "Amazon Smart Vehicles", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
+  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
   { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png" },
   { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg" },
   { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.png" }, 
@@ -57,7 +57,7 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 className="mb-6 text-[28px] sm:text-[32px] font-bold leading-tight text-[#f4f4f5] tracking-tight">
-              Engineer · Researcher · Advisor
+              Engineer & Researcher
             </h1>
 
             {/* Bio Paragraphs */}
@@ -75,7 +75,7 @@ export default function HomePage() {
               </p>
 
               <p>
-                I'm always looking to make a meaningful impact, so feel free to reach out via Linkedin or Email!
+                I'm always looking to make a meaningful impact, so feel free to reach out via email or Linkedin!
               </p>
             </div>
 
