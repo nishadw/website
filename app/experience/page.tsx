@@ -59,9 +59,16 @@ export default function ExperiencePage() {
   return (
     <>
       {/* === DEEP CHARCOAL SLATE BACKGROUND === */}
-      <div className={`fixed inset-0 z-[-1] bg-[#121212] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}></div>
+      <div className="fixed inset-0 z-[-1] bg-[#121212]"></div>
 
-      <div className="h-full overflow-y-auto relative z-10 text-left font-mono">
+      {/* Loading spinner */}
+      {!isLoaded && (
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <div className="h-6 w-6 rounded-full border-2 border-white/10 border-t-white/60 animate-spin" />
+        </div>
+      )}
+
+      <div className={`h-full overflow-y-auto relative z-10 text-left font-mono transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="w-full px-4 md:px-8 pt-20 pb-32">
           
           <div className="mb-12 border-b border-white/10 pb-10">

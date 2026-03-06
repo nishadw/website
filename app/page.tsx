@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import VantaBackgroundClient from "@/components/VantaBackgroundClient"
 
 
 // Updated experience array with month and year dates
 const experiences = [
-  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg" },
-  { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png" },
-  { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg" },
-  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.jpg" }, 
+  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg", id: "amazon" },
+  { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png", id: "mercor" },
+  { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg", id: "gdit" },
+  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.jpg", id: "irs" },
 ]
 
 const contracts = [
@@ -33,14 +34,21 @@ export default function HomePage() {
   return (
     <>
       {/* === VANTA BACKGROUND (MUTED) === */}
-      <div className={`fixed inset-0 z-[-1] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`fixed inset-0 z-[-1] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <VantaBackgroundClient onLoaded={() => setIsLoaded(true)} />
         {/* Deep background contrast for high legibility */}
         <div className="absolute inset-0 bg-[#0a0a0a]/80 backdrop-blur-[2px]"></div>
       </div>
 
+      {/* Loading spinner */}
+      {!isLoaded && (
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <div className="h-6 w-6 rounded-full border-2 border-white/10 border-t-white/60 animate-spin" />
+        </div>
+      )}
+
       {/* Main scrolling wrapper - strictly font-mono and left-aligned */}
-      <div className="h-full overflow-y-auto relative z-10 text-left font-mono">
+      <div className={`h-full overflow-y-auto relative z-10 text-left font-mono transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Main Content Constraints 
           - Max-width removed and w-full added to let content stretch edge-to-edge
@@ -57,14 +65,14 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 className="mb-6 text-[24px] font-bold leading-tight text-[#f4f4f5] tracking-tight">
-              Analyst, Engineer, and Researcher
+              Researcher & Engineer
             </h1>
 
             {/* Bio Paragraphs */}
             <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
-                I'm currently building at Mercor and engineering at Amazon Leo. 
-                My background bridges production engineering with academic research, having published (NeurIPS, INFORMS, MIT SSAC shortlist) 
+                I'm currently building software tools at Mercor and engineering machine learning models for space sustainability at Amazon Leo. 
+                My background bridges production engineering with academic research, having published (NeurIPS, INFORMS Annual Meeting, MIT SSAC shortlist) 
                 in the fields of stochastic optimization, predictive modeling, and algorithmic evaluation. 
               </p>
 
@@ -84,10 +92,10 @@ export default function HomePage() {
           <div className="mb-16">
             <h2 className="mb-3 text-[13px] text-[#71717a] uppercase tracking-wider">Areas of Interest</h2>
             <p className="text-[14.5px] text-[#d4d4d8] leading-relaxed">
-              Game Theory <span className="text-[#71717a] mx-2">·</span> 
               Artificial Intelligence <span className="text-[#71717a] mx-2">·</span> 
-              Quantitative Finance <span className="text-[#71717a] mx-2">·</span> 
-              Software Engineering
+              Game Theory <span className="text-[#71717a] mx-2">·</span> 
+              Software Engineering <span className="text-[#71717a] mx-2">·</span> 
+              Quantitative Finance
             </p>
           </div>
 
@@ -96,9 +104,9 @@ export default function HomePage() {
             <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Experience</h2>
             <div className="flex flex-col border-t border-white/5 w-full">
               {experiences.map((exp, idx) => (
-                <a 
+                <Link
                   key={idx}
-                  href={`#${exp.company.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/experience#${exp.id}`}
                   className="group flex items-center justify-between border-b border-white/5 py-4 transition-colors hover:bg-white/[0.05] px-2 rounded-lg"
                 >
                   {/* Left Side: Logo, Company, and Role stretched horizontally */}
@@ -115,7 +123,7 @@ export default function HomePage() {
                   
                   {/* Right Side: Date remains anchored to the far right */}
                   <span className="text-[14px] text-[#71717a] whitespace-nowrap ml-8">{exp.period}</span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -125,12 +133,11 @@ export default function HomePage() {
             <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Consulting Projects (through App Dev Club)</h2>
             <div className="flex flex-col border-t border-white/5 w-full">
               {contracts.map((exp, idx) => (
-                <a 
+                <div
                   key={idx}
-                  href={`#${exp.company.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="group flex items-center justify-between border-b border-white/5 py-4 transition-colors hover:bg-white/[0.05] px-2 rounded-lg"
+                  className="flex items-center justify-between border-b border-white/5 py-4 px-2"
                 >
-                  {/* Left Side: Logo, Company, and Role stretched horizontally */}
+                  {/* Left Side */}
                   <div className="flex items-center gap-6 overflow-hidden">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
                       <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
@@ -141,10 +148,9 @@ export default function HomePage() {
                       <span className="text-[#a1a1aa]">{exp.position}</span>
                     </div>
                   </div>
-                  
-                  {/* Right Side: Date remains anchored to the far right */}
+                  {/* Right Side */}
                   <span className="text-[14px] text-[#71717a] whitespace-nowrap ml-8">{exp.period}</span>
-                </a>
+                </div>
               ))}
             </div>
           </div>
