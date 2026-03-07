@@ -59,7 +59,7 @@ export default function HomePage() {
           {/* ================= HERO & BIO ================= */}
           <div className="mb-12">
             {/* Avatar */}
-            <div className="mb-8 h-36 w-36 overflow-hidden rounded-full ring-1 ring-white/10">
+            <div className="mb-8 h-24 w-24 overflow-hidden rounded-full ring-1 ring-white/10">
               <Image src="/pfp.JPG" alt="Nishad Wajge" width={32} height={32} className="h-full w-full object-cover" />
             </div>
 
@@ -91,12 +91,14 @@ export default function HomePage() {
           {/* ================= FOCUS AREAS ================= */}
           <div className="mb-16">
             <h2 className="mb-3 text-[13px] text-[#71717a] uppercase tracking-wider">Areas of Interest</h2>
-            <p className="text-[14.5px] text-[#d4d4d8] leading-relaxed">
-              Artificial Intelligence <span className="text-[#71717a] mx-2">·</span> 
-              Game Theory <span className="text-[#71717a] mx-2">·</span> 
-              Software Engineering <span className="text-[#71717a] mx-2">·</span> 
-              Quantitative Finance
-            </p>
+            <div className="flex flex-wrap items-center gap-y-1 text-[14.5px] text-[#d4d4d8] leading-relaxed">
+              {["Artificial Intelligence", "Game Theory", "Software Engineering", "Quantitative Finance"].map((area, i, arr) => (
+                <span key={area} className="flex items-center">
+                  {area}
+                  {i < arr.length - 1 && <span className="text-[#71717a] mx-2">·</span>}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* ================= TEAM / EXPERIENCE LIST ================= */}
