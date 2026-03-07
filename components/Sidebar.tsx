@@ -1,5 +1,6 @@
 "use client"
 
+import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
@@ -27,6 +28,28 @@ const contactItems = [
   { name: "GitHub", icon: Github, href: "https://github.com/nishadw" },
   { name: "Google Scholar", icon: GraduationCap, href: "https://scholar.google.com/citations?user=8h70LbUAAAAJ&hl=en" },
 ]
+
+function ScrollingText({ text }: { text: string }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const [scrollDist, setScrollDist] = useState(0)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !el.parentElement) return
+    const overflow = el.scrollWidth - el.parentElement.clientWidth
+    if (overflow > 0) setScrollDist(overflow + 30)
+  }, [])
+
+  return (
+    <span
+      ref={ref}
+      className={`whitespace-nowrap inline-block ${scrollDist > 0 ? "group-hover:[animation:pub-scroll_2s_ease-out_forwards]" : "truncate"}`}
+      style={{ "--scroll-dist": `-${scrollDist}px` } as React.CSSProperties}
+    >
+      {text}
+    </span>
+  )
+}
 
 function IconSwap({ Icon }: { Icon: React.ElementType }) {
   return (
@@ -94,9 +117,9 @@ export default function Sidebar() {
               <a key={i} href={item.href} target="_blank" rel="noreferrer"
                 className="group flex items-center justify-between px-2 py-1.5 text-[13px] text-[#a1a1aa] hover:text-[#f4f4f5] hover:bg-white/[0.03] rounded-md transition-colors"
               >
-                <div className="flex items-center gap-2 min-w-0">
+                <div className="flex items-center gap-2 min-w-0 overflow-hidden">
                   <IconSwap Icon={FileText} />
-                  <span className="truncate">{item.name}</span>
+                  <ScrollingText text={item.name} />
                 </div>
                 <ExternalLink className="h-3 w-3 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-[#52525b] ml-2" />
               </a>
