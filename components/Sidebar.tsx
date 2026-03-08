@@ -37,7 +37,7 @@ function ScrollingText({ text }: { text: string }) {
     const el = ref.current
     if (!el || !el.parentElement) return
     const overflow = el.scrollWidth - el.parentElement.clientWidth
-    if (overflow > 0) setScrollDist(overflow + 30)
+    if (overflow > 0) setScrollDist(overflow)
   }, [])
 
   return (
@@ -117,9 +117,11 @@ export default function Sidebar() {
               <a key={i} href={item.href} target="_blank" rel="noreferrer"
                 className="group flex items-center justify-between px-2 py-1.5 text-[13px] text-[#a1a1aa] hover:text-[#f4f4f5] hover:bg-white/[0.03] rounded-md transition-colors"
               >
-                <div className="flex items-center gap-2 min-w-0 overflow-hidden">
+                <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
                   <IconSwap Icon={FileText} />
-                  <ScrollingText text={item.name} />
+                  <span className="overflow-hidden min-w-0 flex-1 flex items-center">
+                    <ScrollingText text={item.name} />
+                  </span>
                 </div>
                 <ExternalLink className="h-3 w-3 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-[#52525b] ml-2" />
               </a>
