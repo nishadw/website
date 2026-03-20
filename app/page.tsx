@@ -72,7 +72,7 @@ export default function HomePage() {
             <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
                 I'm currently building software tools at Mercor and engineering machine learning models for space sustainability at Amazon Leo. 
-                My background bridges production engineering with academic research, having published (NeurIPS, INFORMS Annual Meeting, MIT SSAC shortlist) 
+                My background bridges production engineering with academic research, having published (NeurIPS Annual Conference, INFORMS Annual Meeting, MIT SSAC shortlist) 
                 in the fields of stochastic optimization, predictive modeling, and algorithmic evaluation. 
               </p>
 
