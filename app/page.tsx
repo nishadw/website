@@ -9,15 +9,15 @@ import VantaBackgroundClient from "@/components/VantaBackgroundClient"
 // Updated experience array with month and year dates
 const experiences = [
   { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg", id: "amazon" },
-  { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — Present", logo: "/mercor.png", id: "mercor" },
+  { company: "Mercor", position: "Junior Software Engineer", period: "Nov 2025 — Mar 2026", logo: "/mercor.png", id: "mercor" },
   { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg", id: "gdit" },
   { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.jpg", id: "irs" },
 ]
 
 const contracts = [
-  { company: "Amazon Leo", position: "Technical Advisor, ML Engineering", period: "Feb 2026 - Present", logo: "/leo.jpg" },
-  { company: "General Dynamics Information Technology", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg" },
-  { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg" }, 
+  { company: "Amazon", position: "Technical Advisor, Machine Learning Engineering", period: "Feb 2026 - Present", logo: "/amzn.jpg", id: "amazon-leo" },
+  { company: "General Dynamics Information Technology", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg", id: "gdit-lead" },
+  { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg", id: "bah" }, 
 ]
 
 export default function HomePage() {
@@ -71,9 +71,9 @@ export default function HomePage() {
             {/* Bio Paragraphs */}
             <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
               <p>
-                I'm currently building software tools at Mercor and engineering machine learning models for space sustainability at Amazon Leo. 
-                My background bridges production engineering with academic research, having published (NeurIPS Annual Conference, INFORMS Annual Meeting, MIT SSAC shortlist) 
-                in the fields of stochastic optimization, predictive modeling, and algorithmic evaluation. 
+                I'm currently engineering predictive models for space at Amazon Leo. 
+                My background bridges production engineering with academic research, having published 
+                in the fields of stochastic optimization, predictive modeling, and algorithmic fairness. 
               </p>
 
               <p> 
@@ -135,9 +135,10 @@ export default function HomePage() {
             <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Consulting Projects (through App Dev Club)</h2>
             <div className="flex flex-col border-t border-white/5 w-full">
               {contracts.map((exp, idx) => (
-                <div
+                <Link
                   key={idx}
-                  className="flex items-center justify-between border-b border-white/5 py-4 px-2"
+                  href={`/experience#${exp.id}`}
+                  className="group flex items-center justify-between border-b border-white/5 py-4 px-2 transition-colors hover:bg-white/[0.05] rounded-lg"
                 >
                   {/* Left Side */}
                   <div className="flex items-center gap-6 overflow-hidden">
@@ -152,7 +153,7 @@ export default function HomePage() {
                   </div>
                   {/* Right Side */}
                   <span className="text-[14px] text-[#71717a] whitespace-nowrap ml-8">{exp.period}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
