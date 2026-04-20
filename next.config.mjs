@@ -13,7 +13,7 @@ const nextConfig = {
     return [
       {
         source: '/stocks/:path*',
-        destination: 'https://13f-analyzer-6fp3kyd0o-nishadws-projects.vercel.app/:path*',
+        destination: 'https://13f-analyzer-beta.vercel.app/:path*',
       },
     ]
   },
