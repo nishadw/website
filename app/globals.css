@@ -1,264 +1,73 @@
-/* globals.css */
-/* 1. Import Zalando Sans & Inter (Fallback) */
-@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root { 
-  --background: 0 0% 8%; /* Neutral Dark Gray */ 
-  --foreground: 0 0% 95%; /* Neutral Light Gray */ 
-  --card: 0 0% 10%; 
-  --card-foreground: 0 0% 95%; 
-  --popover: 0 0% 10%; 
-  --popover-foreground: 0 0% 95%; 
-  --primary: 214 80% 45%; /* Lighter Blue */ 
-  --primary-foreground: 0 0% 100%; 
-  --secondary: 0 0% 15%; 
-  --secondary-foreground: 0 0% 80%; 
-  --muted: 0 0% 15%; 
-  --muted-foreground: 0 0% 60%; 
-  --accent: 214 80% 45%; /* Lighter Blue */ 
-  --accent-foreground: 0 0% 100%; 
-  --destructive: 0 63% 50%; 
-  --destructive-foreground: 0 0% 95%; 
-  --border: 0 0% 20%; 
-  --input: 0 0% 20%; 
-  --ring: 214 80% 45%; /* Lighter Blue */ 
-} 
+:root {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 94%;
+  --border: 0 0% 10%;
+}
+
+:root {
+  --mx: 0.5;
+  --my: 0.5;
+}
+
+/* Metallic shimmer text — angle tracks both x and y axes */
+.metallic {
+  display: inline-block;
+  background: linear-gradient(
+    calc(var(--mx, 0.5) * 160deg + var(--my, 0.5) * 80deg - 50deg),
+    #71717a 0%,
+    #a1a1aa 15%,
+    #e4e4e7 32%,
+    #ffffff 46%,
+    #e4e4e7 58%,
+    #a1a1aa 76%,
+    #71717a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #a1a1aa; /* fallback if gradient fails */
+}
+
+/* Metallic shimmer background — for bars and lines */
+.metallic-bg {
+  background: linear-gradient(
+    calc(var(--mx, 0.5) * 160deg + var(--my, 0.5) * 80deg - 50deg),
+    #3f3f46,
+    #71717a,
+    #d4d4d8,
+    #f4f4f5,
+    #d4d4d8,
+    #71717a,
+    #3f3f46
+  );
+}
 
 @layer base {
-  
   * {
     @apply border-border;
   }
 
-  /* 1. Added no-scrollbar here to hide it globally */
   html, body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     scroll-behavior: smooth;
   }
 
-  /* 2. Added webkit specific selector */
-  html::-webkit-scrollbar, 
+  html::-webkit-scrollbar,
   body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
   }
 
   body {
-    /* Make background transparent so Vanta shows */
-    background: transparent;
+    background: #0a0a0a;
     color: rgb(var(--foreground));
-    
-    /* UPDATED: Uses the new font stack */
-    font-family: "Zalando Sans", "Inter", sans-serif;
-    
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
     line-height: 1.6;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    letter-spacing: 0.05em;
-    line-height: 1.1;
-  }
-
-  .heading-text { letter-spacing: 0.05em; }
-  .body-text { line-height: 1.6; }
-}
-
-@layer utilities {
-  .elegant-shadow {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  }
-
-  .elegant-shadow-lg {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Animations */
-  .fade-in {
-    animation: fadeIn 1.5s ease-out forwards;
-  }
-
-  .slide-up {
-    animation: slideUp 1.5s ease-out forwards;
-  }
-
-  .animate-content-fade-in {
-    animation: contentFadeIn 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .logo-float {
-    animation: logoFloat 8s ease-in-out infinite;
-  }
-  
-  .animate-pulse-glow {
-    animation: pulse-glow 2.5s infinite ease-in-out;
-  }
-
-  .animate-hover-up-down {
-    animation: hover-up-down 2s ease-in-out infinite;
-  }
-
-  /* Animation Stagger Delays */
-  .stagger-1 {
-    animation-delay: 0.1s;
-  }
-  .stagger-2 {
-    animation-delay: 0.2s;
-  }
-  .stagger-3 {
-    animation-delay: 0.3s;
-  }
-  .stagger-4 {
-    animation-delay: 0.4s;
-  }
-  .stagger-5 {
-    animation-delay: 0.5s;
-  }
-
-  /* Other Utilities */
-  .company-logo {
-    opacity: 0.08;
-    transition: all 0.3s ease;
-  }
-
-  .company-logo-hover {
-    opacity: 0.15;
-  }
-
-  .smooth-tilt {
-    will-change: transform;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-  }
-}
-
-/* Keyframe Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes contentFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes logoFloat {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(1deg);
-  }
-}
-
-@keyframes hover-up-down {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-
-/* Base styles for elements before animation */
-.experience-logo,
-.experience-card {
-  opacity: 0; /* Start hidden */
-}
-
-/* Keyframe animations */
-@keyframes animate-logo {
-  from {
-    opacity: 0;
-    transform: translateX(-50px) rotate(-90deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) rotate(0);
-  }
-}
-
-@keyframes animate-card {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Trigger class to start animations */
-.timeline-in-view .experience-logo {
-  animation: animate-logo 0.75s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-.timeline-in-view .experience-card {
-  animation: animate-card 0.75s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes pub-scroll {
-  0%, 10% { transform: translateX(0); }
-  80%, 100% { transform: translateX(var(--scroll-dist, 0px)); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px 5px hsl(var(--primary) / 0.5), 0 0 5px 1px hsl(var(--primary) / 0.7);
-  }
-  50% {
-    box-shadow: 0 0 35px 10px hsl(var(--primary) / 0.7), 0 0 10px 3px hsl(var(--primary) / 0.9);
   }
 }
