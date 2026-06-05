@@ -1,165 +1,175 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
-import VantaBackgroundClient from "@/components/VantaBackgroundClient"
 
-
-// Updated experience array with month and year dates
 const experiences = [
-  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", logo: "/amzn.jpg", id: "amazon" },
-  { company: "Mercor", position: "Junior Software Engineer", period: "Nov 2025 — Mar 2026", logo: "/mercor.png", id: "mercor" },
-  { company: "General Dynamics Information Technology", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", logo: "/gdit.jpg", id: "gdit" },
-  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", logo: "/irs.jpg", id: "irs" },
+  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", id: "amazon" },
+  { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — May 2026", id: "mercor" },
+  { company: "General Dynamics IT", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
+  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan — Dec 2024", id: "irs" },
 ]
 
 const contracts = [
-  { company: "Amazon", position: "Technical Advisor, Machine Learning Engineering", period: "Feb 2026 - Present", logo: "/amzn.jpg", id: "amazon-leo" },
-  { company: "General Dynamics Information Technology", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", logo: "/gdit.jpg", id: "gdit-lead" },
-  { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", logo: "/bah.jpg", id: "bah" }, 
+  { company: "Amazon", position: "Technical Advisor, ML Engineering", period: "Jan 2026 — May 2026", id: "amazon-leo" },
+  { company: "General Dynamics IT", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
+  { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", id: "bah" },
 ]
 
-export default function HomePage() {
-  const [isLoaded, setIsLoaded] = useState(false)
+const publications = [
+  {
+    title: "Bayesian estimation and statistical benchmarking for large language models",
+    venue: "NeurIPS",
+    href: "https://neurips.cc/virtual/2024/poster/97554",
+  },
+  {
+    title: "Dynamic strategy optimization in turn-based stochastic games via Markov decision processes",
+    venue: "INFORMS",
+    href: "https://link.springer.com/article/10.1007/s00180-024-01555-5",
+  },
+  {
+    title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
+    venue: "",
+    href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
+  },
+  {
+    title: "Statistical modeling of decision theory and risk-aversion under uncertainty",
+    venue: "",
+    href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
+  },
+]
 
-  // Safety Timeout: Force load after 4 seconds if Vanta is slow/fails
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!isLoaded) setIsLoaded(true)
-    }, 4000)
-    return () => clearTimeout(timeout)
-  }, [isLoaded])
+const contact = [
+  { label: "LinkedIn", href: "https://linkedin.com/in/nishadwajge" },
+  { label: "GitHub", href: "https://github.com/nishadw" },
+  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=8h70LbUAAAAJ&hl=en" },
+]
 
+function SectionHeader({ number, label, sub }: { number: string; label: string; sub?: string }) {
   return (
-    <>
-      {/* === VANTA BACKGROUND (MUTED) === */}
-      <div className={`fixed inset-0 z-[-1] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <VantaBackgroundClient onLoaded={() => setIsLoaded(true)} />
-        {/* Deep background contrast for high legibility */}
-        <div className="absolute inset-0 bg-[#0a0a0a]/80 backdrop-blur-[2px]"></div>
+    <div className="flex items-center gap-3 mb-7">
+      <span className="text-[10px] font-mono tabular-nums tracking-widest metallic">{number}</span>
+      <span className="text-[10px] tracking-[0.2em] uppercase font-semibold metallic">{label}</span>
+      {sub && <span className="text-[10px] text-[#272727] font-mono">{sub}</span>}
+      <div className="flex-1 h-px bg-white/[0.05]" />
+    </div>
+  )
+}
+
+function ExpRow({ company, position, period, href }: {
+  company: string; position: string; period: string; href: string
+}) {
+  return (
+    <Link
+      href={href}
+      className="group relative flex items-center justify-between py-4 border-b border-white/[0.05] hover:border-white/[0.08] pl-4 transition-colors duration-150"
+    >
+      <span className="absolute left-0 top-3 bottom-3 w-[2px] metallic-bg opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-full" />
+      <div className="flex items-center gap-4 min-w-0 flex-1">
+        <span className="text-[13px] font-semibold text-[#b0b0b0] group-hover:text-[#f0f0f0] transition-colors shrink-0 w-44">
+          {company}
+        </span>
+        <span className="text-[13px] text-[#383838] truncate">{position}</span>
       </div>
+      <span className="text-[11px] text-[#2c2c2c] ml-6 shrink-0 font-mono">{period}</span>
+    </Link>
+  )
+}
 
-      {/* Loading spinner */}
-      {!isLoaded && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <div className="h-6 w-6 rounded-full border-2 border-white/10 border-t-white/60 animate-spin" />
-        </div>
-      )}
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="max-w-[720px] mx-auto px-8 pt-20 pb-32">
 
-      {/* Main scrolling wrapper - strictly font-mono and left-aligned */}
-      <div className={`h-full overflow-y-auto relative z-10 text-left font-mono transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        {/* ── HERO ── */}
+        <div className="mb-14">
+          <h1 className="text-[54px] font-medium text-[#efefef] leading-[1.0] tracking-[-0.03em] mb-5">
+            Nishad Wajge
+          </h1>
 
-        {/* Main Content Constraints 
-          - Max-width removed and w-full added to let content stretch edge-to-edge
-          - px-6 md:px-8 provides minimal sidebar spacing
-        */}
-        <div className="w-full px-6 md:px-8 pt-20 pb-32">
-          
-          {/* ================= HERO & BIO ================= */}
-          <div className="mb-12">
-            {/* Avatar */}
-            <div className="mb-8 h-24 w-24 overflow-hidden rounded-full ring-1 ring-white/10">
-              <Image src="/pfp.JPG" alt="Nishad Wajge" width={32} height={32} className="h-full w-full object-cover" />
-            </div>
-
-            {/* Headline */}
-            <h1 className="mb-6 text-[24px] font-bold leading-tight text-[#f4f4f5] tracking-tight">
-              Researcher & Engineer
-            </h1>
-
-            {/* Bio Paragraphs */}
-            <div className={`space-y-4 font-mono text-[15px] max-w-4xl text-[#d4d4d8]`}>
-              <p>
-                I'm currently engineering predictive models for space at Amazon Leo. 
-                My background bridges production engineering with academic research, having published 
-                in the fields of stochastic optimization, predictive modeling, and algorithmic fairness. 
-              </p>
-
-              <p> 
-                I'm always looking to make a meaningful impact, so feel free to reach out via email or Linkedin!
-              </p>
-
-            </div>
-
-            {/* Previous Roles list
-            <p className="mt-4 text-[14px] text-[#a1a1aa]">
-              Prev. <span className="font-medium text-[#f4f4f5]">General Dynamics, Booz Allen Hamilton</span>
-            </p> */}
+          <div className="flex items-center gap-2.5 mb-2">
+            <span className="block w-5 h-px metallic-bg" />
+            <span className="text-[11px] font-mono tracking-wide metallic">
+              Engineering @ Amazon Smart Vehicles
+            </span>
+          </div>
+          <div className="flex items-center gap-2.5 mb-8">
+            <span className="block w-5 h-px metallic-bg" />
+            <span className="text-[11px] font-mono tracking-wide metallic">
+              CS @ University of Maryland, College Park
+            </span>
           </div>
 
-          {/* ================= FOCUS AREAS ================= */}
-          <div className="mb-16">
-            <h2 className="mb-3 text-[13px] text-[#71717a] uppercase tracking-wider">Areas of Interest</h2>
-            <div className="flex flex-wrap items-center gap-y-1 text-[14.5px] text-[#d4d4d8] leading-relaxed">
-              {["Artificial Intelligence", "Game Theory", "Software Engineering", "Quantitative Finance"].map((area, i, arr) => (
-                <span key={area} className="flex items-center">
-                  {area}
-                  {i < arr.length - 1 && <span className="text-[#71717a] mx-2">·</span>}
+          <p className="text-[14px] text-[#4a4a4a] leading-relaxed max-w-[475px] mb-2">
+            Researcher and engineer working across software engineering,
+            artificial intelligence, game theory, and mechanistic interpretability.
+          </p>
+          <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-10">
+            Reach me via LinkedIn or email - [firstname] dot [lastname] at gmail dot com
+          </p>
+        </div>
+
+        {/* ── EXPERIENCE ── */}
+        <section className="mb-14">
+          <SectionHeader number="01" label="Experience" />
+          <div>
+            {experiences.map((exp, idx) => (
+              <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />
+            ))}
+          </div>
+        </section>
+
+        {/* ── CONSULTING ── */}
+        <section className="mb-14">
+          <SectionHeader number="02" label="Consulting" sub="· via UMD ADC" />
+          <div>
+            {contracts.map((exp, idx) => (
+              <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />
+            ))}
+          </div>
+        </section>
+
+        {/* ── PUBLICATIONS ── */}
+        <section className="mb-24">
+          <SectionHeader number="03" label="Publications" />
+          <div>
+            {publications.map((pub, idx) => (
+              <a
+                key={idx}
+                href={pub.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative flex items-start py-4 border-b border-white/[0.05] hover:border-white/[0.08] pl-5 transition-colors duration-150"
+              >
+                <span className="absolute left-0 top-4 bottom-4 w-[2px] metallic-bg opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-full" />
+                <span className="text-[11px] font-mono text-[#272727] mt-0.5 shrink-0 tabular-nums w-7">
+                  {String(idx + 1).padStart(2, "0")}
                 </span>
-              ))}
-            </div>
+                <div className="flex-1 min-w-0">
+                  <span className="text-[13px] text-[#4a4a4a] group-hover:text-[#b0b0b0] transition-colors leading-relaxed block">
+                    {pub.title}
+                  </span>
+                  {pub.venue && (
+                    <span className="text-[10px] font-mono metallic opacity-50 group-hover:opacity-90 transition-opacity mt-1 block tracking-wide">
+                      {pub.venue}
+                    </span>
+                  )}
+                </div>
+              </a>
+            ))}
           </div>
+        </section>
 
-          {/* ================= TEAM / EXPERIENCE LIST ================= */}
-          <div className="mb-16 w-full">
-            <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Experience</h2>
-            <div className="flex flex-col border-t border-white/5 w-full">
-              {experiences.map((exp, idx) => (
-                <Link
-                  key={idx}
-                  href={`/experience#${exp.id}`}
-                  className="group flex items-center justify-between border-b border-white/5 py-4 transition-colors hover:bg-white/[0.05] px-2 rounded-lg"
-                >
-                  {/* Left Side: Logo, Company, and Role stretched horizontally */}
-                  <div className="flex items-center gap-6 overflow-hidden">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
-                      <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
-                    </div>
-                    <div className="flex items-center gap-3 text-[16px] whitespace-nowrap">
-                      <span className="font-bold text-[#f4f4f5] tracking-tighter">{exp.company}</span>
-                      <span className="text-[#3f3f46]">/</span>
-                      <span className="text-[#a1a1aa]">{exp.position}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Right Side: Date remains anchored to the far right */}
-                  <span className="text-[14px] text-[#71717a] whitespace-nowrap ml-8">{exp.period}</span>
-                </Link>
-              ))}
-            </div>
+        {/* ── CONTACT / FOOTER ── */}
+        <div className="flex items-center justify-between text-[11px] text-[#252525] border-t border-white/[0.05] pt-8">
+          <div className="flex items-center gap-7 font-mono tracking-wide">
+            {contact.map((c, i) => (
+              <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#b0b0b0] transition-colors duration-150">
+                {c.label}
+              </a>
+            ))}
           </div>
-
-          {/* ================= CONTRACT LIST ================= */}
-          <div className="mb-24 w-full">
-            <h2 className="mb-4 text-[13px] font-medium text-[#71717a] uppercase tracking-wider">Consulting Projects (through App Dev Club)</h2>
-            <div className="flex flex-col border-t border-white/5 w-full">
-              {contracts.map((exp, idx) => (
-                <Link
-                  key={idx}
-                  href={`/experience#${exp.id}`}
-                  className="group flex items-center justify-between border-b border-white/5 py-4 px-2 transition-colors hover:bg-white/[0.05] rounded-lg"
-                >
-                  {/* Left Side */}
-                  <div className="flex items-center gap-6 overflow-hidden">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md">
-                      <Image src={exp.logo} alt={exp.company} width={32} height={32} className="h-full w-full object-contain rounded-xl" />
-                    </div>
-                    <div className="flex items-center gap-3 text-[16px] whitespace-nowrap">
-                      <span className="font-bold text-[#f4f4f5] tracking-tighter">{exp.company}</span>
-                      <span className="text-[#3f3f46]">/</span>
-                      <span className="text-[#a1a1aa]">{exp.position}</span>
-                    </div>
-                  </div>
-                  {/* Right Side */}
-                  <span className="text-[14px] text-[#71717a] whitespace-nowrap ml-8">{exp.period}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
+          <span className="font-mono">© Nishad Wajge 2026</span>
         </div>
+
       </div>
-    </>
+    </div>
   )
 }
