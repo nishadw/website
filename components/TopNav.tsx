@@ -37,14 +37,6 @@ export default function TopNav() {
         >
           GitHub
         </a>
-        <a
-          href="https://scholar.google.com/citations?user=8h70LbUAAAAJ&hl=en"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-[#f0f0f0] transition-colors"
-        >
-          Google Scholar
-        </a>
       </div>
     </nav>
   )
