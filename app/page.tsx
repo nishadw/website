@@ -1,4 +1,5 @@
 import Link from "next/link"
+import StatusLight from "@/components/StatusLight"
 
 const experiences = [
   { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", id: "amazon" },
@@ -79,9 +80,12 @@ export default function HomePage() {
 
         {/* ── HERO ── */}
         <div className="mb-14">
-          <h1 className="text-[54px] font-medium text-[#efefef] leading-[1.0] tracking-[-0.03em] mb-5">
-            Nishad Wajge
-          </h1>
+          <div className="flex items-center gap-4 mb-5">
+            <h1 className="text-[54px] font-medium text-[#efefef] leading-[1.0] tracking-[-0.03em]">
+              Nishad Wajge
+            </h1>
+            <StatusLight />
+          </div>
 
           <div className="flex items-center gap-2.5 mb-2">
             <span className="block w-5 h-px metallic-bg" />
@@ -98,7 +102,7 @@ export default function HomePage() {
 
           <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-2 max-w-[540px]">
             Researcher and engineer working and learning in the areas of 
-            applied AI, computer vision, differentiable programming, and game theory. 
+            applied AI, computer vision, game theory, and mechanistic interpretability. 
           </p>
 
           <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-10">
@@ -166,7 +170,10 @@ export default function HomePage() {
               </a>
             ))}
           </div>
-          <span className="font-mono">© Nishad Wajge 2026</span>
+          <span className="font-mono">
+            © Nishad Wajge{" "}
+            <Link href="/now" className="hover:text-[#888] transition-colors duration-150">2026</Link>
+          </span>
         </div>
 
       </div>

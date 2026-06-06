@@ -48,9 +48,19 @@
   );
 }
 
+@keyframes breathe {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 0.2; }
+}
+
+.animate-breathe {
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
 @layer base {
   * {
     @apply border-border;
+    cursor: none !important;
   }
 
   html, body {
