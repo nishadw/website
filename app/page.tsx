@@ -39,7 +39,6 @@ const publications = [
 const contact = [
   { label: "LinkedIn", href: "https://linkedin.com/in/nishadwajge" },
   { label: "GitHub", href: "https://github.com/nishadw" },
-  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=8h70LbUAAAAJ&hl=en" },
 ]
 
 function SectionHeader({ number, label, sub }: { number: string; label: string; sub?: string }) {
