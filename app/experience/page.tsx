@@ -17,7 +17,7 @@ const allExperience = [
   {
     id: "amazon-leo",
     company: "Amazon — Leo (formerly Project Kuiper)",
-    role: "Machine Learning Engineer",
+    role: "Applied AI Engineer (Contract)",
     period: "Jan 2026 — May 2026",
     points: [
       "Forecast space policy shifts 12 months ahead across government agencies using a time-series foundation model ensemble.",
@@ -52,7 +52,7 @@ const allExperience = [
   {
     id: "gdit-lead",
     company: "General Dynamics Information Technology",
-    role: "Engineering Project Lead",
+    role: "Engineering Project Lead (Contract)",
     period: "Jan 2025 — May 2025",
     points: [
       "Direct a 10-engineer team building an agentic RAG pipeline to analyze a 600K+ document data lake on AWS Bedrock.",
@@ -63,7 +63,7 @@ const allExperience = [
   {
     id: "bah",
     company: "Booz Allen Hamilton",
-    role: "Engineering Project Manager",
+    role: "Engineering Project Manager (Contract)",
     period: "Sep 2024 — Dec 2024",
     points: [
       "Develop full-stack applications to automate medical policy extraction with real-time editing and annotation.",
@@ -74,7 +74,7 @@ const allExperience = [
   {
     id: "irs",
     company: "Internal Revenue Service",
-    role: "Software Engineer Intern",
+    role: "SWE Intern",
     period: "Jan — Dec 2024",
     points: [
       "Manage ETL workflows supporting high-volume, enterprise-scale fraud detection and tax compliance systems.",

@@ -4,11 +4,11 @@ const experiences = [
   { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", id: "amazon" },
   { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — May 2026", id: "mercor" },
   { company: "General Dynamics IT", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
-  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan — Dec 2024", id: "irs" },
+  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", id: "irs" },
 ]
 
 const contracts = [
-  { company: "Amazon", position: "Technical Advisor, ML Engineering", period: "Jan 2026 — May 2026", id: "amazon-leo" },
+  { company: "Amazon", position: "Applied AI Engineer", period: "Jan 2026 — May 2026", id: "amazon-leo" },
   { company: "General Dynamics IT", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
   { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", id: "bah" },
 ]
@@ -96,12 +96,13 @@ export default function HomePage() {
             </span>
           </div>
 
-          <p className="text-[14px] text-[#4a4a4a] leading-relaxed max-w-[475px] mb-2">
-            Researcher and engineer working across software engineering,
-            artificial intelligence, game theory, and mechanistic interpretability.
+          <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-2 max-w-[540px]">
+            Researcher and engineer working and learning in the areas of 
+            applied AI, computer vision, differentiable programming, and game theory. 
           </p>
+
           <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-10">
-            Reach me via LinkedIn or email - [firstname] dot [lastname] at gmail dot com
+            Feel free to reach me via LinkedIn or email — [firstname] dot [lastname] at gmail dot com
           </p>
         </div>
 
@@ -117,7 +118,7 @@ export default function HomePage() {
 
         {/* ── CONSULTING ── */}
         <section className="mb-14">
-          <SectionHeader number="02" label="Consulting" sub="· via UMD ADC" />
+          <SectionHeader number="02" label="Consulting" sub="· via UMD App Dev Club (Contract)" />
           <div>
             {contracts.map((exp, idx) => (
               <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />

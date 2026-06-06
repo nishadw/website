@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Nishad Wajge",
   description: "Machine Learning & Software Engineering",
   icons: {
-    icon: '/icon.png', // path relative to your public/ folder
+    icon: '/icon.png?v=2',
   },
 }
 
