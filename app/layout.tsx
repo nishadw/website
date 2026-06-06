@@ -8,6 +8,9 @@ import MouseTracker from '../components/MouseTracker'
 export const metadata: Metadata = {
   title: "Nishad Wajge",
   description: "Machine Learning & Software Engineering",
+  icons: {
+    icon: '/icon.png', // path relative to your public/ folder
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
