@@ -87,12 +87,6 @@ export default function HomePage() {
             <StatusLight />
           </div>
 
-          <div className="flex items-center gap-2.5 mb-2">
-            <span className="block w-5 h-px metallic-bg" />
-            <span className="text-[11px] font-mono tracking-wide metallic">
-              Engineering @ Amazon Smart Vehicles
-            </span>
-          </div>
           <div className="flex items-center gap-2.5 mb-8">
             <span className="block w-5 h-px metallic-bg" />
             <span className="text-[11px] font-mono tracking-wide metallic">
