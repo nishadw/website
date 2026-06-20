@@ -28,13 +28,12 @@ export default function NowPage() {
           <h1 className="text-[54px] font-medium text-[#efefef] leading-[1.0] tracking-[-0.03em] mb-4">
             Behind the Scenes
           </h1>
-          <p className="text-[11px] font-mono text-[#2a2a2a]">June 2026</p>
         </div>
 
         {/* Learning */}
         <section className="mb-14">
           <SectionHeader number="01" label="Learning" />
-          <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-7 pl-4 border-l border-white/[0.05]">
+          <p className="text-[13px] text-[#4a4a4a] leading-relaxed mb-7 pl-4 border-l border-white/[0.05]">
             Outside of work, I try to keep up with AI research, especially around
             interpretability, alignment, and the long-horizon implications of our current trajectory.
           </p>
@@ -46,8 +45,10 @@ export default function NowPage() {
 
           <div className="pl-4 border-l border-white/[0.05]">
             <p className="text-[13px] text-[#3a3a3a] leading-relaxed mb-3">
-              I invest with a macro discretionary approach, trying to build a small, concentrated portfolio of companies that are mispriced or have strong growth potential.
-              Currently, I am investing in a plethora of land, energy, infrastructure, and industrial companies that I believe will benefit from long-term secular trends.
+              I employ a quantamental approach to global macro investing, leveraging alternative data and 
+              statistical modeling to identify mispriced assets and optimize portfolio construction. 
+              Currently, I am applying factor-based analysis to energy, infrastructure, and emerging 
+              markets to systematically capture alpha driven by long-term secular trends.
             </p>
           </div>
         </section>
