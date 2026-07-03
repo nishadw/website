@@ -33,7 +33,7 @@ export default function NowPage() {
         {/* Learning */}
         <section className="mb-14">
           <SectionHeader number="01" label="Learning" />
-          <p className="text-[13px] text-[#4a4a4a] leading-relaxed mb-7 pl-4 border-l border-white/[0.05]">
+          <p className="text-[13px] text-[#909090] leading-relaxed mb-7 pl-4 border-l border-white/[0.05]">
             Outside of work, I try to keep up with AI research, especially around
             interpretability, alignment, and the long-horizon implications of our current trajectory.
           </p>
@@ -44,7 +44,7 @@ export default function NowPage() {
           <SectionHeader number="02" label="Stock Market Investments" />
 
           <div className="pl-4 border-l border-white/[0.05]">
-            <p className="text-[13px] text-[#3a3a3a] leading-relaxed mb-3">
+            <p className="text-[13px] text-[#909090] leading-relaxed mb-3">
               I employ a quantamental approach to global macro investing, leveraging alternative data and 
               statistical modeling to identify mispriced assets and optimize portfolio construction. 
               Currently, I am applying factor-based analysis to energy, infrastructure, and emerging 
@@ -59,15 +59,15 @@ export default function NowPage() {
           <div>
             {hobbies.map((h) => (
               <div key={h.label} className="flex items-start gap-6 py-3 border-b border-white/[0.04]">
-                <span className="text-[13px] font-semibold text-[#555] w-20 shrink-0">{h.label}</span>
-                <span className="text-[13px] text-[#383838]">{h.detail}</span>
+                <span className="text-[13px] font-semibold text-[#909090] w-20 shrink-0">{h.label}</span>
+                <span className="text-[13px] text-[#909090]">{h.detail}</span>
               </div>
             ))}
           </div>
         </section>
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-[11px] text-[#252525] border-t border-white/[0.05] pt-8">
+        <div className="flex items-center justify-between text-[11px] text-[#909090] border-t border-white/[0.05] pt-8">
           <Link href="/" className="font-mono hover:text-[#888] transition-colors duration-150">
             ← nishad.page
           </Link>
