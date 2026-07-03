@@ -101,15 +101,15 @@ function ExperienceEntry({ exp }: { exp: ExpEntry }) {
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-6">
         <div>
           <h2 className="text-[15px] font-semibold text-[#d0d0d0] tracking-tight mb-1">{exp.company}</h2>
-          <p className="text-[12px] text-[#383838] font-mono">{exp.role}</p>
+          <p className="text-[12px] text-[#909090] font-mono">{exp.role}</p>
         </div>
-        <span className="text-[11px] text-[#2c2c2c] font-mono shrink-0">{exp.period}</span>
+        <span className="text-[11px] text-[#909090] font-mono shrink-0">{exp.period}</span>
       </div>
 
       <ul className="space-y-2.5">
         {exp.points.map((point, i) => (
-          <li key={i} className="flex items-start gap-3 text-[13px] leading-relaxed text-[#3d3d3d]">
-            <span className="text-[#272727] mt-px shrink-0 font-mono">—</span>
+          <li key={i} className="flex items-start gap-3 text-[13px] leading-relaxed text-[#909090]">
+            <span className="text-[#909090] mt-px shrink-0 font-mono">—</span>
             <span>{point}</span>
           </li>
         ))}
@@ -138,7 +138,7 @@ export default function ExperiencePage() {
           ))}
         </div>
 
-        <div className="flex items-center justify-between text-[11px] text-[#252525] border-t border-white/[0.05] pt-8 mt-8">
+        <div className="flex items-center justify-between text-[11px] text-[#909090] border-t border-white/[0.05] pt-8 mt-8">
           <div className="flex items-center gap-7 font-mono tracking-wide">
             {contact.map((c, i) => (
               <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#b0b0b0] transition-colors duration-150">

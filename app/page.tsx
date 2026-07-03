@@ -47,7 +47,7 @@ function SectionHeader({ number, label, sub }: { number: string; label: string; 
     <div className="flex items-center gap-3 mb-7">
       <span className="text-[10px] font-mono tabular-nums tracking-widest metallic">{number}</span>
       <span className="text-[10px] tracking-[0.2em] uppercase font-semibold metallic">{label}</span>
-      {sub && <span className="text-[10px] text-[#272727] font-mono">{sub}</span>}
+      {sub && <span className="text-[10px] text-[#909090] font-mono">{sub}</span>}
       <div className="flex-1 h-px bg-white/[0.05]" />
     </div>
   )
@@ -66,9 +66,9 @@ function ExpRow({ company, position, period, href }: {
         <span className="text-[13px] font-semibold text-[#b0b0b0] group-hover:text-[#f0f0f0] transition-colors shrink-0 w-44">
           {company}
         </span>
-        <span className="text-[13px] text-[#383838] truncate">{position}</span>
+        <span className="text-[13px] text-[#909090] truncate">{position}</span>
       </div>
-      <span className="text-[11px] text-[#2c2c2c] ml-6 shrink-0 font-mono">{period}</span>
+      <span className="text-[11px] text-[#909090] ml-6 shrink-0 font-mono">{period}</span>
     </Link>
   )
 }
@@ -94,12 +94,12 @@ export default function HomePage() {
             </span>
           </div>
 
-          <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-2 max-w-[540px]">
-            Researcher and engineer working and learning in the areas of 
-            applied AI, computer vision, game theory, and mechanistic interpretability. 
+          <p className="text-[14px] text-[#909090] leading-relaxed mb-2 max-w-[540px]">
+            Researcher and engineer working and learning in the areas of
+            applied AI, computer vision, game theory, and mechanistic interpretability.
           </p>
 
-          <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-10">
+          <p className="text-[14px] text-[#909090] leading-relaxed mb-10">
             Feel free to reach me via LinkedIn or email — [firstname] dot [lastname] at gmail dot com
           </p>
         </div>
@@ -137,11 +137,11 @@ export default function HomePage() {
                 className="group relative flex items-start py-4 border-b border-white/[0.05] hover:border-white/[0.08] pl-5 transition-colors duration-150"
               >
                 <span className="absolute left-0 top-4 bottom-4 w-[2px] metallic-bg opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-full" />
-                <span className="text-[11px] font-mono text-[#272727] mt-0.5 shrink-0 tabular-nums w-7">
+                <span className="text-[11px] font-mono text-[#909090] mt-0.5 shrink-0 tabular-nums w-7">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <span className="text-[13px] text-[#4a4a4a] group-hover:text-[#b0b0b0] transition-colors leading-relaxed block">
+                  <span className="text-[13px] text-[#909090] group-hover:text-[#b0b0b0] transition-colors leading-relaxed block">
                     {pub.title}
                   </span>
                   {pub.venue && (
@@ -156,7 +156,7 @@ export default function HomePage() {
         </section>
 
         {/* ── CONTACT / FOOTER ── */}
-        <div className="flex items-center justify-between text-[11px] text-[#252525] border-t border-white/[0.05] pt-8">
+        <div className="flex items-center justify-between text-[11px] text-[#909090] border-t border-white/[0.05] pt-8">
           <div className="flex items-center gap-7 font-mono tracking-wide">
             {contact.map((c, i) => (
               <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#b0b0b0] transition-colors duration-150">
