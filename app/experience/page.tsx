@@ -16,8 +16,8 @@ const allExperience = [
   },
   {
     id: "amazon-leo",
-    company: "Amazon — Leo (formerly Project Kuiper)",
-    role: "Applied AI Engineer",
+    company: "Amazon — Leo",
+    role: "Machine Learning Engineer",
     period: "Jan 2026 — May 2026",
     points: [
       "Forecasted space safety policy shifts using an ensemble of time-series foundation models.",

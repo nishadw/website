@@ -3,7 +3,7 @@ import StatusLight from "@/components/StatusLight"
 
 const experiences = [
   { company: "Amazon", position: "Software Engineer Intern", period: "Jun 2026 — Sep 2026", id: "amazon" },
-  { company: "Amazon", position: "Applied AI Engineer", period: "Jan 2026 — May 2026", id: "amazon-leo" },
+  { company: "Amazon", position: "Machine Learning Engineer", period: "Jan 2026 — May 2026", id: "amazon-leo" },
   { company: "General Dynamics", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
   { company: "General Dynamics", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
   { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", id: "bah" },
