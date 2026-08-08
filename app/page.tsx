@@ -2,16 +2,12 @@ import Link from "next/link"
 import StatusLight from "@/components/StatusLight"
 
 const experiences = [
-  { company: "Amazon", position: "Software Development Engineer Intern", period: "Summer 2026", id: "amazon" },
-  { company: "Mercor", position: "Software Engineer", period: "Nov 2025 — May 2026", id: "mercor" },
-  { company: "General Dynamics IT", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
-  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", id: "irs" },
-]
-
-const contracts = [
+  { company: "Amazon", position: "Software Engineer Intern", period: "Jun 2026 — Sep 2026", id: "amazon" },
   { company: "Amazon", position: "Applied AI Engineer", period: "Jan 2026 — May 2026", id: "amazon-leo" },
-  { company: "General Dynamics IT", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
+  { company: "General Dynamics", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
+  { company: "General Dynamics", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
   { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", id: "bah" },
+  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", id: "irs" },
 ]
 
 const publications = [
@@ -88,15 +84,15 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-2.5 mb-8">
-            <span className="block w-5 h-px metallic-bg" />
+            {/* <span className="block w-5 h-px metallic-bg" /> */}
             <span className="text-[11px] font-mono tracking-wide metallic">
-              CS @ University of Maryland, College Park
+              Computer Science @ University of Maryland, College Park
             </span>
           </div>
 
           <p className="text-[14px] text-[#909090] leading-relaxed mb-2 max-w-[540px]">
-            Researcher and engineer working and learning in the areas of
-            applied AI, computer vision, game theory, and mechanistic interpretability.
+            Researcher and engineer learning and building in the areas of
+            software engineering, machine learning, game theory, and mechanistic interpretability.
           </p>
 
           <p className="text-[14px] text-[#909090] leading-relaxed mb-10">
@@ -114,19 +110,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── CONSULTING ── */}
-        <section className="mb-14">
-          <SectionHeader number="02" label="Consulting" sub="· via UMD App Dev Club (Contract)" />
-          <div>
-            {contracts.map((exp, idx) => (
-              <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />
-            ))}
-          </div>
-        </section>
-
         {/* ── PUBLICATIONS ── */}
         <section className="mb-24">
-          <SectionHeader number="03" label="Publications" />
+          <SectionHeader number="02" label="Publications" />
           <div>
             {publications.map((pub, idx) => (
               <a

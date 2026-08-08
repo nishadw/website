@@ -1,11 +1,18 @@
 import Link from "next/link"
 
 
-const hobbies = [
-  { label: "Hiking",     detail: "Finding new lock screen images" },
+// Fill in your real figures. Showing a benchmark keeps it honest, not braggy.
+const investing = {
+  since: "2021",
+  annualized: "24.57%",
+  benchmark: "S&P 500 · 13%",
+}
+
+const pastimes = [
+  { label: "Reading",    detail: "The Brothers Karamazov | Letters from a Stoic | Thinking Strategically" },
   { label: "Golf",       detail: "Need to figure out why I'm slicing it so much" },
-  { label: "Travelling", detail: "Chasing new cities, food, and experiences" },
-  { label: "Movies",     detail: "Godfather Part I; The Good, The Bad and The Ugly; Schindler's List; Incendies" },
+  { label: "Travelling", detail: "Visiting all 7 continents" },
+  { label: "Movies",     detail: "Godfather Part I | The Good, The Bad and The Ugly | Schindler's List" },
 ]
 
 function SectionHeader({ number, label }: { number: string; label: string }) {
@@ -30,34 +37,43 @@ export default function NowPage() {
           </h1>
         </div>
 
-        {/* Learning */}
+        {/* Investing */}
         <section className="mb-14">
-          <SectionHeader number="01" label="Learning" />
-          <p className="text-[13px] text-[#909090] leading-relaxed mb-7 pl-4 border-l border-white/[0.05]">
-            Outside of work, I try to keep up with AI research, especially around
-            interpretability, alignment, and the long-horizon implications of our current trajectory.
-          </p>
-        </section>
-
-        {/* Stock Market */}
-        <section className="mb-14">
-          <SectionHeader number="02" label="Stock Market Investments" />
+          <SectionHeader number="01" label="Investing" />
 
           <div className="pl-4 border-l border-white/[0.05]">
-            <p className="text-[13px] text-[#909090] leading-relaxed mb-3">
-              I employ a quantamental approach to global macro investing, leveraging alternative data and 
-              statistical modeling to identify mispriced assets and optimize portfolio construction. 
-              Currently, I am applying factor-based analysis to energy, infrastructure, and emerging 
-              markets to systematically capture alpha driven by long-term secular trends.
+            <p className="text-[13px] text-[#909090] leading-relaxed mb-6">
+              Since {investing.since}, I've run my portfolio around a few rules: diversify across
+              uncorrelated themes, follow structural gaps, and only own businesses whose
+              economics I can explain to a friend. Lately I've added more quant techniques, which taught me to size
+              positions by conviction, not emotion.
             </p>
+            <div className="flex items-end gap-8">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.15em] text-[#707070] font-mono mb-1.5">
+                  Annualized return · since {investing.since}
+                </div>
+                <div className="text-[22px] font-medium text-[#d0d0d0] tracking-tight tabular-nums">
+                  {investing.annualized}
+                </div>
+              </div>
+              <div className="pb-1">
+                <div className="text-[10px] uppercase tracking-[0.15em] text-[#707070] font-mono mb-1.5">
+                  Benchmark
+                </div>
+                <div className="text-[12px] text-[#909090] font-mono tabular-nums">
+                  {investing.benchmark}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* My Life */}
+        {/* Pastimes */}
         <section className="mb-24">
-          <SectionHeader number="03" label="Hobbies & Interests" />
+          <SectionHeader number="02" label="Pastimes" />
           <div>
-            {hobbies.map((h) => (
+            {pastimes.map((h) => (
               <div key={h.label} className="flex items-start gap-6 py-3 border-b border-white/[0.04]">
                 <span className="text-[13px] font-semibold text-[#909090] w-20 shrink-0">{h.label}</span>
                 <span className="text-[13px] text-[#909090]">{h.detail}</span>

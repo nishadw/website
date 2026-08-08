@@ -6,34 +6,22 @@ const contact = [
 const allExperience = [
   {
     id: "amazon",
-    company: "Amazon — Smart Vehicles",
-    role: "Software Development Engineer Intern",
+    company: "Amazon — Lab126",
+    role: "Software Engineer Intern",
     period: "Jun 2026 — Present",
     points: [
-      "Compress and adapt multimodal foundation models for deployment directly on vehicle hardware.",
-      "Build the inference stack powering in-vehicle voice assistants, from speech recognition through response generation.",
+      "Shipped an on-device voice recognition pipeline deployed across millions of vehicles.",
+      "Optimized models for low-latency on-device inference and secured biometric voice storage against spoofing.",
     ],
   },
   {
     id: "amazon-leo",
     company: "Amazon — Leo (formerly Project Kuiper)",
-    role: "Applied AI Engineer (contract)",
+    role: "Applied AI Engineer",
     period: "Jan 2026 — May 2026",
     points: [
-      "Forecast space policy shifts across government agencies using an ensemble of time-series foundation models.",
-      "Structure large unstructured document corpora into clean, deduplicated topic clusters for downstream modeling.",
-      "Improve signal quality in noisy policy data through temporal smoothing and filtering techniques.",
-    ],
-  },
-  {
-    id: "mercor",
-    company: "Mercor",
-    role: "Software Engineer",
-    period: "Nov 2025 — May 2026",
-    points: [
-      "Build preference datasets for RLHF alignment of multimodal foundation models on complex tasks.",
-      "Establish human performance baselines for autonomous agents operating across technical environments.",
-      "Construct supervised fine-tuning datasets for advanced programming and agentic terminal workflows.",
+      "Forecasted space safety policy shifts using an ensemble of time-series foundation models.",
+      "Extracted a relational ontology across tens of thousands of agency documents with NLP pipelines.",
     ],
   },
   {
@@ -42,31 +30,28 @@ const allExperience = [
     role: "Software Engineer Intern",
     period: "Jun 2025 — Aug 2025",
     points: [
-      "Deploy a computer vision module for real-time vehicle detection within a multimodal ML system at the edge.",
-      "Harden model robustness against distribution shift through adversarial training techniques.",
-      "Optimize the inference pipeline for low-latency operation on streaming data using quantization and concurrency.",
+      "Deployed an edge-native computer vision pipeline for real-time vehicle detection.",
+      "Hardened model robustness on noisy sensor data through adversarial training and quantized inference.",
     ],
   },
   {
     id: "gdit-lead",
     company: "General Dynamics Information Technology",
-    role: "Engineering Project Lead (contract)",
+    role: "Engineering Project Lead",
     period: "Jan 2025 — May 2025",
     points: [
-      "Lead a cross-functional engineering team building an agentic RAG pipeline over a large-scale document lake on AWS.",
-      "Architect a hybrid graph and vector database design to dramatically improve data discoverability.",
-      "Enhance retrieval quality through custom semantic chunking and entity-aware metadata enrichment.",
+      "Led a team of engineers building an agentic RAG pipeline over a large-scale data lakehouse.",
+      "Accelerated data discovery through a hybrid graph and vector database architecture.",
     ],
   },
   {
     id: "bah",
     company: "Booz Allen Hamilton",
-    role: "Engineering Project Manager (contract)",
+    role: "Engineering Project Manager",
     period: "Sep 2024 — Dec 2024",
     points: [
-      "Build full-stack tooling to automate medical policy extraction with real-time editing and annotation capabilities.",
-      "Engineer backend data pipelines and web scraping systems for large-scale document aggregation.",
-      "Integrate NLP models for compliance automation across summarization, extraction, and sentiment tasks.",
+      "Automated medical policy audits via summarization and sentiment analysis pipelines.",
+      "Built a full-stack, human-in-the-loop scraping and audit pipeline to cut manual review time.",
     ],
   },
   {
@@ -75,9 +60,8 @@ const allExperience = [
     role: "Software Engineer Intern",
     period: "Jan — Dec 2024",
     points: [
-      "Maintain ETL workflows underpinning enterprise fraud detection and tax compliance systems.",
-      "Modernize CI/CD pipelines and version control integrations as part of infrastructure uplift.",
-      "Migrate legacy systems to current build automation frameworks to accelerate deployment cycles.",
+      "Deployed a division-wide CI/CD pipeline upgrade processing hundreds of millions of tax applications.",
+      "Modernized a legacy fraud detection ETL pipeline to accelerate build times.",
     ],
   },
 ]
