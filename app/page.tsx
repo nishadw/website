@@ -23,12 +23,12 @@ const publications = [
   },
   {
     title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
-    venue: "",
+    venue: "Stanford Medicine JUST Health",
     href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
   },
   {
     title: "Statistical modeling of decision theory and risk-aversion under uncertainty",
-    venue: "",
+    venue: "IJHSR",
     href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
   },
 ]
