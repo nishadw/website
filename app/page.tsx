@@ -1,6 +1,9 @@
 import Link from "next/link"
 import StatusLight from "@/components/StatusLight"
 
+// Homepage shows only the most recent few; the rest live on /experience.
+const VISIBLE_EXPERIENCES = 3
+
 const experiences = [
   { company: "Amazon", position: "Software Engineer Intern", period: "Jun 2026 — Sep 2026", id: "amazon" },
   { company: "Amazon", position: "Machine Learning Engineer", period: "Jan 2026 — May 2026", id: "amazon-leo" },
@@ -104,10 +107,17 @@ export default function HomePage() {
         <section className="mb-14">
           <SectionHeader number="01" label="Experience" />
           <div>
-            {experiences.map((exp, idx) => (
+            {experiences.slice(0, VISIBLE_EXPERIENCES).map((exp, idx) => (
               <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />
             ))}
           </div>
+          <Link
+            href="/experience"
+            className="group inline-flex items-center gap-2 pl-4 pt-4 text-[11px] font-mono tracking-wide text-[#707070] hover:text-[#b0b0b0] transition-colors duration-150"
+          >
+            <span>{experiences.length - VISIBLE_EXPERIENCES} more roles</span>
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </Link>
         </section>
 
         {/* ── PUBLICATIONS ── */}

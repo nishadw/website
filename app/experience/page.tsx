@@ -6,22 +6,22 @@ const contact = [
 const allExperience = [
   {
     id: "amazon",
-    company: "Amazon — Lab126",
+    company: "Amazon Lab126",
     role: "Software Engineer Intern",
     period: "Jun 2026 — Present",
     points: [
-      "Shipped an on-device voice recognition pipeline deployed across millions of vehicles.",
-      "Optimized models for low-latency on-device inference and secured biometric voice storage against spoofing.",
+      "Shipped on-device voice recognition pipeline deployed across millions of vehicles.",
+      "Optimized models for low-latency inference and secured biometric storage against spoofing.",
     ],
   },
   {
     id: "amazon-leo",
-    company: "Amazon — Leo",
+    company: "Amazon Leo",
     role: "Machine Learning Engineer",
     period: "Jan 2026 — May 2026",
     points: [
       "Forecasted space safety policy shifts using an ensemble of time-series foundation models.",
-      "Extracted a relational ontology across tens of thousands of agency documents with NLP pipelines.",
+      "Extracted relational ontology across international agency documents with NLP pipelines.",
     ],
   },
   {
@@ -31,7 +31,7 @@ const allExperience = [
     period: "Jun 2025 — Aug 2025",
     points: [
       "Deployed an edge-native computer vision pipeline for real-time vehicle detection.",
-      "Hardened model robustness on noisy sensor data through adversarial training and quantized inference.",
+      "Hardened model inference robustness on noisy sensor data through adversarial training.",
     ],
   },
   {
@@ -40,7 +40,7 @@ const allExperience = [
     role: "Engineering Project Lead",
     period: "Jan 2025 — May 2025",
     points: [
-      "Led a team of engineers building an agentic RAG pipeline over a large-scale data lakehouse.",
+      "Led team of engineers building an agentic RAG pipeline over a large-scale data lakehouse.",
       "Accelerated data discovery through a hybrid graph and vector database architecture.",
     ],
   },
@@ -51,7 +51,7 @@ const allExperience = [
     period: "Sep 2024 — Dec 2024",
     points: [
       "Automated medical policy audits via summarization and sentiment analysis pipelines.",
-      "Built a full-stack, human-in-the-loop scraping and audit pipeline to cut manual review time.",
+      "Built full-stack, human-in-the-loop scraping and audit pipeline to cut manual review time.",
     ],
   },
   {
@@ -60,8 +60,8 @@ const allExperience = [
     role: "Software Engineer Intern",
     period: "Jan — Dec 2024",
     points: [
-      "Deployed a division-wide CI/CD pipeline upgrade processing hundreds of millions of tax applications.",
-      "Modernized a legacy fraud detection ETL pipeline to accelerate build times.",
+      "Deployed division-wide CI/CD pipeline upgrade processing every U.S. tax application.",
+      "Modernized legacy fraud detection ETL pipeline to accelerate build times.",
     ],
   },
 ]

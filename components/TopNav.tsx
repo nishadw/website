@@ -21,6 +21,12 @@ export default function TopNav() {
         >
           Experience
         </Link>
+        <Link
+          href="/now"
+          className={`hover:text-[#f0f0f0] transition-colors ${pathname === "/now" ? "text-[#f0f0f0]" : ""}`}
+        >
+          Other
+        </Link>
         <a
           href="https://linkedin.com/in/nishadwajge"
           target="_blank"
