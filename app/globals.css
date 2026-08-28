@@ -4,57 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Three text values, used everywhere:
+   #e8e8e8 primary · #a0a0a0 body · #6e6e6e meta */
 :root {
   --background: 0 0% 4%;
   --foreground: 0 0% 94%;
   --border: 0 0% 10%;
-}
-
-:root {
-  --mx: 0.5;
-  --my: 0.5;
-}
-
-/* Metallic shimmer text — angle tracks both x and y axes */
-.metallic {
-  display: inline-block;
-  background: linear-gradient(
-    calc(var(--mx, 0.5) * 160deg + var(--my, 0.5) * 80deg - 50deg),
-    #71717a 0%,
-    #a1a1aa 15%,
-    #e4e4e7 32%,
-    #ffffff 46%,
-    #e4e4e7 58%,
-    #a1a1aa 76%,
-    #71717a 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #a1a1aa; /* fallback if gradient fails */
-}
-
-/* Metallic shimmer background — for bars and lines */
-.metallic-bg {
-  background: linear-gradient(
-    calc(var(--mx, 0.5) * 160deg + var(--my, 0.5) * 80deg - 50deg),
-    #3f3f46,
-    #71717a,
-    #d4d4d8,
-    #f4f4f5,
-    #d4d4d8,
-    #71717a,
-    #3f3f46
-  );
-}
-
-@keyframes breathe {
-  0%, 100% { opacity: 0.75; }
-  50% { opacity: 0.2; }
-}
-
-.animate-breathe {
-  animation: breathe 2.4s ease-in-out infinite;
 }
 
 @layer base {
@@ -62,20 +17,13 @@
     @apply border-border;
   }
 
-  html, body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  html {
     scroll-behavior: smooth;
-  }
-
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    display: none;
   }
 
   body {
     background: #0a0a0a;
-    color: rgb(var(--foreground));
+    color: #a0a0a0;
     font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
     line-height: 1.6;
   }
