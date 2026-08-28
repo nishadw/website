@@ -7,23 +7,23 @@ export default function TopNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-12 border-b border-white/[0.06] bg-[#0a0a0a]/95 backdrop-blur-sm flex items-center justify-between px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-12 border-b border-white/[0.06] bg-[#0a0a0a] flex items-center justify-between px-8">
       <Link
         href="/"
-        className="text-[13px] font-semibold text-[#e0e0e0] tracking-tight hover:text-white transition-colors"
+        className="text-[13px] font-semibold text-[#e8e8e8] hover:text-white transition-colors"
       >
         Nishad Wajge
       </Link>
-      <div className="flex items-center gap-7 text-[12px] font-mono text-[#444] tracking-wide">
+      <div className="flex items-center gap-6 text-[13px] text-[#6e6e6e]">
         <Link
           href="/experience"
-          className={`hover:text-[#f0f0f0] transition-colors ${pathname === "/experience" ? "text-[#f0f0f0]" : ""}`}
+          className={`hover:text-[#e8e8e8] transition-colors ${pathname === "/experience" ? "text-[#e8e8e8]" : ""}`}
         >
           Experience
         </Link>
         <Link
           href="/now"
-          className={`hover:text-[#f0f0f0] transition-colors ${pathname === "/now" ? "text-[#f0f0f0]" : ""}`}
+          className={`hover:text-[#e8e8e8] transition-colors ${pathname === "/now" ? "text-[#e8e8e8]" : ""}`}
         >
           Other
         </Link>
@@ -31,7 +31,7 @@ export default function TopNav() {
           href="https://linkedin.com/in/nishadwajge"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-[#f0f0f0] transition-colors"
+          className="hover:text-[#e8e8e8] transition-colors"
         >
           LinkedIn
         </a>
@@ -39,7 +39,7 @@ export default function TopNav() {
           href="https://github.com/nishadw"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-[#f0f0f0] transition-colors"
+          className="hover:text-[#e8e8e8] transition-colors"
         >
           GitHub
         </a>

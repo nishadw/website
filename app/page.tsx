@@ -1,5 +1,4 @@
 import Link from "next/link"
-import StatusLight from "@/components/StatusLight"
 
 // Homepage shows only the most recent few; the rest live on /experience.
 const VISIBLE_EXPERIENCES = 3
@@ -15,23 +14,23 @@ const experiences = [
 
 const publications = [
   {
-    title: "Bayesian estimation and statistical benchmarking for large language models",
-    venue: "NeurIPS",
+    title: "* Bayesian estimation and statistical benchmarking for large language models",
+    venue: "Neural Information Processing Systems",
     href: "https://neurips.cc/virtual/2024/poster/97554",
   },
   {
-    title: "Dynamic strategy optimization in turn-based stochastic games via Markov decision processes",
-    venue: "INFORMS",
+    title: "* Dynamic strategy optimization in turn-based stochastic games via Markov decision processes",
+    venue: "Institute of Operations Research and Management Sciences",
     href: "https://link.springer.com/article/10.1007/s00180-024-01555-5",
   },
   {
     title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
-    venue: "Stanford Medicine JUST Health",
+    venue: "Stanford Medicine",
     href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
   },
   {
     title: "Statistical modeling of decision theory and risk-aversion under uncertainty",
-    venue: "IJHSR",
+    venue: "",
     href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
   },
 ]
@@ -41,13 +40,11 @@ const contact = [
   { label: "GitHub", href: "https://github.com/nishadw" },
 ]
 
-function SectionHeader({ number, label, sub }: { number: string; label: string; sub?: string }) {
+function SectionHeader({ label, sub }: { label: string; sub?: string }) {
   return (
-    <div className="flex items-center gap-3 mb-7">
-      <span className="text-[10px] font-mono tabular-nums tracking-widest metallic">{number}</span>
-      <span className="text-[10px] tracking-[0.2em] uppercase font-semibold metallic">{label}</span>
-      {sub && <span className="text-[10px] text-[#909090] font-mono">{sub}</span>}
-      <div className="flex-1 h-px bg-white/[0.05]" />
+    <div className="flex items-baseline gap-3 mb-4">
+      <h2 className="text-[15px] font-semibold text-[#e8e8e8]">{label}</h2>
+      {sub && <span className="text-[12px] text-[#6e6e6e]">{sub}</span>}
     </div>
   )
 }
@@ -58,16 +55,15 @@ function ExpRow({ company, position, period, href }: {
   return (
     <Link
       href={href}
-      className="group relative flex items-center justify-between py-4 border-b border-white/[0.05] hover:border-white/[0.08] pl-4 transition-colors duration-150"
+      className="group flex items-center justify-between py-3.5 border-b border-white/[0.06]"
     >
-      <span className="absolute left-0 top-3 bottom-3 w-[2px] metallic-bg opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-full" />
       <div className="flex items-center gap-4 min-w-0 flex-1">
-        <span className="text-[13px] font-semibold text-[#b0b0b0] group-hover:text-[#f0f0f0] transition-colors shrink-0 w-44">
+        <span className="text-[13px] font-semibold text-[#a0a0a0] group-hover:text-[#e8e8e8] transition-colors shrink-0 w-44">
           {company}
         </span>
-        <span className="text-[13px] text-[#909090] truncate">{position}</span>
+        <span className="text-[13px] text-[#a0a0a0] truncate">{position}</span>
       </div>
-      <span className="text-[11px] text-[#909090] ml-6 shrink-0 font-mono">{period}</span>
+      <span className="text-[12px] text-[#6e6e6e] ml-6 shrink-0 font-mono">{period}</span>
     </Link>
   )
 }
@@ -75,37 +71,31 @@ function ExpRow({ company, position, period, href }: {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
-      <div className="max-w-[720px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[780px] mx-auto px-8 pt-20 pb-32">
 
         {/* ── HERO ── */}
-        <div className="mb-14">
-          <div className="flex items-center gap-4 mb-5">
-            <h1 className="text-[54px] font-medium text-[#efefef] leading-[1.0] tracking-[-0.03em]">
-              Nishad Wajge
-            </h1>
-            <StatusLight />
-          </div>
+        <div className="mb-12">
+          <h1 className="text-[44px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em] mb-6">
+            Nishad Wajge
+          </h1>
 
-          <div className="flex items-center gap-2.5 mb-8">
-            {/* <span className="block w-5 h-px metallic-bg" /> */}
-            <span className="text-[11px] font-mono tracking-wide metallic">
-              Computer Science @ University of Maryland, College Park
-            </span>
-          </div>
+          {/* <p className="text-[14px] text-[#6e6e6e] mb-7">
+            Computer Science @ University of Maryland, College Park
+          </p> */}
 
-          <p className="text-[14px] text-[#909090] leading-relaxed mb-2 max-w-[540px]">
-            Researcher and engineer learning and building in the areas of
-            software engineering, machine learning, game theory, and mechanistic interpretability.
+          <p className="text-[14px] leading-relaxed mb-2">
+            Researcher and engineer interested in the areas of
+            software, game theory, statistics, and ml.
           </p>
 
-          <p className="text-[14px] text-[#909090] leading-relaxed mb-10">
-            Feel free to reach me via LinkedIn or email — [firstname] dot [lastname] at gmail dot com
+          <p className="text-[14px] leading-relaxed">
+            Best way to reach me is via linkedin or email — [firstname] dot [lastname] at gmail dot com
           </p>
         </div>
 
         {/* ── EXPERIENCE ── */}
-        <section className="mb-14">
-          <SectionHeader number="01" label="Experience" />
+        <section className="mb-12">
+          <SectionHeader label="Experience" />
           <div>
             {experiences.slice(0, VISIBLE_EXPERIENCES).map((exp, idx) => (
               <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />
@@ -113,16 +103,15 @@ export default function HomePage() {
           </div>
           <Link
             href="/experience"
-            className="group inline-flex items-center gap-2 pl-4 pt-4 text-[11px] font-mono tracking-wide text-[#707070] hover:text-[#b0b0b0] transition-colors duration-150"
+            className="inline-block pt-4 text-[13px] text-[#6e6e6e] hover:text-[#e8e8e8] transition-colors"
           >
-            <span>{experiences.length - VISIBLE_EXPERIENCES} more roles</span>
-            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            {experiences.length - VISIBLE_EXPERIENCES} more roles →
           </Link>
         </section>
 
         {/* ── PUBLICATIONS ── */}
-        <section className="mb-24">
-          <SectionHeader number="02" label="Publications" />
+        <section className="mb-12">
+          <SectionHeader label="Publications" />
           <div>
             {publications.map((pub, idx) => (
               <a
@@ -130,39 +119,31 @@ export default function HomePage() {
                 href={pub.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative flex items-start py-4 border-b border-white/[0.05] hover:border-white/[0.08] pl-5 transition-colors duration-150"
+                className="group block py-3.5 border-b border-white/[0.06]"
               >
-                <span className="absolute left-0 top-4 bottom-4 w-[2px] metallic-bg opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-full" />
-                <span className="text-[11px] font-mono text-[#909090] mt-0.5 shrink-0 tabular-nums w-7">
-                  {String(idx + 1).padStart(2, "0")}
+                <span className="text-[13px] leading-relaxed text-[#a0a0a0] group-hover:text-[#e8e8e8] transition-colors block">
+                  {pub.title}
                 </span>
-                <div className="flex-1 min-w-0">
-                  <span className="text-[13px] text-[#909090] group-hover:text-[#b0b0b0] transition-colors leading-relaxed block">
-                    {pub.title}
-                  </span>
-                  {pub.venue && (
-                    <span className="text-[10px] font-mono metallic opacity-50 group-hover:opacity-90 transition-opacity mt-1 block tracking-wide">
-                      {pub.venue}
-                    </span>
-                  )}
-                </div>
+                <span className="text-[12px] text-[#6e6e6e] mt-0.5 block">
+                  {pub.venue}
+                </span>
               </a>
             ))}
           </div>
         </section>
 
         {/* ── CONTACT / FOOTER ── */}
-        <div className="flex items-center justify-between text-[11px] text-[#909090] border-t border-white/[0.05] pt-8">
-          <div className="flex items-center gap-7 font-mono tracking-wide">
+        <div className="flex items-center justify-between text-[13px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
+          <div className="flex items-center gap-6">
             {contact.map((c, i) => (
-              <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#b0b0b0] transition-colors duration-150">
+              <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#e8e8e8] transition-colors">
                 {c.label}
               </a>
             ))}
           </div>
-          <span className="font-mono">
+          <span>
             © Nishad Wajge{" "}
-            <Link href="/now" className="hover:text-[#888] transition-colors duration-150">2026</Link>
+            <Link href="/now" className="hover:text-[#e8e8e8] transition-colors">2026</Link>
           </span>
         </div>
 

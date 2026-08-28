@@ -7,8 +7,8 @@ export type EquityPoint = {
   benchmark: number // indexed to 100 at the first point
 }
 
-const PORTFOLIO_COLOR = "#e4e4e7"
-const BENCHMARK_COLOR = "#6b6b70"
+const PORTFOLIO_COLOR = "#e8e8e8"
+const BENCHMARK_COLOR = "#6e6e6e"
 
 // Geometry (viewBox units)
 const W = 640
@@ -66,7 +66,7 @@ export default function EquityCurve({
               x={PLOT_L - 8}
               y={y(g) + 3}
               textAnchor="end"
-              className="fill-[#5a5a5a] text-[9px] font-mono tabular-nums"
+              className="fill-[#6e6e6e] text-[9px] font-mono tabular-nums"
             >
               {tick(g)}
             </text>
@@ -80,7 +80,7 @@ export default function EquityCurve({
             x={x(i)}
             y={PLOT_B + 18}
             textAnchor="middle"
-            className="fill-[#5a5a5a] text-[9px] font-mono tabular-nums"
+            className="fill-[#6e6e6e] text-[9px] font-mono tabular-nums"
           >
             {d.year}
           </text>
@@ -109,10 +109,10 @@ export default function EquityCurve({
         <circle cx={x(data.length - 1)} cy={y(last.portfolio)} r="3.5" fill={PORTFOLIO_COLOR} stroke="#0a0a0a" strokeWidth="2" />
 
         {/* Direct labels — identity sits beside each mark, never color alone */}
-        <text x={PLOT_R + 14} y={y(last.portfolio) + 3} className="fill-[#b0b0b0] text-[10px] font-mono">
+        <text x={PLOT_R + 14} y={y(last.portfolio) + 3} className="fill-[#e8e8e8] text-[10px] font-mono">
           Portfolio {multiple(last.portfolio)}
         </text>
-        <text x={PLOT_R + 14} y={y(last.benchmark) + 3} className="fill-[#808080] text-[10px] font-mono">
+        <text x={PLOT_R + 14} y={y(last.benchmark) + 3} className="fill-[#a0a0a0] text-[10px] font-mono">
           S&amp;P 500 {multiple(last.benchmark)}
         </text>
 
@@ -154,22 +154,21 @@ export default function EquityCurve({
               className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none"
             />
             <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
-              <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-[#909090] text-[10px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-[#a0a0a0] text-[10px] font-mono tabular-nums">
                 {d.year}
               </text>
-              <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-[#b0b0b0] text-[10px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-[#e8e8e8] text-[10px] font-mono tabular-nums">
                 Portfolio {multiple(d.portfolio)}
               </text>
-              <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-[#808080] text-[10px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-[#a0a0a0] text-[10px] font-mono tabular-nums">
                 S&amp;P 500 {multiple(d.benchmark)}
               </text>
             </g>
           </g>
         ))}
       </svg>
-      <figcaption className="text-[10px] font-mono text-[#5a5a5a] mt-2">
-        Growth of a dollar invested at the start of {data[0].year}. Time-weighted, so the size and
-        timing of deposits don&apos;t flatter the line.
+      <figcaption className="text-[12px] text-[#6e6e6e] mt-3">
+        Growth of a dollar since {data[0].year} — time-weighted, both annualized over the same window.
       </figcaption>
     </figure>
   )
