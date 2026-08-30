@@ -106,7 +106,7 @@ export default function ExperiencePage() {
       <div className="max-w-[780px] mx-auto px-8 pt-16 pb-32">
 
         <div className="mb-10 pb-8 border-b border-white/[0.06]">
-          <h1 className="text-[32px] font-medium text-[#e8e8e8] tracking-[-0.02em]">Work History</h1>
+          <h1 className="text-[32px] font-medium text-[#e8e8e8] tracking-[-0.02em]">Experience</h1>
         </div>
 
         <div>
