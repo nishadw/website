@@ -14,7 +14,7 @@ const curve: EquityPoint[] = [
 ]
 
 const pastimes = [
-  { label: "Reading",    detail: "Currently reading: The Brothers Karamazov, Letters from a Stoic" },
+  { label: "Reading",    detail: "Currently: The Brothers Karamazov, Letters from a Stoic" },
   { label: "Golf",       detail: "A work in progress (Handicap: 6.4)" },
   { label: "Movies",     detail: "Godfather, Schindler's List, 12 Angry Men" },
 ]
@@ -33,7 +33,7 @@ export default function NowPage() {
         {/* Header */}
         <div className="mb-14">
           <h1 className="text-[44px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em]">
-            Behind the Scenes
+            After Hours
           </h1>
         </div>
 
@@ -42,12 +42,14 @@ export default function NowPage() {
           <SectionHeader label="Investing" />
 
           <div className="pl-4 border-l border-white/[0.05]">
+            
+            <EquityCurve data={curve} />
+
             <p className="text-[13px] text-[#a0a0a0] leading-relaxed mb-6">
               My approach is fairly ordinary. I own a small number of companies 
               I can explain in plain language, usually because I suspect macroeconomic catalysts ahead of them are not priced in.
-              I'm wrong often enough that I've started leaning on statistical methods to check my own judgment.
+              However, I'm wrong enough that I've started building statistical methods to check my own judgment.
             </p>
-            <EquityCurve data={curve} />
           </div>
         </section>
 

@@ -89,7 +89,7 @@ export default function HomePage() {
           </p>
 
           <p className="text-[14px] leading-relaxed">
-            Best way to reach me is via linkedin or email — [firstname] dot [lastname] at gmail dot com
+            Best way to reach me is linkedin or alternatively by email: [firstname] dot [lastname] at gmail dot com
           </p>
         </div>
 
@@ -111,7 +111,7 @@ export default function HomePage() {
 
         {/* ── PUBLICATIONS ── */}
         <section className="mb-12">
-          <SectionHeader label="Publications" />
+          <SectionHeader label="Research" />
           <div>
             {publications.map((pub, idx) => (
               <a
