@@ -46,8 +46,8 @@ export default function NowPage() {
             <EquityCurve data={curve} />
 
             <p className="text-[13px] text-[#a0a0a0] leading-relaxed mb-6">
-              My approach is fairly ordinary. I own a small number of companies 
-              I can explain in plain language, usually because I suspect macroeconomic catalysts ahead of them are not priced in.
+              My approach is fairly ordinary. I own a small number of easily understandable companies, 
+              usually because I suspect macroeconomic catalysts ahead of them are not priced in.
               However, I'm wrong enough that I've started building statistical methods to check my own judgment.
             </p>
           </div>
