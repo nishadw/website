@@ -21,18 +21,18 @@ const pastimes = [
 
 function SectionHeader({ label }: { label: string }) {
   return (
-    <h2 className="text-[15px] font-semibold text-[#e8e8e8] mb-4">{label}</h2>
+    <h2 className="text-[19px] font-semibold text-[#e8e8e8] mb-4">{label}</h2>
   )
 }
 
 export default function NowPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
-      <div className="max-w-[780px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[960px] mx-auto px-8 pt-20 pb-32">
 
         {/* Header */}
         <div className="mb-14">
-          <h1 className="text-[44px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em]">
+          <h1 className="text-[60px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em]">
             After Hours
           </h1>
         </div>
@@ -45,7 +45,7 @@ export default function NowPage() {
             
             <EquityCurve data={curve} />
 
-            <p className="text-[13px] text-[#a0a0a0] leading-relaxed mb-6">
+            <p className="text-[17px] text-[#a0a0a0] leading-relaxed mb-6">
               My approach is fairly ordinary. I own a small number of easily understandable companies, 
               usually because I suspect macroeconomic catalysts ahead of them are not priced in.
               However, I'm wrong enough that I've started building statistical methods to check my own judgment.
@@ -59,15 +59,15 @@ export default function NowPage() {
           <div>
             {pastimes.map((h) => (
               <div key={h.label} className="flex items-start gap-6 py-3 border-b border-white/[0.06]">
-                <span className="text-[13px] font-semibold text-[#e8e8e8] w-20 shrink-0">{h.label}</span>
-                <span className="text-[13px] text-[#a0a0a0]">{h.detail}</span>
+                <span className="text-[17px] font-semibold text-[#e8e8e8] w-20 shrink-0">{h.label}</span>
+                <span className="text-[17px] text-[#a0a0a0]">{h.detail}</span>
               </div>
             ))}
           </div>
         </section>
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-[13px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
+        <div className="flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
           <Link href="/" className="hover:text-[#e8e8e8] transition-colors">
             ← nishad.page
           </Link>
