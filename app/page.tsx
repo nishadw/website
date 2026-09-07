@@ -43,8 +43,8 @@ const contact = [
 function SectionHeader({ label, sub }: { label: string; sub?: string }) {
   return (
     <div className="flex items-baseline gap-3 mb-4">
-      <h2 className="text-[15px] font-semibold text-[#e8e8e8]">{label}</h2>
-      {sub && <span className="text-[12px] text-[#6e6e6e]">{sub}</span>}
+      <h2 className="text-[19px] font-semibold text-[#e8e8e8]">{label}</h2>
+      {sub && <span className="text-[16px] text-[#6e6e6e]">{sub}</span>}
     </div>
   )
 }
@@ -58,12 +58,12 @@ function ExpRow({ company, position, period, href }: {
       className="group flex items-center justify-between py-3.5 border-b border-white/[0.06]"
     >
       <div className="flex items-center gap-4 min-w-0 flex-1">
-        <span className="text-[13px] font-semibold text-[#a0a0a0] group-hover:text-[#e8e8e8] transition-colors shrink-0 w-44">
+        <span className="text-[17px] font-semibold text-[#a0a0a0] group-hover:text-[#e8e8e8] transition-colors shrink-0 w-44">
           {company}
         </span>
-        <span className="text-[13px] text-[#a0a0a0] truncate">{position}</span>
+        <span className="text-[17px] text-[#a0a0a0] truncate">{position}</span>
       </div>
-      <span className="text-[12px] text-[#6e6e6e] ml-6 shrink-0 font-mono">{period}</span>
+      <span className="text-[16px] text-[#6e6e6e] ml-6 shrink-0 font-mono">{period}</span>
     </Link>
   )
 }
@@ -71,24 +71,24 @@ function ExpRow({ company, position, period, href }: {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
-      <div className="max-w-[780px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[960px] mx-auto px-8 pt-20 pb-32">
 
         {/* ── HERO ── */}
         <div className="mb-12">
-          <h1 className="text-[44px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em] mb-6">
+          <h1 className="text-[60px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em] mb-6">
             Nishad Wajge
           </h1>
 
-          {/* <p className="text-[14px] text-[#6e6e6e] mb-7">
+          {/* <p className="text-[18px] text-[#6e6e6e] mb-7">
             Computer Science @ University of Maryland, College Park
           </p> */}
 
-          <p className="text-[14px] leading-relaxed mb-2">
+          <p className="text-[18px] leading-relaxed mb-2">
             Researcher and engineer interested in the areas of
             software, game theory, statistics, and ml.
           </p>
 
-          <p className="text-[14px] leading-relaxed">
+          <p className="text-[18px] leading-relaxed">
             Best way to reach me is linkedin or alternatively by email: [firstname] dot [lastname] at gmail dot com
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/experience"
-            className="inline-block pt-4 text-[13px] text-[#6e6e6e] hover:text-[#e8e8e8] transition-colors"
+            className="inline-block pt-4 text-[17px] text-[#6e6e6e] hover:text-[#e8e8e8] transition-colors"
           >
             {experiences.length - VISIBLE_EXPERIENCES} more roles →
           </Link>
@@ -121,10 +121,10 @@ export default function HomePage() {
                 rel="noreferrer"
                 className="group block py-3.5 border-b border-white/[0.06]"
               >
-                <span className="text-[13px] leading-relaxed text-[#a0a0a0] group-hover:text-[#e8e8e8] transition-colors block">
+                <span className="text-[17px] leading-relaxed text-[#a0a0a0] group-hover:text-[#e8e8e8] transition-colors block">
                   {pub.title}
                 </span>
-                <span className="text-[12px] text-[#6e6e6e] mt-0.5 block">
+                <span className="text-[16px] text-[#6e6e6e] mt-0.5 block">
                   {pub.venue}
                 </span>
               </a>
@@ -133,7 +133,7 @@ export default function HomePage() {
         </section>
 
         {/* ── CONTACT / FOOTER ── */}
-        <div className="flex items-center justify-between text-[13px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
+        <div className="flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
           <div className="flex items-center gap-6">
             {contact.map((c, i) => (
               <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#e8e8e8] transition-colors">

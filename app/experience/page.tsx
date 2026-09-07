@@ -82,15 +82,15 @@ function ExperienceEntry({ exp }: { exp: ExpEntry }) {
     >
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-4">
         <div>
-          <h2 className="text-[15px] font-semibold text-[#e8e8e8] mb-0.5">{exp.company}</h2>
-          <p className="text-[13px] text-[#a0a0a0]">{exp.role}</p>
+          <h2 className="text-[19px] font-semibold text-[#e8e8e8] mb-0.5">{exp.company}</h2>
+          <p className="text-[17px] text-[#a0a0a0]">{exp.role}</p>
         </div>
-        <span className="text-[12px] text-[#6e6e6e] font-mono shrink-0">{exp.period}</span>
+        <span className="text-[16px] text-[#6e6e6e] font-mono shrink-0">{exp.period}</span>
       </div>
 
       <ul className="space-y-2">
         {exp.points.map((point, i) => (
-          <li key={i} className="flex items-start gap-3 text-[13px] leading-relaxed text-[#a0a0a0]">
+          <li key={i} className="flex items-start gap-3 text-[17px] leading-relaxed text-[#a0a0a0]">
             <span className="text-[#6e6e6e] shrink-0">—</span>
             <span>{point}</span>
           </li>
@@ -103,10 +103,10 @@ function ExperienceEntry({ exp }: { exp: ExpEntry }) {
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
-      <div className="max-w-[780px] mx-auto px-8 pt-16 pb-32">
+      <div className="max-w-[960px] mx-auto px-8 pt-16 pb-32">
 
         <div className="mb-10 pb-8 border-b border-white/[0.06]">
-          <h1 className="text-[32px] font-medium text-[#e8e8e8] tracking-[-0.02em]">Experience</h1>
+          <h1 className="text-[44px] font-medium text-[#e8e8e8] tracking-[-0.02em]">Experience</h1>
         </div>
 
         <div>
@@ -115,7 +115,7 @@ export default function ExperiencePage() {
           ))}
         </div>
 
-        <div className="flex items-center justify-between text-[13px] text-[#6e6e6e] border-t border-white/[0.06] pt-8 mt-8">
+        <div className="flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8 mt-8">
           <div className="flex items-center gap-6">
             {contact.map((c, i) => (
               <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#e8e8e8] transition-colors">
