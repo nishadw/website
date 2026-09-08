@@ -25,7 +25,7 @@ export default function TopNav() {
           href="/now"
           className={`hover:text-[#e8e8e8] transition-colors ${pathname === "/now" ? "text-[#e8e8e8]" : ""}`}
         >
-          Other
+          Off Hours
         </Link>
         <a
           href="https://linkedin.com/in/nishadwajge"

@@ -1,17 +1,14 @@
-const contact = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/nishadwajge" },
-  { label: "GitHub", href: "https://github.com/nishadw" },
-]
+import Footer from "@/components/Footer"
 
 const allExperience = [
   {
     id: "amazon",
     company: "Amazon Lab126",
     role: "Software Engineer Intern",
-    period: "Jun 2026 — Present",
+    period: "Jun 2026 — Sep 2026",
     points: [
-      "Shipped on-device voice recognition pipeline deployed across millions of vehicles.",
-      "Optimized models for low-latency inference and secured biometric storage against spoofing.",
+      "Shipped on-device speaker identification module to across millions of vehicles.",
+      "Built MLOps loop fed by fleet data for continuous fine-tuning of SLMs, ASR, TTS.",
     ],
   },
   {
@@ -115,16 +112,7 @@ export default function ExperiencePage() {
           ))}
         </div>
 
-        <div className="flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8 mt-8">
-          <div className="flex items-center gap-6">
-            {contact.map((c, i) => (
-              <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#e8e8e8] transition-colors">
-                {c.label}
-              </a>
-            ))}
-          </div>
-          <span>© Nishad Wajge 2026</span>
-        </div>
+        <Footer className="mt-8" />
 
       </div>
     </div>
