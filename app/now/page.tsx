@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Footer from "@/components/Footer"
 import EquityCurve, { type EquityPoint } from "@/components/EquityCurve"
 
 // PLACEHOLDER PATH — replace with real year-end marks before publishing.
@@ -15,8 +15,8 @@ const curve: EquityPoint[] = [
 
 const pastimes = [
   { label: "Reading",    detail: "Currently: The Brothers Karamazov, Letters from a Stoic" },
-  { label: "Golf",       detail: "A work in progress (Handicap: 6.4)" },
-  { label: "Movies",     detail: "Godfather, Schindler's List, 12 Angry Men" },
+  { label: "Golf",       detail: "A constant work in progress (Handicap: 6.4)" },
+  { label: "Movies",     detail: "Godfather, Schindler's List, 12 Angry Men, Ratatouille" },
 ]
 
 function SectionHeader({ label }: { label: string }) {
@@ -33,7 +33,7 @@ export default function NowPage() {
         {/* Header */}
         <div className="mb-14">
           <h1 className="text-[60px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em]">
-            After Hours
+            Off Hours
           </h1>
         </div>
 
@@ -46,7 +46,7 @@ export default function NowPage() {
             <EquityCurve data={curve} />
 
             <p className="text-[17px] text-[#a0a0a0] leading-relaxed mb-6">
-              My approach is fairly ordinary. I own a small number of easily understandable companies, 
+              My approach is fairly simple. I own a small number of easily understandable companies, 
               usually because I suspect macroeconomic catalysts ahead of them are not priced in.
               However, I'm wrong enough that I've started building statistical methods to check my own judgment.
             </p>
@@ -67,12 +67,7 @@ export default function NowPage() {
         </section>
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
-          <Link href="/" className="hover:text-[#e8e8e8] transition-colors">
-            ← nishad.page
-          </Link>
-          <span>© Nishad Wajge 2026</span>
-        </div>
+        <Footer />
 
       </div>
     </div>

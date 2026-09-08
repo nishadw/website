@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Footer from "@/components/Footer"
 
 // Homepage shows only the most recent few; the rest live on /experience.
 const VISIBLE_EXPERIENCES = 3
@@ -25,7 +26,7 @@ const publications = [
   },
   {
     title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
-    venue: "Stanford Medicine",
+    venue: "Stanford Medicine JUST Health",
     href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
   },
   {
@@ -33,11 +34,6 @@ const publications = [
     venue: "",
     href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
   },
-]
-
-const contact = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/nishadwajge" },
-  { label: "GitHub", href: "https://github.com/nishadw" },
 ]
 
 function SectionHeader({ label, sub }: { label: string; sub?: string }) {
@@ -132,20 +128,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── CONTACT / FOOTER ── */}
-        <div className="flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8">
-          <div className="flex items-center gap-6">
-            {contact.map((c, i) => (
-              <a key={i} href={c.href} target="_blank" rel="noreferrer" className="hover:text-[#e8e8e8] transition-colors">
-                {c.label}
-              </a>
-            ))}
-          </div>
-          <span>
-            © Nishad Wajge{" "}
-            <Link href="/now" className="hover:text-[#e8e8e8] transition-colors">2026</Link>
-          </span>
-        </div>
+        {/* ── FOOTER ── */}
+        <Footer />
 
       </div>
     </div>
