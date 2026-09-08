@@ -21,18 +21,18 @@ const pastimes = [
 
 function SectionHeader({ label }: { label: string }) {
   return (
-    <h2 className="text-[19px] font-semibold text-[#e8e8e8] mb-4">{label}</h2>
+    <h2 className="text-[19px] font-semibold text-ink mb-4">{label}</h2>
   )
 }
 
 export default function NowPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-page">
       <div className="max-w-[960px] mx-auto px-8 pt-20 pb-32">
 
         {/* Header */}
         <div className="mb-14">
-          <h1 className="text-[60px] font-medium text-[#e8e8e8] leading-[1.1] tracking-[-0.02em]">
+          <h1 className="text-[60px] font-medium text-ink leading-[1.1] tracking-[-0.02em]">
             Off Hours
           </h1>
         </div>
@@ -41,11 +41,11 @@ export default function NowPage() {
         <section className="mb-14">
           <SectionHeader label="Investing" />
 
-          <div className="pl-4 border-l border-white/[0.05]">
+          <div className="pl-4 border-l border-hair">
             
             <EquityCurve data={curve} />
 
-            <p className="text-[17px] text-[#a0a0a0] leading-relaxed mb-6">
+            <p className="text-[17px] text-body leading-relaxed mb-6">
               My approach is fairly simple. I own a small number of easily understandable companies, 
               usually because I suspect macroeconomic catalysts ahead of them are not priced in.
               However, I'm wrong enough that I've started building statistical methods to check my own judgment.
@@ -58,9 +58,9 @@ export default function NowPage() {
           <SectionHeader label="Pastimes" />
           <div>
             {pastimes.map((h) => (
-              <div key={h.label} className="flex items-start gap-6 py-3 border-b border-white/[0.06]">
-                <span className="text-[17px] font-semibold text-[#e8e8e8] w-20 shrink-0">{h.label}</span>
-                <span className="text-[17px] text-[#a0a0a0]">{h.detail}</span>
+              <div key={h.label} className="flex items-start gap-6 py-3 border-b border-hair">
+                <span className="text-[17px] font-semibold text-ink w-20 shrink-0">{h.label}</span>
+                <span className="text-[17px] text-body">{h.detail}</span>
               </div>
             ))}
           </div>

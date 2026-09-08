@@ -31,6 +31,13 @@ const config: Config = {
         mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
+        // Theme-aware roles — see app/globals.css
+        page: "rgb(var(--page) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        body: "rgb(var(--body) / <alpha-value>)",
+        meta: "rgb(var(--meta) / <alpha-value>)",
+        hair: "rgb(var(--hair) / <alpha-value>)",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

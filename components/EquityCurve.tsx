@@ -7,8 +7,11 @@ export type EquityPoint = {
   benchmark: number // indexed to 100 at the first point
 }
 
-const PORTFOLIO_COLOR = "#e8e8e8"
-const BENCHMARK_COLOR = "#6e6e6e"
+// Series colors come from the theme tokens, so both curves follow dark/light.
+const PORTFOLIO_CLASS = "stroke-ink"
+const BENCHMARK_CLASS = "stroke-meta"
+const PORTFOLIO_DOT = "fill-ink stroke-page"
+const BENCHMARK_DOT = "fill-meta stroke-page"
 
 // Geometry (viewBox units)
 const W = 640
@@ -59,14 +62,14 @@ export default function EquityCurve({
               x2={PLOT_R}
               y1={y(g)}
               y2={y(g)}
-              stroke="rgba(255,255,255,0.05)"
               strokeWidth="1"
+              className="stroke-hair"
             />
             <text
               x={PLOT_L - 8}
               y={y(g) + 3}
               textAnchor="end"
-              className="fill-[#6e6e6e] text-[11px] font-mono tabular-nums"
+              className="fill-meta text-[11px] font-mono tabular-nums"
             >
               {tick(g)}
             </text>
@@ -80,7 +83,7 @@ export default function EquityCurve({
             x={x(i)}
             y={PLOT_B + 18}
             textAnchor="middle"
-            className="fill-[#6e6e6e] text-[11px] font-mono tabular-nums"
+            className="fill-meta text-[11px] font-mono tabular-nums"
           >
             {d.year}
           </text>
@@ -90,29 +93,29 @@ export default function EquityCurve({
         <path
           d={path("benchmark")}
           fill="none"
-          stroke={BENCHMARK_COLOR}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className={BENCHMARK_CLASS}
         />
         <path
           d={path("portfolio")}
           fill="none"
-          stroke={PORTFOLIO_COLOR}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className={PORTFOLIO_CLASS}
         />
 
         {/* Endpoint markers, ringed in the surface color so they read over the line */}
-        <circle cx={x(data.length - 1)} cy={y(last.benchmark)} r="3.5" fill={BENCHMARK_COLOR} stroke="#0a0a0a" strokeWidth="2" />
-        <circle cx={x(data.length - 1)} cy={y(last.portfolio)} r="3.5" fill={PORTFOLIO_COLOR} stroke="#0a0a0a" strokeWidth="2" />
+        <circle cx={x(data.length - 1)} cy={y(last.benchmark)} r="3.5" strokeWidth="2" className={BENCHMARK_DOT} />
+        <circle cx={x(data.length - 1)} cy={y(last.portfolio)} r="3.5" strokeWidth="2" className={PORTFOLIO_DOT} />
 
         {/* Direct labels — identity sits beside each mark, never color alone */}
-        <text x={PLOT_R + 14} y={y(last.portfolio) + 3} className="fill-[#e8e8e8] text-[12px] font-mono">
+        <text x={PLOT_R + 14} y={y(last.portfolio) + 3} className="fill-ink text-[12px] font-mono">
           Portfolio {multiple(last.portfolio)}
         </text>
-        <text x={PLOT_R + 14} y={y(last.benchmark) + 3} className="fill-[#a0a0a0] text-[12px] font-mono">
+        <text x={PLOT_R + 14} y={y(last.benchmark) + 3} className="fill-body text-[12px] font-mono">
           S&amp;P 500 {multiple(last.benchmark)}
         </text>
 
@@ -131,43 +134,38 @@ export default function EquityCurve({
               x2={x(i)}
               y1={PLOT_T - 6}
               y2={PLOT_B}
-              stroke="rgba(255,255,255,0.14)"
               strokeWidth="1"
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none"
+              className="stroke-meta/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none"
             />
             <circle
               cx={x(i)}
               cy={y(d.benchmark)}
               r="3.5"
-              fill={BENCHMARK_COLOR}
-              stroke="#0a0a0a"
               strokeWidth="2"
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none"
+              className={`${BENCHMARK_DOT} opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none`}
             />
             <circle
               cx={x(i)}
               cy={y(d.portfolio)}
               r="3.5"
-              fill={PORTFOLIO_COLOR}
-              stroke="#0a0a0a"
               strokeWidth="2"
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none"
+              className={`${PORTFOLIO_DOT} opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none`}
             />
             <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
-              <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-[#a0a0a0] text-[12px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-body text-[12px] font-mono tabular-nums">
                 {d.year}
               </text>
-              <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-[#e8e8e8] text-[12px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-ink text-[12px] font-mono tabular-nums">
                 Portfolio {multiple(d.portfolio)}
               </text>
-              <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-[#a0a0a0] text-[12px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-body text-[12px] font-mono tabular-nums">
                 S&amp;P 500 {multiple(d.benchmark)}
               </text>
             </g>
           </g>
         ))}
       </svg>
-      <figcaption className="text-[16px] text-[#6e6e6e] mt-3">
+      <figcaption className="text-[16px] text-meta mt-3">
         Growth of a dollar since {data[0].year} — time-weighted, both annualized over the same window.
       </figcaption>
     </figure>
