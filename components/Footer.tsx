@@ -28,7 +28,7 @@ function ExternalArrow() {
 export default function Footer({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`flex items-center justify-between text-[17px] text-[#6e6e6e] border-t border-white/[0.06] pt-8 ${className}`}
+      className={`flex items-center justify-between text-[17px] text-meta border-t border-hair pt-8 ${className}`}
     >
       <div className="flex items-center gap-6">
         {links.map((l) => (
@@ -37,7 +37,7 @@ export default function Footer({ className = "" }: { className?: string }) {
             href={l.href}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-1 hover:text-[#e8e8e8] transition-colors"
+            className="group inline-flex items-center gap-1 hover:text-ink transition-colors"
           >
             {l.label}
             <ExternalArrow />
