@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { PHProvider, Themed } from './providers'
-import PostHogPageView from '../components/PostHogPageView'
 import TopNav from '../components/TopNav'
 import ThemeToggle from '../components/ThemeToggle'
 
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-page text-body antialiased">
         <Themed>
           <PHProvider>
-            <PostHogPageView />
             <TopNav />
             <main className="pt-12">
               {children}

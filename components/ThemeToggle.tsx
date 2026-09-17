@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
+import posthog from "posthog-js"
 
 // Fixed to the viewport, so it rides along on every scroll position.
 export default function ThemeToggle() {
@@ -19,7 +20,13 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={() => {
+        const next = isDark ? "light" : "dark"
+        setTheme(next)
+        posthog.capture("theme_toggled", { theme: next })
+        posthog.setPersonProperties({ theme: next })
+      }}
+      data-attr="theme-toggle"
       aria-label={label}
       title={label}
       className="fixed bottom-6 right-6 z-50 h-11 w-11 rounded-full border border-hair bg-page text-meta
