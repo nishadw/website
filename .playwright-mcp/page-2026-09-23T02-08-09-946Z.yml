@@ -1,0 +1,120 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Nishad Wajge" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Experience" [ref=e5] [cursor=pointer]:
+        - /url: /experience
+      - link "Off Hours" [ref=e6] [cursor=pointer]:
+        - /url: /now
+      - link "LinkedIn" [ref=e7] [cursor=pointer]:
+        - /url: https://linkedin.com/in/nishadwajge
+      - link "GitHub" [ref=e8] [cursor=pointer]:
+        - /url: https://github.com/nishadw
+  - main [ref=e9]:
+    - generic [ref=e11]:
+      - heading "Off Hours" [level=1] [ref=e13]
+      - generic [ref=e14]:
+        - heading "Investing" [level=2] [ref=e15]
+        - generic [ref=e16]:
+          - figure "Twelve months to 22 September 2026, against the S&P 500 with dividends reinvested. One year is not a record — it is one year." [ref=e17]:
+            - img "Cumulative return of the portfolio versus the S&P 500 from Sep '25 to Sep '26, both indexed to zero at the start. The portfolio ends at +23.9% and the benchmark at +17.3%." [ref=e18]:
+              - generic [ref=e19]: 0%
+              - generic [ref=e21]: +10%
+              - generic [ref=e23]: +20%
+              - generic [ref=e25]: +30%
+              - generic [ref=e27]: Sep '25
+              - generic [ref=e28]: Dec '25
+              - generic [ref=e29]: Mar '26
+              - generic [ref=e30]: Jun '26
+              - generic [ref=e31]: Sep '26
+              - generic [ref=e36]: Portfolio +23.9%
+              - generic [ref=e37]: S&P 500 +17.3%
+              - generic [ref=e38]:
+                - generic:
+                  - generic: Sep '25
+                  - generic: Portfolio +0.0%
+                  - generic: S&P 500 +0.0%
+              - generic [ref=e40]:
+                - generic:
+                  - generic: Oct
+                  - generic: Portfolio +6.1%
+                  - generic: S&P 500 +2.4%
+              - generic [ref=e42]:
+                - generic:
+                  - generic: Nov
+                  - generic: Portfolio +11.2%
+                  - generic: S&P 500 +2.6%
+              - generic [ref=e44]:
+                - generic:
+                  - generic: Dec '25
+                  - generic: Portfolio +8.3%
+                  - generic: S&P 500 +2.7%
+              - generic [ref=e46]:
+                - generic:
+                  - generic: Jan
+                  - generic: Portfolio +17.6%
+                  - generic: S&P 500 +4.2%
+              - generic [ref=e48]:
+                - generic:
+                  - generic: Feb
+                  - generic: Portfolio +8.3%
+                  - generic: S&P 500 +3.3%
+              - generic [ref=e50]:
+                - generic:
+                  - generic: Mar '26
+                  - generic: Portfolio +2.6%
+                  - generic: S&P 500 −1.8%
+              - generic [ref=e52]:
+                - generic:
+                  - generic: Apr
+                  - generic: Portfolio +20.4%
+                  - generic: S&P 500 +8.5%
+              - generic [ref=e54]:
+                - generic:
+                  - generic: May
+                  - generic: Portfolio +17.3%
+                  - generic: S&P 500 +14.2%
+              - generic [ref=e56]:
+                - generic:
+                  - generic: Jun '26
+                  - generic: Portfolio +17.8%
+                  - generic: S&P 500 +13.0%
+              - generic [ref=e58]:
+                - generic:
+                  - generic: Jul
+                  - generic: Portfolio +15.5%
+                  - generic: S&P 500 +13.1%
+              - generic [ref=e60]:
+                - generic:
+                  - generic: Aug
+                  - generic: Portfolio +26.0%
+                  - generic: S&P 500 +16.1%
+              - generic [ref=e62]:
+                - generic:
+                  - generic: Sep '26
+                  - generic: Portfolio +23.9%
+                  - generic: S&P 500 +17.3%
+          - paragraph [ref=e65]: My approach is fairly simple. I own a small number of easily understandable companies, usually because I suspect macroeconomic catalysts ahead of them are not priced in. However, I'm wrong enough that I've started building statistical methods to check my own judgment.
+      - generic [ref=e66]:
+        - heading "Pastimes" [level=2] [ref=e67]
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: Reading
+            - generic [ref=e71]: "Currently: The Brothers Karamazov, Letters from a Stoic"
+          - generic [ref=e72]:
+            - generic [ref=e73]: Golf
+            - generic [ref=e74]: "A constant work in progress (Handicap: 6.4)"
+          - generic [ref=e75]:
+            - generic [ref=e76]: Movies
+            - generic [ref=e77]: Godfather, Schindler's List, 12 Angry Men, Ratatouille
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - link "LinkedIn" [ref=e80] [cursor=pointer]:
+            - /url: https://linkedin.com/in/nishadwajge
+          - link "GitHub" [ref=e83] [cursor=pointer]:
+            - /url: https://github.com/nishadw
+        - generic [ref=e86]: © Nishad Wajge 2026
+  - button "Switch to dark mode" [ref=e87] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e95] [cursor=pointer]
+  - alert [ref=e99]
