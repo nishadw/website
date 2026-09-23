@@ -1,0 +1,1028 @@
+[       4ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc0d-27f7-7f77-8544-5a5e2473a77f, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:16:49 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[      17ms] [LOG] [Fast Refresh] done in 926ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[     326ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:24914
+[     350ms] [LOG] [PostHog.js] set_config {config: Object, oldConfig: Object, newConfig: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     350ms] [LOG] [PostHog.js] Persistence loaded localStorage+cookie {distinct_id: 01a0b096-ff8e-7e26-bd84-5c6f069275bc, $sesid: Array(3), $epp: true, $initial_person_info: Object, $initialization_time: 2026-09-23T02:16:06.486Z} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     351ms] [LOG] [PostHog.js] Persistence loaded sessionStorage {$sdk_debug_extensions_init_method: synchronous, $sdk_debug_extensions_init_time_ms: 3, $referrer: $direct, $referring_domain: $direct, $sdk_debug_replay_remote_trigger_matching_config: null} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     352ms] [LOG] [PostHog.js] Initializing extensions synchronously @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     352ms] [LOG] [PostHog.js] History API monitoring enabled, starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     353ms] [LOG] [PostHog.js] [SessionRecording] starting @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     353ms] [LOG] [PostHog.js] [Heatmaps] starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     354ms] [LOG] [PostHog.js] [Web Vitals] enabled, starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     354ms] [LOG] [PostHog.js] [ExceptionAutocapture] enabled @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     354ms] [LOG] [PostHog.js] [ExceptionAutocapture] enabled @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     354ms] [LOG] [PostHog.js] Starting in debug mode {this: qo, config: Object, thisC: Object, p: Object, s: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     371ms] [LOG] [PostHog.js] send "$pageview" {uuid: 01a0cc0d-2965-7881-886f-9121a2268bf9, event: $pageview, properties: Object, $set_once: Object, timestamp: Tue Sep 22 2026 22:16:49 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     387ms] [LOG] [PostHog.js] [Dead Clicks] starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     388ms] [LOG] [PostHog.js] [Dead Clicks] starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     397ms] [LOG] [PostHog.js] [RemoteConfig] __preview_remote_config is disabled. Logging config instead {analytics: Object, autocaptureExceptions: true, autocapture_opt_out: false, captureDeadClicks: true, capturePerformance: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     445ms] [LOG] [PostHog.js] Persistence loaded sessionStorage {$sdk_debug_extensions_init_method: synchronous, $sdk_debug_extensions_init_time_ms: 2, $referrer: $direct, $referring_domain: $direct, $sdk_debug_replay_remote_trigger_matching_config: null} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     445ms] [LOG] [PostHog.js] set_config {config: Object, oldConfig: Object, newConfig: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     446ms] [LOG] [PostHog.js] [Surveys] flags response received, isSurveysEnabled: false @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     446ms] [LOG] [PostHog.js] [ExceptionAutocapture] enabled @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     469ms] [LOG] [PostHog.js] [Surveys] Surveys loaded successfully @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    3829ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    4860ms] [LOG] [Fast Refresh] done in 1031ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    4899ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    5405ms] [LOG] [PostHog.js] send "$web_vitals" {uuid: 01a0cc0d-3d10-76fb-b005-bf5caa45b8e7, event: $web_vitals, properties: Object, timestamp: Tue Sep 22 2026 22:16:54 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    6105ms] [LOG] [Fast Refresh] done in 1206ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    6152ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    7064ms] [LOG] [Fast Refresh] done in 911ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    7101ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    8040ms] [LOG] [Fast Refresh] done in 939ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    8072ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    9457ms] [LOG] [Fast Refresh] done in 1385ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    9491ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   10443ms] [LOG] [Fast Refresh] done in 952ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   10481ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   11448ms] [LOG] [Fast Refresh] done in 967ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   11481ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   12740ms] [LOG] [Fast Refresh] done in 1258ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   12780ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   13781ms] [LOG] [Fast Refresh] done in 1001ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   13814ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   14892ms] [LOG] [Fast Refresh] done in 1078ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   14928ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   15928ms] [LOG] [Fast Refresh] done in 999ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   15963ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   16929ms] [LOG] [Fast Refresh] done in 966ms @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   16965ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3111/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  651769ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-19eb-7968-b469-1a4c340c2655, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:41 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  654796ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130464166&ver=1.309.1&compression=gzip-js:0
+[  654797ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  654797ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 2400 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  654809ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  655358ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-27f0-78cd-b722-8c8ef8d9b965, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:27:44 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  656816ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-2da3-7eb5-bc58-359a100e8ead, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:46 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  657819ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130467195&ver=1.309.1&compression=gzip-js:0
+[  657819ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  657819ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 4506 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  657829ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  658362ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130467755&ver=1.309.1&compression=gzip-js:0
+[  658363ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  658363ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3499 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  658363ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130467757&ver=1.309.1&compression=gzip-js:0
+[  658363ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  658363ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3154 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  658375ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  659837ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-3970-7ea3-80df-6d89dc51c784, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:49 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  660355ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-3b76-7514-b830-36f8efe6132d, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:27:49 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  662174ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-4291-744e-9a48-73b5d14f8f41, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:51 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  662842ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130472233&ver=1.309.1&compression=gzip-js:0
+[  662842ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  662842ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3047 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  662842ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130472235&ver=1.309.1&compression=gzip-js:0
+[  662842ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  662842ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 2408 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  662851ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  663835ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130473216&ver=1.309.1&compression=gzip-js:0
+[  663835ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  663835ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 14767 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  663835ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130473228&ver=1.309.1&compression=gzip-js:0
+[  663835ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  663836ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5744 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  663836ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130473229&ver=1.309.1&compression=gzip-js:0
+[  663836ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  663836ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 4848 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  663846ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  664244ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-4aa8-7468-8ee6-af2f495c2c8e, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:53 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  665356ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-4efe-7a28-9c0e-df4f2f5a93fd, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:27:54 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  666249ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-527d-7719-9040-b94f9e4d0aff, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:55 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  666838ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130476230&ver=1.309.1&compression=gzip-js:0
+[  666838ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  666838ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6522 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  666839ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130476233&ver=1.309.1&compression=gzip-js:0
+[  666839ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  666839ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5715 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  666848ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  667249ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130476641&ver=1.309.1&compression=gzip-js:0
+[  667249ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  667249ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3543 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  667250ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130476643&ver=1.309.1&compression=gzip-js:0
+[  667250ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  667250ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3475 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  667258ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  668395ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-5ade-7658-a92d-2ae3283a30eb, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:27:57 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  669842ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130479234&ver=1.309.1&compression=gzip-js:0
+[  669842ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  669842ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 11180 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  669843ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130479236&ver=1.309.1&compression=gzip-js:0
+[  669843ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  669843ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 13403 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  669851ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  669860ms] [LOG] [PostHog.js] send "$web_vitals" {uuid: 01a0cc17-6097-7dbf-823f-07369fa431fe, event: $web_vitals, properties: Object, timestamp: Tue Sep 22 2026 22:27:59 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  670356ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-6287-7af1-a232-3082248c5722, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:27:59 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  671126ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-658a-7f9b-9b6b-dde1b9d9c54e, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:00 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  671399ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130480791&ver=1.309.1&compression=gzip-js:0
+[  671399ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  671399ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3672 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  671405ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130480793&ver=1.309.1&compression=gzip-js:0
+[  671405ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  671405ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3735 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  671414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  671419ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  672848ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130482238&ver=1.309.1&compression=gzip-js:0
+[  672848ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  672848ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 13509 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  672848ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130482240&ver=1.309.1&compression=gzip-js:0
+[  672849ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  672849ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6759 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  672849ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130482241&ver=1.309.1&compression=gzip-js:0
+[  672849ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  672849ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6839 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  672858ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  673426ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-6e85-7707-ac59-3237b69bf0e8, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:02 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  675356ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-760f-7340-b0e2-966f445b4036, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:28:04 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  675853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130485243&ver=1.309.1&compression=gzip-js:0
+[  675853ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  675853ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 13413 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  675853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130485245&ver=1.309.1&compression=gzip-js:0
+[  675853ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  675853ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5103 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  675854ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130485246&ver=1.309.1&compression=gzip-js:0
+[  675854ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  675854ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5747 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  675863ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  676169ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-793c-72ca-ad49-451abcb89b60, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:05 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  676431ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130485822&ver=1.309.1&compression=gzip-js:0
+[  676431ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  676431ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3066 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  676432ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130485825&ver=1.309.1&compression=gzip-js:0
+[  676432ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  676432ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3680 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  676441ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  678289ms] [LOG] [PostHog.js] send "$dead_click" {uuid: 01a0cc17-8184-701e-b2ea-f8f9a3de86ae, event: $dead_click, properties: Object, timestamp: Tue Sep 22 2026 22:28:06 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  678292ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130487685&ver=1.309.1&compression=gzip-js:0
+[  678292ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at qo.capture (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:152183)
+    at mt.vr (http://localhost:3111/ingest/static/dead-clicks-autocapture.js?v=1.309.1:1:22884)
+    at mt.ao (http://localhost:3111/ingest/static/dead-clicks-autocapture.js?v=1.309.1:1:22516)
+    at http://localhost:3111/ingest/static/dead-clicks-autocapture.js?v=1.309.1:1:19402 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  678292ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3510 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  678301ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  678449ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-8224-7356-8590-a07da3668f35, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:07 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  678868ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130488247&ver=1.309.1&compression=gzip-js:0
+[  678868ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  678868ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 29644 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  678877ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  680356ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-8997-7c41-ac3e-951267e9de4b, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:28:09 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  680457ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-89fc-714a-ac18-d7a7a17ee032, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:09 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681454ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130490845&ver=1.309.1&compression=gzip-js:0
+[  681454ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681454ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 2778 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681454ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130490848&ver=1.309.1&compression=gzip-js:0
+[  681454ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681454ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 2439 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  681875ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130491264&ver=1.309.1&compression=gzip-js:0
+[  681875ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681875ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 22958 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681875ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130491265&ver=1.309.1&compression=gzip-js:0
+[  681875ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681875ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 11297 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681876ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130491266&ver=1.309.1&compression=gzip-js:0
+[  681876ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681876ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 14144 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681876ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130491266&ver=1.309.1&compression=gzip-js:0
+[  681877ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681877ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 14015 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681877ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130491267&ver=1.309.1&compression=gzip-js:0
+[  681877ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681877ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 9430 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681877ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130491268&ver=1.309.1&compression=gzip-js:0
+[  681877ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681877ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 4788 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681877ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130491269&ver=1.309.1&compression=gzip-js:0
+[  681877ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681877ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5346 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681882ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130491270&ver=1.309.1&compression=gzip-js:0
+[  681882ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  681883ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6493 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  681889ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  681894ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  683472ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-95c3-7d60-87fe-1d618f826815, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:12 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  684893ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130494271&ver=1.309.1&compression=gzip-js:0
+[  684893ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  684893ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 29039 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  684894ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130494274&ver=1.309.1&compression=gzip-js:0
+[  684894ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  684894ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6737 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  684894ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130494275&ver=1.309.1&compression=gzip-js:0
+[  684894ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  684894ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6242 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  684905ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  686480ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130495869&ver=1.309.1&compression=gzip-js:0
+[  686480ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  686480ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3383 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  686497ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  686909ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-a330-7784-84a5-5ebebd5aa9db, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:16 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  687893ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130497278&ver=1.309.1&compression=gzip-js:0
+[  687893ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  687893ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 26903 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  687893ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130497281&ver=1.309.1&compression=gzip-js:0
+[  687893ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  687893ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 11304 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  687894ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130497282&ver=1.309.1&compression=gzip-js:0
+[  687894ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  687894ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 14228 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  687905ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  689909ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-aee8-7291-a07a-e33b92899cc2, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:19 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  689915ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130499306&ver=1.309.1&compression=gzip-js:0
+[  689916ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  689916ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3145 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  689927ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  690895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130500284&ver=1.309.1&compression=gzip-js:0
+[  690896ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  690896ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 28672 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  690897ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130500285&ver=1.309.1&compression=gzip-js:0
+[  690897ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  690897ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 12989 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  690897ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130500286&ver=1.309.1&compression=gzip-js:0
+[  690897ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  690897ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 4685 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  690909ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  691931ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-b6ce-7645-9ba2-9734f636aaba, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:21 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  693902ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130503288&ver=1.309.1&compression=gzip-js:0
+[  693902ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  693902ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 27120 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  693902ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130503291&ver=1.309.1&compression=gzip-js:0
+[  693902ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  693903ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 29566 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  693908ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130503291&ver=1.309.1&compression=gzip-js:0
+[  693908ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  693908ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 12420 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  693908ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130503292&ver=1.309.1&compression=gzip-js:0
+[  693908ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  693908ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 14783 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  693909ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130503293&ver=1.309.1&compression=gzip-js:0
+[  693909ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  693909ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 4639 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  693916ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  693919ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  694937ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130504327&ver=1.309.1&compression=gzip-js:0
+[  694937ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  694937ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3435 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  694951ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  695928ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-c66b-737f-86eb-80ce0abfd627, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:25 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  696910ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130506294&ver=1.309.1&compression=gzip-js:0
+[  696911ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  696911ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 29900 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  696911ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130506296&ver=1.309.1&compression=gzip-js:0
+[  696911ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  696911ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 22866 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  696911ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130506297&ver=1.309.1&compression=gzip-js:0
+[  696911ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  696911ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 12125 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  696921ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  698802ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-d1a5-7708-84a4-869ac8097752, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:28 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  698935ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130508325&ver=1.309.1&compression=gzip-js:0
+[  698935ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  698935ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3743 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  698943ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  699908ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130509298&ver=1.309.1&compression=gzip-js:0
+[  699908ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  699909ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 27798 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  699909ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130509299&ver=1.309.1&compression=gzip-js:0
+[  699909ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  699909ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 10468 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  699909ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130509300&ver=1.309.1&compression=gzip-js:0
+[  699909ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  699909ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6811 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  699918ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  700356ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-d7b6-7abb-a1a7-7ed6a4ef13f2, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:28:29 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  700877ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-d9c0-7409-82ad-c03531392929, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:30 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  702912ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130512301&ver=1.309.1&compression=gzip-js:0
+[  702912ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  702912ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 28697 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  702913ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130512303&ver=1.309.1&compression=gzip-js:0
+[  702913ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  702913ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 7324 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  702921ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  703236ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-e2f8-76ad-9bb9-e30f14564ce3, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:32 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  703361ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130512752&ver=1.309.1&compression=gzip-js:0
+[  703361ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  703361ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 2429 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  703361ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130512753&ver=1.309.1&compression=gzip-js:0
+[  703361ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  703361ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3058 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  703371ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  705356ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0cc17-eb3f-7b8d-811a-741a9755b50d, event: $$heatmap, properties: Object, timestamp: Tue Sep 22 2026 22:28:34 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  705373ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-eb50-7f7f-af17-83284bec25c8, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:34 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  705925ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=4&ip=0&_=1790130515305&ver=1.309.1&compression=gzip-js:0
+[  705925ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  705926ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 40642 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  705926ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130515306&ver=1.309.1&compression=gzip-js:0
+[  705926ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  705926ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 28897 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  705926ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130515307&ver=1.309.1&compression=gzip-js:0
+[  705926ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  705926ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5464 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  705935ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  707939ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-f556-7ae1-bb8d-59565afe4f75, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:37 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708373ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?ip=0&_=1790130517752&ver=1.309.1&compression=gzip-js:0
+[  708374ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708374ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3708 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708374ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130517754&ver=1.309.1&compression=gzip-js:0
+[  708374ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708374ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3288 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708386ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  708929ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=4&ip=0&_=1790130518309&ver=1.309.1&compression=gzip-js:0
+[  708929ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708929ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 46608 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708929ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130518320&ver=1.309.1&compression=gzip-js:0
+[  708929ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708930ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 22052 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708940ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=3&ip=0&_=1790130518321&ver=1.309.1&compression=gzip-js:0
+[  708940ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708940ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 20575 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708940ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130518321&ver=1.309.1&compression=gzip-js:0
+[  708940ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708940ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 10875 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708940ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130518322&ver=1.309.1&compression=gzip-js:0
+[  708940ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  708940ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5819 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  708940ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  708950ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  710389ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc17-fee9-77ea-b3d1-2d66a22691d8, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:39 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  711936ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130521323&ver=1.309.1&compression=gzip-js:0
+[  711936ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  711936ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 29146 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  711941ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130521325&ver=1.309.1&compression=gzip-js:0
+[  711941ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  711941ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 25136 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  711941ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130521326&ver=1.309.1&compression=gzip-js:0
+[  711941ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  711941ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 14027 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  711942ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130521326&ver=1.309.1&compression=gzip-js:0
+[  711942ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  711942ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 10093 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  711942ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130521327&ver=1.309.1&compression=gzip-js:0
+[  711942ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  711942ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 6666 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  711947ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  711955ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  713397ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130522786&ver=1.309.1&compression=gzip-js:0
+[  713397ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  713397ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3422 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  713414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  713959ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc18-0cdb-7611-80a3-79cebf5d0dc2, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:43 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  714950ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=1&ip=0&_=1790130524331&ver=1.309.1&compression=gzip-js:0
+[  714950ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  714950ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5835 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  714951ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=4&ip=0&_=1790130524329&ver=1.309.1&compression=gzip-js:0
+[  714951ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  714951ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 46202 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  714956ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=4&ip=0&_=1790130524330&ver=1.309.1&compression=gzip-js:0
+[  714956ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  714956ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 38911 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  714956ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130524331&ver=1.309.1&compression=gzip-js:0
+[  714957ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  714957ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 10676 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  714962ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  714966ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  716966ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130526356&ver=1.309.1&compression=gzip-js:0
+[  716966ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  716967ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 2707 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  716974ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc18-18a1-7a28-9652-44c426551aae, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:46 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  716979ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  717941ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130527333&ver=1.309.1&compression=gzip-js:0
+[  717941ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  717941ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 4532 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  717951ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  718982ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc18-2079-7f3d-bedc-944e7d7b972f, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:48 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  719983ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?ip=0&_=1790130529371&ver=1.309.1&compression=gzip-js:0
+[  719983ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at qo.Br (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149216)
+    at fo.eval [as xe] (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:142058)
+    at e (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114800)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:114822) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  719983ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 3034 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  719997ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  720948ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=4&ip=0&_=1790130530335&ver=1.309.1&compression=gzip-js:0
+[  720948ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  720948ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 51677 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  720949ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=4&ip=0&_=1790130530337&ver=1.309.1&compression=gzip-js:0
+[  720949ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  720949ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 41348 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  720954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=3&ip=0&_=1790130530338&ver=1.309.1&compression=gzip-js:0
+[  720954ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  720954ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 27158 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  720955ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=2&ip=0&_=1790130530338&ver=1.309.1&compression=gzip-js:0
+[  720955ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  720955ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 10071 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  720955ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/i/v0/e/?retry_count=2&ip=0&_=1790130530339&ver=1.309.1&compression=gzip-js:0
+[  720955ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  720955ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 12988 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  720955ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/ingest/s/?retry_count=1&ip=0&_=1790130530339&ver=1.309.1&compression=gzip-js:0
+[  720955ms] [ERROR] [PostHog.js] TypeError: Failed to fetch
+    at method (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:71863)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149004)
+    at qo._send_request (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:149010)
+    at go.retriableRequest (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:115497)
+    at go.Lt (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116384)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:22:116221) @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  720955ms] [WARNING] [PostHog.js] Enqueued failed request for retry in 5064 @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  720959ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  720963ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3111/__nextjs_original-stack-frames:0
+[  722000ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0cc18-2c43-77c9-84a2-eac96528c157, event: $snapshot, properties: Object, timestamp: Tue Sep 22 2026 22:28:51 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21

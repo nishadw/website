@@ -1,8 +1,8 @@
-// Indexed equity curve: portfolio vs benchmark, both = 100 at t0, one shared axis.
+// Indexed return curve: portfolio vs benchmark, both = 100 at t0, one shared axis.
 // Pure SVG, no client JS — hover states are CSS-only via group-hover.
 
 export type EquityPoint = {
-  year: string
+  label: string // x-axis / readout label, e.g. "Jan '26"
   portfolio: number // indexed to 100 at the first point
   benchmark: number // indexed to 100 at the first point
 }
@@ -16,31 +16,38 @@ const BENCHMARK_DOT = "fill-meta stroke-page"
 // Geometry (viewBox units)
 const W = 640
 const H = 172
-const PLOT_L = 26
-const PLOT_R = 500
+const PLOT_L = 34
+const PLOT_R = 494
 const PLOT_T = 12
 const PLOT_B = 128
-const Y_MIN = 100
+
+// Signed percent off the 100 base — the frame a relative return chart is read in.
+const pct = (v: number) => `${v >= 100 ? "+" : "−"}${Math.abs(v - 100).toFixed(1)}%`
+const tick = (v: number) => (v === 100 ? "0%" : `${v > 100 ? "+" : "−"}${Math.abs(v - 100)}%`)
 
 export default function EquityCurve({
   data,
-  gridlines = [100, 300, 500, 700],
-  yMax = 760,
+  gridlines = [100, 110, 120, 130],
+  yMin = 95,
+  yMax = 131,
+  tickEvery = 3,
+  caption,
 }: {
   data: EquityPoint[]
   gridlines?: number[]
+  yMin?: number
   yMax?: number
+  tickEvery?: number
+  caption?: string
 }) {
   const step = (PLOT_R - PLOT_L) / (data.length - 1)
   const x = (i: number) => PLOT_L + i * step
-  const y = (v: number) => PLOT_B - ((v - Y_MIN) / (yMax - Y_MIN)) * (PLOT_B - PLOT_T)
+  const y = (v: number) => PLOT_B - ((v - yMin) / (yMax - yMin)) * (PLOT_B - PLOT_T)
 
   const path = (key: "portfolio" | "benchmark") =>
     data.map((d, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(d[key]).toFixed(1)}`).join(" ")
 
   const last = data[data.length - 1]
-  const multiple = (v: number) => `${(v / 100).toFixed(1)}×`
-  const tick = (v: number) => `${v / 100}×`
 
   return (
     <figure className="mb-6">
@@ -52,7 +59,7 @@ export default function EquityCurve({
         style={{ aspectRatio: `${W} / ${H}` }}
         className="block w-full h-auto"
         role="img"
-        aria-label={`Growth of the portfolio versus the S&P 500 from ${data[0].year} to ${last.year}, both indexed to 100 at the start. The portfolio ends at ${multiple(last.portfolio)} and the benchmark at ${multiple(last.benchmark)}.`}
+        aria-label={`Cumulative return of the portfolio versus the S&P 500 from ${data[0].label} to ${last.label}, both indexed to zero at the start. The portfolio ends at ${pct(last.portfolio)} and the benchmark at ${pct(last.benchmark)}.`}
       >
         {/* Gridlines — solid hairlines, one shade off the surface */}
         {gridlines.map((g) => (
@@ -76,18 +83,20 @@ export default function EquityCurve({
           </g>
         ))}
 
-        {/* Year labels */}
-        {data.map((d, i) => (
-          <text
-            key={d.year}
-            x={x(i)}
-            y={PLOT_B + 18}
-            textAnchor="middle"
-            className="fill-meta text-[11px] font-mono tabular-nums"
-          >
-            {d.year}
-          </text>
-        ))}
+        {/* Period labels — every nth point, so two dozen months do not collide */}
+        {data.map((d, i) =>
+          i % tickEvery === 0 || i === data.length - 1 ? (
+            <text
+              key={i}
+              x={x(i)}
+              y={PLOT_B + 18}
+              textAnchor="middle"
+              className="fill-meta text-[11px] font-mono tabular-nums"
+            >
+              {d.label}
+            </text>
+          ) : null
+        )}
 
         {/* Series — thin 2px lines, benchmark under portfolio */}
         <path
@@ -112,16 +121,16 @@ export default function EquityCurve({
         <circle cx={x(data.length - 1)} cy={y(last.portfolio)} r="3.5" strokeWidth="2" className={PORTFOLIO_DOT} />
 
         {/* Direct labels — identity sits beside each mark, never color alone */}
-        <text x={PLOT_R + 14} y={y(last.portfolio) + 3} className="fill-ink text-[12px] font-mono">
-          Portfolio {multiple(last.portfolio)}
+        <text x={PLOT_R + 12} y={y(last.portfolio) + 3} className="fill-ink text-[12px] font-mono">
+          Portfolio {pct(last.portfolio)}
         </text>
-        <text x={PLOT_R + 14} y={y(last.benchmark) + 3} className="fill-body text-[12px] font-mono">
-          S&amp;P 500 {multiple(last.benchmark)}
+        <text x={PLOT_R + 12} y={y(last.benchmark) + 3} className="fill-body text-[12px] font-mono">
+          S&amp;P 500 {pct(last.benchmark)}
         </text>
 
         {/* Hover layer — crosshair + readout, one column at a time */}
         {data.map((d, i) => (
-          <g key={`hover-${d.year}`} className="group">
+          <g key={`hover-${i}`} className="group">
             <rect
               x={Math.max(PLOT_L, x(i) - step / 2)}
               y={PLOT_T - 6}
@@ -153,21 +162,19 @@ export default function EquityCurve({
             />
             <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
               <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-body text-[12px] font-mono tabular-nums">
-                {d.year}
+                {d.label}
               </text>
               <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-ink text-[12px] font-mono tabular-nums">
-                Portfolio {multiple(d.portfolio)}
+                Portfolio {pct(d.portfolio)}
               </text>
               <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-body text-[12px] font-mono tabular-nums">
-                S&amp;P 500 {multiple(d.benchmark)}
+                S&amp;P 500 {pct(d.benchmark)}
               </text>
             </g>
           </g>
         ))}
       </svg>
-      <figcaption className="text-[16px] text-meta mt-3">
-        Growth of a dollar since {data[0].year} — time-weighted, both annualized over the same window.
-      </figcaption>
+      {caption && <figcaption className="text-[16px] text-meta mt-3">{caption}</figcaption>}
     </figure>
   )
 }

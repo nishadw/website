@@ -1,0 +1,104 @@
+- generic [active] [ref=f1e1]:
+  - navigation [ref=f1e2]:
+    - link "Nishad Wajge" [ref=f1e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f1e4]:
+      - link "Experience" [ref=f1e5] [cursor=pointer]:
+        - /url: /experience
+      - link "Off Hours" [ref=f1e6] [cursor=pointer]:
+        - /url: /now
+      - link "LinkedIn" [ref=f1e7] [cursor=pointer]:
+        - /url: https://linkedin.com/in/nishadwajge
+      - link "GitHub" [ref=f1e8] [cursor=pointer]:
+        - /url: https://github.com/nishadw
+  - main [ref=f1e9]:
+    - generic [ref=f1e11]:
+      - heading "Experience" [level=1] [ref=f1e13]
+      - generic [ref=f1e14]:
+        - generic [ref=f1e15]:
+          - generic [ref=f1e16]:
+            - generic [ref=f1e17]:
+              - heading "Amazon Lab126" [level=2] [ref=f1e18]
+              - paragraph [ref=f1e19]: Software Engineer Intern
+            - generic [ref=f1e20]: Jun 2026 — Sep 2026
+          - list [ref=f1e21]:
+            - listitem [ref=f1e22]:
+              - generic [ref=f1e23]: —
+              - generic [ref=f1e24]: Shipped on-device speaker identification module to across millions of vehicles.
+            - listitem [ref=f1e25]:
+              - generic [ref=f1e26]: —
+              - generic [ref=f1e27]: Built MLOps loop fed by fleet data for continuous fine-tuning of SLMs, ASR, TTS.
+        - generic [ref=f1e28]:
+          - generic [ref=f1e29]:
+            - generic [ref=f1e30]:
+              - heading "Amazon Leo" [level=2] [ref=f1e31]
+              - paragraph [ref=f1e32]: Machine Learning Engineer
+            - generic [ref=f1e33]: Jan 2026 — May 2026
+          - list [ref=f1e34]:
+            - listitem [ref=f1e35]:
+              - generic [ref=f1e36]: —
+              - generic [ref=f1e37]: Forecasted space safety policy shifts using an ensemble of time-series foundation models.
+            - listitem [ref=f1e38]:
+              - generic [ref=f1e39]: —
+              - generic [ref=f1e40]: Extracted relational ontology across international agency documents with NLP pipelines.
+        - generic [ref=f1e41]:
+          - generic [ref=f1e42]:
+            - generic [ref=f1e43]:
+              - heading "General Dynamics Information Technology" [level=2] [ref=f1e44]
+              - paragraph [ref=f1e45]: Software Engineer Intern
+            - generic [ref=f1e46]: Jun 2025 — Aug 2025
+          - list [ref=f1e47]:
+            - listitem [ref=f1e48]:
+              - generic [ref=f1e49]: —
+              - generic [ref=f1e50]: Deployed an edge-native computer vision pipeline for real-time vehicle detection.
+            - listitem [ref=f1e51]:
+              - generic [ref=f1e52]: —
+              - generic [ref=f1e53]: Hardened model inference robustness on noisy sensor data through adversarial training.
+        - generic [ref=f1e54]:
+          - generic [ref=f1e55]:
+            - generic [ref=f1e56]:
+              - heading "General Dynamics Information Technology" [level=2] [ref=f1e57]
+              - paragraph [ref=f1e58]: Engineering Project Lead
+            - generic [ref=f1e59]: Jan 2025 — May 2025
+          - list [ref=f1e60]:
+            - listitem [ref=f1e61]:
+              - generic [ref=f1e62]: —
+              - generic [ref=f1e63]: Led team of engineers building an agentic RAG pipeline over a large-scale data lakehouse.
+            - listitem [ref=f1e64]:
+              - generic [ref=f1e65]: —
+              - generic [ref=f1e66]: Accelerated data discovery through a hybrid graph and vector database architecture.
+        - generic [ref=f1e67]:
+          - generic [ref=f1e68]:
+            - generic [ref=f1e69]:
+              - heading "Booz Allen Hamilton" [level=2] [ref=f1e70]
+              - paragraph [ref=f1e71]: Engineering Project Manager
+            - generic [ref=f1e72]: Sep 2024 — Dec 2024
+          - list [ref=f1e73]:
+            - listitem [ref=f1e74]:
+              - generic [ref=f1e75]: —
+              - generic [ref=f1e76]: Automated medical policy audits via summarization and sentiment analysis pipelines.
+            - listitem [ref=f1e77]:
+              - generic [ref=f1e78]: —
+              - generic [ref=f1e79]: Built full-stack, human-in-the-loop scraping and audit pipeline to cut manual review time.
+        - generic [ref=f1e80]:
+          - generic [ref=f1e81]:
+            - generic [ref=f1e82]:
+              - heading "Internal Revenue Service" [level=2] [ref=f1e83]
+              - paragraph [ref=f1e84]: Software Engineer Intern
+            - generic [ref=f1e85]: Jan — Dec 2024
+          - list [ref=f1e86]:
+            - listitem [ref=f1e87]:
+              - generic [ref=f1e88]: —
+              - generic [ref=f1e89]: Deployed division-wide CI/CD pipeline upgrade processing every U.S. tax application.
+            - listitem [ref=f1e90]:
+              - generic [ref=f1e91]: —
+              - generic [ref=f1e92]: Modernized legacy fraud detection ETL pipeline to accelerate build times.
+      - generic [ref=f1e93]:
+        - generic [ref=f1e94]:
+          - link "LinkedIn" [ref=f1e95] [cursor=pointer]:
+            - /url: https://linkedin.com/in/nishadwajge
+          - link "GitHub" [ref=f1e98] [cursor=pointer]:
+            - /url: https://github.com/nishadw
+        - generic [ref=f1e101]: © Nishad Wajge 2026
+  - button "Switch to light mode" [ref=f1e102] [cursor=pointer]
+  - alert [ref=f1e106]

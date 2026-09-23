@@ -6,7 +6,7 @@ const VISIBLE_EXPERIENCES = 3
 
 const experiences = [
   { company: "Amazon", position: "Software Engineer Intern", period: "Jun 2026 — Sep 2026", id: "amazon" },
-  { company: "Amazon", position: "Machine Learning Engineer", period: "Jan 2026 — May 2026", id: "amazon-leo" },
+  { company: "Amazon", position: "ML Engineering Lead", period: "Jan 2026 — May 2026", id: "amazon-leo" },
   { company: "General Dynamics", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
   { company: "General Dynamics", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
   { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", id: "bah" },
@@ -15,25 +15,30 @@ const experiences = [
 
 const publications = [
   {
-    title: "* Bayesian estimation and statistical benchmarking for large language models",
-    venue: "Neural Information Processing Systems",
+    title: "Gradient Fidelity in Learned World Models",
+    venue: "In preparation \u00b7 First author",
+    href: "",
+  },
+  {
+    title: "Standardized Difficulty Labels for Profiling LLMs",
+    venue: "Neural Information Processing Systems, 2024",
     href: "https://neurips.cc/virtual/2024/poster/97554",
   },
   {
-    title: "* Dynamic strategy optimization in turn-based stochastic games via Markov decision processes",
-    venue: "Institute of Operations Research and Management Sciences",
+    title: "Should Professionals Consider Their Adversary's Strategy?",
+    venue: "Computational Statistics, 2024 \u00b7 First author",
     href: "https://link.springer.com/article/10.1007/s00180-024-01555-5",
   },
-  {
-    title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
-    venue: "Stanford Medicine JUST Health",
-    href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
-  },
-  {
-    title: "Statistical modeling of decision theory and risk-aversion under uncertainty",
-    venue: "",
-    href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
-  },
+  // {
+  //   title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
+  //   venue: "Stanford Medicine JUST Health",
+  //   href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
+  // },
+  // {
+  //   title: "Statistical modeling of decision theory and risk-aversion under uncertainty",
+  //   venue: "",
+  //   href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
+  // },
 ]
 
 function SectionHeader({ label, sub }: { label: string; sub?: string }) {
@@ -109,22 +114,34 @@ export default function HomePage() {
         <section className="mb-12">
           <SectionHeader label="Research" />
           <div>
-            {publications.map((pub, idx) => (
-              <a
-                key={idx}
-                href={pub.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group block py-3.5 border-b border-hair"
-              >
-                <span className="text-[17px] leading-relaxed text-body group-hover:text-ink transition-colors block">
-                  {pub.title}
-                </span>
-                <span className="text-[16px] text-meta mt-0.5 block">
-                  {pub.venue}
-                </span>
-              </a>
-            ))}
+            {publications.map((pub, idx) => {
+              const body = (
+                <>
+                  <span className="text-[17px] leading-relaxed text-body group-hover:text-ink transition-colors block">
+                    {pub.title}
+                  </span>
+                  <span className="text-[16px] text-meta mt-0.5 block">
+                    {pub.venue}
+                  </span>
+                </>
+              )
+              // Unpublished work has no link yet; render it as plain text.
+              return pub.href ? (
+                <a
+                  key={idx}
+                  href={pub.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block py-3.5 border-b border-hair"
+                >
+                  {body}
+                </a>
+              ) : (
+                <div key={idx} className="block py-3.5 border-b border-hair">
+                  {body}
+                </div>
+              )
+            })}
           </div>
         </section>
 

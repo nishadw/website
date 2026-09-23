@@ -7,18 +7,19 @@ const allExperience = [
     role: "Software Engineer Intern",
     period: "Jun 2026 — Sep 2026",
     points: [
-      "Shipped on-device speaker identification module to across millions of vehicles.",
-      "Built MLOps loop fed by fleet data for continuous fine-tuning of SLMs, ASR, TTS.",
+      "Shipped an on-device speaker identification module to millions of vehicles, off the response path.",
+      "Quantized the embedding model for real-time recognition on ARM silicon.",
+      "Built an MLOps loop fed by fleet data for continuous fine-tuning of SLMs, ASR, TTS.",
     ],
   },
   {
     id: "amazon-leo",
     company: "Amazon Leo",
-    role: "Machine Learning Engineer",
+    role: "ML Engineering Lead",
     period: "Jan 2026 — May 2026",
     points: [
-      "Forecasted space safety policy shifts using an ensemble of time-series foundation models.",
-      "Extracted relational ontology across international agency documents with NLP pipelines.",
+      "Forecasted space policy shifts a year out with an ensemble of time-series models.",
+      "Extracted a relational ontology across international agency documents with ETL and NLP pipelines.",
     ],
   },
   {
@@ -27,8 +28,9 @@ const allExperience = [
     role: "Software Engineer Intern",
     period: "Jun 2025 — Aug 2025",
     points: [
-      "Deployed an edge-native computer vision pipeline for real-time vehicle detection.",
-      "Hardened model inference robustness on noisy sensor data through adversarial training.",
+      "Deployed an edge-native vision pipeline for vehicle detection and geospatial telemetry.",
+      "Hardened inference on noisy sensor data through adversarial training.",
+      "Architected a thread-safe, quantized three-stage pipeline over live video feeds.",
     ],
   },
   {
@@ -37,8 +39,8 @@ const allExperience = [
     role: "Engineering Project Lead",
     period: "Jan 2025 — May 2025",
     points: [
-      "Led team of engineers building an agentic RAG pipeline over a large-scale data lakehouse.",
-      "Accelerated data discovery through a hybrid graph and vector database architecture.",
+      "Led a team of engineers shipping a hybrid graph and vector RAG pipeline to analysts.",
+      "Raised retrieval accuracy with custom chunking and named-entity recognition, cutting discovery time.",
     ],
   },
   {
@@ -57,8 +59,8 @@ const allExperience = [
     role: "Software Engineer Intern",
     period: "Jan — Dec 2024",
     points: [
-      "Deployed division-wide CI/CD pipeline upgrade processing every U.S. tax application.",
-      "Modernized legacy fraud detection ETL pipeline to accelerate build times.",
+      "Upgraded division-wide CI/CD for fraud detection across tens of millions of tax applications.",
+      "Halved build times by migrating a twenty-year-old Java system from Ant to Maven.",
     ],
   },
 ]

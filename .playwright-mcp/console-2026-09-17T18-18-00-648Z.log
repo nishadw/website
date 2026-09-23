@@ -1,0 +1,85 @@
+[     286ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@15.2.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:24914
+[     320ms] [LOG] [PostHog.js] set_config {config: Object, oldConfig: Object, newConfig: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     321ms] [LOG] [PostHog.js] Persistence loaded localStorage+cookie {} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     322ms] [LOG] [PostHog.js] Persistence loaded sessionStorage {} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     324ms] [LOG] [PostHog.js] Initializing extensions synchronously @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     324ms] [LOG] [PostHog.js] History API monitoring enabled, starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     324ms] [LOG] [PostHog.js] [Heatmaps] starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     325ms] [LOG] [PostHog.js] [Web Vitals] enabled, starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     326ms] [LOG] [PostHog.js] [ExceptionAutocapture] enabled @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     326ms] [LOG] [PostHog.js] [ExceptionAutocapture] enabled @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     326ms] [LOG] [PostHog.js] Starting in debug mode {this: qo, config: Object, thisC: Object, p: Object, s: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     361ms] [LOG] [PostHog.js] [SessionId] new session ID generated {sessionId: 01a0b096-ffb1-7f7e-84b5-8434655f7a3a, windowId: 01a0b096-ffb1-7f7e-84b5-843581e47f12, changeReason: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     362ms] [LOG] [PostHog.js] send "$pageview" {uuid: 01a0b096-ff9d-7a93-805f-c793d5958649, event: $pageview, properties: Object, $set_once: Object, timestamp: Thu Sep 17 2026 14:18:00 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     481ms] [LOG] [PostHog.js] [RemoteConfig] __preview_remote_config is disabled. Logging config instead {analytics: Object, autocaptureExceptions: true, autocapture_opt_out: false, captureDeadClicks: true, capturePerformance: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     482ms] [LOG] [PostHog.js] Persistence loaded sessionStorage {$sdk_debug_extensions_init_method: synchronous, $sdk_debug_extensions_init_time_ms: 2, $referrer: $direct, $referring_domain: $direct} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     482ms] [LOG] [PostHog.js] set_config {config: Object, oldConfig: Object, newConfig: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     482ms] [LOG] [PostHog.js] [SessionRecording] starting @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     483ms] [LOG] [PostHog.js] [Surveys] flags response received, isSurveysEnabled: false @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     483ms] [LOG] [PostHog.js] [Web Vitals] enabled, starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     483ms] [LOG] [PostHog.js] [ExceptionAutocapture] enabled @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     544ms] [LOG] [PostHog.js] [Dead Clicks] starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     545ms] [LOG] [PostHog.js] [Dead Clicks] starting... @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[     549ms] [LOG] [PostHog.js] [Surveys] Surveys loaded successfully @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    4682ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-1091-7a60-9db4-0ab159780038, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:05 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    4695ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    5328ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0b097-1316-7320-bd19-5ee8aa755fdf, event: $$heatmap, properties: Object, timestamp: Thu Sep 17 2026 14:18:05 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    5523ms] [LOG] [PostHog.js] send "$web_vitals" {uuid: 01a0b097-13d9-70f4-825f-56fe5d5a34c5, event: $web_vitals, properties: Object, timestamp: Thu Sep 17 2026 14:18:06 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    5709ms] [LOG] [Fast Refresh] done in 1015ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    5748ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    6697ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-1870-71ec-abcb-11724e9ffb9b, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:07 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    6753ms] [LOG] [Fast Refresh] done in 1006ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    6812ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    8036ms] [LOG] [Fast Refresh] done in 1225ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    8054ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    8752ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-2078-7d2e-86ff-db64a4cb0a31, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:09 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[    9003ms] [LOG] [Fast Refresh] done in 949ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[    9042ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   10045ms] [LOG] [Fast Refresh] done in 1003ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   10072ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   11003ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-2943-79c4-bbd0-c13374c5f896, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:11 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   11959ms] [LOG] [Fast Refresh] done in 1886ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   11997ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   12106ms] [LOG] [PostHog.js] send "$autocapture" {uuid: 01a0b097-2d91-7104-9b14-fd0569a7d04a, event: $autocapture, properties: Object, timestamp: Thu Sep 17 2026 14:18:12 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   12107ms] [LOG] [PostHog.js] send "theme_toggled" {uuid: 01a0b097-2d92-7bf0-849f-33b7112da908, event: theme_toggled, properties: Object, timestamp: Thu Sep 17 2026 14:18:12 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   12108ms] [LOG] [PostHog.js] send "$set" {uuid: 01a0b097-2d93-740c-af63-4f9a7f6cbac0, event: $set, properties: Object, timestamp: Thu Sep 17 2026 14:18:12 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   12906ms] [LOG] [Fast Refresh] done in 909ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   12947ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   13845ms] [LOG] [Fast Refresh] done in 898ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   13881ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   13954ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-34c9-7a22-89f1-19ca9e8f55dc, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:14 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   14695ms] [LOG] [Fast Refresh] done in 814ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   14702ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   15328ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0b097-3a26-7f68-ad22-d4a9b28fed94, event: $$heatmap, properties: Object, timestamp: Thu Sep 17 2026 14:18:15 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   15550ms] [LOG] [Fast Refresh] done in 847ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   15591ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   16455ms] [LOG] [Fast Refresh] done in 864ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   16497ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   16714ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-3f91-7bb1-a383-eca91942a75e, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:17 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   17120ms] [LOG] [PostHog.js] send "$web_vitals" {uuid: 01a0b097-4126-731d-b84f-d6eb6a847600, event: $web_vitals, properties: Object, timestamp: Thu Sep 17 2026 14:18:17 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   17285ms] [LOG] [Fast Refresh] done in 787ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   17330ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   17463ms] [LOG] [PostHog.js] send "outbound_link_clicked" {uuid: 01a0b097-427e-77db-9aa4-4f9059ff1cb8, event: outbound_link_clicked, properties: Object, timestamp: Thu Sep 17 2026 14:18:18 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   17464ms] [LOG] [PostHog.js] send "$autocapture" {uuid: 01a0b097-427f-7b85-bf58-006f408fa848, event: $autocapture, properties: Object, timestamp: Thu Sep 17 2026 14:18:18 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   18557ms] [LOG] [Fast Refresh] done in 1227ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   18598ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   19280ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-4998-7c61-99d1-cbca60f3a69e, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:19 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   19428ms] [LOG] [Fast Refresh] done in 830ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   19453ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   20270ms] [LOG] [Fast Refresh] done in 817ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   20281ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   20327ms] [LOG] [PostHog.js] send "$$heatmap" {uuid: 01a0b097-4dae-73f2-a8cd-b3a1af46f471, event: $$heatmap, properties: Object, timestamp: Thu Sep 17 2026 14:18:20 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   21026ms] [LOG] [Fast Refresh] done in 745ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   21068ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   21422ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-51f6-70d5-aba7-3bdd92db997a, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:22 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   21918ms] [LOG] [Fast Refresh] done in 850ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   21960ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   22798ms] [LOG] [Fast Refresh] done in 838ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   22838ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   23682ms] [LOG] [Fast Refresh] done in 844ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   23726ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   23917ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-5bb4-7971-ab98-a2d40f9280e3, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:24 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   24552ms] [LOG] [Fast Refresh] done in 825ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   24595ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   25442ms] [LOG] [Fast Refresh] done in 848ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   25485ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0

@@ -1,0 +1,1 @@
+[       5ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a0b097-8bd9-7187-a3a4-c847540d043b, event: $snapshot, properties: Object, timestamp: Thu Sep 17 2026 14:18:36 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
