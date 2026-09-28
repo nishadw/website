@@ -59,7 +59,7 @@ function SectionHeader({ label }: { label: string }) {
 export default function NowPage() {
   return (
     <div className="min-h-screen bg-page">
-      <div className="max-w-[960px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[1080px] mx-auto px-8 pt-20 pb-32">
 
         {/* Header */}
         <div className="mb-14">

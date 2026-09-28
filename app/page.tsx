@@ -1,17 +1,9 @@
 import Link from "next/link"
 import Footer from "@/components/Footer"
+import { allExperience } from "@/lib/experience"
 
-// Homepage shows only the most recent few; the rest live on /experience.
-const VISIBLE_EXPERIENCES = 3
-
-const experiences = [
-  { company: "Amazon", position: "Software Engineer Intern", period: "Jun 2026 — Sep 2026", id: "amazon" },
-  { company: "Amazon", position: "ML Engineering Lead", period: "Jan 2026 — May 2026", id: "amazon-leo" },
-  { company: "General Dynamics", position: "Software Engineer Intern", period: "Jun 2025 — Aug 2025", id: "gdit" },
-  { company: "General Dynamics", position: "Engineering Project Lead", period: "Jan 2025 — May 2025", id: "gdit-lead" },
-  { company: "Booz Allen Hamilton", position: "Engineering Project Manager", period: "Sep 2024 — Dec 2024", id: "bah" },
-  { company: "Internal Revenue Service", position: "Software Engineer Intern", period: "Jan 2024 — Dec 2024", id: "irs" },
-]
+// The home page shows the current role in full; the rest live on /experience.
+const [current] = allExperience
 
 const publications = [
   {
@@ -50,29 +42,10 @@ function SectionHeader({ label, sub }: { label: string; sub?: string }) {
   )
 }
 
-function ExpRow({ company, position, period, href }: {
-  company: string; position: string; period: string; href: string
-}) {
-  return (
-    <Link
-      href={href}
-      className="group flex items-center justify-between py-3.5 border-b border-hair"
-    >
-      <div className="flex items-center gap-4 min-w-0 flex-1">
-        <span className="text-[17px] font-semibold text-body group-hover:text-ink transition-colors shrink-0 w-44">
-          {company}
-        </span>
-        <span className="text-[17px] text-body truncate">{position}</span>
-      </div>
-      <span className="text-[16px] text-meta ml-6 shrink-0 font-mono">{period}</span>
-    </Link>
-  )
-}
-
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-page">
-      <div className="max-w-[960px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[1080px] mx-auto px-8 pt-20 pb-32">
 
         {/* ── HERO ── */}
         <div className="mb-12">
@@ -86,29 +59,13 @@ export default function HomePage() {
 
           <p className="text-[18px] leading-relaxed mb-2">
             Researcher and engineer interested in the areas of
-            software, game theory, statistics, and ml.
+            software, game theory, statistics, and machine learning.
           </p>
 
           <p className="text-[18px] leading-relaxed">
             Best way to reach me is linkedin or alternatively by email: [firstname] dot [lastname] at gmail dot com
           </p>
         </div>
-
-        {/* ── EXPERIENCE ── */}
-        <section className="mb-12">
-          <SectionHeader label="Experience" />
-          <div>
-            {experiences.slice(0, VISIBLE_EXPERIENCES).map((exp, idx) => (
-              <ExpRow key={idx} company={exp.company} position={exp.position} period={exp.period} href={`/experience#${exp.id}`} />
-            ))}
-          </div>
-          <Link
-            href="/experience"
-            className="inline-block pt-4 text-[17px] text-meta hover:text-ink transition-colors"
-          >
-            {experiences.length - VISIBLE_EXPERIENCES} more roles →
-          </Link>
-        </section>
 
         {/* ── PUBLICATIONS ── */}
         <section className="mb-12">
@@ -143,6 +100,37 @@ export default function HomePage() {
               )
             })}
           </div>
+        </section>
+
+        {/* ── EXPERIENCE ── */}
+        <section className="mb-12">
+          <SectionHeader label="Experience" />
+
+          <div className="pb-5 border-b border-hair">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
+              <div>
+                <h3 className="text-[19px] font-semibold text-ink mb-0.5">{current.company}</h3>
+                <p className="text-[17px] text-body">{current.role}</p>
+              </div>
+              <span className="text-[16px] text-meta font-mono shrink-0">{current.period}</span>
+            </div>
+
+            <ul className="space-y-2">
+              {current.points.map((point, i) => (
+                <li key={i} className="flex items-start gap-3 text-[17px] leading-relaxed text-body">
+                  <span className="text-meta shrink-0">—</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Link
+            href="/experience"
+            className="inline-block pt-4 text-[17px] text-meta hover:text-ink transition-colors"
+          >
+            {allExperience.length - 1} earlier roles →
+          </Link>
         </section>
 
         {/* ── FOOTER ── */}
