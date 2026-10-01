@@ -24,9 +24,9 @@ export default function TopNav() {
         </Link>
         <Link
           href="/now"
-          className={`hover:text-ink transition-colors ${pathname === "/now" ? "text-ink" : ""}`}
+          className={`whitespace-nowrap hover:text-ink transition-colors ${pathname === "/now" ? "text-ink" : ""}`}
         >
-          Off Hours
+          5-to-9
         </Link>
         <a
           href="https://linkedin.com/in/nishadwajge"
