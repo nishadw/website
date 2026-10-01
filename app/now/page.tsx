@@ -64,7 +64,7 @@ export default function NowPage() {
         {/* Header */}
         <div className="mb-14">
           <h1 className="text-[60px] font-medium text-ink leading-[1.1] tracking-[-0.02em]">
-            Off Hours
+            5-to-9
           </h1>
         </div>
 
