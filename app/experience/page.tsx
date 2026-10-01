@@ -9,7 +9,7 @@ function ExperienceEntry({ exp }: { exp: ExpEntry }) {
     >
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-4">
         <div>
-          <h2 className="text-[19px] font-semibold text-ink mb-0.5">{exp.company}</h2>
+          <h2 className="text-[18px] font-semibold text-ink mb-0.5">{exp.company}</h2>
           <p className="text-[17px] text-body">{exp.role}</p>
         </div>
         <span className="text-[16px] text-meta font-mono shrink-0">{exp.period}</span>

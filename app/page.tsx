@@ -13,7 +13,7 @@ const publications = [
   },
   {
     title: "Standardized Difficulty Labels for Profiling LLMs",
-    venue: "Neural Information Processing Systems, 2024",
+    venue: "Neural Information Processing Systems, 2024 \u00b7 Undergraduate Researcher",
     href: "https://neurips.cc/virtual/2024/poster/97554",
   },
   {
@@ -35,9 +35,9 @@ const publications = [
 
 function SectionHeader({ label, sub }: { label: string; sub?: string }) {
   return (
-    <div className="flex items-baseline gap-3 mb-4">
-      <h2 className="text-[19px] font-semibold text-ink">{label}</h2>
-      {sub && <span className="text-[16px] text-meta">{sub}</span>}
+    <div className="flex items-baseline gap-3 mb-5">
+      <h2 className="text-[28px] font-medium text-ink tracking-[-0.015em]">{label}</h2>
+      {sub && <span className="text-[17px] text-meta">{sub}</span>}
     </div>
   )
 }
@@ -109,7 +109,7 @@ export default function HomePage() {
           <div className="pb-5 border-b border-hair">
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
               <div>
-                <h3 className="text-[19px] font-semibold text-ink mb-0.5">{current.company}</h3>
+                <h3 className="text-[18px] font-semibold text-ink mb-0.5">{current.company}</h3>
                 <p className="text-[17px] text-body">{current.role}</p>
               </div>
               <span className="text-[16px] text-meta font-mono shrink-0">{current.period}</span>
