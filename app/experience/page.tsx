@@ -1,18 +1,23 @@
-import Link from "next/link"
+import type { Metadata } from "next"
 import Footer from "@/components/Footer"
+import ProjectDetail from "@/components/ProjectDetail"
 import { allExperience, expName, type ExpEntry } from "@/lib/experience"
-import { allProjects, projectShort } from "@/lib/projects"
+import { projectById } from "@/lib/projects"
+
+export const metadata: Metadata = {
+  title: "Experience · Nishad Wajge",
+  description:
+    "Amazon Lab126, Amazon Leo, General Dynamics Information Technology, Booz Allen Hamilton, and the Internal Revenue Service.",
+}
 
 function ExperienceEntry({ exp }: { exp: ExpEntry }) {
-  // Where the role's work is written up as a project, send the reader there
-  // instead of repeating it.
-  const project = exp.projectId ? allProjects.find((p) => p.id === exp.projectId) : undefined
+  // What a role actually produced belongs to the role. Where there is a
+  // write-up, it is set here rather than standing somewhere else as a second
+  // entry with the same contents.
+  const project = exp.projectId ? projectById(exp.projectId) : undefined
 
   return (
-    <section
-      id={exp.id}
-      className="py-9 border-b border-hair last:border-0 scroll-mt-20"
-    >
+    <section id={exp.id} className="py-10 border-b border-hair last:border-0 scroll-mt-20">
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-4">
         <div>
           <h2 className="text-[22px] text-ink mb-0.5">{expName(exp)}</h2>
@@ -31,12 +36,10 @@ function ExperienceEntry({ exp }: { exp: ExpEntry }) {
       </ul>
 
       {project && (
-        <Link
-          href={`/projects#${project.id}`}
-          className="inline-block mt-4 text-[17px] text-meta hover:underline"
-        >
-          {projectShort(project)} →
-        </Link>
+        <div className="mt-8 pt-8 border-t border-hair">
+          <p className="display-caps text-[15px] text-meta mb-5">How it works</p>
+          <ProjectDetail project={project} showContext={false} />
+        </div>
       )}
     </section>
   )
@@ -51,11 +54,9 @@ export default function ExperiencePage() {
           <h1 className="display-caps text-[44px] text-ink">Experience</h1>
         </div>
 
-        <div>
-          {allExperience.map((exp) => (
-            <ExperienceEntry key={exp.id} exp={exp} />
-          ))}
-        </div>
+        {allExperience.map((exp) => (
+          <ExperienceEntry key={exp.id} exp={exp} />
+        ))}
 
         <Footer className="mt-8" />
 

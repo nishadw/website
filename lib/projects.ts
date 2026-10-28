@@ -77,7 +77,10 @@ export const allProjects: Project[] = [
     blurb:
       "Parses quarterly 13F filings from twelve institutions directly off EDGAR and scores every position change for conviction. A gradient-boosted regressor predicts next-quarter weight change per name; a Temporal Fusion Transformer predicts the whole book, its output projected onto the probability simplex after each backward pass so the model can represent an exit rather than a vanishing residual.",
     keywords: ["Temporal Fusion Transformer", "simplex projection", "gradient boosting", "SEC EDGAR", "FRED"],
-    links: [{ label: "Repository", href: "https://github.com/nishadw/13f-analyzer" }],
+    links: [
+      { label: "Live dashboard", href: "/stocks/" },
+      { label: "Repository", href: "https://github.com/nishadw/13f-analyzer" },
+    ],
   },
   {
     id: "difficulty",
@@ -125,7 +128,14 @@ export const allProjects: Project[] = [
   },
 ]
 
-// Papers and build work are kept apart wherever both appear, so a published
-// result never reads as one more side project.
+// Every piece of work belongs in exactly one place.
+//
+// A paper is research. The deliverable of an internship is that role, so it is
+// written up under the role on /experience rather than standing beside it as a
+// second thing with the same contents. What is left is work done on no one's
+// payroll, which is its own category and worth saying so.
 export const researchProjects = allProjects.filter((p) => p.researchId)
-export const engineeringProjects = allProjects.filter((p) => !p.researchId)
+export const roleProjects = allProjects.filter((p) => p.experienceId)
+export const independentProjects = allProjects.filter((p) => !p.researchId && !p.experienceId)
+
+export const projectById = (id: string) => allProjects.find((p) => p.id === id)

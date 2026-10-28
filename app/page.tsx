@@ -4,7 +4,7 @@ import Footer from "@/components/Footer"
 import SectionHeader from "@/components/SectionHeader"
 import { groupExperience } from "@/lib/experience"
 import { allResearch } from "@/lib/research"
-import { engineeringProjects, projectTitle } from "@/lib/projects"
+import { independentProjects, projectTitle } from "@/lib/projects"
 
 const groups = groupExperience()
 
@@ -100,31 +100,31 @@ export default function HomePage() {
 
         {/* ── RESEARCH ── Title, publisher, author status. Nothing else. */}
         <section className="mb-16">
-          <SectionHeader label="Research" />
+          <SectionHeader
+            label="Research"
+            action={
+              <Link href="/research" className="hover:underline">
+                detail →
+              </Link>
+            }
+          />
           {allResearch.map((p) => (
             <Row
               key={p.id}
               title={p.title}
               meta={`${p.publisher} · ${p.status}`}
-              href={`/projects#${p.id}`}
+              href={`/research#${p.id}`}
             />
           ))}
         </section>
 
-        {/* ── PROJECTS ──
-            Only the work that is not already a paper above, so no entry
-            appears on this page twice. */}
+        {/* ── INDEPENDENT WORK ──
+            Work done inside a role is written up under that role, so nothing
+            here repeats what the Experience index already carries. */}
         <section className="mb-20">
-          <SectionHeader
-            label="Projects"
-            action={
-              <Link href="/projects" className="hover:underline">
-                all work →
-              </Link>
-            }
-          />
-          {engineeringProjects.map((p) => (
-            <Row key={p.id} title={projectTitle(p)} meta={p.context} href={`/projects#${p.id}`} />
+          <SectionHeader label="Independent work" />
+          {independentProjects.map((p) => (
+            <Row key={p.id} title={projectTitle(p)} meta={p.context} href={`/research#${p.id}`} />
           ))}
         </section>
 
