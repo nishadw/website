@@ -17,7 +17,7 @@ export default function TopNav() {
       <div className="h-full grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 sm:px-8">
         <Link
           href="/"
-          className="justify-self-start text-[16px] sm:text-[18px] font-bold text-ink hover:underline whitespace-nowrap"
+          className="justify-self-start text-[16px] sm:text-[18px] text-ink hover:underline whitespace-nowrap"
         >
           Nishad Wajge
         </Link>
