@@ -22,7 +22,7 @@ export const allResearch: Paper[] = [
     id: "difficulty",
     title: "Standardized Difficulty Labels for Profiling LLMs",
     publisher: "NeurIPS 2024",
-    status: "Undergraduate researcher",
+    status: "Research assistant",
     href: "https://neurips.cc/virtual/2024/poster/97554",
   },
   {

@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer"
 import SectionHeader from "@/components/SectionHeader"
 import EquityCurve, { type EquityPoint } from "@/components/EquityCurve"
+import ProjectDetail from "@/components/ProjectDetail"
+import { independentProjects } from "@/lib/projects"
 
 // Two years of real marks. SnapTrade's balance history only reaches back twelve
 // months, so the earlier stretch is rebuilt: unwind all 296 recorded trades,
@@ -46,7 +48,7 @@ const curve: EquityPoint[] = [
 ]
 
 const pastimes = [
-  { label: "Reading",    detail: "Currently: The Brothers Karamazov, Letters from a Stoic" },
+  { label: "Reading",    detail: "The Brothers Karamazov, The White Nights, Letters from a Stoic" },
   { label: "Golf",       detail: "A constant work in progress (Handicap: 6.4)" },
   { label: "Movies",     detail: "Godfather, Schindler's List, 12 Angry Men, Ratatouille" },
 ]
@@ -91,10 +93,16 @@ export default function NowPage() {
             />
 
             <p className="text-[19px] text-body leading-relaxed">
-              Nothing clever here. I own a handful of companies I could explain to you in a sentence,
-              usually because I think something macro is coming that the price has not caught up to yet.
-              I am wrong often enough that I started writing statistics to argue with myself about it.
+              I own a small handful of companies based on a belief of future macro trends. Most of my
+              choices are discretionary, but I have begun to use a systematic approach for a small portion of the portfolio.
             </p>
+
+            {/* The systematic half, in full. */}
+            {independentProjects.map((project) => (
+              <div key={project.id} id={project.id} className="mt-10 pt-8 border-t border-hair scroll-mt-20">
+                <ProjectDetail project={project} showContext={false} />
+              </div>
+            ))}
           </div>
         </section>
 

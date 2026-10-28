@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import Footer from "@/components/Footer"
-import SectionHeader from "@/components/SectionHeader"
 import ProjectDetail from "@/components/ProjectDetail"
-import { researchProjects, independentProjects } from "@/lib/projects"
+import { researchProjects } from "@/lib/projects"
 
 export const metadata: Metadata = {
   title: "Research · Nishad Wajge",
@@ -28,34 +27,13 @@ export default function ResearchPage() {
           </p>
         </div>
 
-        <section className="mb-16">
-          <SectionHeader label="Papers" />
-          {researchProjects.map((p) => (
-            <section
-              key={p.id}
-              id={p.id}
-              className="py-11 border-b border-hair last:border-0 scroll-mt-20"
-            >
-              <ProjectDetail project={p} />
-            </section>
-          ))}
-        </section>
+        {researchProjects.map((p) => (
+          <section key={p.id} id={p.id} className="py-11 border-b border-hair scroll-mt-20">
+            <ProjectDetail project={p} />
+          </section>
+        ))}
 
-        {/* Built on no one's payroll, which is worth saying plainly. */}
-        <section className="mb-20">
-          <SectionHeader label="Independent work" />
-          {independentProjects.map((p) => (
-            <section
-              key={p.id}
-              id={p.id}
-              className="py-11 border-b border-hair last:border-0 scroll-mt-20"
-            >
-              <ProjectDetail project={p} />
-            </section>
-          ))}
-        </section>
-
-        <Footer />
+        <Footer className="mt-10" />
 
       </div>
     </div>
