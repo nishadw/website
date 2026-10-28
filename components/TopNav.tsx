@@ -2,48 +2,47 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { navTabs, externalLinks } from "@/lib/links"
 
+// A three-zone masthead: the name at the left, the page tabs centred, the
+// off-site links held to the right. The tabs and the links are deliberately
+// kept apart, so a tab is never mistaken for something that leaves the site.
+// The outer columns are equal-width, which is what keeps the tabs on the
+// centre line whatever the name's width happens to be.
 export default function TopNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-12 border-b border-hair bg-page flex items-center px-8">
-      <Link
-        href="/"
-        className="text-[17px] font-semibold text-ink transition-colors"
-      >
-        Nishad Wajge
-      </Link>
-      {/* Absolutely centered on the bar, so the name's width never shifts it. */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-6 text-[17px] text-meta">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-12 border-b border-hair bg-page">
+      <div className="h-full grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 sm:px-8">
         <Link
-          href="/experience"
-          className={`hover:text-ink transition-colors ${pathname === "/experience" ? "text-ink" : ""}`}
+          href="/"
+          className="justify-self-start text-[16px] sm:text-[18px] font-bold text-ink hover:underline whitespace-nowrap"
         >
-          Experience
+          Nishad Wajge
         </Link>
-        <Link
-          href="/now"
-          className={`whitespace-nowrap hover:text-ink transition-colors ${pathname === "/now" ? "text-ink" : ""}`}
-        >
-          5-to-9
-        </Link>
-        <a
-          href="https://linkedin.com/in/nishadwajge"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-ink transition-colors"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/nishadw"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-ink transition-colors"
-        >
-          GitHub
-        </a>
+
+        <div className="justify-self-center flex items-center gap-5 sm:gap-7 text-[15px] sm:text-[17px] text-meta">
+          {navTabs.map((t) => (
+            <Link
+              key={t.href}
+              href={t.href}
+              className={`whitespace-nowrap hover:underline ${pathname === t.href ? "text-ink underline" : ""}`}
+            >
+              {t.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Off-site. Dropped on narrow screens, where the footer carries them. */}
+        <div className="justify-self-end hidden md:flex items-center gap-5 text-[17px] text-meta">
+          {externalLinks.map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="hover:underline">
+              {l.label}
+            </a>
+          ))}
+        </div>
+        <span className="md:hidden" />
       </div>
     </nav>
   )

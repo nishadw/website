@@ -1,139 +1,133 @@
 import Link from "next/link"
+import type { ReactNode } from "react"
 import Footer from "@/components/Footer"
-import { allExperience } from "@/lib/experience"
+import SectionHeader from "@/components/SectionHeader"
+import { groupExperience } from "@/lib/experience"
+import { allResearch } from "@/lib/research"
+import { engineeringProjects, projectTitle } from "@/lib/projects"
 
-// The home page shows the current role in full; the rest live on /experience.
-const [current] = allExperience
+const groups = groupExperience()
 
-const publications = [
-  {
-    title: "Gradient Fidelity in Learned World Models",
-    venue: "In preparation \u00b7 First author",
-    href: "",
-  },
-  {
-    title: "Standardized Difficulty Labels for Profiling LLMs",
-    venue: "Neural Information Processing Systems, 2024 \u00b7 Undergraduate Researcher",
-    href: "https://neurips.cc/virtual/2024/poster/97554",
-  },
-  {
-    title: "Should Professionals Consider Their Adversary's Strategy?",
-    venue: "Computational Statistics, 2024 \u00b7 First author",
-    href: "https://link.springer.com/article/10.1007/s00180-024-01555-5",
-  },
-  // {
-  //   title: "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers",
-  //   venue: "Stanford Medicine JUST Health",
-  //   href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php",
-  // },
-  // {
-  //   title: "Statistical modeling of decision theory and risk-aversion under uncertainty",
-  //   venue: "",
-  //   href: "https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf",
-  // },
-]
+/* Title at the left, particulars held to the right rule, both on one
+   baseline. The research and project indexes share it. */
+function Row({
+  title,
+  meta,
+  href,
+}: {
+  title: ReactNode
+  meta: string
+  href?: string
+}) {
+  const body = (
+    <>
+      <span className="text-[19px] leading-snug text-ink group-hover:underline">{title}</span>
+      <span className="text-[16px] text-meta sm:text-right sm:shrink-0 sm:pl-8">{meta}</span>
+    </>
+  )
+  const cls =
+    "group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-y-0.5 py-3 border-b border-hair"
 
-function SectionHeader({ label, sub }: { label: string; sub?: string }) {
+  if (!href) return <div className={cls}>{body}</div>
   return (
-    <div className="flex items-baseline gap-3 mb-5">
-      <h2 className="text-[28px] font-medium text-ink tracking-[-0.015em]">{label}</h2>
-      {sub && <span className="text-[17px] text-meta">{sub}</span>}
-    </div>
+    <Link href={href} className={cls}>
+      {body}
+    </Link>
   )
 }
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-page">
-      <div className="max-w-[1080px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-12 pt-20 pb-28">
 
-        {/* ── HERO ── */}
-        <div className="mb-12">
-          <h1 className="text-[60px] font-medium text-ink leading-[1.1] tracking-[-0.02em] mb-6">
-            Nishad Wajge
-          </h1>
+        <header className="mb-16">
+          <h1 className="text-[68px] text-ink leading-[1.05] mb-7">Nishad Wajge</h1>
 
-          {/* <p className="text-[18px] text-meta mb-7">
-            Computer Science @ University of Maryland, College Park
-          </p> */}
-
-          <p className="text-[18px] leading-relaxed mb-2">
-            Researcher and engineer interested in the areas of
-            software, game theory, statistics, and machine learning.
+          <p className="text-[20px] leading-relaxed mb-1.5">
+            Researcher and engineer interested in software, game theory, statistics, and machine learning.
           </p>
 
-          <p className="text-[18px] leading-relaxed">
-            Best way to reach me is linkedin or alternatively by email: [firstname] dot [lastname] at gmail dot com
+          <p className="text-[20px] leading-relaxed text-meta">
+            Reachable on{" "}
+            <a
+              href="https://linkedin.com/in/nishadwajge"
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink hover:underline"
+            >
+              LinkedIn
+            </a>
+            , or at [firstname] dot [lastname] at gmail dot com.
           </p>
-        </div>
+        </header>
 
-        {/* ── PUBLICATIONS ── */}
-        <section className="mb-12">
-          <SectionHeader label="Research" />
-          <div>
-            {publications.map((pub, idx) => {
-              const body = (
-                <>
-                  <span className="text-[17px] leading-relaxed text-body group-hover:text-ink transition-colors block">
-                    {pub.title}
-                  </span>
-                  <span className="text-[16px] text-meta mt-0.5 block">
-                    {pub.venue}
-                  </span>
-                </>
-              )
-              // Unpublished work has no link yet; render it as plain text.
-              return pub.href ? (
-                <a
-                  key={idx}
-                  href={pub.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block py-3.5 border-b border-hair"
-                >
-                  {body}
-                </a>
-              ) : (
-                <div key={idx} className="block py-3.5 border-b border-hair">
-                  {body}
-                </div>
-              )
-            })}
-          </div>
-        </section>
-
-        {/* ── EXPERIENCE ── */}
-        <section className="mb-12">
-          <SectionHeader label="Experience" />
-
-          <div className="pb-5 border-b border-hair">
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
-              <div>
-                <h3 className="text-[18px] font-semibold text-ink mb-0.5">{current.company}</h3>
-                <p className="text-[17px] text-body">{current.role}</p>
-              </div>
-              <span className="text-[16px] text-meta font-mono shrink-0">{current.period}</span>
+        {/* ── EXPERIENCE ──
+            Grouped by employer: six roles read as four places, which is the
+            shape of a CV header rather than a resume. */}
+        <section className="mb-16">
+          <SectionHeader
+            label="Experience"
+            action={
+              <Link href="/experience" className="hover:underline">
+                detail →
+              </Link>
+            }
+          />
+          {groups.map((g) => (
+            <div
+              key={g.org}
+              className="grid sm:grid-cols-[minmax(0,23rem)_1fr] gap-x-8 py-3 border-b border-hair"
+            >
+              <span className="text-[19px] leading-snug text-ink">{g.org}</span>
+              <span>
+                {g.roles.map((r) => (
+                  <Link
+                    key={r.id}
+                    href={`/experience#${r.id}`}
+                    className="group flex items-baseline justify-between gap-6"
+                  >
+                    <span className="text-[17px] text-meta group-hover:text-ink group-hover:underline">
+                      {r.unit ? `${r.unit} · ${r.role}` : r.role}
+                    </span>
+                    <span className="text-[16px] text-meta tnum shrink-0">{r.period}</span>
+                  </Link>
+                ))}
+              </span>
             </div>
-
-            <ul className="space-y-2">
-              {current.points.map((point, i) => (
-                <li key={i} className="flex items-start gap-3 text-[17px] leading-relaxed text-body">
-                  <span className="text-meta shrink-0">—</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <Link
-            href="/experience"
-            className="inline-block pt-4 text-[17px] text-meta hover:text-ink transition-colors"
-          >
-            {allExperience.length - 1} earlier roles →
-          </Link>
+          ))}
         </section>
 
-        {/* ── FOOTER ── */}
+        {/* ── RESEARCH ── Title, publisher, author status. Nothing else. */}
+        <section className="mb-16">
+          <SectionHeader label="Research" />
+          {allResearch.map((p) => (
+            <Row
+              key={p.id}
+              title={p.title}
+              meta={`${p.publisher} · ${p.status}`}
+              href={`/projects#${p.id}`}
+            />
+          ))}
+        </section>
+
+        {/* ── PROJECTS ──
+            Only the work that is not already a paper above, so no entry
+            appears on this page twice. */}
+        <section className="mb-20">
+          <SectionHeader
+            label="Projects"
+            action={
+              <Link href="/projects" className="hover:underline">
+                all work →
+              </Link>
+            }
+          />
+          {engineeringProjects.map((p) => (
+            <Row key={p.id} title={projectTitle(p)} meta={p.context} href={`/projects#${p.id}`} />
+          ))}
+        </section>
+
         <Footer />
 
       </div>

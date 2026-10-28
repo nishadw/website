@@ -63,10 +63,21 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
 }
 
 // Writes `class="dark"` (or nothing) on <html>; the palette in globals.css keys off it.
-// Starts from the OS setting and follows it until the toggle stores a choice.
+//
+// `forcedTheme="light"` pins the site to the light palette and ignores both the
+// OS setting and anything already stored. The dark palette, the toggle and the
+// system-preference wiring are all still here: to bring dark mode back, delete
+// `forcedTheme` below and remount <ThemeToggle /> in app/layout.tsx. Nothing
+// else has to change.
 export function Themed({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+    <ThemeProvider
+      attribute="class"
+      forcedTheme="light"
+      defaultTheme="light"
+      enableSystem={false}
+      disableTransitionOnChange
+    >
       {children}
     </ThemeProvider>
   )

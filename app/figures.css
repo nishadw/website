@@ -1,0 +1,325 @@
+/* Figure animations for the project plates.
+ *
+ * Every plate is a monochrome line drawing that redraws itself on a loop, the
+ * way a plate in a printed volume would if it could move. Pure CSS keyframes —
+ * no SMIL, no video, no canvas — so each figure is a few kilobytes of markup
+ * that stays sharp at any density and inherits the page's two palette tokens.
+ *
+ * Conventions:
+ *   --dur  cycle length, default 7s; set per figure to stagger neighbours
+ *   --d    delay within the cycle, set per element
+ *   --len  path length in user units, for the dash-reveal keyframes
+ *
+ * Each cycle draws, holds, fades, and resets while invisible, so the loop never
+ * snaps back in view.
+ */
+
+.fig {
+  --dur: 7s;
+  --d: 0s;
+}
+
+.fig-anim {
+  animation-duration: var(--dur);
+  animation-delay: var(--d);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+/* ── Panels and morphs ───────────────────────────────────────────────────
+   Each plate is a three-panel sequence on one shared cycle. Two mechanisms
+   carry it:
+
+   `.a-s1/2/3` cross-fade the chrome that belongs to a single panel (axes,
+   labels, one-off marks).
+
+   `.a-morph` moves the objects that persist. A document becomes a point in a
+   cluster becomes a point on a time series; the reader follows the same mark
+   rather than watching one drawing replace another. Positions are offsets from
+   where the element is drawn, so panel one is the identity transform and the
+   SVG coordinates stay readable on the page.
+
+   The caption strip and progress ticks run on the panel keyframes, so the
+   words advance with the drawing. */
+@keyframes fig-scene-1 {
+  0%, 2%    { opacity: 0; }
+  9%, 26%   { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+@keyframes fig-scene-2 {
+  0%, 34%   { opacity: 0; }
+  43%, 60%  { opacity: 1; }
+  68%, 100% { opacity: 0; }
+}
+@keyframes fig-scene-3 {
+  0%, 68%   { opacity: 0; }
+  77%, 90%  { opacity: 1; }
+  97%, 100% { opacity: 0; }
+}
+.a-s1 { animation-name: fig-scene-1; }
+.a-s2 { animation-name: fig-scene-2; }
+.a-s3 { animation-name: fig-scene-3; }
+
+@keyframes fig-morph {
+  0%, 28%   { transform: translate(0, 0) scale(1, 1); }
+  43%, 62%  { transform: translate(var(--p2x), var(--p2y)) scale(var(--p2sx), var(--p2sy)); }
+  77%, 91%  { transform: translate(var(--p3x), var(--p3y)) scale(var(--p3sx), var(--p3sy)); }
+  100%      { transform: translate(0, 0) scale(1, 1); }
+}
+.a-morph {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: fig-morph;
+  --p2x: 0px;
+  --p2y: 0px;
+  --p2sx: 1;
+  --p2sy: 1;
+  --p3x: 0px;
+  --p3y: 0px;
+  --p3sx: 1;
+  --p3sy: 1;
+}
+
+/* ── Shared ───────────────────────────────────────────────────────────── */
+
+/* Draws a stroke on, holds it, clears it. Element needs
+   stroke-dasharray: var(--len) and a --len at least as long as the path. */
+@keyframes fig-draw {
+  0%   { stroke-dashoffset: var(--len); opacity: 0; }
+  7%   { stroke-dashoffset: var(--len); opacity: 1; }
+  52%  { stroke-dashoffset: 0; opacity: 1; }
+  86%  { stroke-dashoffset: 0; opacity: 1; }
+  97%  { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: var(--len); opacity: 0; }
+}
+.a-draw {
+  stroke-dasharray: var(--len);
+  animation-name: fig-draw;
+}
+
+/* A mark that arrives, sits, and leaves. */
+@keyframes fig-pop {
+  0%, 4%  { opacity: 0; }
+  12%     { opacity: 1; }
+  86%     { opacity: 1; }
+  96%     { opacity: 0; }
+  100%    { opacity: 0; }
+}
+.a-pop { animation-name: fig-pop; }
+
+/* A bar rising from its baseline. Pair with transform-origin. */
+@keyframes fig-grow-y {
+  0%   { transform: scaleY(0); opacity: 0; }
+  6%   { opacity: 1; }
+  40%  { transform: scaleY(1); }
+  86%  { transform: scaleY(1); opacity: 1; }
+  97%  { transform: scaleY(1); opacity: 0; }
+  100% { transform: scaleY(0); opacity: 0; }
+}
+.a-grow-y {
+  transform-box: fill-box;
+  animation-name: fig-grow-y;
+}
+
+@keyframes fig-grow-x {
+  0%   { transform: scaleX(0); opacity: 0; }
+  6%   { opacity: 1; }
+  44%  { transform: scaleX(1); }
+  86%  { transform: scaleX(1); opacity: 1; }
+  97%  { transform: scaleX(1); opacity: 0; }
+  100% { transform: scaleX(0); opacity: 0; }
+}
+.a-grow-x {
+  transform-box: fill-box;
+  animation-name: fig-grow-x;
+}
+
+@keyframes fig-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.a-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: fig-spin;
+  animation-timing-function: linear;
+}
+
+@keyframes fig-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 1; }
+}
+.a-pulse { animation-name: fig-pulse; }
+
+/* A rule sweeping across the plot. --dx is the travel in user units. */
+@keyframes fig-sweep {
+  0%   { transform: translateX(0); opacity: 0; }
+  8%   { opacity: 1; }
+  88%  { transform: translateX(var(--dx)); opacity: 1; }
+  96%  { transform: translateX(var(--dx)); opacity: 0; }
+  100% { transform: translateX(0); opacity: 0; }
+}
+.a-sweep {
+  transform-box: fill-box;
+  animation-name: fig-sweep;
+  animation-timing-function: linear;
+}
+
+/* ── ripen: a particle riding the diffusion path up to the boundary ──── */
+@keyframes fig-ripen-walk {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { transform: translate(0, 0); opacity: 1; }
+  18%  { transform: translate(40px, -21px); }
+  28%  { transform: translate(56px, -28px); }
+  38%  { transform: translate(80px, -34px); }
+  46%  { transform: translate(96px, -46px); }
+  54%  { transform: translate(104px, -65px); }
+  62%  { transform: translate(112px, -72px); }
+  70%  { transform: translate(124px, -100px); opacity: 1; }
+  80%  { transform: translate(124px, -100px); opacity: 0; }
+  100% { transform: translate(124px, -100px); opacity: 0; }
+}
+.a-ripen-walk {
+  transform-box: fill-box;
+  animation-name: fig-ripen-walk;
+}
+
+/* ── Easy2Hard: a reader moving right along the accuracy curve ───────── */
+@keyframes fig-e2h-read {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { transform: translate(0, 0); opacity: 1; }
+  26%  { transform: translate(70px, 4px); }
+  42%  { transform: translate(130px, 28px); }
+  58%  { transform: translate(190px, 62px); }
+  74%  { transform: translate(250px, 104px); }
+  86%  { transform: translate(300px, 117px); opacity: 1; }
+  94%  { transform: translate(300px, 117px); opacity: 0; }
+  100% { transform: translate(300px, 117px); opacity: 0; }
+}
+.a-e2h-read {
+  transform-box: fill-box;
+  animation-name: fig-e2h-read;
+}
+
+/* ── 13F: the conviction needle settling on a reading ────────────────── */
+@keyframes fig-needle {
+  0%   { transform: rotate(-54deg); opacity: 0; }
+  10%  { transform: rotate(-54deg); opacity: 1; }
+  34%  { transform: rotate(38deg); }
+  52%  { transform: rotate(6deg); }
+  68%  { transform: rotate(27deg); }
+  86%  { transform: rotate(22deg); opacity: 1; }
+  97%  { transform: rotate(22deg); opacity: 0; }
+  100% { transform: rotate(-54deg); opacity: 0; }
+}
+.a-needle {
+  transform-box: fill-box;
+  animation-name: fig-needle;
+}
+
+/* ── ATAK: two frames through the cascade. The easy one is resolved at
+      the first stage; the hard one falls through all three. ───────────── */
+@keyframes fig-tok-easy {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  6%   { opacity: 1; }
+  20%  { transform: translate(47px, 0); }
+  34%  { transform: translate(47px, 70px); }
+  44%  { transform: translate(47px, 70px); opacity: 1; }
+  54%  { transform: translate(47px, 70px); opacity: 0; }
+  100% { transform: translate(47px, 70px); opacity: 0; }
+}
+.a-tok-easy {
+  transform-box: fill-box;
+  animation-name: fig-tok-easy;
+}
+
+@keyframes fig-tok-hard {
+  0%, 14% { transform: translate(0, 0); opacity: 0; }
+  20%     { transform: translate(0, 0); opacity: 1; }
+  34%     { transform: translate(47px, 0); }
+  48%     { transform: translate(137px, 0); }
+  62%     { transform: translate(227px, 0); }
+  74%     { transform: translate(227px, 70px); }
+  86%     { transform: translate(227px, 70px); opacity: 1; }
+  96%     { transform: translate(227px, 70px); opacity: 0; }
+  100%    { transform: translate(227px, 70px); opacity: 0; }
+}
+.a-tok-hard {
+  transform-box: fill-box;
+  animation-name: fig-tok-hard;
+}
+
+/* ── Adversarial: a point nudged across the boundary inside its ε-ball,
+      then held by the widened margin. ──────────────────────────────────── */
+@keyframes fig-eps-push {
+  0%   { transform: translate(0, 0); }
+  26%  { transform: translate(8px, 15px); }
+  46%  { transform: translate(8px, 15px); }
+  70%  { transform: translate(2px, 4px); }
+  100% { transform: translate(0, 0); }
+}
+.a-eps-push {
+  transform-box: fill-box;
+  animation-name: fig-eps-push;
+}
+
+@keyframes fig-band {
+  0%, 48% { opacity: 0; }
+  66%     { opacity: 1; }
+  88%     { opacity: 1; }
+  100%    { opacity: 0; }
+}
+.a-band { animation-name: fig-band; }
+
+/* ── Golf: the aim point moving between the safe and the aggressive line ── */
+@keyframes fig-aim {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  30%  { transform: translate(0, 0); }
+  54%  { transform: translate(46px, -42px); }
+  78%  { transform: translate(46px, -42px); }
+  90%  { transform: translate(46px, -42px); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 0; }
+}
+.a-aim {
+  transform-box: fill-box;
+  animation-name: fig-aim;
+}
+
+/* The two candidate lines trade emphasis with the aim point. */
+@keyframes fig-alt-a {
+  0%, 36%  { opacity: 1; }
+  54%, 88% { opacity: 0.22; }
+  100%     { opacity: 1; }
+}
+@keyframes fig-alt-b {
+  0%, 36%  { opacity: 0.22; }
+  54%, 88% { opacity: 1; }
+  100%     { opacity: 0.22; }
+}
+.a-alt-a { animation-name: fig-alt-a; }
+.a-alt-b { animation-name: fig-alt-b; }
+
+/* Motion is decoration here; the drawing reads the same standing still. */
+@media (prefers-reduced-motion: reduce) {
+  .fig-anim {
+    animation: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+    transform: none !important;
+  }
+  /* Three panels stacked on top of each other is not a drawing. Hold the
+     first one, with every morphing object still at its home position. */
+  .a-s2,
+  .a-s3 {
+    opacity: 0 !important;
+  }
+}
+
+/* Transform origins, since `transform-box: fill-box` makes these per-shape. */
+.o-bottom { transform-origin: bottom; }
+.o-top    { transform-origin: top; }
+.o-left   { transform-origin: left; }
+.o-right  { transform-origin: right; }
+.o-center { transform-origin: center; }

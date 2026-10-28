@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer"
+import SectionHeader from "@/components/SectionHeader"
 import EquityCurve, { type EquityPoint } from "@/components/EquityCurve"
 
 // Two years of real marks. SnapTrade's balance history only reaches back twelve
@@ -50,42 +51,36 @@ const pastimes = [
   { label: "Movies",     detail: "Godfather, Schindler's List, 12 Angry Men, Ratatouille" },
 ]
 
-function SectionHeader({ label }: { label: string }) {
-  return (
-    <h2 className="text-[19px] font-semibold text-ink mb-4">{label}</h2>
-  )
-}
-
 export default function NowPage() {
   return (
     <div className="min-h-screen bg-page">
-      <div className="max-w-[1080px] mx-auto px-8 pt-20 pb-32">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-12 pt-20 pb-28">
 
         {/* Header */}
         <div className="mb-14">
-          <h1 className="text-[60px] font-medium text-ink leading-[1.1] tracking-[-0.02em]">
-            5-to-9
+          <h1 className="display-caps text-[52px] text-ink leading-[1.12]">
+            Interests
           </h1>
         </div>
 
         {/* Pastimes */}
-        <section className="mb-14">
+        <section className="mb-16">
           <SectionHeader label="Pastimes" />
           <div>
             {pastimes.map((h) => (
               <div key={h.label} className="flex items-start gap-6 py-3 border-b border-hair">
-                <span className="text-[17px] font-semibold text-ink w-20 shrink-0">{h.label}</span>
-                <span className="text-[17px] text-body">{h.detail}</span>
+                <span className="text-[19px] text-ink w-28 shrink-0">{h.label}</span>
+                <span className="text-[19px] text-body">{h.detail}</span>
               </div>
             ))}
           </div>
         </section>
 
         {/* Investing */}
-        <section className="mb-24">
+        <section className="mb-20">
           <SectionHeader label="Investing" />
 
-          <div className="pl-4 border-l border-hair">
+          <div>
             
             <EquityCurve
               data={curve}
@@ -95,10 +90,10 @@ export default function NowPage() {
               tickEvery={4}
             />
 
-            <p className="text-[17px] text-body leading-relaxed">
-              My approach is fairly simple. I own a small number of easily understandable companies,
-              usually because I suspect macroeconomic catalysts ahead of them are not priced in.
-              However, I'm wrong enough that I've started building statistical methods to check my own judgment.
+            <p className="text-[19px] text-body leading-relaxed">
+              Nothing clever here. I own a handful of companies I could explain to you in a sentence,
+              usually because I think something macro is coming that the price has not caught up to yet.
+              I am wrong often enough that I started writing statistics to argue with myself about it.
             </p>
           </div>
         </section>
