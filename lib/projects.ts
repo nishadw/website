@@ -77,10 +77,7 @@ export const allProjects: Project[] = [
     blurb:
       "Parses quarterly 13F filings from twelve institutions directly off EDGAR and scores every position change for conviction. A gradient-boosted regressor predicts next-quarter weight change per name; a Temporal Fusion Transformer predicts the whole book, its output projected onto the probability simplex after each backward pass so the model can represent an exit rather than a vanishing residual.",
     keywords: ["Temporal Fusion Transformer", "simplex projection", "gradient boosting", "SEC EDGAR", "FRED"],
-    links: [
-      { label: "Live dashboard", href: "/stocks/" },
-      { label: "Repository", href: "https://github.com/nishadw/13f-analyzer" },
-    ],
+    links: [{ label: "Repository", href: "https://github.com/nishadw/13f-analyzer" }],
   },
   {
     id: "difficulty",
