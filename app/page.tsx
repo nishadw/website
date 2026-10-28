@@ -4,7 +4,6 @@ import Footer from "@/components/Footer"
 import SectionHeader from "@/components/SectionHeader"
 import { groupExperience } from "@/lib/experience"
 import { allResearch } from "@/lib/research"
-import { independentProjects, projectTitle } from "@/lib/projects"
 
 const groups = groupExperience()
 
@@ -99,7 +98,7 @@ export default function HomePage() {
         </section>
 
         {/* ── RESEARCH ── Title, publisher, author status. Nothing else. */}
-        <section className="mb-16">
+        <section className="mb-20">
           <SectionHeader
             label="Research"
             action={
@@ -115,16 +114,6 @@ export default function HomePage() {
               meta={`${p.publisher} · ${p.status}`}
               href={`/research#${p.id}`}
             />
-          ))}
-        </section>
-
-        {/* ── INDEPENDENT WORK ──
-            Work done inside a role is written up under that role, so nothing
-            here repeats what the Experience index already carries. */}
-        <section className="mb-20">
-          <SectionHeader label="Independent work" />
-          {independentProjects.map((p) => (
-            <Row key={p.id} title={projectTitle(p)} meta={p.context} href={`/research#${p.id}`} />
           ))}
         </section>
 
