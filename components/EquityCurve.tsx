@@ -1,5 +1,7 @@
 // Indexed return curve: portfolio vs benchmark, both = 100 at t0, one shared axis.
 // Pure SVG, no client JS — hover states are CSS-only via group-hover.
+// Both series are drawn in the page's ink and mid-grey, never in colour; the
+// endpoint labels carry the identity so the two lines are told apart by name.
 
 export type EquityPoint = {
   label: string // x-axis / readout label, e.g. "Jan '26"
@@ -76,7 +78,7 @@ export default function EquityCurve({
               x={PLOT_L - 8}
               y={y(g) + 3}
               textAnchor="end"
-              className="fill-meta text-[11px] font-mono tabular-nums"
+              className="fill-meta text-[12px] tabular-nums"
             >
               {tick(g)}
             </text>
@@ -91,7 +93,7 @@ export default function EquityCurve({
               x={x(i)}
               y={PLOT_B + 18}
               textAnchor="middle"
-              className="fill-meta text-[11px] font-mono tabular-nums"
+              className="fill-meta text-[12px] tabular-nums"
             >
               {d.label}
             </text>
@@ -121,10 +123,10 @@ export default function EquityCurve({
         <circle cx={x(data.length - 1)} cy={y(last.portfolio)} r="3.5" strokeWidth="2" className={PORTFOLIO_DOT} />
 
         {/* Direct labels — identity sits beside each mark, never color alone */}
-        <text x={PLOT_R + 12} y={y(last.portfolio) + 3} className="fill-ink text-[12px] font-mono">
+        <text x={PLOT_R + 12} y={y(last.portfolio) + 3} className="fill-ink text-[13px] tabular-nums">
           Portfolio {pct(last.portfolio)}
         </text>
-        <text x={PLOT_R + 12} y={y(last.benchmark) + 3} className="fill-body text-[12px] font-mono">
+        <text x={PLOT_R + 12} y={y(last.benchmark) + 3} className="fill-body text-[13px] tabular-nums">
           S&amp;P 500 {pct(last.benchmark)}
         </text>
 
@@ -161,13 +163,13 @@ export default function EquityCurve({
               className={`${PORTFOLIO_DOT} opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none`}
             />
             <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
-              <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-body text-[12px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 12} className="fill-body text-[13px] tabular-nums">
                 {d.label}
               </text>
-              <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-ink text-[12px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 26} className="fill-ink text-[13px] tabular-nums">
                 Portfolio {pct(d.portfolio)}
               </text>
-              <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-body text-[12px] font-mono tabular-nums">
+              <text x={PLOT_L + 6} y={PLOT_T + 40} className="fill-body text-[13px] tabular-nums">
                 S&amp;P 500 {pct(d.benchmark)}
               </text>
             </g>

@@ -20,15 +20,16 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        // Keeps Bebas for default sans/headings if that is your preference
-        sans: ["var(--font-bebas)", "ui-sans-serif", "system-ui", "sans-serif"],
-        
-        // UPDATED: Body font now uses Zalando Sans -> Inter -> System Default
-        body: ['"Zalando Sans"', '"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
-        
-        heading: ["var(--font-bebas)", "ui-sans-serif", "system-ui", "sans-serif"],
+        // One face for the whole site. Times New Roman is installed on macOS and
+        // Windows; Tinos is metric-compatible and covers everything else, so the
+        // page sets identically wherever it is read. Every alias points at the
+        // same stack on purpose — there is no second typeface to fall back to.
+        serif: ['"Times New Roman"', "Tinos", "Times", "serif"],
+        sans: ['"Times New Roman"', "Tinos", "Times", "serif"],
+        body: ['"Times New Roman"', "Tinos", "Times", "serif"],
+        heading: ['"Times New Roman"', "Tinos", "Times", "serif"],
 
-        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
         // Theme-aware roles — see app/globals.css
