@@ -1,0 +1,204 @@
+[   23281ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   23298ms] [LOG] [Fast Refresh] done in 18ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   23336ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-b463-78f8-8ccf-b28a6dd81312, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:33 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   24339ms] [LOG] [Fast Refresh] done in 1059ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   24388ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   25274ms] [LOG] [Fast Refresh] done in 885ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   25323ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   26309ms] [LOG] [Fast Refresh] done in 987ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   26336ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-c01b-7b0d-a83a-b98f09e6d7a5, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:36 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   26343ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   27349ms] [LOG] [Fast Refresh] done in 1006ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   27398ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   28344ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-c7f4-76c5-b3c0-7bfbbf72c301, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:38 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   28425ms] [LOG] [Fast Refresh] done in 1028ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   28474ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   29464ms] [LOG] [Fast Refresh] done in 990ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   29514ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   30419ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-d00e-7d13-8d99-626e1eb7639d, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:40 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   30419ms] [LOG] [Fast Refresh] done in 906ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   30468ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   31462ms] [LOG] [Fast Refresh] done in 995ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   31512ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   32427ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-d7e7-7600-b33a-ffd625030d23, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:42 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   32513ms] [LOG] [Fast Refresh] done in 1000ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   32562ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   33958ms] [LOG] [Fast Refresh] done in 1395ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   34007ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   34508ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-e007-7d3f-bfa9-f1ae79c188f7, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:44 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   34908ms] [LOG] [Fast Refresh] done in 901ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   34960ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   35909ms] [LOG] [Fast Refresh] done in 950ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   35959ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   36905ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-e964-7d22-9d38-fb578bce2734, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:46 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   37059ms] [LOG] [Fast Refresh] done in 1099ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   37109ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   37959ms] [LOG] [Fast Refresh] done in 850ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   38008ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   38884ms] [LOG] [Fast Refresh] done in 876ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   38934ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   39056ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-f1cb-772e-959b-31ad69004868, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:48 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   39927ms] [LOG] [Fast Refresh] done in 994ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   39979ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   41066ms] [LOG] [Fast Refresh] done in 1087ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   41083ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   41926ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840d-fd01-7715-ab5e-3e49fd9305a5, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:51 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   42358ms] [LOG] [Fast Refresh] done in 1275ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   42366ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   43551ms] [LOG] [Fast Refresh] done in 1185ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   43603ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   44347ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-0677-7c08-9dc8-abef921fe1fc, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:54 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   44676ms] [LOG] [Fast Refresh] done in 1073ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   44706ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   45732ms] [LOG] [Fast Refresh] done in 1026ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   45764ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   46650ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-0f75-75bf-9023-d0910d60cb34, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:56 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   46773ms] [LOG] [Fast Refresh] done in 1008ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   46803ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   47783ms] [LOG] [Fast Refresh] done in 979ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   47808ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   48746ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-17a5-716a-9ddc-edf35b5d22e8, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:47:58 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   48829ms] [LOG] [Fast Refresh] done in 1021ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   48864ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   49937ms] [LOG] [Fast Refresh] done in 1072ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   49961ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   50803ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-1fae-7097-88f7-2665dff995f1, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:00 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   50942ms] [LOG] [Fast Refresh] done in 981ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   50950ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   51983ms] [LOG] [Fast Refresh] done in 1032ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   52011ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   52911ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-27ea-7b8e-a9e4-f3250b15f1fc, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:02 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   53013ms] [LOG] [Fast Refresh] done in 1002ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   53043ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   54986ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-3005-7d11-a951-c62a9644807c, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:04 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   55161ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   55172ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   57167ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-388a-77e1-af93-22c12b9d0934, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:06 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   57528ms] [LOG] [Fast Refresh] done in 2367ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   57571ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   58473ms] [LOG] [Fast Refresh] done in 903ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   58527ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   59372ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-4128-7513-9430-d42c898f3401, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:09 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   59478ms] [LOG] [Fast Refresh] done in 951ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   59483ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   60539ms] [LOG] [Fast Refresh] done in 1057ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   60591ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   61477ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-4960-7572-b8c2-931f7af352d5, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:11 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   61868ms] [LOG] [Fast Refresh] done in 1277ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   61921ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   62972ms] [LOG] [Fast Refresh] done in 1051ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   63024ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   63865ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-52b5-7db4-8321-607f28305340, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:13 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   64009ms] [LOG] [Fast Refresh] done in 984ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   64013ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   65053ms] [LOG] [Fast Refresh] done in 1041ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   65105ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   66006ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-5b12-78fa-a52e-c719e5a4b372, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:15 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   66111ms] [LOG] [Fast Refresh] done in 1005ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   66163ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   66993ms] [LOG] [Fast Refresh] done in 830ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   67046ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   67935ms] [LOG] [Fast Refresh] done in 890ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   67940ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   68109ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-6349-72a1-bb7c-96422ab64220, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:17 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   68771ms] [LOG] [Fast Refresh] done in 832ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   68775ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   69959ms] [LOG] [Fast Refresh] done in 1184ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   70011ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   70769ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-6dad-77b4-a10f-3fd132823ec2, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:20 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   71400ms] [LOG] [Fast Refresh] done in 1388ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   71452ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   72995ms] [LOG] [Fast Refresh] done in 1543ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   73039ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   73397ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-77f0-780e-abab-d199cae7689d, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:23 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   74038ms] [LOG] [Fast Refresh] done in 999ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   74090ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   75068ms] [LOG] [Fast Refresh] done in 978ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   75075ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   75916ms] [LOG] [Fast Refresh] done in 841ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   75967ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   76035ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-823f-7953-b2ec-0ad4fc1a615b, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:25 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   76971ms] [LOG] [Fast Refresh] done in 1003ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   77023ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   78450ms] [LOG] [Fast Refresh] done in 1428ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   78508ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   78969ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-8db4-782f-9806-bdaa5b54f8b7, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:28 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   79374ms] [LOG] [Fast Refresh] done in 866ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   79426ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   80440ms] [LOG] [Fast Refresh] done in 1014ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   80470ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   81373ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-9718-7cc2-99e1-47fca180912f, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:31 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   81596ms] [LOG] [Fast Refresh] done in 1126ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   81623ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   82560ms] [LOG] [Fast Refresh] done in 938ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   82588ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   83567ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-9faa-720b-814d-44511bc38e0b, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:33 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   83590ms] [LOG] [Fast Refresh] done in 1002ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   83620ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   84495ms] [LOG] [Fast Refresh] done in 876ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   84546ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   85565ms] [LOG] [Fast Refresh] done in 1019ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   85596ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-a797-73fe-9c91-82237d2cd56b, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:35 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   85596ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   86601ms] [LOG] [Fast Refresh] done in 1006ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   86647ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   87597ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-af69-75bc-8419-d85ba009cc69, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:37 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   87669ms] [LOG] [Fast Refresh] done in 1023ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   87711ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   88725ms] [LOG] [Fast Refresh] done in 1013ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   88755ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   89644ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-b767-7eac-bd2c-301c88611779, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:39 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   90032ms] [LOG] [Fast Refresh] done in 1276ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   90084ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   91038ms] [LOG] [Fast Refresh] done in 955ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   91066ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   92028ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-c0b8-7a16-acbc-b2eedc6cc443, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:41 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   92147ms] [LOG] [Fast Refresh] done in 1081ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   92183ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   93087ms] [LOG] [Fast Refresh] done in 905ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   93120ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   94117ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-c8e1-7975-9406-3865e7ecabc4, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:43 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   94614ms] [LOG] [Fast Refresh] done in 1493ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   94642ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   95677ms] [LOG] [Fast Refresh] done in 1036ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   95708ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   96583ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-d282-794a-9929-c9b897ee6b07, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:46 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   96636ms] [LOG] [Fast Refresh] done in 928ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   96648ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   97854ms] [LOG] [Fast Refresh] done in 1207ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   97884ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   98609ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-da6d-7b10-9b41-c5275d3ff12b, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:48 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[   98729ms] [LOG] [Fast Refresh] done in 845ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   98761ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   99774ms] [LOG] [Fast Refresh] done in 1013ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[   99807ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  100702ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-e299-7630-b34e-70c5c6734e16, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:50 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  101268ms] [LOG] [Fast Refresh] done in 1462ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  101294ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  102181ms] [LOG] [Fast Refresh] done in 888ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  102213ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  103170ms] [LOG] [Fast Refresh] done in 958ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  103223ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  103239ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-ec82-7736-be45-bf4c71288aa3, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:52 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  103989ms] [LOG] [Fast Refresh] done in 767ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  104016ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  105043ms] [LOG] [Fast Refresh] done in 1026ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  105094ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  105962ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840e-f725-7635-9458-0bd1caf1cb56, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:55 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  106557ms] [LOG] [Fast Refresh] done in 1464ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  106591ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  107564ms] [LOG] [Fast Refresh] done in 973ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  107597ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  108528ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840f-012b-74a6-8b32-538cd5abf1bd, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:48:58 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  108613ms] [LOG] [Fast Refresh] done in 1016ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  108637ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  109524ms] [LOG] [Fast Refresh] done in 887ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  109550ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  110356ms] [LOG] [Fast Refresh] done in 807ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  110383ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  110582ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840f-0931-7e01-b947-a1e256eb866d, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:49:00 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
+[  111326ms] [LOG] [Fast Refresh] done in 943ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  111354ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  112343ms] [LOG] [Fast Refresh] done in 990ms @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  112372ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/ingest/static/posthog-recorder.js?v=1.309.1:0
+[  113296ms] [LOG] [PostHog.js] send "$snapshot" {uuid: 01a1840f-13cc-71bd-afe5-7564998bfa4d, event: $snapshot, properties: Object, timestamp: Wed Oct 28 2026 15:49:03 GMT-0400 (Eastern Daylight Time)} @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/posthog-js@1.309.1/node_modules/posthog-js/dist/module.js:21
