@@ -13,6 +13,12 @@ const nextConfig = {
   },
   // Proxying PostHog under /ingest keeps analytics out of ad-blocker lists.
   skipTrailingSlashRedirect: true,
+  // /projects was split: papers and independent work moved to /research, and
+  // work done inside a role moved under that role on /experience. Keep the old
+  // path working for anything already linking to it.
+  async redirects() {
+    return [{ source: '/projects', destination: '/research', permanent: true }]
+  },
   async rewrites() {
     return [
       { source: '/ingest/static/:path*', destination: 'https://us-assets.i.posthog.com/static/:path*' },

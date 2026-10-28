@@ -11,6 +11,6 @@ export const externalLinks: ExternalLink[] = [
 // The page tabs. Order is the order a stranger should read them in.
 export const navTabs: ExternalLink[] = [
   { label: "Experience", href: "/experience" },
-  { label: "Projects", href: "/projects" },
+  { label: "Research", href: "/research" },
   { label: "Interests", href: "/now" },
 ]
