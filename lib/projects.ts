@@ -114,12 +114,13 @@ export const allProjects: Project[] = [
     id: "triage",
     researchId: "triage",
     short: "Implicit bias in triage",
-    context: "Co-author · Annals of Biomedical Science and Engineering, 2023",
+    context: "Co-author · Annals of Biomedical Science and Engineering, 2023 · JUST Health, Stanford School of Medicine, 2022",
     blurb:
       "Classifies hospital triage dispositions from the attributes recorded at intake, then attributes each decision with Shapley values. At a given Emergency Severity Index, patients on federally run insurance programs were admitted less often than patients on private plans, and ethnicity weighed more heavily on patients under forty. Language was not a barrier.",
     keywords: ["Shapley attribution", "balanced random forest", "clinical records"],
     links: [
       { label: "Paper", href: "https://www.biomedscijournal.com/journals/abse/abse-aid1022.php" },
+      { label: "JUST Health", href: "https://web.stanford.edu/group/coedme_justhealt/cgi-bin/wordpress/wp-content/uploads/2022/12/JUSTHealth-Fall-2022-Edition.pdf" },
       { label: "Repository", href: "https://github.com/nishadw/trials-of-triage" },
     ],
   },
