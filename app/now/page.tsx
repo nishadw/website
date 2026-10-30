@@ -49,7 +49,7 @@ const curve: EquityPoint[] = [
 
 const pastimes = [
   { label: "Reading",    detail: "The Brothers Karamazov, The White Nights, Letters from a Stoic" },
-  { label: "Golf",       detail: "A constant work in progress (Handicap: 6.4)" },
+  { label: "Golf",       detail: "A constant work in progress (Handicap: 2.3)" },
   { label: "Movies",     detail: "Godfather, Schindler's List, 12 Angry Men, Ratatouille" },
 ]
 
