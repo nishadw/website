@@ -43,7 +43,7 @@ export const allProjects: Project[] = [
     blurb:
       "Forecasts time to spoilage from photographs taken at irregular visits, and generalises to anything that degrades on a clock: equipment wear, disease onset. The latent state is a neural diffusion whose clock is a physical function of the conditions; the event is its first passage across a learned boundary, and the event-time law is solved on a grid from the Kolmogorov equations rather than sampled. The likelihood is proper under interval censoring, so the reported interval is calibrated rather than nominal.",
     keywords: ["neural SDE", "first passage", "Fokker–Planck", "interval censoring", "JAX", "Diffrax"],
-    links: [{ label: "Repository", href: "https://github.com/nishadw/ripen" }],
+    links: [{ label: "Repository", href: "https://github.com/nishadw/produce-sde" }],
   },
   {
     id: "space-sustainability",
@@ -77,7 +77,7 @@ export const allProjects: Project[] = [
     blurb:
       "Parses quarterly 13F filings from twelve institutions directly off EDGAR and scores every position change for conviction. A gradient-boosted regressor predicts next-quarter weight change per name; a Temporal Fusion Transformer predicts the whole book, its output projected onto the probability simplex after each backward pass so the model can represent an exit rather than a vanishing residual.",
     keywords: ["Temporal Fusion Transformer", "simplex projection", "gradient boosting", "SEC EDGAR", "FRED"],
-    links: [{ label: "Repository", href: "https://github.com/nishadw/13f-analyzer" }],
+    links: [{ label: "Repository", href: "https://github.com/nishadw/13f-positioning" }],
   },
   {
     id: "difficulty",
@@ -107,7 +107,7 @@ export const allProjects: Project[] = [
     links: [
       { label: "Paper", href: "https://link.springer.com/article/10.1007/s00180-024-01555-5" },
       { label: "Preprint", href: "https://arxiv.org/abs/2309.14403" },
-      { label: "Repository", href: "https://github.com/nishadw/mdp-golf" },
+      { label: "Repository", href: "https://github.com/nishadw/game-theory-golf" },
     ],
   },
   {
