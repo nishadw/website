@@ -47,10 +47,6 @@ export default function HomePage() {
             Researcher and engineer interested in software, game theory, statistics, and machine learning.
           </p>
 
-          <p className="text-[20px] leading-relaxed text-meta mb-1.5">
-            Computer science at the University of Maryland, concentrating in machine learning, with
-            minors in statistics and business. Graduating December 2026.
-          </p>
 
           <p className="text-[20px] leading-relaxed text-meta">
             Reachable on{" "}

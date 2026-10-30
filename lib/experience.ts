@@ -13,9 +13,12 @@ export type ExpEntry = {
   projectId?: string
 }
 
-// Single source of truth, kept in step with the resume: same roles, same
-// dates, same claims. The home page groups these by employer; /experience
-// shows every role in full. Newest first.
+// Single source of truth. The home page groups these by employer;
+// /experience shows every role in full. Newest first.
+//
+// Bullets stay deliberately high level: what the work was for, never the
+// figures or the stack. The resume carries those, and the resume is sent to
+// people who asked for it rather than published to everyone who did not.
 export const allExperience: ExpEntry[] = [
   {
     id: "amazon",
@@ -25,10 +28,9 @@ export const allExperience: ExpEntry[] = [
     period: "Jun–Sep 2026",
     location: "Sunnyvale, CA",
     points: [
-      "Shipped C++ speaker ID to 22M+ vehicles at 97% match rate, personalizing Alexa with zero added latency",
-      "Designed 1M+ trial evals with bootstrap CIs and McNemar tests for continuous SLM and TTS fine-tuning",
-      "Sped up inference from 309ms to 77ms on ARM via INT8 quantization and contention-aware multithreading",
-      "Engineered encrypted voiceprint storage and cross-profile sync, safely keeping biometric data on-device",
+      "Shipped speaker identification to a production vehicle fleet, so the assistant knows who is talking without anyone waiting longer for an answer",
+      "Designed the evaluation that decides whether a retrained model is genuinely better than the one it would replace",
+      "Kept voice biometrics encrypted on the device itself, and in sync across profiles",
     ],
   },
   {
@@ -40,9 +42,8 @@ export const allExperience: ExpEntry[] = [
     location: "College Park, MD",
     projectId: "space-sustainability",
     points: [
-      "Forecasted G7 space policy shifts 12 months ahead at 91% backtested accuracy via a 3-model time-series ensemble",
-      "Built weekly ETL pipeline that dedupes, filters, and LLM-labels 33K+ documents with human-in-the-loop review",
-      "Raised signal-to-noise 42% across 10 Poisson-noisy signals via biweekly aggregation, cutting false positives 25%",
+      "Forecast where space policy is heading a year out, from what the field is publishing now",
+      "Built the pipeline that turns a sprawl of documents into a signal clean enough to forecast against",
     ],
   },
   {
@@ -53,9 +54,9 @@ export const allExperience: ExpEntry[] = [
     location: "Annapolis Junction, MD",
     projectId: "atak",
     points: [
-      "Deployed a 0-to-1 edge vision system that detects vehicles in real time and streams their locations to operators",
-      "Hardened model to perturbed sensor data via PGD adversarial training, lifting out-of-sample accuracy 40% to 95%",
-      "Architected a thread-safe 3-stage quantized pipeline that processes live video on a mobile TPU in 91ms",
+      "Built a vision system from nothing that identifies what a camera is looking at and puts it on everyone's map",
+      "Made it hold up against inputs meant to deceive it, not only against clean test data",
+      "Ran the whole thing on the handset, fast enough for live video and with no network to depend on",
     ],
   },
   {
@@ -65,8 +66,8 @@ export const allExperience: ExpEntry[] = [
     period: "Jan–May 2025",
     location: "College Park, MD",
     points: [
-      "Led 13 engineers to ship an agentic RAG assistant on AWS Bedrock that lets 50+ analysts search 600K+ records",
-      "Cut analyst search time from 2 hrs to 5 min and raised retrieval accuracy 40% via hybrid graph-vector search",
+      "Led the team that built an assistant analysts could ask a question of, instead of searching a record corpus by hand",
+      "Turned an afternoon of digging into a few minutes, and made the answers more often right",
     ],
   },
   {
@@ -76,8 +77,8 @@ export const allExperience: ExpEntry[] = [
     period: "Sep–Dec 2024",
     location: "McLean, VA",
     points: [
-      "Automated medical policy audits with summarization and sentiment analysis pipelines",
-      "Built a full-stack, human-in-the-loop scraping and audit pipeline to cut manual review time",
+      "Automated the reading of medical policy documents, with a person kept in the loop on every judgment",
+      "Replaced a manual audit with one that surfaces only what actually needs a human",
     ],
   },
   {
@@ -87,8 +88,8 @@ export const allExperience: ExpEntry[] = [
     period: "Jan–Dec 2024",
     location: "Washington, DC",
     points: [
-      "Delivered ETL for a fraud detection system screening 270M+ tax filings a year and upgraded CI/CD to JDK 17",
-      "Halved build times for 1,000+ engineers by migrating a 20-year-old Java build system from Ant to Maven",
+      "Delivered the data pipeline behind fraud detection on the national filing system",
+      "Rebuilt an aging build system so an entire division stopped waiting on it",
     ],
   },
 ]
