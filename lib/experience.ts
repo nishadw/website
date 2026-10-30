@@ -109,28 +109,3 @@ export function groupExperience(entries: ExpEntry[] = allExperience): ExpGroup[]
 // "Amazon Lab126" where there is a team worth naming, "Booz Allen Hamilton"
 // where the employer is the whole name.
 export const expName = (e: ExpEntry) => (e.unit ? `${e.org} ${e.unit}` : e.org)
-
-export const education = {
-  school: "University of Maryland",
-  degree: "BS Computer Science, concentration in Machine Learning",
-  minors: "Minors in Statistics and Business",
-  period: "Aug 2023 – Dec 2026",
-  location: "College Park, MD",
-  coursework:
-    "Differentiable Programming · Parallel Computing · Computer Vision · Computational Game Theory · Applied Probability & Statistics · Sampling Theory · Statistical Computing · Data Science · Financial Markets",
-}
-
-export const skills = [
-  {
-    label: "Languages",
-    items: "Python · C++ · C · CUDA · Java · Kotlin · Rust · JavaScript/TypeScript · SQL · Bash",
-  },
-  {
-    label: "Machine learning",
-    items: "PyTorch · JAX · TensorFlow/Lite · ONNX Runtime · Hugging Face · OpenCV · Pandas · NumPy",
-  },
-  {
-    label: "Tools",
-    items: "AWS · Docker · Terraform · PostgreSQL · Neo4j · OpenMP/MPI · Linux · Git",
-  },
-]
