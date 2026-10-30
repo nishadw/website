@@ -16,9 +16,9 @@ export type ExpEntry = {
 // Single source of truth. The home page groups these by employer;
 // /experience shows every role in full. Newest first.
 //
-// Bullets stay deliberately high level: what the work was for, never the
-// figures or the stack. The resume carries those, and the resume is sent to
-// people who asked for it rather than published to everyone who did not.
+// Two bullets a role, high level: what the work was and what it was for.
+// No figures and no stack. The resume carries those, and it goes to people
+// who asked for it rather than to everyone who did not.
 export const allExperience: ExpEntry[] = [
   {
     id: "amazon",
@@ -28,9 +28,8 @@ export const allExperience: ExpEntry[] = [
     period: "Jun–Sep 2026",
     location: "Sunnyvale, CA",
     points: [
-      "Shipped speaker identification to a production vehicle fleet, so the assistant knows who is talking without anyone waiting longer for an answer",
-      "Designed the evaluation that decides whether a retrained model is genuinely better than the one it would replace",
-      "Kept voice biometrics encrypted on the device itself, and in sync across profiles",
+      "Shipped on-device speaker identification to a production vehicle fleet, personalizing the voice assistant without added latency",
+      "Designed the statistical evaluation governing whether a retrained model is promoted over the one in production",
     ],
   },
   {
@@ -42,8 +41,8 @@ export const allExperience: ExpEntry[] = [
     location: "College Park, MD",
     projectId: "space-sustainability",
     points: [
-      "Forecast where space policy is heading a year out, from what the field is publishing now",
-      "Built the pipeline that turns a sprawl of documents into a signal clean enough to forecast against",
+      "Forecast the direction of international space policy a year ahead from current academic, government and industry publishing",
+      "Built the ingestion and filtering pipeline that made those signals reliable enough to forecast against",
     ],
   },
   {
@@ -54,9 +53,8 @@ export const allExperience: ExpEntry[] = [
     location: "Annapolis Junction, MD",
     projectId: "atak",
     points: [
-      "Built a vision system from nothing that identifies what a camera is looking at and puts it on everyone's map",
-      "Made it hold up against inputs meant to deceive it, not only against clean test data",
-      "Ran the whole thing on the handset, fast enough for live video and with no network to depend on",
+      "Delivered an edge vision system from scratch that identifies objects in live video and streams their positions to operators in the field",
+      "Hardened the models against deliberately deceptive inputs and brought the full pipeline onto the handset, with no network dependency",
     ],
   },
   {
@@ -66,8 +64,8 @@ export const allExperience: ExpEntry[] = [
     period: "Jan–May 2025",
     location: "College Park, MD",
     points: [
-      "Led the team that built an assistant analysts could ask a question of, instead of searching a record corpus by hand",
-      "Turned an afternoon of digging into a few minutes, and made the answers more often right",
+      "Led an engineering team building a retrieval assistant that let analysts query an agency record corpus directly",
+      "Reduced analyst discovery time from hours to minutes while improving retrieval accuracy",
     ],
   },
   {
@@ -77,8 +75,8 @@ export const allExperience: ExpEntry[] = [
     period: "Sep–Dec 2024",
     location: "McLean, VA",
     points: [
-      "Automated the reading of medical policy documents, with a person kept in the loop on every judgment",
-      "Replaced a manual audit with one that surfaces only what actually needs a human",
+      "Automated the review of medical policy documents, with human judgment retained at each decision point",
+      "Replaced a manual audit process with one that surfaces only the cases requiring review",
     ],
   },
   {
@@ -88,8 +86,8 @@ export const allExperience: ExpEntry[] = [
     period: "Jan–Dec 2024",
     location: "Washington, DC",
     points: [
-      "Delivered the data pipeline behind fraud detection on the national filing system",
-      "Rebuilt an aging build system so an entire division stopped waiting on it",
+      "Delivered the data pipeline underlying fraud detection across the national filing system",
+      "Modernized the division's build and delivery system, removing a long-standing bottleneck for its engineers",
     ],
   },
 ]
