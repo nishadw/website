@@ -23,7 +23,15 @@ function ExperienceEntry({ exp }: { exp: ExpEntry }) {
           <h2 className="text-[22px] text-ink mb-0.5">{expName(exp)}</h2>
           <p className="text-[18px] text-meta">{exp.role}</p>
         </div>
-        <span className="text-[16px] text-meta tnum shrink-0">{exp.period}</span>
+        <span className="text-[16px] text-meta shrink-0 sm:text-right">
+          <span className="tnum">{exp.period}</span>
+          {exp.location && (
+            <>
+              <br />
+              {exp.location}
+            </>
+          )}
+        </span>
       </div>
 
       <ul className="space-y-2">

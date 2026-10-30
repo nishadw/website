@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { ReactNode } from "react"
 import Footer from "@/components/Footer"
 import SectionHeader from "@/components/SectionHeader"
-import { groupExperience } from "@/lib/experience"
+import { groupExperience, education, skills } from "@/lib/experience"
 import { allResearch } from "@/lib/research"
 
 const groups = groupExperience()
@@ -61,6 +61,21 @@ export default function HomePage() {
           </p>
         </header>
 
+        {/* ── EDUCATION ── */}
+        <section className="mb-16">
+          <SectionHeader label="Education" />
+          <div className="grid sm:grid-cols-[minmax(0,23rem)_1fr_auto] gap-x-8 gap-y-0.5 py-3 border-b border-hair">
+            <span className="text-[19px] leading-snug text-ink">{education.school}</span>
+            <span className="text-[17px] text-meta">
+              {education.degree}
+              <br />
+              {education.minors}
+            </span>
+            <span className="text-[16px] text-meta tnum sm:text-right">{education.period}</span>
+          </div>
+          <p className="pt-4 text-[16px] text-meta leading-relaxed">{education.coursework}</p>
+        </section>
+
         {/* ── EXPERIENCE ──
             Grouped by employer: six roles read as four places, which is the
             shape of a CV header rather than a resume. */}
@@ -114,6 +129,20 @@ export default function HomePage() {
               meta={`${p.publisher} · ${p.status}`}
               href={`/research#${p.id}`}
             />
+          ))}
+        </section>
+
+        {/* ── SKILLS ── */}
+        <section className="mb-20">
+          <SectionHeader label="Skills" />
+          {skills.map((s) => (
+            <div
+              key={s.label}
+              className="grid sm:grid-cols-[minmax(0,23rem)_1fr] gap-x-8 gap-y-0.5 py-3 border-b border-hair"
+            >
+              <span className="text-[19px] leading-snug text-ink">{s.label}</span>
+              <span className="text-[17px] text-meta">{s.items}</span>
+            </div>
           ))}
         </section>
 

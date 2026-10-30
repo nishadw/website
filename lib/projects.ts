@@ -39,9 +39,9 @@ export const allProjects: Project[] = [
     id: "first-passage",
     researchId: "first-passage",
     short: "First-passage likelihoods",
-    context: "University of Maryland · first author, in preparation",
+    context: "First author · in preparation",
     blurb:
-      "Forecasts time to an irreversible event from observations taken at irregular visits, which is how food spoils, equipment degrades and disease declares itself. The latent state is a neural diffusion whose clock is a physical function of the conditions; the event is its first passage across a learned boundary, and the event-time law is solved on a grid from the Kolmogorov equations rather than sampled. The likelihood is proper under interval censoring, so the reported interval is calibrated rather than nominal.",
+      "Forecasts time to spoilage from photographs taken at irregular visits, and generalises to anything that degrades on a clock: equipment wear, disease onset. The latent state is a neural diffusion whose clock is a physical function of the conditions; the event is its first passage across a learned boundary, and the event-time law is solved on a grid from the Kolmogorov equations rather than sampled. The likelihood is proper under interval censoring, so the reported interval is calibrated rather than nominal.",
     keywords: ["neural SDE", "first passage", "Fokker–Planck", "interval censoring", "JAX", "Diffrax"],
     links: [{ label: "Repository", href: "https://github.com/nishadw/ripen" }],
   },
@@ -49,7 +49,7 @@ export const allProjects: Project[] = [
     id: "space-sustainability",
     title: "Time-Series Forecasting of Space Policy Attention",
     short: "Policy attention forecasting",
-    context: "Amazon Leo × App Dev Club · 2026",
+    context: "Amazon Leo · 2026",
     blurb:
       "Forecasts which concerns in space sustainability are gaining attention and which are fading, across six years of academic, government and industry writing. Ten scrapers yield roughly 24,000 documents; each clears a natural-language-inference relevance gate before it counts, and rejected documents are retained as an audit trail. Windows are biweekly by measurement: at weekly granularity most topics never clear the minimum-observation floor and the series is Poisson noise.",
     keywords: ["sequence forecasting", "Mamba", "DeBERTa NLI gating", "BGE embeddings", "AWS CDK"],
@@ -61,7 +61,7 @@ export const allProjects: Project[] = [
     id: "atak",
     title: "Adversarially Hardened On-Device Vision Cascade",
     short: "On-device vision cascade",
-    context: "General Dynamics Information Technology · ATAK · 2025 · AFCEA SIPS",
+    context: "General Dynamics Information Technology · ATAK · 2025",
     blurb:
       "Classifies imagery on the handset in seconds and pushes a label and a map pin to TAK servers when one is reachable. Three models run as a cascade, each handling only what the previous stage could not resolve, so the device spends its budget on the hard frames. All three are hardened with projected gradient descent: a model that fails predictably under a deceptive input is worth more in the field than one scoring a point higher on a clean test set.",
     keywords: ["model cascade", "TensorFlow Lite", "INT8 quantization", "PGD hardening", "TPU inference"],
@@ -73,7 +73,7 @@ export const allProjects: Project[] = [
     id: "positioning",
     title: "Predicting Institutional Positioning from 13F Filings",
     short: "Institutional positioning",
-    context: "Quantitative research · 2026",
+    context: "Personal project · 2026",
     blurb:
       "Parses quarterly 13F filings from twelve institutions directly off EDGAR and scores every position change for conviction. A gradient-boosted regressor predicts next-quarter weight change per name; a Temporal Fusion Transformer predicts the whole book, its output projected onto the probability simplex after each backward pass so the model can represent an exit rather than a vanishing residual.",
     keywords: ["Temporal Fusion Transformer", "simplex projection", "gradient boosting", "SEC EDGAR", "FRED"],
@@ -83,7 +83,7 @@ export const allProjects: Project[] = [
     id: "difficulty",
     researchId: "difficulty",
     short: "Difficulty calibration",
-    context: "UMIACS · NeurIPS 2024, Datasets & Benchmarks",
+    context: "Research assistant · NeurIPS 2024, Datasets & Benchmarks",
     blurb:
       "Replaces coarse difficulty buckets with a continuous, standardized difficulty score for every problem across six datasets, estimated by item-response theory and Glicko-2 from human attempt records and model evaluations. Accuracy against that scale is a curve rather than a scalar, which is what makes easy-to-hard generalization measurable at all.",
     keywords: ["item-response theory", "Glicko-2", "difficulty calibration", "LLM evaluation"],
@@ -100,7 +100,7 @@ export const allProjects: Project[] = [
     id: "match-play",
     researchId: "match-play",
     short: "Match play as an MDP",
-    context: "Computational Statistics, 2024 · first author",
+    context: "First author · Computational Statistics, 2024",
     blurb:
       "Match play in golf, posed as a two-player turn-based stochastic game and solved as a Markov decision process on PGA Tour ShotLink data. Conditioning on the opponent is advantageous in a narrow set of match states and is otherwise dominated by optimal stroke-play strategy, since opponent statistics precise enough to act on are not obtainable in practice. The method extends to any two-player sport scored in turns.",
     keywords: ["Markov decision processes", "stochastic games", "value iteration", "ShotLink"],
@@ -114,7 +114,7 @@ export const allProjects: Project[] = [
     id: "triage",
     researchId: "triage",
     short: "Implicit bias in triage",
-    context: "Annals of Biomedical Science and Engineering, 2023 · co-author",
+    context: "Co-author · Annals of Biomedical Science and Engineering, 2023",
     blurb:
       "Classifies hospital triage dispositions from the attributes recorded at intake, then attributes each decision with Shapley values. At a given Emergency Severity Index, patients on federally run insurance programs were admitted less often than patients on private plans, and ethnicity weighed more heavily on patients under forty. Language was not a barrier.",
     keywords: ["Shapley attribution", "balanced random forest", "clinical records"],
