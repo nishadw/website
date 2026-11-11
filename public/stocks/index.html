@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Norman</title>
+<style>
+:root{--bg:#fbfbf9;--fg:#191a1c;--mut:#62666d;--line:#dcdcd6;--panel:#f1f1ec;--on:#b4530a;--a:#2f5d8a;--b:#8a6a2f}
+@media (prefers-color-scheme:dark){:root{--bg:#131416;--fg:#e9e9e4;--mut:#9a9da3;--line:#2c2e33;--panel:#1b1d20;--on:#f0a35a;--a:#7fb0e0;--b:#d9b56a;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px;display:flex;flex-direction:column;gap:16px}
+h1{font:600 22px/1.2 Georgia,serif;margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+button,input{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 13px}
+button{cursor:pointer}button[aria-pressed=true],button[aria-selected=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.head{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-align:left;width:100%;border-radius:10px}
+.head .k,.cap{font-size:12px;color:var(--mut)}.head .k{text-transform:uppercase;letter-spacing:.05em;min-width:58px}
+.head b{font:400 20px Georgia,serif;font-variant-numeric:tabular-nums}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th{text-align:left;color:var(--mut);font-weight:500;border-bottom:1px solid var(--line);padding:6px 10px 6px 0;white-space:nowrap}
+td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;vertical-align:top}.n{text-align:right;white-space:nowrap}
+.pill{border:1px solid var(--line);border-radius:999px;padding:0 8px}.pill.on{color:var(--on);border-color:var(--on);font-weight:600}
+a{color:var(--a)}.err{color:var(--on)}svg text{fill:var(--mut);font-size:11px}
+</style></head><body><main>
+<h1>Norman</h1>
+<form id="gate" class="row"><label for="pw" class="cap" style="align-self:center">Password</label><input id="pw" type="password" inputmode="numeric" autocomplete="current-password" autofocus><button type="submit">Open</button><span id="msg" class="cap err" role="status"></span></form>
+<div id="app" hidden>
+<div class="row" role="tablist" id="tabs"></div>
+<section id="v-home"></section><section id="v-ideas" hidden></section><section id="v-macro" hidden></section><section id="v-book" hidden></section>
+<p class="cap" id="foot"></p>
+</div>
+</main>
+<script>
+const $ = (s) => document.querySelector(s), el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+const sp = (v, d = 0) => v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(d) + '%', p = (v, d = 0) => v == null ? '—' : v.toFixed(d) + '%';
+async function unlock(pw) {
+  const e = await (await fetch('data.enc.json', {cache: 'no-store'})).json();
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(e.salt), iterations: e.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
+  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(e.iv)}, key, b64(e.ct))));
+}
+$('#gate').addEventListener('submit', async (ev) => {
+  ev.preventDefault(); $('#msg').textContent = 'Opening…';
+  try { const d = await unlock($('#pw').value); try { sessionStorage.setItem('n', $('#pw').value); } catch (_) {} $('#gate').hidden = true; $('#app').hidden = false; render(d); }
+  catch (_) { $('#msg').textContent = 'Wrong password'; }
+});
+try { const s = sessionStorage.getItem('n'); if (s) { $('#pw').value = s; $('#gate').requestSubmit(); } } catch (_) {}
+function table(head, rows) {
+  const w = el('div', 'wrap'), t = el('table'), h = t.createTHead().insertRow();
+  head.forEach(([x, n]) => { const th = el('th', n ? 'n' : '', x); h.appendChild(th); });
+  const tb = t.createTBody(); rows.forEach((r) => { const tr = tb.insertRow(); r.forEach((c, i) => { const td = tr.insertCell(); if (head[i][1]) td.className = 'n'; if (c instanceof Node) td.appendChild(c); else td.textContent = c; }); });
+  w.appendChild(t); return w;
+}
+function render(d) {
+  const tabs = ['home', 'ideas', 'macro', 'book'], show = (id) => { tabs.forEach((t) => { $('#v-' + t).hidden = t !== id; $('#t-' + t).setAttribute('aria-selected', t === id); }); };
+  tabs.forEach((t) => { const b = el('button', '', t[0].toUpperCase() + t.slice(1)); b.id = 't-' + t; b.setAttribute('role', 'tab'); b.onclick = () => show(t); $('#tabs').appendChild(b); });
+  const h = d.home, c = h.counts, head = (k, parts, to) => { const b = el('button', 'head'); b.appendChild(el('span', 'k', k)); parts.forEach(([num, txt]) => { const s = el('span'); if (num != null) s.appendChild(el('b', '', num)); s.appendChild(document.createTextNode((num != null ? ' ' : '') + txt)); b.appendChild(s); }); b.onclick = () => show(to); return b; };
+  const home = $('#v-home'); home.className = 'row';
+  home.append(head('Macro', [[h.shock_on + ' of ' + h.shock_total, 'price-shock warnings on']], 'macro'),
+    head('Book', [[sp(h.book, 1), 'since ' + h.since], [sp(h.spx, 1), 'S&P'], [sp(h.pace, 1), '30% pace']], 'book'),
+    head('Picks', [[p(h.tactical, 1), 'of a ' + p(h.cap) + ' cap'], [h.names + ' of ' + h.max_names, 'names']], 'book'),
+    head('Ideas', [[c.rules, 'pass the rules'], [c.giant, 'look like past giants'], [c.druck, 'Druckenmiller'], [c.circular, 'circular financing']], 'ideas'),
+    head('To do', [[null, h.todo]], 'book'));
+  const lenses = [['', 'All'], ['Held', 'Held'], ['Rules', 'Passes rules'], ['Giant', 'Looks like a giant'], ['Druck', 'Druckenmiller'], ['Circular', 'Circular financing'], ['Burry', 'Burry short']];
+  const iv = $('#v-ideas'), chips = el('div', 'row'), box = el('div'); iv.append(chips, el('p', 'cap', 'Lenses to press, not buy lists.'), box);
+  const draw = (lens) => {
+    const rows = d.ideas.filter((r) => !lens || r.tags.includes(lens)), deep = lens === 'Circular' || lens === 'Burry';
+    const headr = [['Ticker'], ['Company'], ['Lenses'], ['Sales growth', 1], ['Past odds', 1]].concat(deep ? [['Spending ÷ depreciation', 1], ['Stock pay ÷ sales', 1]] : []);
+    box.replaceChildren(table(headr, rows.map((r) => {
+      const tg = el('span', '', r.tags); if (deep && r.why) { tg.textContent = r.why + ' '; if (r.src) { const a = el('a', '', 'source'); a.href = r.src; a.target = '_blank'; a.rel = 'noopener'; tg.appendChild(a); } }
+      return [r.t, r.n, tg, sp(r.g), p(r.odds, 1)].concat(deep ? [r.cd == null ? '—' : r.cd.toFixed(1) + '×', p(r.sbc)] : []);
+    })));
+    [...chips.children].forEach((b) => b.setAttribute('aria-pressed', b.dataset.l === lens));
+  };
+  lenses.forEach(([l, name]) => { const b = el('button', '', name); b.dataset.l = l; b.onclick = () => draw(l); chips.appendChild(b); }); draw('');
+  const mv = $('#v-macro'), W = 560, H = 200, x = (i, k) => 60 + i * 120 + k * 40, y = (v) => 110 - v * 3;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('width', '100%'); svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', 'Average S&P return over the next 12 months by number of price-shock warnings on');
+  const add = (tag, at, txt) => { const n = document.createElementNS('http://www.w3.org/2000/svg', tag); for (const k in at) n.setAttribute(k, at[k]); if (txt) n.textContent = txt; svg.appendChild(n); };
+  add('line', {x1: 40, x2: W - 10, y1: y(0), y2: y(0), stroke: 'var(--line)'});
+  d.gauge.forEach((g, i) => { [['next12_1', 'var(--a)'], ['next12_2', 'var(--b)']].forEach(([f, col], k) => { const v = g[f]; if (v == null) return;
+    add('rect', {x: x(i, k), width: 34, y: Math.min(y(v), y(0)), height: Math.abs(y(v) - y(0)), fill: col}); add('text', {x: x(i, k) + 17, y: v >= 0 ? y(v) - 4 : y(v) + 12, 'text-anchor': 'middle'}, sp(v)); });
+    add('text', {x: x(i, 0) + 37, y: H - 6, 'text-anchor': 'middle'}, g.on + ' on'); });
+  mv.append(el('p', 'cap', 'S&P over the next 12 months by price-shock warnings on. Blue 1993–2009, gold 2010–2026. A reading, not a rule.'), svg,
+    table([['Warning'], ['Now'], ['Held up in both halves']], d.macro.map((r) => [r.w, el('span', 'pill' + (r.on ? ' on' : ''), r.on ? 'ON' : 'off'), el('span', 'pill' + (r.kept ? ' on' : ''), r.kept ? 'yes' : 'no')])));
+  $('#v-book').append(table([['Block'], ['Now', 1], ['Target']], d.book.map((r) => [r[0], p(r[1], 1), r[2]])), el('p', 'cap', 'A thesis card before every buy. 30-day minimum hold. Order sheets only.'));
+  $('#foot').textContent = 'Readings, not signals. No model moves money. Built ' + d.built.replace('T', ' ').slice(0, 16) + ' UTC.';
+  show('home');
+}
+</script></body></html>

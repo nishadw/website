@@ -21,6 +21,10 @@ const nextConfig = {
   },
   async rewrites() {
     return [
+      // /stocks is a self-contained static page in public/stocks (password prompt + encrypted data file,
+      // rebuilt from the stock-forecasting repo: python -m norman.site_build). Nothing in it is readable
+      // without the password.
+      { source: '/stocks', destination: '/stocks/index.html' },
       { source: '/ingest/static/:path*', destination: 'https://us-assets.i.posthog.com/static/:path*' },
       { source: '/ingest/:path*', destination: 'https://us.i.posthog.com/:path*' },
     ]
