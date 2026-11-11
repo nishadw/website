@@ -33,7 +33,11 @@ const $ = (s) => document.querySelector(s), el = (t, c, x) => { const e = docume
 const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
 const sp = (v, d = 0) => v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(d) + '%', p = (v, d = 0) => v == null ? '—' : v.toFixed(d) + '%';
 async function unlock(pw) {
-  const e = await (await fetch('data.enc.json', {cache: 'no-store'})).json();
+  // the data file sits beside this page; build its address from the page's own folder so it also works at /stocks (no trailing slash)
+  const dir = location.pathname.endsWith('.html') ? location.pathname.replace(/[^/]*$/, '') : location.pathname.replace(/\/?$/, '/');
+  const res = await fetch(dir + 'data.enc.json', {cache: 'no-store'});
+  if (!res.ok) throw new Error('nodata');
+  const e = await res.json();
   const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
   const key = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(e.salt), iterations: e.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
   return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(e.iv)}, key, b64(e.ct))));
@@ -41,7 +45,7 @@ async function unlock(pw) {
 $('#gate').addEventListener('submit', async (ev) => {
   ev.preventDefault(); $('#msg').textContent = 'Opening…';
   try { const d = await unlock($('#pw').value); try { sessionStorage.setItem('n', $('#pw').value); } catch (_) {} $('#gate').hidden = true; $('#app').hidden = false; render(d); }
-  catch (_) { $('#msg').textContent = 'Wrong password'; }
+  catch (err) { $('#msg').textContent = (err && err.message === 'nodata') ? 'Could not load the data file' : 'Wrong password'; }
 });
 try { const s = sessionStorage.getItem('n'); if (s) { $('#pw').value = s; $('#gate').requestSubmit(); } } catch (_) {}
 function table(head, rows) {
