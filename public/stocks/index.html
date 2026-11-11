@@ -1,54 +1,102 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Norman</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#fff;--fg:#141414;--mut:#6b6b6b;--line:#dbdbdb;--soft:#f5f5f3;--bad:#a8281f;--good:#1b7a3a;--a:#1f4e79;--b:#9a7b2c}
-@media (prefers-color-scheme:dark){:root{--bg:#0a0a0a;--fg:#f2f2f0;--mut:#9a9a9a;--line:#222;--soft:#141414;--bad:#ff8f85;--good:#6fd08c;--a:#8fbde8;--b:#dcc27a;color-scheme:dark}}
+:root{--bg:#F4F6FA;--surface:#fff;--ink:#0B1220;--mut:#5B6577;--line:#E3E7EE;--soft:#F0F3F8;--acc:#3248F5;--acc-soft:#E9ECFF;--up:#087F5B;--up-soft:#E3F5EE;--down:#C92A2A;--down-soft:#FCEBEA;--warn:#B45309;--shadow:0 12px 40px rgba(11,18,32,.14)}
+@media (prefers-color-scheme:dark){:root{--bg:#0C0F14;--surface:#131821;--ink:#E8ECF3;--mut:#94A0B4;--line:#232B38;--soft:#1A212C;--acc:#8C9BFF;--acc-soft:#1C2347;--up:#4FD1A1;--up-soft:#12302A;--down:#FF8A80;--down-soft:#3A1C1B;--warn:#F2B15A;--shadow:0 12px 40px rgba(0,0,0,.5);color-scheme:dark}}
 *{box-sizing:border-box}[hidden]{display:none!important}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 "Times New Roman",Tinos,Times,serif;font-variant-numeric:tabular-nums}
-main{max-width:1120px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:18px}
-h1{font-size:26px;font-weight:400;margin:0;font-variant-caps:small-caps;letter-spacing:.04em}
-h2{font-size:15px;font-weight:400;margin:0;font-variant-caps:small-caps;letter-spacing:.06em;color:var(--mut)}
-.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}.col{display:flex;flex-direction:column;gap:12px;min-width:0}
-.sm{font-size:13px;color:var(--mut)}.num{text-align:right;white-space:nowrap}.bad{color:var(--bad)}.good{color:var(--good)}
-button,input,select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:4px 10px}
-button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,tr:focus-visible{outline:2px solid var(--a);outline-offset:1px}
-.tab{border:0;border-bottom:2px solid transparent;border-radius:0;padding:4px 2px;font-variant-caps:small-caps;letter-spacing:.05em;color:var(--mut)}
-.tab[aria-selected=true]{color:var(--fg);border-bottom-color:var(--fg)}
-.chip[aria-pressed=true],.seg[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-.card{border:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:2px;text-align:left;border-radius:3px;min-width:0}
-.card b{font-weight:400;font-size:24px}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
-.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}
-th{text-align:left;font-weight:400;color:var(--mut);border-bottom:1px solid var(--fg);padding:5px 12px 5px 0;white-space:nowrap;font-variant-caps:small-caps;letter-spacing:.04em}
-th.s{cursor:pointer}th.s[aria-sort]::after{content:" ▾"}th.s[aria-sort=ascending]::after{content:" ▴"}
-td{border-bottom:1px solid var(--line);padding:5px 12px 5px 0;vertical-align:top}
-tr.r{cursor:pointer}tr.r:hover td{background:var(--soft)}
-.detail>td{background:var(--soft);padding:12px}.detail .wrap{max-width:560px}.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:6px 18px}
-.dl div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line)}.dl span:first-child{color:var(--mut)}
-.tag{border:1px solid var(--line);border-radius:2px;padding:0 5px;font-size:12px;white-space:nowrap;margin-right:4px}.tag.on{border-color:var(--bad);color:var(--bad)}
-.fund{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:22px}@media (max-width:760px){.fund{grid-template-columns:1fr}}
-.flist{display:flex;flex-direction:column;max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:3px}
-.flist button{border:0;border-bottom:1px solid var(--line);border-radius:0;text-align:left;display:flex;justify-content:space-between;gap:8px;padding:7px 10px}
-.flist button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
-a{color:var(--a)}circle.pt{fill:var(--fg);fill-opacity:.55;cursor:pointer}circle.pt:hover{fill:var(--bad);fill-opacity:1}svg text{fill:var(--mut);font-size:12px;font-family:inherit}
-</style></head><body><main>
-<h1>Norman</h1>
-<form id="gate" class="row"><label for="pw" class="sm">Password</label><input id="pw" type="password" inputmode="numeric" autocomplete="current-password" autofocus><button type="submit">Open</button><span id="msg" class="sm bad" role="status"></span></form>
-<div id="app" class="col" hidden>
-<div class="row" role="tablist" id="tabs"></div>
-<section id="v-overview" class="col"></section><section id="v-screener" class="col" hidden></section><section id="v-funds" class="col" hidden></section>
-<section id="v-macro" class="col" hidden></section><section id="v-book" class="col" hidden></section><section id="v-research" class="col" hidden></section>
-<p class="sm" id="foot"></p>
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Geist,system-ui,-apple-system,"Segoe UI",sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
+.page{max-width:1180px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right)) 56px max(16px,env(safe-area-inset-left))}
+.mut{color:var(--mut)}.up{color:var(--up)}.down{color:var(--down)}.warn{color:var(--warn)}.num{text-align:right;white-space:nowrap}
+/* gate */
+.gate{max-width:340px;margin:18vh auto 0;display:flex;flex-direction:column;gap:14px}
+.gate h1{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:0}
+.gate .rowf{display:flex;gap:8px}.gate input{flex:1;min-width:0}
+.field{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:9px 16px;font-weight:500}
+.ghost{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:7px 12px}
+/* top bar */
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-bottom:18px}
+.brand{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.search{flex:1 1 220px;max-width:340px}.search input{width:100%}
+.readouts{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.readout{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 12px;text-align:left;display:flex;flex-direction:column;line-height:1.25;min-width:104px}
+.readout b{font-size:16px;font-weight:600}.readout span{font-size:12px;color:var(--mut)}
+/* list buttons */
+.lists{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin:0 -2px;scrollbar-width:thin}
+.list{flex:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:500;display:flex;gap:8px;align-items:baseline;white-space:nowrap}
+.list i{font-style:normal;font-weight:400;font-size:12px;color:var(--mut)}
+.list[aria-selected=true]{background:var(--acc);border-color:var(--acc);color:#fff}.list[aria-selected=true] i{color:rgba(255,255,255,.75)}
+@media (prefers-color-scheme:dark){.list[aria-selected=true]{color:#0C0F14}.list[aria-selected=true] i{color:rgba(12,15,20,.7)}}
+/* view */
+.viewhead{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:flex-end;justify-content:space-between;margin:8px 0 12px}
+.def{margin:0;max-width:74ch;color:var(--mut);font-size:14px}.def b{color:var(--ink);font-weight:500}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.notice{background:var(--acc-soft);border-radius:10px;padding:9px 12px;margin-bottom:12px;max-width:74ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+th{font-weight:500;font-size:12px;color:var(--mut);text-align:left;padding:10px 14px;white-space:nowrap;border-bottom:1px solid var(--line);background:var(--surface);position:sticky;top:0}
+th.sort{cursor:pointer}th[data-tip] span{border-bottom:1px dotted var(--mut)}th[aria-sort] span::after{content:" ↓"}th[aria-sort=ascending] span::after{content:" ↑"}
+td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}tr.row{cursor:pointer}tr.row:hover td{background:var(--soft)}
+.tk{font-weight:600}.co{color:var(--mut);max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-left:6px;vertical-align:middle}
+.more{margin:12px auto 0;display:block}.empty{padding:28px 14px;color:var(--mut)}
+/* marks */
+.traits{display:inline-flex;gap:3px;vertical-align:middle;margin-right:8px}.traits i{width:11px;height:11px;border-radius:3px;background:var(--line)}.traits i.on{background:var(--acc)}
+.bar{display:inline-flex;gap:2px;vertical-align:middle;margin-left:8px}.bar i{width:6px;height:12px;border-radius:2px;background:var(--line)}.bar i.u{background:var(--up)}.bar i.d{background:var(--down)}
+.chip{display:inline-block;font-size:12px;line-height:1;padding:4px 7px;border-radius:6px;background:var(--soft);color:var(--mut);white-space:nowrap;margin:1px 4px 1px 0}
+.chip.new{background:var(--acc-soft);color:var(--acc)}.chip.added,.chip.good{background:var(--up-soft);color:var(--up)}.chip.cut,.chip.sold,.chip.bad{background:var(--down-soft);color:var(--down)}
+.seg{display:inline-flex;background:var(--soft);border-radius:10px;padding:3px;gap:2px;flex-wrap:wrap}.seg button{border:0;background:none;border-radius:8px;padding:5px 10px;color:var(--mut)}
+.seg button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+/* drawer */
+.veil{position:fixed;inset:0;background:rgba(11,18,32,.32);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(580px,100vw);background:var(--bg);border-left:1px solid var(--line);box-shadow:var(--shadow);z-index:21;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .18s ease-out}
+.drawer.open{transform:none}.drawer td,.drawer th{padding:8px 10px}.drawer .co{max-width:150px}@media (prefers-reduced-motion:reduce){.drawer{transition:none}}
+.dhead{display:flex;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}.dhead .sp{flex:1}
+.dbody{overflow-y:auto;padding:18px 16px 40px;display:flex;flex-direction:column;gap:18px}
+.dbody h2{font-size:24px;font-weight:600;letter-spacing:-.02em;margin:0;line-height:1.15}.dbody h3{font-size:13px;font-weight:500;color:var(--mut);margin:0 0 8px}
+.dbody p{margin:0;max-width:62ch}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.kv div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.kv span:first-child{color:var(--mut)}.kv [data-tip]{border-bottom:1px dotted var(--mut);cursor:help}
+.checks{list-style:none;margin:0;padding:0}.checks li{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}.checks li i{flex:none;width:11px;height:11px;border-radius:3px;background:var(--line);margin-top:4px}.checks li.on i{background:var(--acc)}.checks li:not(.on){color:var(--mut)}
+.defs{margin:0}.defs dt{font-weight:500;margin-top:12px}.defs dd{margin:2px 0 0;color:var(--mut);max-width:62ch}
+a{color:var(--acc)}.linkish{background:none;border:0;padding:0;color:var(--acc);text-decoration:underline;text-underline-offset:2px}
+footer{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut);font-size:13px;align-items:center}
+/* tooltip */
+#tip{position:fixed;z-index:40;max-width:300px;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;pointer-events:none;box-shadow:var(--shadow)}
+@media (max-width:640px){.readouts{margin-left:0;width:100%}.readout{flex:1}.kv{grid-template-columns:1fr}.hide-s{display:none}td,th{padding:9px 10px}}
+</style></head><body>
+<div class="page">
+<form id="gate" class="gate"><h1>Norman</h1><div class="rowf"><input id="pw" class="field" type="password" inputmode="numeric" autocomplete="current-password" aria-label="Password" placeholder="Password" autofocus><button class="btn" type="submit">Open</button></div><span id="msg" class="mut" role="status"></span></form>
+<div id="app" hidden>
+<header class="top"><div class="brand">Norman</div><label class="search"><input id="q" class="field" type="search" placeholder="Find a ticker or company" aria-label="Find a ticker or company"></label><div class="readouts" id="readouts"></div></header>
+<nav class="lists" id="lists" role="tablist" aria-label="Lists"></nav>
+<section>
+<div class="viewhead"><p class="def" id="def"></p><div class="tools" id="tools"></div></div>
+<div class="notice" id="notice" hidden></div>
+<div class="card"><div class="scroll" id="box"></div></div>
+<button class="ghost more" id="more" hidden>Show more</button>
+</section>
+<footer><button class="linkish" id="f-defs">Definitions</button><button class="linkish" id="f-tests">What was tested</button><span id="built"></span></footer>
 </div>
-</main>
+</div>
+<div class="veil" id="veil" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Detail" hidden><div class="dhead"><button class="ghost" id="d-back" hidden>Back</button><span class="sp"></span><button class="ghost" id="d-close">Close</button></div><div class="dbody" id="d-body"></div></aside>
+<div id="tip" role="tooltip" hidden></div>
 <script>
 const $ = (s) => document.querySelector(s);
 const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
 const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
-const sp = (v, d = 0) => v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(d) + '%', pc = (v, d = 0) => v == null ? '—' : v.toFixed(d) + '%';
-const nm = (v, d = 1, u = '') => v == null ? '—' : v.toFixed(d) + u;
+const sp = (v, d = 0) => v == null ? '–' : (v > 0 ? '+' : '') + v.toFixed(d) + '%', pc = (v, d = 0) => v == null ? '–' : v.toFixed(d) + '%';
+const nm = (v, d = 1, u = '') => v == null ? '–' : v.toFixed(d) + u;
+const tipped = (node, tip, focus) => { if (tip) { node.dataset.tip = tip; if (focus) node.tabIndex = 0; } return node; };
+
 async function unlock(pw) {
   const dir = location.pathname.endsWith('.html') ? location.pathname.replace(/[^/]*$/, '') : location.pathname.replace(/\/?$/, '/');
   const res = await fetch(dir + 'data.enc.json', {cache: 'no-store'});
@@ -60,153 +108,210 @@ async function unlock(pw) {
 }
 $('#gate').addEventListener('submit', async (ev) => {
   ev.preventDefault(); $('#msg').textContent = 'Opening…';
-  try { const d = await unlock($('#pw').value); try { sessionStorage.setItem('n', $('#pw').value); } catch (_) {} $('#gate').hidden = true; $('#app').hidden = false; render(d); }
-  catch (err) { $('#msg').textContent = (err && err.message === 'nodata') ? 'Could not load the data file' : 'Wrong password'; }
+  try { const d = await unlock($('#pw').value); try { sessionStorage.setItem('n', $('#pw').value); } catch (_) {} $('#gate').hidden = true; $('#app').hidden = false; start(d); }
+  catch (err) { $('#msg').textContent = (err && err.message === 'nodata') ? 'The data file did not load. Reload the page.' : 'That password did not open it.'; }
 });
 try { const s = sessionStorage.getItem('n'); if (s) { $('#pw').value = s; $('#gate').requestSubmit(); } } catch (_) {}
 
-function table(head, rows, opt = {}) {
-  const w = el('div', 'wrap'), t = el('table'), h = t.createTHead().insertRow();
-  head.forEach((c, i) => { const th = el('th', (c.n ? 'num ' : '') + (opt.sort ? 's' : ''), c.h); if (opt.sort) { th.tabIndex = 0; if (opt.sorted && opt.sorted.i === i) th.setAttribute('aria-sort', opt.sorted.asc ? 'ascending' : 'descending'); const go = () => opt.sort(i); th.onclick = go; th.onkeydown = (e) => { if (e.key === 'Enter') go(); }; } h.appendChild(th); });
-  const tb = t.createTBody();
-  rows.forEach((r) => { const tr = tb.insertRow(); if (opt.click) { tr.className = 'r'; tr.tabIndex = 0; tr.onclick = () => opt.click(r, tr); tr.onkeydown = (e) => { if (e.key === 'Enter') opt.click(r, tr); }; }
-    head.forEach((c) => { const td = tr.insertCell(); if (c.n) td.className = 'num'; const v = c.f(r); if (v instanceof Node) td.appendChild(v); else td.textContent = v; if (c.cls) { const k = c.cls(r); if (k) td.classList.add(k); } }); });
-  w.appendChild(t); return w;
-}
-const tags = (s) => { const f = document.createDocumentFragment(); (s || '').split('; ').filter(Boolean).forEach((x) => f.appendChild(el('span', 'tag' + (/Circular|Burry/.test(x) ? ' on' : ''), x))); return f; };
-const CH = {new: 'New', added: 'Added', cut: 'Cut', held: 'Held', sold: 'Sold'};
+/* tooltips: hover, keyboard focus, or tap */
+(() => { const tip = $('#tip'); let cur = null;
+  const show = (t) => { cur = t; tip.textContent = t.dataset.tip; tip.hidden = false; const r = t.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left + r.width / 2 - w / 2)) + 'px'; tip.style.top = (r.bottom + 8 + h > innerHeight ? Math.max(8, r.top - h - 8) : r.bottom + 8) + 'px'; };
+  const hide = () => { cur = null; tip.hidden = true; };
+  document.addEventListener('mouseover', (e) => { const t = e.target.closest && e.target.closest('[data-tip]'); if (t) show(t); else if (cur) hide(); });
+  document.addEventListener('focusin', (e) => { const t = e.target.closest && e.target.closest('[data-tip]'); if (t) show(t); });
+  document.addEventListener('focusout', hide); document.addEventListener('scroll', hide, true);
+  document.addEventListener('click', (e) => { const t = e.target.closest && e.target.closest('[data-tip]'); if (t && matchMedia('(hover:none)').matches) show(t); else if (!t) hide(); });
+})();
 
-function render(d) {
-  const U = d.universe, F = d.funds.list, byT = Object.fromEntries(U.map((r) => [r.t, r]));
-  const TABS = ['overview', 'screener', 'funds', 'macro', 'book', 'research'];
-  const show = (id) => { TABS.forEach((t) => { $('#v-' + t).hidden = t !== id; $('#t-' + t).setAttribute('aria-selected', t === id); }); try { history.replaceState(null, '', '#' + id); } catch (_) {} };
-  TABS.forEach((t) => { const b = el('button', 'tab', t[0].toUpperCase() + t.slice(1)); b.id = 't-' + t; b.setAttribute('role', 'tab'); b.onclick = () => show(t); $('#tabs').appendChild(b); });
+function start(d) {
+  const U = d.universe, F = d.funds.list, NF = F.length, byT = Object.fromEntries(U.map((r) => [r.t, r])), through = d.prices_through, asof = d.funds.asof;
+  const MOVE = {new: 'New', added: 'Added', held: 'Held', cut: 'Cut', sold: 'Sold'};
+  const TRAITS = [['R&D above 10% of sales', 'Spends heavily on research.'], ['Gross margin above 50%', 'Keeps more than half of each sales dollar after direct costs.'], ['Sales up more than 20%', 'Last four quarters against the four before.'],
+    ['More cash than debt', 'Cash is larger than all borrowings.'], ['Cash flow positive', 'Operations brought in cash over the last four quarters.'], ['Sales above $1 billion', 'Already a real business, not a story.']];
+  const D = {
+    rank: 'Where the company ranks by the dollar value institutions hold in it. 1 is the largest; the page covers about the 1,000 largest.',
+    g: 'Sales in the last four quarters against the four before.',
+    gm: 'Share of sales left after the direct cost of what was sold.', rd: 'Research spending as a share of sales.',
+    cf: 'Cash from operations over a year as a share of total assets.', nc: 'Cash minus all borrowings, in billions of dollars. Above zero means more cash than debt.',
+    sl: 'Sales over the last four quarters, in billions of dollars.', sh: 'Change in the number of shares over a year. Up means existing owners were diluted.',
+    cd: "Equipment spending divided by depreciation. Far above 1 means the company is building much faster than it writes off: Burry's argument about AI spending.",
+    sb: 'Pay handed out in shares, as a share of sales.',
+    p6: 'Price change over six months, month-end closes through ' + through + '.', p: 'Price change over twelve months, month-end closes through ' + through + '.',
+    oh: 'How far the price sits below its highest month-end close of the past year.',
+    rules: 'Three rules: sales up more than 10%, cash flow above 10% of assets, share count not up more than 3%. A reading list; the test found no reliable edge.',
+    traits: 'Six traits that small companies which became giants tended to share. Each square is one trait; hover a square to see which.',
+    odds: 'Of past companies in the same size band with this many traits, the share that entered the 150 largest within five years (2009–2022 starts). Starting size drives most of it, so read it as rough.',
+    nf: 'How many of the ' + NF + ' tracked funds owned it on ' + asof + '. The bar shows their last move: green bought, grey held, red cut or sold.',
+    top: 'Funds for which this is one of their ten largest positions.', avgw: 'Average share of the fund’s stock book, across the funds that own it.',
+    long: 'Funds that have owned it for at least the last four quarters in a row.',
+    add: 'Funds that already owned it and raised their share count by more than 5% last quarter. Stock splits are adjusted for.',
+    flat: 'Funds whose share count moved less than 5% last quarter.', cut: 'Funds that cut their share count by more than 5% or sold out last quarter.',
+    twice: 'Funds that raised their share count in each of the last two quarters.',
+    move: 'New: not owned the quarter before. Added: share count up more than 5%. Held: within 5%. Cut: down more than 5%. Sold: owned the quarter before, gone now.',
+    tech: 'Buy: price above its 10-month average and above its level six months ago. Strong buy: also up over twelve months and within 10% of its high. Month-end closes through ' + through + '. The desk’s own gauge, not a broker’s.',
+    an: 'Average analyst rating on a scale of 1 (strong buy) to 5 (strong sell): up to 1.5 is Strong buy, up to 2.5 is Buy.',
+    also: 'Other lists on this page that the stock is on.', held: 'You hold this.',
+    circ: 'Circular financing: a supplier, customer or lender is also an investor or backstop. A desk draft list that you edit; it leaves out names this desk cannot show.',
+    burry: 'Michael Burry’s fund reported put options against it in its last filing (September 2025). The fund has since deregistered, so there is no newer filing.',
+    fsize: 'Value of the US-listed shares in the fund’s latest quarterly filing, in billions of dollars.', fn: 'Number of positions in the filing.',
+    ftop: 'Share of the book in its ten largest positions.', fbig: 'Largest position this page can show.', qh: 'Quarters in a row the fund has owned it, up to five.',
+    w: 'Share of the fund’s reported stock book.', dsh: 'Change in the fund’s share count against the quarter before.',
+    shock: 'Three warnings that came before weak stock returns in both 1993–2009 and 2010–2026: inflation above 3% and rising, producer prices accelerating, oil up more than 50% in a year. A reading, not a rule.',
+    book: 'Your book’s return since the scorecard started, next to the S&P 500 over the same days.', picks: 'Share of the book in your own picks, against the cap.',
+    f13: 'Funds file their US-listed share holdings 45 days after each quarter ends. No short positions, options left out, and it is already six weeks old when it arrives.',
+  };
+  /* derived fields */
+  for (const r of U) { const h = r.own.filter((o) => o[2] !== 'sold');
+    r.nf = h.length; r.top = h.reduce((a, o) => a + o[5], 0); r.avgw = h.length ? h.reduce((a, o) => a + o[1], 0) / h.length : null; r.long = h.filter((o) => o[3] >= 4).length;
+    r.nNew = h.filter((o) => o[2] === 'new').length; r.nAdd = h.filter((o) => o[2] === 'added').length; r.nFlat = h.filter((o) => o[2] === 'held').length; r.nCut = r.own.filter((o) => o[2] === 'cut' || o[2] === 'sold').length;
+    r.twice = h.reduce((a, o) => a + o[4], 0); const m = /Druck (\w+)/.exec(r.tags); r.dk = m ? m[1] : ''; r.held = /(^|; )Held/.test(r.tags); r.circ = r.tags.includes('Circular'); r.burry = r.tags.includes('Burry'); }
+  const hasAn = d.analyst.n > 0;
+  const mid = U.filter((r) => r.k > 300).sort((a, b) => b.gt - a.gt || (b.od || 0) - (a.od || 0) || (b.g == null ? -1e9 : b.g) - (a.g == null ? -1e9 : a.g)); mid.forEach((r, i) => r.rk = i + 1);
+  const IN = {traits: (r) => r.k > 300 && r.gt >= 4, druck: (r) => !!r.dk, core: (r) => r.nf >= 3, adding: (r) => r.nAdd >= 1 && r.nAdd >= r.nCut,
+    both: (r) => r.k <= 500 && r.te >= 1 && !r.circ && (!hasAn || (r.an && (r.an[0] === 'Strong buy' || r.an[0] === 'Buy')))};
+  const SHORT = {traits: 'PLTR-like', druck: 'Druck', core: 'Core', adding: 'Doubling', both: 'Buy + buy'};
+  for (const r of U) r.on = Object.keys(IN).filter((k) => IN[k](r));
 
-  // ---- screener state
-  const S = {q: '', lens: new Set(), sector: '', g: '', gt: '', nf: '', cols: 'Basics', sort: {i: -1, asc: false}, n: 60, view: 'Table', x: 'g', y: 'p'};
-  const NUM = {g: 'Sales growth %', p: 'Price, 12 mo %', oh: 'From 12-mo high %', gm: 'Gross margin %', rd: 'R&D / sales %', cf: 'Cash flow / assets %', sh: 'Share count %', cd: 'Spending ÷ depreciation', sb: 'Stock pay / sales %', sl: 'Sales, $B', nc: 'Cash less debt, $B', k: 'Size rank', nf: 'Funds holding', gt: 'Giant traits'};
-  const COLS = {
-    Basics: [{h: 'Ticker', f: (r) => r.t, k: 't'}, {h: 'Company', f: (r) => r.n, k: 'n'}, {h: 'Sector', f: (r) => r.s, k: 's'}, {h: 'Sales growth', n: 1, f: (r) => sp(r.g), k: 'g'}, {h: 'Rules', n: 1, f: (r) => r.ru + '/3', k: 'ru'}, {h: 'Giant traits', n: 1, f: (r) => r.gt + '/6', k: 'gt'}, {h: 'Price, 12 mo', n: 1, f: (r) => sp(r.p), k: 'p', cls: (r) => r.p == null ? '' : r.p < 0 ? 'bad' : 'good'}],
-    Quality: [{h: 'Ticker', f: (r) => r.t, k: 't'}, {h: 'Company', f: (r) => r.n, k: 'n'}, {h: 'Gross margin', n: 1, f: (r) => pc(r.gm), k: 'gm'}, {h: 'R&D / sales', n: 1, f: (r) => pc(r.rd), k: 'rd'}, {h: 'Cash flow / assets', n: 1, f: (r) => pc(r.cf), k: 'cf'}, {h: 'Cash less debt, $B', n: 1, f: (r) => nm(r.nc), k: 'nc'}, {h: 'Share count', n: 1, f: (r) => sp(r.sh, 1), k: 'sh'}],
-    Burry: [{h: 'Ticker', f: (r) => r.t, k: 't'}, {h: 'Company', f: (r) => r.n, k: 'n'}, {h: 'Spending ÷ depreciation', n: 1, f: (r) => nm(r.cd, 1, '×'), k: 'cd'}, {h: 'Stock pay / sales', n: 1, f: (r) => pc(r.sb), k: 'sb'}, {h: 'Sales, $B', n: 1, f: (r) => nm(r.sl), k: 'sl'}, {h: 'From 12-mo high', n: 1, f: (r) => sp(r.oh), k: 'oh'}],
-    Funds: [{h: 'Ticker', f: (r) => r.t, k: 't'}, {h: 'Company', f: (r) => r.n, k: 'n'}, {h: 'Funds holding', n: 1, f: (r) => r.nf, k: 'nf'}, {h: 'Buying', n: 1, f: (r) => r.nb, k: 'nb'}, {h: 'Selling', n: 1, f: (r) => r.ns, k: 'ns'}, {h: 'Lenses', f: (r) => tags(r.tags), k: 'tags'}],
+  /* cell builders */
+  const tk = (r) => { const s = el('span', 'tk', r.t); if (r.held) s.appendChild(tipped(el('i', 'dot'), D.held)); return s; };
+  const co = (r) => el('span', 'co', r.n);
+  const traits = (r) => { const w = el('span', 'traits'); TRAITS.forEach((t, i) => { const on = r.tb >> i & 1; w.appendChild(tipped(el('i', on ? 'on' : ''), t[0] + (on ? ': yes' : ': no'))); }); const s = el('span'); s.append(w, el('span', 'mut', r.gt + ' of 6')); return s; };
+  const bar = (r) => { const s = el('span'); s.appendChild(document.createTextNode(String(r.nf))); const b = el('span', 'bar'); const add = (n, c) => { for (let i = 0; i < n; i++) b.appendChild(el('i', c)); };
+    add(r.nNew + r.nAdd, 'u'); add(r.nFlat, ''); add(r.nCut, 'd'); tipped(b, (r.nNew + r.nAdd) + ' bought, ' + r.nFlat + ' held, ' + r.nCut + ' cut or sold'); s.appendChild(b); return s; };
+  const chip = (txt, cls, tip) => tipped(el('span', 'chip ' + (cls || ''), txt), tip);
+  const also = (cur) => (r) => { const f = document.createDocumentFragment(); r.on.filter((k) => k !== cur).forEach((k) => f.appendChild(el('span', 'chip', SHORT[k]))); if (r.circ) f.appendChild(chip('Circular', 'bad', r.why || D.circ)); if (r.burry) f.appendChild(chip('Burry short', 'bad', D.burry)); return f; };
+  const tech = (r) => r.te === 2 ? chip('Strong buy', 'good') : r.te === 1 ? chip('Buy', 'good') : el('span', 'mut', '–');
+  const an = (r) => r.an ? chip(r.an[0], /buy/i.test(r.an[0]) ? 'good' : '', r.an[2] + ' strong buy, ' + r.an[3] + ' buy, ' + r.an[4] + ' hold, ' + (r.an[5] + r.an[6]) + ' sell') : el('span', 'mut', '–');
+  const signed = (k, dgt) => ({f: (r) => sp(r[k], dgt), v: (r) => r[k], n: 1, cls: (r) => r[k] == null ? '' : r[k] < 0 ? 'down' : 'up'});
+  const C = {
+    t: {h: 'Ticker', f: tk, v: (r) => r.t}, n: {h: 'Company', f: co, v: (r) => r.n, hs: 1},
+    g: {h: 'Sales growth', tip: D.g, ...signed('g')}, p: {h: 'Price, 12 mo', tip: D.p, ...signed('p')}, p6: {h: 'Price, 6 mo', tip: D.p6, ...signed('p6')},
+    k: {h: 'Size rank', tip: D.rank, f: (r) => r.k, v: (r) => r.k, n: 1, asc: 1},
   };
-  const sv = $('#v-screener'), ctl = el('div', 'row'), chips = el('div', 'row'), segs = el('div', 'row'), count = el('span', 'sm'), box = el('div', 'col');
-  const search = el('input'); search.type = 'search'; search.placeholder = 'Ticker or name'; search.setAttribute('aria-label', 'Search'); search.oninput = () => { S.q = search.value.trim().toLowerCase(); S.n = 60; draw(); };
-  const sel = (label, key, opts) => { const s = el('select'); s.setAttribute('aria-label', label); opts.forEach(([v, t]) => { const o = el('option', '', t); o.value = v; s.appendChild(o); }); s.onchange = () => { S[key] = s.value; S.n = 60; draw(); }; return s; };
-  const sectors = [...new Set(U.map((r) => r.s))].sort();
-  const selS = sel('Sector', 'sector', [['', 'All sectors']].concat(sectors.map((x) => [x, x])));
-  const selG = sel('Sales growth', 'g', [['', 'Any sales growth'], ['10', 'Sales up 10%+'], ['20', 'Sales up 20%+'], ['40', 'Sales up 40%+']]);
-  const selT = sel('Giant traits', 'gt', [['', 'Any giant traits'], ['4', '4+ of 6'], ['5', '5+ of 6'], ['6', '6 of 6']]);
-  const selF = sel('Funds holding', 'nf', [['', 'Any fund count'], ['1', 'Held by 1+ funds'], ['3', 'Held by 3+'], ['5', 'Held by 5+']]);
-  const reset = el('button', '', 'Reset'); reset.onclick = () => { S.q = ''; S.lens.clear(); S.sector = S.g = S.gt = S.nf = ''; search.value = ''; [selS, selG, selT, selF].forEach((s) => s.value = ''); S.n = 60; draw(); };
-  ctl.append(search, selS, selG, selT, selF, reset, count);
-  [['Held', 'Held'], ['Rules', 'Passes rules'], ['Giant', 'Looks like a giant'], ['Druck', 'Druckenmiller'], ['Circular', 'Circular financing'], ['Burry', 'Burry short']].forEach(([k, name]) => { const b = el('button', 'chip', name); b.setAttribute('aria-pressed', 'false'); b.onclick = () => { S.lens.has(k) ? S.lens.delete(k) : S.lens.add(k); b.setAttribute('aria-pressed', S.lens.has(k)); S.n = 60; draw(); }; chips.appendChild(b); });
-  ['Table', 'Chart'].forEach((k) => { const b = el('button', 'seg view', k); b.setAttribute('aria-pressed', k === S.view); b.onclick = () => { S.view = k; [...segs.querySelectorAll('.view')].forEach((x) => x.setAttribute('aria-pressed', x === b)); draw(); }; segs.appendChild(b); });
-  const axis = (key) => { const s = el('select'); s.setAttribute('aria-label', key === 'x' ? 'Across' : 'Up'); Object.entries(NUM).forEach(([v, t]) => { const o = el('option', '', (key === 'x' ? 'Across: ' : 'Up: ') + t); o.value = v; s.appendChild(o); }); s.value = S[key]; s.onchange = () => { S[key] = s.value; draw(); }; return s; };
-  const selX = axis('x'), selY = axis('y'), colLab = el('span', 'sm', 'Columns');
-  const exp = el('button', '', 'Download CSV');
-  segs.append(selX, selY, colLab);
-  Object.keys(COLS).forEach((k) => { const b = el('button', 'seg', k); b.setAttribute('aria-pressed', k === S.cols); b.classList.add('cset'); b.onclick = () => { S.cols = k; S.sort = {i: -1, asc: false}; [...segs.querySelectorAll('.cset')].forEach((x) => x.setAttribute('aria-pressed', x === b)); draw(); }; segs.appendChild(b); });
-  segs.appendChild(exp);
-  const scatter = (rows) => {
-    const NS = 'http://www.w3.org/2000/svg', W = 900, H = 440, L = 56, B = 40, pts = rows.filter((r) => r[S.x] != null && r[S.y] != null);
-    const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('width', '100%'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', NUM[S.y] + ' against ' + NUM[S.x]);
-    const add = (tag, at, txt) => { const n = document.createElementNS(NS, tag); for (const k in at) n.setAttribute(k, at[k]); if (txt != null) n.textContent = txt; svg.appendChild(n); return n; };
-    if (!pts.length) { add('text', {x: W / 2, y: H / 2, 'text-anchor': 'middle'}, 'No stocks with both numbers'); return svg; }
-    const rng = (k) => { const v = pts.map((r) => r[k]).sort((a, b) => a - b), q = (f) => v[Math.min(v.length - 1, Math.floor(f * (v.length - 1)))]; let lo = q(pts.length > 40 ? .02 : 0), hi = q(pts.length > 40 ? .98 : 1); if (lo === hi) { lo -= 1; hi += 1; } return [lo, hi]; };
-    const [x0, x1] = rng(S.x), [y0, y1] = rng(S.y), cl = (v, a, b) => Math.max(a, Math.min(b, v));
-    const X = (v) => L + (cl(v, x0, x1) - x0) / (x1 - x0) * (W - L - 14), Y = (v) => H - B - (cl(v, y0, y1) - y0) / (y1 - y0) * (H - B - 14), f = (v) => Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(1);
-    add('line', {x1: L, x2: W - 14, y1: H - B, y2: H - B, stroke: 'var(--line)'}); add('line', {x1: L, x2: L, y1: 14, y2: H - B, stroke: 'var(--line)'});
-    if (x0 < 0 && x1 > 0) add('line', {x1: X(0), x2: X(0), y1: 14, y2: H - B, stroke: 'var(--line)', 'stroke-dasharray': '3 3'});
-    if (y0 < 0 && y1 > 0) add('line', {x1: L, x2: W - 14, y1: Y(0), y2: Y(0), stroke: 'var(--line)', 'stroke-dasharray': '3 3'});
-    [x0, (x0 + x1) / 2, x1].forEach((v, i) => add('text', {x: X(v), y: H - B + 16, 'text-anchor': ['start', 'middle', 'end'][i]}, f(v)));
-    [y0, (y0 + y1) / 2, y1].forEach((v) => add('text', {x: L - 6, y: Y(v) + 4, 'text-anchor': 'end'}, f(v)));
-    add('text', {x: (L + W) / 2, y: H - 4, 'text-anchor': 'middle'}, NUM[S.x]); add('text', {x: L, y: 10}, NUM[S.y]);
-    pts.forEach((r) => { const c = add('circle', {class: 'pt', cx: X(r[S.x]), cy: Y(r[S.y]), r: pts.length > 300 ? 2.5 : 4, tabindex: pts.length <= 60 ? 0 : -1}); add('title', {}, ''); c.appendChild(svg.lastChild); c.firstChild.textContent = `${r.t} · ${r.n} · ${NUM[S.x]} ${f(r[S.x])} · ${NUM[S.y]} ${f(r[S.y])}`; c.onclick = () => openStock(r.t); c.onkeydown = (e) => { if (e.key === 'Enter') openStock(r.t); };
-      if (pts.length <= 40) add('text', {x: X(r[S.x]) + 6, y: Y(r[S.y]) + 4}, r.t); });
-    return svg;
-  };
-  exp.onclick = () => { const keys = ['t', 'n', 's', 'k', 'g', 'gm', 'rd', 'cf', 'nc', 'sl', 'sh', 'cd', 'sb', 'p', 'oh', 'ru', 'gt', 'od', 'nf', 'nb', 'ns', 'tags'], head = ['ticker', 'company', 'sector', 'size_rank', 'sales_growth', 'gross_margin', 'rd_sales', 'cashflow_assets', 'net_cash_bn', 'sales_bn', 'share_chg', 'capex_dep', 'stockpay_sales', 'price_12m', 'off_high', 'rules', 'giant_traits', 'giant_odds', 'funds_holding', 'funds_buying', 'funds_selling', 'lenses'];
-    const csv = [head.join(',')].concat(filtered().map((r) => keys.map((k) => r[k] == null ? '' : '"' + String(r[k]).replace(/"/g, '""') + '"').join(','))).join('\n');
-    const a = el('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'norman-screen.csv'; a.click(); URL.revokeObjectURL(a.href); };
-  sv.append(ctl, chips, segs, box);
-  const detail = (r) => {
-    const w = el('div', 'col'), dl = el('div', 'dl');
-    [['Size rank', r.k], ['Sector', r.s], ['Latest quarter', r.q], ['Sales growth', sp(r.g)], ['Sales, $B', nm(r.sl)], ['Gross margin', pc(r.gm)], ['R&D / sales', pc(r.rd)], ['Cash flow / assets', pc(r.cf)], ['Cash less debt, $B', nm(r.nc)], ['Share count, 1 yr', sp(r.sh, 1)],
-      ['Spending ÷ depreciation', nm(r.cd, 1, '×')], ['Stock pay / sales', pc(r.sb)], ['Price, 12 mo', sp(r.p)], ['From 12-mo high', sp(r.oh)], ['Rules passed', r.ru + ' of 3'], ['Giant traits', r.gt + ' of 6'], ['Past odds of becoming a giant', r.od == null ? 'n/a (already large)' : pc(r.od, 1)]]
-      .forEach(([k, v]) => { const x = el('div'); x.append(el('span', '', k), el('span', '', String(v))); dl.appendChild(x); });
-    w.appendChild(dl);
-    if (r.tags) { const p = el('div'); p.appendChild(tags(r.tags)); if (r.why) { p.appendChild(document.createTextNode(' ' + r.why + ' ')); if (r.src) { const a = el('a', '', 'source'); a.href = r.src; a.target = '_blank'; a.rel = 'noopener'; p.appendChild(a); } } w.appendChild(p); }
-    if (r.own.length) w.appendChild(table([{h: 'Fund', f: (o) => F[o[0]].name}, {h: '% of its book', n: 1, f: (o) => o[2] === 'sold' ? '—' : pc(o[1], 1)}, {h: 'Last quarter', f: (o) => CH[o[2]]}], r.own.slice().sort((a, b) => b[1] - a[1])));
-    else w.appendChild(el('span', 'sm', 'None of the tracked funds holds it.'));
-    return w;
-  };
-  const filtered = () => U.filter((r) => (!S.q || r.t.toLowerCase().startsWith(S.q) || r.n.toLowerCase().includes(S.q)) && [...S.lens].every((l) => r.tags.includes(l)) && (!S.sector || r.s === S.sector)
-      && (!S.g || (r.g != null && r.g >= +S.g)) && (!S.gt || r.gt >= +S.gt) && (!S.nf || r.nf >= +S.nf));
-  function draw() {
-    let rows = filtered(); const cols = COLS[S.cols], chart = S.view === 'Chart';
-    selX.hidden = selY.hidden = !chart; colLab.hidden = chart; [...segs.querySelectorAll('.cset')].forEach((b) => b.hidden = chart);
-    count.textContent = rows.length + ' of ' + U.length;
-    if (chart) { box.replaceChildren(scatter(rows), el('span', 'sm', 'Each dot is a stock; click one to open it. The outer 2% on each side sit on the edge.')); return; }
-    if (S.sort.i >= 0) { const k = cols[S.sort.i].k, dir = S.sort.asc ? 1 : -1; rows = rows.slice().sort((a, b) => { const x = a[k], y = b[k]; if (x == null) return 1; if (y == null) return -1; return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir; }); }
-    const t = table(cols, rows.slice(0, S.n), {sorted: S.sort, sort: (i) => { S.sort = {i, asc: S.sort.i === i ? !S.sort.asc : typeof U[0][cols[i].k] === 'string'}; draw(); },
-      click: (r, tr) => { const nx = tr.nextSibling; if (nx && nx.classList.contains('detail')) { nx.remove(); return; } const d2 = tr.parentNode.insertRow(tr.sectionRowIndex + 1); d2.className = 'detail'; const c = d2.insertCell(); c.colSpan = cols.length; c.appendChild(detail(r)); }});
+  const LISTS = [
+    {id: 'traits', name: 'PLTR-like', def: '<b>Mid-size companies with the traits past giants had.</b> Ranked 301–1,000 by size, with 4 or more of six traits, ordered by traits met and then by the past odds for their size.',
+      cols: [{h: '#', f: (r) => r.rk, v: (r) => r.rk, n: 1, asc: 1}, C.t, C.n, {h: 'Traits', tip: D.traits, f: traits, v: (r) => r.gt}, {h: 'Past odds', tip: D.odds, f: (r) => pc(r.od, 1), v: (r) => r.od, n: 1}, C.g, C.k]},
+    {id: 'druck', name: 'Druckenmiller', def: '<b>What Stanley Druckenmiller’s family office owned on ' + asof + '.</b> His last move is against the quarter before. About 54 of 90 positions were read; the rest arrive with the next filing.',
+      cols: [C.t, C.n, {h: 'His move', tip: D.move, f: (r) => chip(MOVE[r.dk] || r.dk, r.dk), v: (r) => ['new', 'added', 'held', 'cut'].indexOf(r.dk), asc: 1}, C.g, C.p, {h: 'Also on', tip: D.also, f: also('druck'), hs: 1}]},
+    {id: 'core', name: 'Core holdings', def: '<b>Stocks that 3 or more of the ' + NF + ' tracked funds own.</b> The more funds and the longer they have held, the more it is a shared core position.',
+      cols: [C.t, C.n, {h: 'Funds holding', tip: D.nf, f: bar, v: (r) => r.nf}, {h: 'Top 10 for', tip: D.top, f: (r) => r.top, v: (r) => r.top, n: 1}, {h: 'Avg weight', tip: D.avgw, f: (r) => pc(r.avgw, 1), v: (r) => r.avgw, n: 1},
+        {h: 'Held 4+ quarters', tip: D.long, f: (r) => r.long, v: (r) => r.long, n: 1}, {h: 'Also on', tip: D.also, f: also('core'), hs: 1}], sort: [2, false]},
+    {id: 'adding', name: 'Doubling down', def: '<b>Stocks funds already owned and bought more of last quarter.</b> At least one fund added, and no more funds cut than added. Brand-new positions don’t count.',
+      cols: [C.t, C.n, {h: 'Adding', tip: D.add, f: (r) => r.nAdd, v: (r) => r.nAdd, n: 1}, {h: 'Added twice running', tip: D.twice, f: (r) => r.twice, v: (r) => r.twice, n: 1}, {h: 'Holding', tip: D.flat, f: (r) => r.nFlat, v: (r) => r.nFlat, n: 1},
+        {h: 'Cutting', tip: D.cut, f: (r) => r.nCut, v: (r) => r.nCut, n: 1}, {h: 'Also on', tip: D.also, f: also('adding'), hs: 1}], order: (a, b) => b.nAdd - a.nAdd || b.twice - a.twice || b.nFlat - a.nFlat},
+    {id: 'funds', name: 'Hedge funds', funds: 1, def: '<b>' + NF + ' stock-picking funds and what they filed for ' + asof + '.</b> Pick a fund to see its holdings and what changed against ' + d.funds.prev + '.'},
+    {id: 'both', name: 'Analyst + technical', def: '<b>Your old method, minus circular financing.</b> Analysts rate it Buy or Strong buy and the price trend is a buy, among the 500 largest. Tested 1994–2024, it beat the average stock by 0.1 points: a starting list, not an edge.',
+      cols: [C.t, C.n].concat(hasAn ? [{h: 'Analysts', tip: D.an, f: an, v: (r) => r.an ? -r.an[1] : null}] : []).concat([{h: 'Technical', tip: D.tech, f: tech, v: (r) => r.te}, C.p6, C.p, C.g, {h: 'Also on', tip: D.also, f: also('both'), hs: 1}]), sort: [hasAn ? 3 : 2, false]},
+  ];
+  const FCOLS = [{h: 'Fund', f: (f) => el('span', 'tk', f.name), v: (f) => f.name}, {h: 'Size, $B', tip: D.fsize, f: (f) => nm(f.bn), v: (f) => f.bn, n: 1}, {h: 'Positions', tip: D.fn, f: (f) => f.n, v: (f) => f.n, n: 1},
+    {h: 'Top 10 share', tip: D.ftop, f: (f) => pc(f.top10), v: (f) => f.top10, n: 1}, {h: 'Largest', tip: D.fbig, f: (f) => f.h[0] ? (f.h[0][0] || f.h[0][1]) : '–', v: (f) => f.h[0] ? (f.h[0][0] || f.h[0][1]) : '', hs: 1},
+    {h: 'New', tip: D.move, f: (f) => f.counts.new, v: (f) => f.counts.new, n: 1}, {h: 'Added', tip: D.move, f: (f) => f.counts.added, v: (f) => f.counts.added, n: 1}, {h: 'Cut', tip: D.move, f: (f) => f.counts.cut, v: (f) => f.counts.cut, n: 1}];
+  for (const L of LISTS) { L.rows = L.funds ? F : U.filter(IN[L.id]); if (L.id === 'traits') L.rows.sort((a, b) => a.rk - b.rk); if (L.order) L.rows.sort(L.order); L.s = L.sort ? {i: L.sort[0], asc: L.sort[1]} : {i: -1, asc: false}; }
+  LISTS[1].rows.sort((a, b) => ['new', 'added', 'held', 'cut'].indexOf(a.dk) - ['new', 'added', 'held', 'cut'].indexOf(b.dk) || a.k - b.k);
+
+  /* table */
+  function table(cols, rows, opt = {}) { const t = el('table'), hr = t.createTHead().insertRow();
+    cols.forEach((c, i) => { const th = el('th', (c.n ? 'num ' : '') + (c.hs ? 'hide-s ' : '') + (opt.sort && c.v ? 'sort' : '')); th.appendChild(el('span', '', c.h)); if (c.tip) th.dataset.tip = c.tip;
+      if (opt.sort && c.v) { th.tabIndex = 0; if (opt.sorted && opt.sorted.i === i) th.setAttribute('aria-sort', opt.sorted.asc ? 'ascending' : 'descending'); th.onclick = () => opt.sort(i); th.onkeydown = (e) => { if (e.key === 'Enter') opt.sort(i); }; } hr.appendChild(th); });
+    const tb = t.createTBody();
+    rows.forEach((r) => { const tr = tb.insertRow(); if (opt.click) { tr.className = 'row'; tr.tabIndex = 0; tr.onclick = () => opt.click(r); tr.onkeydown = (e) => { if (e.key === 'Enter') opt.click(r); }; }
+      cols.forEach((c) => { const td = tr.insertCell(); td.className = (c.n ? 'num ' : '') + (c.hs ? 'hide-s ' : '') + (c.cls ? c.cls(r) : ''); const v = c.f(r); if (v instanceof Node) td.appendChild(v); else td.textContent = v; }); });
+    return t; }
+  const sorted = (rows, cols, s) => { if (s.i < 0) return rows; const v = cols[s.i].v, dir = s.asc ? 1 : -1; return rows.slice().sort((a, b) => { const x = v(a), y = v(b); if (x == null) return 1; if (y == null) return -1; return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir; }); };
+
+  /* view */
+  const S = {list: 'traits', q: '', sector: '', n: 50};
+  const sectors = [...new Set(U.map((r) => r.s))].sort(), selS = el('select', 'ghost'); selS.setAttribute('aria-label', 'Sector');
+  [['', 'All sectors']].concat(sectors.map((x) => [x, x])).forEach(([v, t]) => { const o = el('option', '', t); o.value = v; selS.appendChild(o); }); selS.onchange = () => { S.sector = selS.value; S.n = 50; draw(); };
+  const dl = el('button', 'ghost', 'Download'); tipped(dl, 'Save this list as a spreadsheet file.');
+  $('#tools').append(selS, dl);
+  LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.append(L.name, el('i', '', String(L.rows.length))); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
+  const cur = () => LISTS.find((L) => L.id === S.list);
+  const pick = (id) => { S.list = id; S.n = 50; try { history.replaceState(null, '', '#' + id); } catch (_) {} draw(); };
+  function visible() { const L = cur(), q = S.q; return L.rows.filter((r) => L.funds ? (!q || r.name.toLowerCase().includes(q)) : ((!q || r.t.toLowerCase().startsWith(q) || r.n.toLowerCase().includes(q)) && (!S.sector || r.s === S.sector))); }
+  function draw() { const L = cur(), cols = L.funds ? FCOLS : L.cols; LISTS.forEach((x) => $('#l-' + x.id).setAttribute('aria-selected', x.id === L.id)); $('#l-' + L.id).scrollIntoView({block: 'nearest', inline: 'nearest'});
+    $('#def').innerHTML = L.def; selS.hidden = dl.hidden = !!L.funds;
+    const note = $('#notice'); note.hidden = true;
+    if (L.id === 'both' && !hasAn) { note.hidden = false; note.textContent = 'Analyst ratings aren’t connected yet, so this shows the technical half only. They fill in after the free ratings key is added.'; }
+    if (L.id === 'druck' && d.druck.out.length) { note.hidden = false; note.textContent = d.druck.out.length + ' more positions sit outside the 1,000 largest and have no numbers here: ' + d.druck.out.map((x) => x[0] + ' (' + MOVE[x[1]].toLowerCase() + ')').join(', ') + '.'; }
+    if (L.funds) { note.hidden = false; note.textContent = D.f13; }
+    const rows = sorted(visible(), cols, L.s), box = $('#box');
+    const t = table(cols, rows.slice(0, S.n), {sorted: L.s, sort: (i) => { L.s = {i, asc: L.s.i === i ? !L.s.asc : !!cols[i].asc || (rows.length > 0 && typeof cols[i].v(rows[0]) === 'string')}; draw(); }, click: (r) => L.funds ? openPanel(() => fundPanel(F.indexOf(r))) : openPanel(() => stockPanel(r))});
     box.replaceChildren(t);
-    if (rows.length > S.n) { const more = el('button', '', 'Show more'); more.onclick = () => { S.n += 100; draw(); }; box.appendChild(more); }
-  }
-  draw();
-  const openStock = (t) => { if (!byT[t]) return; reset.onclick(); S.view = 'Table'; [...segs.querySelectorAll('.view')].forEach((x) => x.setAttribute('aria-pressed', x.textContent === 'Table')); search.value = t; S.q = t.toLowerCase(); draw(); show('screener'); const tr = [...box.querySelectorAll('tr.r')].find((x) => x.cells[0].textContent === t); if (tr) tr.click(); };
-  const tk = (t) => { if (!t || !byT[t]) return t || '—'; const b = el('a', '', t); b.href = '#screener'; b.onclick = (e) => { e.preventDefault(); openStock(t); }; return b; };
+    if (!rows.length) { const e = el('div', 'empty'), hit = byT[S.q.toUpperCase()]; e.textContent = hit ? hit.t + ' is not on this list. ' : 'Nothing on this list matches. ';
+      if (hit) { const b = el('button', 'linkish', 'Open ' + hit.t); b.onclick = () => openPanel(() => stockPanel(hit)); e.appendChild(b); } else if (S.q || S.sector) { const b = el('button', 'linkish', 'Clear the filters'); b.onclick = () => { S.q = ''; S.sector = ''; $('#q').value = ''; selS.value = ''; draw(); }; e.appendChild(b); } box.appendChild(e); }
+    $('#more').hidden = rows.length <= S.n; $('#more').textContent = 'Show ' + Math.min(100, rows.length - S.n) + ' more'; }
+  $('#more').onclick = () => { S.n += 100; draw(); };
+  $('#q').oninput = () => { S.q = $('#q').value.trim().toLowerCase(); S.n = 50; draw(); };
+  $('#q').onkeydown = (e) => { if (e.key === 'Enter') { const hit = byT[$('#q').value.trim().toUpperCase()]; if (hit) openPanel(() => stockPanel(hit)); } };
+  dl.onclick = () => { const L = cur(), keys = [['t', 'ticker'], ['n', 'company'], ['s', 'sector'], ['k', 'size_rank'], ['g', 'sales_growth_pct'], ['p6', 'price_6m_pct'], ['p', 'price_12m_pct'], ['gt', 'traits_of_6'], ['od', 'past_odds_pct'], ['nf', 'funds_holding'], ['nAdd', 'funds_adding'], ['nCut', 'funds_cutting'], ['te', 'technical_0_1_2'], ['dk', 'druckenmiller_move']];
+    const csv = [keys.map((k) => k[1]).join(',')].concat(sorted(visible(), L.cols, L.s).map((r) => keys.map((k) => r[k[0]] == null ? '' : '"' + String(r[k[0]]).replace(/"/g, '""') + '"').join(','))).join('\n');
+    const a = el('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'norman-' + L.id + '.csv'; a.click(); URL.revokeObjectURL(a.href); };
 
-  // ---- overview
-  const h = d.home, ov = $('#v-overview'), cards = el('div', 'grid');
-  const card = (k, big, small, to, cls) => { const b = el('button', 'card'); b.append(el('span', 'sm', k), el('b', cls || '', big), el('span', 'sm', small)); b.onclick = () => show(to); return b; };
-  cards.append(card('Macro', h.shock_on + ' of ' + h.shock_total, 'price-shock warnings on', 'macro', h.shock_on >= 2 ? 'bad' : ''),
-    card('Book since ' + h.since, sp(h.book, 1), 'S&P ' + sp(h.spx, 1) + ' · 30% pace ' + sp(h.pace, 1), 'book'),
-    card('Your picks', pc(h.tactical, 1), 'of a ' + pc(h.cap) + ' cap · ' + h.names + ' of ' + h.max_names + ' names', 'book'),
-    card('To do', '', h.todo, 'book'));
-  const two = el('div', 'two'), top = (title, rows, cols) => { const c = el('div', 'col'); c.append(el('h2', '', title), table(cols, rows)); return c; };
-  two.append(top('Most bought by tracked funds, last quarter', U.filter((r) => r.nb > 0).sort((a, b) => b.nb - a.nb || b.nf - a.nf).slice(0, 8), [{h: 'Ticker', f: (r) => tk(r.t)}, {h: 'Company', f: (r) => r.n}, {h: 'Buying', n: 1, f: (r) => r.nb}, {h: 'Holding', n: 1, f: (r) => r.nf}]),
-    top('Look most like past giants', U.filter((r) => r.k > 300 && r.gt >= 5).sort((a, b) => b.gt - a.gt || a.k - b.k).slice(0, 8), [{h: 'Ticker', f: (r) => tk(r.t)}, {h: 'Company', f: (r) => r.n}, {h: 'Traits', n: 1, f: (r) => r.gt + '/6'}, {h: 'Past odds', n: 1, f: (r) => pc(r.od, 1)}]));
-  ov.append(cards, two);
+  /* drawer */
+  const stack = [], drawer = $('#drawer'), veil = $('#veil'); let lastFocus = null;
+  const paint = () => { $('#d-body').replaceChildren(...stack[stack.length - 1]()); $('#d-body').scrollTop = 0; $('#d-back').hidden = stack.length < 2; };
+  function openPanel(fn, push) { if (!push) stack.length = 0; stack.push(fn); if (drawer.hidden) { lastFocus = document.activeElement; drawer.hidden = veil.hidden = false; requestAnimationFrame(() => drawer.classList.add('open')); } paint(); $('#d-close').focus(); }
+  const closePanel = () => { drawer.classList.remove('open'); drawer.hidden = veil.hidden = true; stack.length = 0; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+  $('#d-close').onclick = veil.onclick = closePanel; $('#d-back').onclick = () => { stack.pop(); paint(); };
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) closePanel(); });
+  const kv = (pairs) => { const g = el('div', 'kv'); pairs.forEach(([k, v, tip, cls]) => { const x = el('div'); x.append(tipped(el('span', '', k), tip, true), el('span', cls || '', String(v))); g.appendChild(x); }); return g; };
+  const sec = (title, ...kids) => { const s = el('div'); s.append(el('h3', '', title), ...kids); return s; };
+  const sgn = (v) => v == null ? '' : v < 0 ? 'down' : 'up';
+  const tlink = (t) => { if (!t || !byT[t]) return document.createTextNode(t || '–'); const b = el('button', 'linkish', t); b.onclick = (e) => { e.stopPropagation(); openPanel(() => stockPanel(byT[t]), true); }; return b; };
 
-  // ---- funds
-  const fv = $('#v-funds'), agg = el('div', 'row'), aggBox = el('div'), fund = el('div', 'fund'), fl = el('div', 'flist'), fb = el('div', 'col');
-  const AG = {'Most held': (r) => r.nf, 'Most bought': (r) => r.nb, 'Most sold': (r) => r.ns};
-  const drawAgg = (k) => { [...agg.querySelectorAll('.seg')].forEach((b) => b.setAttribute('aria-pressed', b.textContent === k));
-    aggBox.replaceChildren(table([{h: 'Ticker', f: (r) => tk(r.t)}, {h: 'Company', f: (r) => r.n}, {h: 'Holding', n: 1, f: (r) => r.nf}, {h: 'Buying', n: 1, f: (r) => r.nb}, {h: 'Selling', n: 1, f: (r) => r.ns}], U.filter((r) => AG[k](r) > 0).sort((a, b) => AG[k](b) - AG[k](a) || b.nf - a.nf).slice(0, 12))); };
-  agg.appendChild(el('h2', '', 'Across ' + F.length + ' funds'));
-  Object.keys(AG).forEach((k) => { const b = el('button', 'seg', k); b.onclick = () => drawAgg(k); agg.appendChild(b); });
-  let fsel = 0, fchg = 'All';
-  const drawFund = (i) => { fsel = i; const f = F[i]; [...fl.children].forEach((b, j) => b.setAttribute('aria-pressed', j === i));
-    const head = el('div', 'row'); head.append(el('b', '', f.name), el('span', 'sm', '$' + f.bn + 'B · ' + f.n + ' positions · top 10 = ' + f.top10 + '% · ' + f.counts.new + ' new, ' + f.counts.added + ' added, ' + f.counts.cut + ' cut'));
-    const kids = [head, table([{h: 'Ticker', f: (x) => tk(x[0])}, {h: 'Company', f: (x) => x[1]}, {h: '% of book', n: 1, f: (x) => pc(x[2], 1)}, {h: 'Last quarter', f: (x) => CH[x[3]], cls: (x) => x[3] === 'new' || x[3] === 'added' ? 'good' : x[3] === 'cut' ? 'bad' : ''}, {h: 'Shares', n: 1, f: (x) => x[3] === 'new' ? '—' : sp(x[4])}], f.h.filter((x) => fchg === 'All' || CH[x[3]] === fchg))];
-    const fs = el('div', 'row'); ['All', 'New', 'Added', 'Cut', 'Held'].forEach((k) => { const b = el('button', 'seg', k); b.setAttribute('aria-pressed', k === fchg); b.onclick = () => { fchg = k; drawFund(fsel); }; fs.appendChild(b); }); kids.splice(1, 0, fs);
-    if (f.sold.length) { const s = el('p', 'sm', 'Sold out: '); f.sold.forEach((x, j) => { s.append(x[0] ? tk(x[0]) : x[1], j < f.sold.length - 1 ? ', ' : ''); }); kids.push(s); }
-    if (f.hidden_n) kids.push(el('p', 'sm', f.hidden_n + ' position' + (f.hidden_n > 1 ? 's' : '') + ' (' + pc(f.hidden_w, 1) + ' of the book) not shown: names this desk cannot list.'));
-    fb.replaceChildren(...kids); };
-  F.forEach((f, i) => { const b = el('button'); b.append(el('span', '', f.name), el('span', 'sm', '$' + f.bn + 'B')); b.onclick = () => drawFund(i); fl.appendChild(b); });
-  fund.append(fl, fb);
-  fv.append(agg, aggBox, el('h2', '', 'Holdings as of ' + d.funds.asof + ' (13F; shares only, top 30 shown)'), fund);
-  drawAgg('Most bought'); drawFund(0);
+  function stockPanel(r) { const out = [], head = el('div');
+    head.append(el('h2', '', r.t), el('p', 'mut', r.n + ', ' + r.s + ', size rank ' + r.k)); out.push(head);
+    const chips = el('div'); if (r.held) chips.appendChild(chip('You hold it', 'new')); r.on.forEach((k) => { const b = el('button', 'chip'); b.textContent = LISTS.find((L) => L.id === k).name; b.style.border = '0'; b.onclick = () => { closePanel(); pick(k); }; chips.appendChild(b); });
+    if (r.dk) chips.appendChild(chip('Druckenmiller: ' + MOVE[r.dk].toLowerCase(), r.dk, D.move)); if (r.burry) chips.appendChild(chip('Burry short', 'bad', D.burry));
+    if (chips.childNodes.length) out.push(chips);
+    if (r.circ) { const p = el('p'); p.append(chip('Circular financing', 'bad', D.circ), r.why + '. '); if (r.src) { const a = el('a', '', 'Source'); a.href = r.src; a.target = '_blank'; a.rel = 'noopener'; p.appendChild(a); } out.push(p); }
+    out.push(sec('Growth and quality', kv([['Sales growth', sp(r.g), D.g, sgn(r.g)], ['Sales, $B', nm(r.sl), D.sl], ['Gross margin', pc(r.gm), D.gm], ['R&D / sales', pc(r.rd), D.rd], ['Cash flow / assets', pc(r.cf), D.cf], ['Cash less debt, $B', nm(r.nc), D.nc, sgn(r.nc)],
+      ['Share count, 1 yr', sp(r.sh, 1), D.sh], ['Three rules', r.ru + ' of 3', D.rules], ['Spending ÷ depreciation', nm(r.cd, 1, '×'), D.cd], ['Stock pay / sales', pc(r.sb), D.sb]])));
+    out.push(sec('Price and ratings', kv([['Price, 6 mo', sp(r.p6), D.p6, sgn(r.p6)], ['Price, 12 mo', sp(r.p), D.p, sgn(r.p)], ['From 12-mo high', sp(r.oh), D.oh], ['Technical', r.te === 2 ? 'Strong buy' : r.te === 1 ? 'Buy' : 'Not a buy', D.tech],
+      ['Analysts', r.an ? r.an[0] + ' (' + r.an[1] + ')' : 'Not connected', D.an], ['Latest quarter', r.q, 'End of the latest quarter in the company’s filings.']])));
+    const ul = el('ul', 'checks'); TRAITS.forEach((t, i) => { const li = el('li', r.tb >> i & 1 ? 'on' : ''); const tx = el('span'); tx.append(t[0] + '. ', el('span', 'mut', t[1])); li.append(el('i'), tx); ul.appendChild(li); });
+    out.push(sec('PLTR-like traits: ' + r.gt + ' of 6' + (r.od != null ? ', past odds ' + pc(r.od, 1) : ', already large'), ul));
+    const own = r.own.slice().sort((a, b) => b[1] - a[1]);
+    out.push(sec('Tracked funds: ' + r.nf + ' of ' + NF + ' hold it', own.length ? cardOf(table([{h: 'Fund', f: (o) => { const b = el('button', 'linkish', F[o[0]].name); b.onclick = () => openPanel(() => fundPanel(o[0]), true); return b; }},
+      {h: 'Weight', tip: D.w, f: (o) => o[2] === 'sold' ? '–' : pc(o[1], 1), n: 1}, {h: 'Move', tip: D.move, f: (o) => chip(MOVE[o[2]], o[2])}, {h: 'Quarters', tip: D.qh, f: (o) => o[2] === 'sold' ? '–' : (o[3] >= 5 ? '5+' : o[3]), n: 1}], own)) : el('p', 'mut', 'None of the tracked funds holds it.')));
+    return out; }
+  const cardOf = (t) => { const c = el('div', 'card'), s = el('div', 'scroll'); s.appendChild(t); c.appendChild(s); return c; };
+  let fchg = 'All';
+  function fundPanel(i) { const f = F[i], out = [], head = el('div');
+    head.append(el('h2', '', f.name), el('p', 'mut', '$' + f.bn + 'B in ' + f.n + ' positions, ' + f.top10 + '% in the top ten, as of ' + asof)); out.push(head);
+    const seg = el('div', 'seg'); ['All', 'New', 'Added', 'Held', 'Cut'].forEach((k) => { const b = el('button', '', k + (k === 'All' ? '' : ' ' + f.counts[k.toLowerCase()])); b.setAttribute('aria-pressed', k === fchg); b.onclick = () => { fchg = k; paint(); }; seg.appendChild(b); }); out.push(seg);
+    const rows = f.h.filter((x) => fchg === 'All' || MOVE[x[3]] === fchg);
+    out.push(rows.length ? cardOf(table([{h: 'Ticker', f: (x) => x[0] ? tlink(x[0]) : el('span', 'mut', '–')}, {h: 'Company', f: (x) => el('span', 'co', x[1]), hs: 1}, {h: 'Weight', tip: D.w, f: (x) => pc(x[2], 1), n: 1}, {h: 'Move', tip: D.move, f: (x) => chip(MOVE[x[3]], x[3])},
+      {h: 'Shares', tip: D.dsh, f: (x) => x[3] === 'new' ? '–' : sp(x[4]), n: 1}, {h: 'Quarters', tip: D.qh, f: (x) => x[5] >= 5 ? '5+' : x[5], n: 1}], rows)) : el('p', 'mut', 'None among its 30 largest positions.'));
+    out.push(el('p', 'mut', 'The 30 largest positions are listed, so the counts above can be higher than the rows shown.'));
+    if (f.sold.length) { const p = el('p'); p.append(el('span', 'mut', 'Sold out last quarter: ')); f.sold.forEach((x, j) => { p.append(x[0] ? tlink(x[0]) : x[1], j < f.sold.length - 1 ? ', ' : ''); }); out.push(p); }
+    if (f.hidden_n) out.push(el('p', 'mut', f.hidden_n + (f.hidden_n > 1 ? ' positions' : ' position') + ' worth ' + pc(f.hidden_w, 1) + ' of the book ' + (f.hidden_n > 1 ? 'are' : 'is') + ' left out: names this desk cannot show.'));
+    return out; }
+  function macroPanel() { const head = el('div'); head.append(el('h2', '', d.home.shock_on + ' of ' + d.home.shock_total + ' price-shock warnings are on'), el('p', 'mut', D.shock));
+    const g = cardOf(table([{h: 'Warnings on', f: (x) => x.on}, {h: 'S&P next 12 mo, 1993–2009', f: (x) => sp(x.next12_1, 1), n: 1, cls: (x) => sgn(x.next12_1)}, {h: '2010–2026', f: (x) => sp(x.next12_2, 1), n: 1, cls: (x) => sgn(x.next12_2)}, {h: 'Times it fell', tip: 'Share of months after which the S&P was lower a year later, 2010–2026.', f: (x) => pc(x.down_2), n: 1}], d.gauge));
+    const kept = d.macro.filter((m) => m.kept), rest = d.macro.filter((m) => !m.kept), row = [{h: 'Warning', f: (m) => m.w}, {h: 'Now', f: (m) => chip(m.on ? 'On' : 'Off', m.on ? 'bad' : '')}];
+    const det = el('details'), sm = el('summary', 'mut', rest.length + ' other warnings were tested and did not hold up in both periods (' + rest.filter((m) => m.on).length + ' are on now)'); det.append(sm, cardOf(table(row, rest)));
+    return [head, sec('What stocks did next', g), sec('The three warnings', cardOf(table(row, kept))), det, el('p', 'mut', 'About one of 21 warnings would pass this test by luck, so the desk reads the gauge and does not trade on it.')]; }
+  function bookPanel() { const h = d.home, head = el('div'); head.append(el('h2', '', 'Book ' + sp(h.book, 1) + ' since ' + h.since), el('p', 'mut', 'S&P 500 ' + sp(h.spx, 1) + ' over the same days. A 30%-a-year pace would be ' + sp(h.pace, 1) + ' by now.'));
+    return [head, sec('Against its targets', cardOf(table([{h: 'Block', f: (r) => r[0]}, {h: 'Now', f: (r) => pc(r[1], 1), n: 1}, {h: 'Target', f: (r) => r[2]}], d.book))), sec('To do', el('p', '', h.todo)),
+      el('p', 'mut', 'Your picks: ' + h.names + ' of ' + h.max_names + ' names. A thesis card before every buy, a 30-day minimum hold, order sheets only.')]; }
+  function testsPanel() { const head = el('div'); head.append(el('h2', '', 'What was tested'), el('p', 'mut', 'Every idea was scored on past data before it could move money. None of the stock-picking models passed, so these lists are for reading, and you decide.'));
+    const dlx = el('dl', 'defs'); d.research.forEach((r) => { const dt = el('dt', '', r[0]), dd = el('dd'); dd.append(el('span', /Adopted/.test(r[1]) ? 'up' : '', r[1] + '. '), r[2]); dlx.append(dt, dd); }); return [head, dlx]; }
+  function defsPanel() { const head = el('div'); head.append(el('h2', '', 'Definitions'), el('p', 'mut', 'The same notes appear when you hover over or tap any underlined label.'));
+    const items = [['Size rank', D.rank], ['Sales growth', D.g], ['Gross margin', D.gm], ['R&D / sales', D.rd], ['Cash flow / assets', D.cf], ['Cash less debt', D.nc], ['Share count', D.sh], ['Three rules', D.rules], ['Spending ÷ depreciation', D.cd], ['Stock pay / sales', D.sb],
+      ['Price, 6 and 12 months', D.p], ['From 12-month high', D.oh], ['PLTR-like traits', TRAITS.map((t) => t[0]).join('; ') + '.'], ['Past odds', D.odds], ['Tracked funds', D.f13], ['Funds holding', D.nf], ['Top 10 for', D.top], ['Average weight', D.avgw], ['Held 4+ quarters', D.long],
+      ['New, Added, Held, Cut, Sold', D.move], ['Adding', D.add], ['Added twice running', D.twice], ['Technical', D.tech], ['Analysts', D.an], ['Circular financing', D.circ], ['Burry short', D.burry], ['Price-shock gauge', D.shock], ['Blue dot', D.held]];
+    const dlx = el('dl', 'defs'); items.forEach(([k, v]) => dlx.append(el('dt', '', k), el('dd', '', v))); return [head, dlx]; }
 
-  // ---- macro
-  const mv = $('#v-macro'), W = 640, H = 220, x = (i, k) => 70 + i * 140 + k * 46, y = (v) => 120 - v * 3.2, NS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.maxWidth = '640px'; svg.setAttribute('width', '100%'); svg.setAttribute('role', 'img');
-  svg.setAttribute('aria-label', 'Average S&P return over the next 12 months by number of price-shock warnings on');
-  const add = (tag, at, txt) => { const n = document.createElementNS(NS, tag); for (const k in at) n.setAttribute(k, at[k]); if (txt) n.textContent = txt; svg.appendChild(n); };
-  add('line', {x1: 40, x2: W - 10, y1: y(0), y2: y(0), stroke: 'var(--line)'});
-  d.gauge.forEach((g, i) => { [['next12_1', 'var(--a)'], ['next12_2', 'var(--b)']].forEach(([f, col], k) => { const v = g[f]; if (v == null) return;
-    add('rect', {x: x(i, k), width: 40, y: Math.min(y(v), y(0)), height: Math.abs(y(v) - y(0)), fill: col}); add('text', {x: x(i, k) + 20, y: v >= 0 ? y(v) - 5 : y(v) + 14, 'text-anchor': 'middle'}, sp(v)); });
-    add('text', {x: x(i, 0) + 43, y: H - 8, 'text-anchor': 'middle'}, g.on + ' on'); });
-  mv.append(el('h2', '', 'S&P over the next 12 months, by price-shock warnings on'), el('span', 'sm', 'Blue 1993–2009 · gold 2010–2026 · a reading, not a rule'), svg,
-    table([{h: 'Warning', f: (r) => r.w}, {h: 'Now', f: (r) => el('span', 'tag' + (r.on ? ' on' : ''), r.on ? 'ON' : 'off')}, {h: 'Held up in both halves', f: (r) => r.kept ? 'yes' : 'no'}], d.macro));
-
-  // ---- book and research
-  $('#v-book').append(table([{h: 'Block', f: (r) => r[0]}, {h: 'Now', n: 1, f: (r) => pc(r[1], 1)}, {h: 'Target', f: (r) => r[2]}], d.book), el('span', 'sm', 'A thesis card before every buy · 30-day minimum hold · order sheets only'));
-  $('#v-research').append(table([{h: 'What was tested', f: (r) => r[0]}, {h: 'Verdict', f: (r) => r[1]}, {h: 'Result', f: (r) => r[2]}], d.research));
-  $('#foot').textContent = 'Readings, not signals. No model moves money. Built ' + d.built.replace('T', ' ').slice(0, 16) + ' UTC.';
-  const start = (location.hash || '').slice(1); show(TABS.includes(start) ? start : 'overview');
+  /* top readouts and footer */
+  const h = d.home, ro = (label, big, small, tip, fn, cls) => { const b = el('button', 'readout'); b.append(el('span', '', label), el('b', cls || '', big), el('span', '', small)); tipped(b, tip); b.onclick = () => openPanel(fn); $('#readouts').appendChild(b); };
+  ro('Price shock', h.shock_on + ' of ' + h.shock_total, 'warnings on', D.shock, macroPanel, h.shock_on >= 2 ? 'warn' : '');
+  ro('Book', sp(h.book, 1), 'S&P ' + sp(h.spx, 1), D.book, bookPanel);
+  ro('Your picks', pc(h.tactical, 1), 'cap ' + pc(h.cap), D.picks, bookPanel);
+  $('#f-defs').onclick = () => openPanel(defsPanel); $('#f-tests').onclick = () => openPanel(testsPanel);
+  $('#built').textContent = 'Readings, not signals. Fund filings as of ' + asof + ', prices through ' + through + ', built ' + d.built.slice(0, 10) + '.';
+  const hash = (location.hash || '').slice(1); if (LISTS.some((L) => L.id === hash)) S.list = hash; draw();
 }
 </script></body></html>
