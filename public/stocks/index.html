@@ -74,6 +74,8 @@ footer{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut)
 .split{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--line);margin:4px 0 10px}.split i{display:block}.legend{display:flex;flex-wrap:wrap;gap:6px 18px}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:10px;height:10px;border-radius:3px}
 .star{background:none;border:0;padding:2px 8px 2px 0;color:var(--mut);font-size:15px;line-height:1;vertical-align:baseline}.star[aria-pressed=true]{color:var(--warn)}
 @media (min-width:900px){.lists{flex-wrap:wrap;overflow:visible}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.fchip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px}.fchip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.act td{vertical-align:top}.act .what{font-weight:500;margin-bottom:6px}.act td:nth-child(1){min-width:230px;max-width:340px}.act td:nth-child(2){min-width:240px}.act .seg{flex-wrap:nowrap;white-space:nowrap}
 /* tooltip */
 #tip{position:fixed;z-index:40;max-width:300px;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;pointer-events:none;box-shadow:var(--shadow)}
 @media (max-width:640px){.readouts{margin-left:0;width:100%}.readout{flex:1}.kv{grid-template-columns:1fr}.hide-s{display:none}td,th{padding:9px 10px}}
@@ -85,6 +87,7 @@ footer{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut)
 <nav class="lists" id="lists" role="tablist" aria-label="Lists"></nav>
 <section>
 <div class="viewhead"><p class="def" id="def"></p><div class="tools" id="tools"></div></div>
+<div class="chips" id="chips" hidden></div>
 <div class="notice" id="notice" hidden></div>
 <div class="card" id="tcard"><div class="scroll" id="box"></div></div>
 <div class="plan" id="plan" hidden></div>
@@ -209,33 +212,28 @@ function start(d) {
     g: {h: 'Sales growth', tip: D.g, ...signed('g')}, p: {h: 'Price, 12 mo', tip: D.p, ...signed('p')}, p6: {h: 'Price, 6 mo', tip: D.p6, ...signed('p6')},
     k: {h: 'Size rank', tip: D.rank, f: (r) => r.k, v: (r) => r.k, n: 1, asc: 1},
   };
+  const FILTERS = [
+    {id: 'traits', name: 'PLTR-like', tip: 'Mid-size companies (size rank 301–1,000) with 4 or more of the six traits that past giants shared.'},
+    {id: 'druck', name: 'Druckenmiller', tip: 'Owned by Stanley Druckenmiller’s family office on ' + asof + '. About 54 of 90 positions were read.'},
+    {id: 'core', name: 'Core holdings', tip: 'Owned by 3 or more of the ' + NF + ' tracked funds.'},
+    {id: 'adding', name: 'Doubling down', tip: 'A fund that already owned it bought more last quarter, and no more funds cut than added.'},
+    {id: 'both', name: 'Analyst + technical', tip: (hasAn ? 'Analysts rate it Buy or Strong buy and the price trend is a buy' : 'The price trend is a buy (analyst ratings are not connected)') + ', among the 500 largest, with circular-financing names removed. Tested 1994–2024: no edge, so a starting list only.'},
+    {id: 'star', name: '★ Starred', tip: D.star},
+  ];
+  const ICOLS = [C.t, C.n, {h: 'On lists', tip: D.also, f: also(''), v: (r) => r.on.length}, {h: 'Traits', tip: D.traits, f: traits, v: (r) => r.gt, hs: 1}, {h: 'Technical', tip: D.tech, f: tech, v: (r) => r.te}]
+    .concat(hasAn ? [{h: 'Analysts', tip: D.an, f: an, v: (r) => r.an ? -r.an[1] : null}] : []).concat([{h: 'Funds holding', tip: D.nf, f: bar, v: (r) => r.nf}, C.g, C.p6]);
   const LISTS = [
-    {id: 'plan', name: 'What to do', plan: 1, def: '<b>Your core, by the rules you adopted.</b> The split between S&P 500, equal weight and Nasdaq 100 comes from one thing: which had the best 12 months. Macro readings are shown, but they don’t move it.'},
+    {id: 'core', name: 'Core', plan: 1, def: '<b>Your core: what the warnings say, what to do, what you hold.</b> Actions marked “From your rules” follow rules you adopted. Actions marked “Your call” show the evidence and wait for you.'},
     {id: 'tact', name: 'Tactical', plan: 1, def: '<b>Your own picks, inside the 30% cap.</b> No model chooses these. The readings show what the lists, the funds and the price say about each one; the decision and the thesis are yours.'},
-    {id: 'traits', name: 'PLTR-like', def: '<b>Mid-size companies with the traits past giants had.</b> Ranked 301–1,000 by size, with 4 or more of six traits, ordered by traits met and then by the past odds for their size.',
-      cols: [{h: '#', f: (r) => r.rk, v: (r) => r.rk, n: 1, asc: 1}, C.t, C.n, {h: 'Traits', tip: D.traits, f: traits, v: (r) => r.gt}, {h: 'Past odds', tip: D.odds, f: (r) => pc(r.od, 1), v: (r) => r.od, n: 1}, C.g, C.k]},
-    {id: 'druck', name: 'Druckenmiller', def: '<b>What Stanley Druckenmiller’s family office owned on ' + asof + '.</b> His last move is against the quarter before. About 54 of 90 positions were read; the rest arrive with the next filing.',
-      cols: [C.t, C.n, {h: 'His move', tip: D.move, f: (r) => chip(MOVE[r.dk] || r.dk, r.dk), v: (r) => ['new', 'added', 'held', 'cut'].indexOf(r.dk), asc: 1}, C.g, C.p, {h: 'Also on', tip: D.also, f: also('druck'), hs: 1}]},
-    {id: 'core', name: 'Core holdings', def: '<b>Stocks that 3 or more of the ' + NF + ' tracked funds own.</b> The more funds and the longer they have held, the more it is a shared core position.',
-      cols: [C.t, C.n, {h: 'Funds holding', tip: D.nf, f: bar, v: (r) => r.nf}, {h: 'Top 10 for', tip: D.top, f: (r) => r.top, v: (r) => r.top, n: 1}, {h: 'Avg weight', tip: D.avgw, f: (r) => pc(r.avgw, 1), v: (r) => r.avgw, n: 1},
-        {h: 'Held 4+ quarters', tip: D.long, f: (r) => r.long, v: (r) => r.long, n: 1}, {h: 'Also on', tip: D.also, f: also('core'), hs: 1}], sort: [2, false]},
-    {id: 'adding', name: 'Doubling down', def: '<b>Stocks funds already owned and bought more of last quarter.</b> At least one fund added, and no more funds cut than added. Brand-new positions don’t count.',
-      cols: [C.t, C.n, {h: 'Adding', tip: D.add, f: (r) => r.nAdd, v: (r) => r.nAdd, n: 1}, {h: 'Added twice running', tip: D.twice, f: (r) => r.twice, v: (r) => r.twice, n: 1}, {h: 'Holding', tip: D.flat, f: (r) => r.nFlat, v: (r) => r.nFlat, n: 1},
-        {h: 'Cutting', tip: D.cut, f: (r) => r.nCut, v: (r) => r.nCut, n: 1}, {h: 'Also on', tip: D.also, f: also('adding'), hs: 1}], order: (a, b) => b.nAdd - a.nAdd || b.twice - a.twice || b.nFlat - a.nFlat},
+    {id: 'ideas', name: 'Ideas', def: '<b>One list of about 900 stocks. Turn on any filters together.</b> Each filter is a reading, not a signal. Star the ones you want on your shortlist.'},
     {id: 'funds', name: 'Hedge funds', funds: 1, def: '<b>' + NF + ' stock-picking funds and what they filed for ' + asof + '.</b> Pick a fund to see its holdings and what changed against ' + d.funds.prev + '.'},
-    {id: 'both', name: 'Analyst + technical', def: '<b>Your old method, minus circular financing.</b> Analysts rate it Buy or Strong buy and the price trend is a buy, among the 500 largest. Tested 1994–2024, it beat the average stock by 0.1 points: a starting list, not an edge.',
-      cols: [C.t, C.n].concat(hasAn ? [{h: 'Analysts', tip: D.an, f: an, v: (r) => r.an ? -r.an[1] : null}] : []).concat([{h: 'Technical', tip: D.tech, f: tech, v: (r) => r.te}, C.p6, C.p, C.g, {h: 'Also on', tip: D.also, f: also('both'), hs: 1}]), sort: [hasAn ? 3 : 2, false]},
-    {id: 'multi', name: '2+ lists', def: '<b>Stocks on two or more of the five stock lists.</b> Agreement between lists is a reason to read further, not a signal.',
-      cols: [C.t, C.n, {h: 'Lists', tip: D.nlists, f: (r) => r.on.length, v: (r) => r.on.length, n: 1}, {h: 'On', f: also('')}, C.g, C.p], order: (a, b) => b.on.length - a.on.length || a.k - b.k},
-    {id: 'short', name: 'Shortlist', def: '<b>The stocks you starred.</b> These are the ones to write a thesis card for before you buy. Saved in this browser only.',
-      cols: [C.t, C.n, {h: 'Lists', tip: D.nlists, f: (r) => r.on.length, v: (r) => r.on.length, n: 1}, {h: 'On', f: also('')}, C.g, C.p6, C.p]},
   ];
   const FCOLS = [{h: 'Fund', f: (f) => el('span', 'tk', f.name), v: (f) => f.name}, {h: 'Size, $B', tip: D.fsize, f: (f) => nm(f.bn), v: (f) => f.bn, n: 1}, {h: 'Positions', tip: D.fn, f: (f) => f.n, v: (f) => f.n, n: 1},
     {h: 'Top 10 share', tip: D.ftop, f: (f) => pc(f.top10), v: (f) => f.top10, n: 1}, {h: 'Largest', tip: D.fbig, f: (f) => f.h[0] ? (f.h[0][0] || f.h[0][1]) : '–', v: (f) => f.h[0] ? (f.h[0][0] || f.h[0][1]) : '', hs: 1},
     {h: 'New', tip: D.move, f: (f) => f.counts.new, v: (f) => f.counts.new, n: 1}, {h: 'Added', tip: D.move, f: (f) => f.counts.added, v: (f) => f.counts.added, n: 1}, {h: 'Cut', tip: D.move, f: (f) => f.counts.cut, v: (f) => f.counts.cut, n: 1}];
-  const ROWS = {plan: () => d.core.todo, tact: () => d.tact.rows, funds: () => F, multi: () => U.filter((r) => r.on.length >= 2), short: () => U.filter((r) => stars.has(r.t))};
-  for (const L of LISTS) { L.rows = ROWS[L.id] ? ROWS[L.id]() : U.filter(IN[L.id]); if (L.id === 'traits') L.rows.sort((a, b) => a.rk - b.rk); if (L.order) L.rows.sort(L.order); L.s = L.sort ? {i: L.sort[0], asc: L.sort[1]} : {i: -1, asc: false}; }
-  LISTS.find((L) => L.id === 'druck').rows.sort((a, b) => ['new', 'added', 'held', 'cut'].indexOf(a.dk) - ['new', 'added', 'held', 'cut'].indexOf(b.dk) || a.k - b.k);
+  for (const x of LISTS) x.s = {i: -1, asc: false};
+  let acts = {}; try { acts = JSON.parse(localStorage.getItem('norman-actions') || '{}') || {}; } catch (_) {}
+  const decide = (id, v) => { if (acts[id] === v) delete acts[id]; else acts[id] = v; try { localStorage.setItem('norman-actions', JSON.stringify(acts)); } catch (_) {} draw(); };
 
   /* table */
   function table(cols, rows, opt = {}) { const t = el('table'), hr = t.createTHead().insertRow();
@@ -248,80 +246,105 @@ function start(d) {
   const sorted = (rows, cols, s) => { if (s.i < 0) return rows; const v = cols[s.i].v, dir = s.asc ? 1 : -1; return rows.slice().sort((a, b) => { const x = v(a), y = v(b); if (x == null) return 1; if (y == null) return -1; return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir; }); };
 
   /* view */
-  const S = {list: 'plan', q: '', sector: '', n: 50};
+  const S = {list: 'core', q: '', sector: '', n: 50, f: new Set(), min: 0};
   const sectors = [...new Set(U.map((r) => r.s))].sort(), selS = el('select', 'ghost'); selS.setAttribute('aria-label', 'Sector');
   [['', 'All sectors']].concat(sectors.map((x) => [x, x])).forEach(([v, t]) => { const o = el('option', '', t); o.value = v; selS.appendChild(o); }); selS.onchange = () => { S.sector = selS.value; S.n = 50; draw(); };
-  const dl = el('button', 'ghost', 'Download'); tipped(dl, 'Save this list as a spreadsheet file.');
-  $('#tools').append(selS, dl);
-  LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.append(L.name, el('i', '', String(L.rows.length))); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
+  const selN = el('select', 'ghost'); selN.setAttribute('aria-label', 'Number of lists'); [['0', 'On any number of lists'], ['2', 'On 2 or more lists'], ['3', 'On 3 or more'], ['4', 'On 4 or more']].forEach(([v, t]) => { const o = el('option', '', t); o.value = v; selN.appendChild(o); }); selN.onchange = () => { S.min = +selN.value; S.n = 50; draw(); };
+  const dl = el('button', 'ghost', 'Download'); tipped(dl, 'Save the stocks shown as a spreadsheet file.');
+  $('#tools').append(selS, selN, dl);
+  FILTERS.forEach((f) => { const b = el('button', 'fchip', f.name); b.dataset.tip = f.tip; b.setAttribute('aria-pressed', 'false'); b.onclick = () => { S.f.has(f.id) ? S.f.delete(f.id) : S.f.add(f.id); S.n = 50; draw(); }; f.btn = b; $('#chips').appendChild(b); });
+  LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.append(L.name, el('i')); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
   const cur = () => LISTS.find((L) => L.id === S.list);
   const pick = (id) => { S.list = id; S.n = 50; try { history.replaceState(null, '', '#' + id); } catch (_) {} draw(); };
-  function visible() { const L = cur(), q = S.q; return L.rows.filter((r) => L.funds ? (!q || r.name.toLowerCase().includes(q)) : ((!q || r.t.toLowerCase().startsWith(q) || r.n.toLowerCase().includes(q)) && (!S.sector || r.s === S.sector))); }
-  function draw() { const L = cur(), cols = L.funds ? FCOLS : L.cols; const sh = LISTS.find((x) => x.id === 'short'); sh.rows = ROWS.short(); $('#l-short i').textContent = sh.rows.length; LISTS.forEach((x) => $('#l-' + x.id).setAttribute('aria-selected', x.id === L.id)); $('#l-' + L.id).scrollIntoView({block: 'nearest', inline: 'nearest'});
-    $('#def').innerHTML = L.def; selS.hidden = dl.hidden = !!(L.funds || L.plan); $('#tcard').hidden = !!L.plan; $('#plan').hidden = !L.plan;
-    if (L.plan) { $('#notice').hidden = true; $('#more').hidden = true; $('#plan').replaceChildren(...(L.id === 'tact' ? tactView() : planView())); return; }
+  const match = (r) => [...S.f].every((k) => k === 'star' ? stars.has(r.t) : IN[k](r)) && r.on.length >= S.min;
+  const clearAll = () => { S.f.clear(); S.min = 0; S.q = ''; S.sector = ''; selN.value = '0'; selS.value = ''; $('#q').value = ''; S.n = 50; draw(); };
+  function visible() { const L = cur(), q = S.q; return L.funds ? F.filter((f) => !q || f.name.toLowerCase().includes(q)) : U.filter((r) => (!q || r.t.toLowerCase().startsWith(q) || r.n.toLowerCase().includes(q)) && (!S.sector || r.s === S.sector) && match(r)); }
+  function draw() { const L = cur(), ideas = L.id === 'ideas'; LISTS.forEach((x) => $('#l-' + x.id).setAttribute('aria-selected', x.id === L.id)); $('#l-' + L.id).scrollIntoView({block: 'nearest', inline: 'nearest'});
+    const open = (list) => list.filter((a) => !acts[a.id]).length; $('#l-core i').textContent = open(d.core.actions) ? open(d.core.actions) + ' to decide' : ''; $('#l-tact i').textContent = open(d.tact.actions) ? open(d.tact.actions) + ' to decide' : ''; $('#l-funds i').textContent = F.length; if (!ideas && !$('#l-ideas i').textContent) $('#l-ideas i').textContent = U.length;
+    $('#def').innerHTML = L.def; selS.hidden = selN.hidden = dl.hidden = $('#chips').hidden = !ideas; $('#tcard').hidden = !!L.plan; $('#plan').hidden = !L.plan;
     const note = $('#notice'); note.hidden = true;
-    if (L.id === 'both' && !hasAn) { note.hidden = false; note.textContent = 'Analyst ratings aren’t connected yet, so this shows the technical half only. They fill in after the free ratings key is added.'; }
-    if (L.id === 'druck' && d.druck.out.length) { note.hidden = false; note.textContent = d.druck.out.length + ' more positions sit outside the 1,000 largest and have no numbers here: ' + d.druck.out.map((x) => x[0] + ' (' + MOVE[x[1]].toLowerCase() + ')').join(', ') + '.'; }
-    if (L.funds) { note.hidden = false; note.textContent = D.f13; }
-    if (L.id === 'multi' && !hasAn) { note.hidden = false; note.textContent = 'Analyst + technical counts on its technical half only until analyst ratings are connected, so some overlaps here are weaker than they look.'; }
-    const rows = sorted(visible(), cols, L.s), box = $('#box');
-    const t = table(cols, rows.slice(0, S.n), {sorted: L.s, sort: (i) => { L.s = {i, asc: L.s.i === i ? !L.s.asc : !!cols[i].asc || (rows.length > 0 && typeof cols[i].v(rows[0]) === 'string')}; draw(); }, click: (r) => L.funds ? openPanel(() => fundPanel(F.indexOf(r))) : openPanel(() => stockPanel(r))});
+    if (L.plan) { $('#more').hidden = true; $('#plan').replaceChildren(...(L.id === 'tact' ? tactView() : coreView())); return; }
+    const cols = L.funds ? FCOLS : ICOLS, notes = []; FILTERS.forEach((f) => f.btn.setAttribute('aria-pressed', S.f.has(f.id)));
+    if (L.funds) notes.push(D.f13);
+    if (ideas && S.f.has('both') && !hasAn) notes.push('Analyst ratings are not connected yet, so “Analyst + technical” is the technical half only.');
+    if (ideas && S.f.has('druck') && d.druck.out.length) notes.push(d.druck.out.length + ' more Druckenmiller positions sit outside the 1,000 largest and have no numbers here: ' + d.druck.out.map((x) => x[0]).join(', ') + '.');
+    if (notes.length) { note.hidden = false; note.textContent = notes.join(' '); }
+    let rows = visible(); rows = L.s.i < 0 && ideas ? rows.slice().sort((a, b) => b.on.length - a.on.length || a.k - b.k) : sorted(rows, cols, L.s); if (ideas) $('#l-ideas i').textContent = rows.length;
+    const box = $('#box'), t = table(cols, rows.slice(0, S.n), {sorted: L.s, sort: (i) => { L.s = {i, asc: L.s.i === i ? !L.s.asc : !!cols[i].asc || (rows.length > 0 && typeof cols[i].v(rows[0]) === 'string')}; draw(); }, click: (r) => L.funds ? openPanel(() => fundPanel(F.indexOf(r))) : openPanel(() => stockPanel(r))});
     box.replaceChildren(t);
-    if (!rows.length) { const e = el('div', 'empty'), hit = byT[S.q.toUpperCase()]; e.textContent = L.id === 'short' && !sh.rows.length ? 'Nothing starred yet. Tap the star next to any ticker to add it here. ' : hit ? hit.t + ' is not on this list. ' : 'Nothing on this list matches. ';
-      if (hit) { const b = el('button', 'linkish', 'Open ' + hit.t); b.onclick = () => openPanel(() => stockPanel(hit)); e.appendChild(b); } else if (S.q || S.sector) { const b = el('button', 'linkish', 'Clear the filters'); b.onclick = () => { S.q = ''; S.sector = ''; $('#q').value = ''; selS.value = ''; draw(); }; e.appendChild(b); } box.appendChild(e); }
+    if (!rows.length) { const e = el('div', 'empty'), hit = byT[S.q.toUpperCase()]; e.textContent = S.f.has('star') && !stars.size ? 'Nothing starred yet. Tap the star next to any ticker. ' : hit ? hit.t + ' does not pass the filters that are on. ' : 'No stock passes every filter that is on. ';
+      if (hit) { const b = el('button', 'linkish', 'Open ' + hit.t); b.onclick = () => openPanel(() => stockPanel(hit)); e.append(b, ' '); } const b2 = el('button', 'linkish', 'Clear the filters'); b2.onclick = clearAll; e.appendChild(b2); box.appendChild(e); }
     $('#more').hidden = rows.length <= S.n; $('#more').textContent = 'Show ' + Math.min(100, rows.length - S.n) + ' more'; }
   $('#more').onclick = () => { S.n += 100; draw(); };
-  $('#q').oninput = () => { S.q = $('#q').value.trim().toLowerCase(); S.n = 50; draw(); };
+  $('#q').oninput = () => { S.q = $('#q').value.trim().toLowerCase(); S.n = 50; if (cur().plan && S.q) S.list = 'ideas'; draw(); };
   $('#q').onkeydown = (e) => { if (e.key === 'Enter') { const hit = byT[$('#q').value.trim().toUpperCase()]; if (hit) openPanel(() => stockPanel(hit)); } };
-  dl.onclick = () => { const L = cur(), keys = [['t', 'ticker'], ['n', 'company'], ['s', 'sector'], ['k', 'size_rank'], ['g', 'sales_growth_pct'], ['p6', 'price_6m_pct'], ['p', 'price_12m_pct'], ['gt', 'traits_of_6'], ['od', 'past_odds_pct'], ['nf', 'funds_holding'], ['nAdd', 'funds_adding'], ['nCut', 'funds_cutting'], ['te', 'technical_0_1_2'], ['dk', 'druckenmiller_move']];
-    const csv = [keys.map((k) => k[1]).join(',')].concat(sorted(visible(), L.cols, L.s).map((r) => keys.map((k) => r[k[0]] == null ? '' : '"' + String(r[k[0]]).replace(/"/g, '""') + '"').join(','))).join('\n');
-    const a = el('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'norman-' + L.id + '.csv'; a.click(); URL.revokeObjectURL(a.href); };
+  dl.onclick = () => { const keys = [['t', 'ticker'], ['n', 'company'], ['s', 'sector'], ['k', 'size_rank'], ['g', 'sales_growth_pct'], ['p6', 'price_6m_pct'], ['p', 'price_12m_pct'], ['gt', 'traits_of_6'], ['od', 'past_odds_pct'], ['nf', 'funds_holding'], ['nAdd', 'funds_adding'], ['nCut', 'funds_cutting'], ['te', 'technical_0_1_2'], ['dk', 'druckenmiller_move']];
+    const csv = [keys.map((k) => k[1]).concat('lists').join(',')].concat(visible().map((r) => keys.map((k) => r[k[0]] == null ? '' : '"' + String(r[k[0]]).replace(/"/g, '""') + '"').concat('"' + r.on.map((k) => SHORT[k]).join(' | ') + '"').join(','))).join('\n');
+    const a = el('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'norman-ideas.csv'; a.click(); URL.revokeObjectURL(a.href); };
 
-  /* what to do */
-  function planView() { const c = d.core, NAME = {SPYM: 'S&P 500', RSP: 'S&P 500 equal weight', QQQM: 'Nasdaq 100'}, COL = {SPYM: 'var(--acc)', RSP: 'var(--up)', QQQM: 'var(--warn)', transit: 'var(--mut)'};
-    const pad = (title, ...kids) => { const x = el('div', 'card pad'); x.append(el('h3', '', title), ...kids); return x; };
-    const todo = el('ul', 'todo'); c.todo.forEach((t) => todo.appendChild(el('li', '', t)));
-    const race = cardOf(table([{h: 'Fund', f: (r) => { const s = el('span'); s.append(el('span', 'tk', r.fund), el('span', 'mut', '  ' + NAME[r.fund])); if (r.fund === c.leader) s.append(' ', chip('Leader', 'good', D.lead)); return s; }},
-      {h: '3 mo', f: (r) => sp(r.m3, 1), n: 1, cls: (r) => sgn(r.m3)}, {h: '6 mo', f: (r) => sp(r.m6, 1), n: 1, cls: (r) => sgn(r.m6)}, {h: '12 mo', tip: D.m12, f: (r) => sp(r.m12, 1), n: 1, cls: (r) => sgn(r.m12)},
-      {h: 'If the month ended now', tip: D.prov, f: (r) => r.prov == null ? '–' : sp(r.prov, 1), n: 1, cls: (r) => sgn(r.prov)}], c.race));
-    const thirds = cardOf(table([{h: 'Third', tip: D.thirds, f: (t) => el('span', 'tk', t.name)}, {h: 'Checks in', f: (t) => t.months}, {h: 'Next check', f: (t) => t.next}, {h: 'Holds', f: (t) => t.set ? t.fund : el('span', 'mut', 'Set at its first check')}], c.thirds));
-    const bar = el('div', 'split'), leg = el('div', 'legend'), seg = (k, w, label) => { if (w > 0) { const i = el('i'); i.style.width = (100 * w / c.target) + '%'; i.style.background = COL[k]; bar.appendChild(i); } const s = el('span'), i2 = el('i'); i2.style.background = COL[k]; s.append(i2, label + ' ' + pc(w, 1)); leg.appendChild(s); };
-    Object.keys(c.w).forEach((f) => seg(f, c.w[f], f)); seg('transit', c.transit, 'QSPNX, on its way in');
-    bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', 'Stock funds ' + pc(c.equity, 1) + ' of the book against a ' + pc(c.target) + ' target');
-    const kept = d.macro.filter((m) => m.kept), rest = d.macro.filter((m) => !m.kept), more = el('button', 'linkish', 'See all ' + d.macro.length + ' warnings'); more.onclick = () => openPanel(macroPanel);
-    const warn = cardOf(table([{h: 'Warning', f: (m) => m.w}, {h: 'Now', f: (m) => chip(m.on ? 'On' : 'Off', m.on ? 'bad' : '')}], kept));
+  /* shared pieces of the Core and Tactical pages */
+  const pad = (title, ...kids) => { const x = el('div', 'card pad'); x.append(el('h3', '', title), ...kids); return x; };
+  function sheet(list) { const t = table([
+      {h: 'Action', f: (a) => { const w = el('div'); w.append(el('div', 'what', a.what), chip(a.kind === 'rule' ? 'From your rules' : 'Your call', a.kind === 'rule' ? 'new' : '', a.kind === 'rule' ? 'This follows from a rule you adopted. The desk writes it on the next order sheet unless you say no.' : 'Not a rule. The evidence is shown and you decide.')); return w; }},
+      {h: 'Why', f: (a) => el('span', 'mut', a.why)}, {h: 'When', f: (a) => { const e = el('span', '', a.when); e.style.whiteSpace = 'nowrap'; return e; }},
+      {h: 'Your decision', tip: 'Saved in this browser only. Tap the same button again to clear it.', f: (a) => { const s = el('div', 'seg'); [['yes', 'Doing it'], ['no', 'Not doing it']].forEach(([v, l]) => { const b = el('button', '', l); b.setAttribute('aria-pressed', acts[a.id] === v); b.onclick = () => decide(a.id, v); s.appendChild(b); }); return s; }}], list);
+    t.classList.add('act'); const copy = el('button', 'ghost', 'Copy my decisions'), foot = el('div', 'tools'); foot.style.marginTop = '12px';
+    copy.onclick = async () => { const line = (v, label) => { const x = list.filter((a) => (acts[a.id] || '') === v); return x.length ? label + ':\n' + x.map((a) => '- ' + a.what).join('\n') : ''; }, txt = [line('yes', 'Doing'), line('no', 'Not doing'), line('', 'Undecided')].filter(Boolean).join('\n\n');
+      try { await navigator.clipboard.writeText(txt); copy.textContent = 'Copied'; } catch (_) { openPanel(() => { const pre = el('pre', '', txt); pre.style.whiteSpace = 'pre-wrap'; pre.style.font = 'inherit'; return [el('h2', '', 'Your decisions'), pre]; }); } };
+    foot.append(copy, el('span', 'mut', 'Saved in this browser only. Paste them to the desk and the order sheet follows what you chose.')); return [cardOf(t), foot]; }
+  const oddsLine = () => { const G = d.core.retest.gauge; return 'With 2 or more on and stocks near their high, stocks were 15% or more lower within a year ' + G.a[0] + '% of the time in 1955–92 and ' + G.b[0] + '% since 1993, against ' + G.a[1] + '% and ' + G.b[1] + '% otherwise.'; };
+  const keptTable = () => cardOf(table([{h: 'Warning', f: (m) => m.w}, {h: 'Now', f: (m) => chip(m.on ? 'On' : 'Off', m.on ? 'bad' : '')}], d.macro.filter((m) => m.kept)));
+
+  /* core */
+  function coreView() { const c = d.core, R = c.retest, G = R.gauge, COL = {SPYM: 'var(--acc)', RSP: 'var(--up)', QQQM: 'var(--warn)', transit: 'var(--mut)'}, NAME = {SPYM: 'S&P 500', RSP: 'S&P 500 equal weight', QQQM: 'Nasdaq 100'};
+    const rest = d.macro.filter((m) => !m.kept), more = el('button', 'linkish', 'See all ' + d.macro.length + ' warnings'); more.onclick = () => document.getElementById('w21').scrollIntoView({behavior: 'smooth'});
+    const p1 = el('p', 'mut', rest.filter((m) => m.on).length + ' of the ' + rest.length + ' other warnings are on. '); p1.appendChild(more);
     const after = cardOf(table([{h: 'Warnings on', tip: D.after, f: (x) => x.on}, {h: 'S&P 500', f: (x) => sp(x.spy, 1), n: 1, cls: (x) => sgn(x.spy)}, {h: 'Equal weight', f: (x) => sp(x.rsp, 1), n: 1, cls: (x) => sgn(x.rsp)}, {h: 'Nasdaq 100', f: (x) => sp(x.qqq, 1), n: 1, cls: (x) => sgn(x.qqq)}, {h: 'Months', f: (x) => x.months, n: 1}], c.after));
-    const two = el('div', 'two'), two2 = el('div', 'two'), p1 = el('p', 'mut', rest.filter((m) => m.on).length + ' of the ' + rest.length + ' other warnings are on. '); p1.appendChild(more);
-    two.append(pad('The race that sets the split, to the end of ' + c.asof, race, el('p', 'mut', 'The best 12-month return wins. Nothing else is used.')), pad('Your three thirds', thirds, el('p', 'mut', 'A third changes fund only at its own check, so the core never switches all at once.')));
-    two2.append(pad('Macro now: ' + d.home.shock_on + ' of ' + d.home.shock_total + ' price-shock warnings on', warn, p1), pad('The year after each reading, ' + c.after_span, after, el('p', 'mut', 'With 3 on, all three funds fell about the same, so the gauge says nothing about which one to hold. The fixed 10% hedge is there for that.')));
-    return [pad('Do now', todo), two, pad('Stock funds now: ' + pc(c.equity, 1) + ' of the book, target ' + pc(c.target), bar, leg, el('p', 'mut', 'Until each third makes its first check, the SPYM and RSP you hold count as the stock funds.')), two2, cashCard()]; }
-  function cashCard() { const k = d.core.cash, pad = (title, ...kids) => { const x = el('div', 'card pad'); x.append(el('h3', '', title), ...kids); return x; };
-    const yrs = k.three_years.reduce((a, y) => { const l = a[a.length - 1]; if (l && y === l[1] + 1) l[1] = y; else a.push([y, y]); return a; }, []).map(([a, b]) => a === b ? a : a + '–' + String(b).slice(2)).join(', ');
+    const top = el('div', 'two'); top.append(pad('Macro now: ' + d.home.shock_on + ' of ' + d.home.shock_total + ' price-shock warnings on', keptTable(), el('p', '', oddsLine()), p1),
+      pad('The year after each reading, ' + c.after_span, after, el('p', 'mut', 'All three funds fall together when the warnings are on, so the warnings say how much to hold in stocks, not which fund.')));
+    const hold = cardOf(table([{h: 'Holding', f: (h) => el('span', 'tk', h[0])}, {h: 'Part of', f: (h) => h[1]}, {h: 'Now', tip: 'Share of your whole book.', f: (h) => pc(h[2], 1), n: 1}, {h: 'Target', f: (h) => h[3]}], c.hold));
+    const bar = el('div', 'split'), leg = el('div', 'legend'), seg = (k, w, label) => { if (w > 0) { const i = el('i'); i.style.width = (100 * w / c.target) + '%'; i.style.background = COL[k]; bar.appendChild(i); } const s = el('span'), i2 = el('i'); i2.style.background = COL[k]; s.append(i2, label + ' ' + pc(w, 1)); leg.appendChild(s); };
+    Object.keys(c.w).forEach((f) => seg(f, c.w[f], f)); seg('transit', c.transit, 'QSPNX, on its way in'); bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', 'Stock funds ' + pc(c.equity, 1) + ' of the book against a ' + pc(c.target) + ' target');
+    const race = cardOf(table([{h: 'Fund', f: (r) => { const s = el('span'); s.append(el('span', 'tk', r.fund), el('span', 'mut', '  ' + NAME[r.fund])); if (r.fund === c.leader) s.append(' ', chip('Leader', 'good', D.lead)); return s; }},
+      {h: '3 mo', f: (r) => sp(r.m3, 1), n: 1, cls: (r) => sgn(r.m3)}, {h: '6 mo', f: (r) => sp(r.m6, 1), n: 1, cls: (r) => sgn(r.m6)}, {h: '12 mo', tip: D.m12, f: (r) => sp(r.m12, 1), n: 1, cls: (r) => sgn(r.m12)}, {h: 'If the month ended now', tip: D.prov, f: (r) => r.prov == null ? '–' : sp(r.prov, 1), n: 1, cls: (r) => sgn(r.prov)}], c.race));
+    const thirds = cardOf(table([{h: 'Third', tip: D.thirds, f: (t) => el('span', 'tk', t.name)}, {h: 'Checks in', f: (t) => t.months}, {h: 'Next check', f: (t) => t.next}, {h: 'Holds', f: (t) => t.set ? t.fund : el('span', 'mut', 'Set at its first check')}], c.thirds));
+    const two = el('div', 'two'); two.append(pad('Which stock fund: the 12-month race, to the end of ' + c.asof, race, el('p', 'mut', 'The best 12-month return wins. Nothing else is used.')), pad('Your three thirds', thirds, el('p', 'mut', 'A third changes fund only at its own check.')));
+    const VT = {'Warns ahead': 'On before falls in both periods: a 15% fall was at least 1.5 times as likely with it on, and it was already on at the peak, or in the six months before, for at least half the falls.', 'Mixed': 'Passed part of the test: one period only, or the odds without the early flags.',
+      'No signal': 'About the same chance of a fall with it on or off.', 'Lags': 'Switches on after the fall has started: near a high with it on, a fall was less likely than usual.', 'Too few cases': 'On in fewer than 24 near-high months before 1993, or no data that far back.'};
+    const vs = (x) => x[0] == null ? '–' : x[0] + '% vs ' + (x[1] == null ? '–' : x[1] + '%');
+    const w21 = cardOf(table([{h: 'Warning', f: (r) => r.w + (r.g ? ' ★' : '')}, {h: 'Now', f: (r) => chip(r.on ? 'On' : 'Off', r.on ? 'bad' : '')}, {h: '1955–92, on vs off', tip: 'How often stocks were 15% or more lower at some point in the next 12 months, with the warning on against off. Only months when stocks were within 5% of their high are counted. These years were never used to pick warnings.', f: (r) => vs(r.a), n: 1},
+      {h: '1993–2026, on vs off', tip: 'The same, for the years the first test used.', f: (r) => vs(r.b), n: 1}, {h: 'Flagged early', tip: 'Falls of 15% or more where the warning was already on at the peak or in the six months before it, out of the falls it has data for.', f: (r) => r.c[1] ? r.c[0] + ' of ' + r.c[1] : '–', n: 1},
+      {h: 'Verdict', f: (r) => chip(r.v, r.v === 'Warns ahead' ? 'good' : r.v === 'Lags' ? 'bad' : '', VT[r.v])}], R.rows));
+    const card21 = pad('The 21 warnings, retested as crash predictors', el('p', '', 'A warning only counts here if it was on while stocks were still near their high. Then: how often were stocks 15% or more lower at some point in the next year? The usual answer is ' + R.base[0] + '%.'), w21,
+      el('p', '', R.passes + ' of ' + R.n + ' passed in both periods (luck alone gives about ' + R.luck + '). ' + R.lags + ' are late: they switch on once the fall is under way, which is why most “recession signals” feel useless. The ones that lead are about prices: producer prices and inflation. Oil sits in the gauge with them (★) but fires too rarely to judge alone.'),
+      el('p', 'mut', 'Two or more of the three ★ warnings flagged ' + G.caught + ' of ' + G.falls + ' falls early (' + G.flagged.join(', ') + ') and missed ' + G.missed.length + ' that did not start with prices (' + G.missed.join(', ') + '). It raises the odds; it does not call the date.'));
+    card21.id = 'w21';
+    return [top, pad('Actions', ...sheet(c.actions)), pad('Your core holdings: stock funds ' + pc(c.equity, 1) + ' of the book, target ' + pc(c.target), hold, bar, leg), two, card21, cashCard()]; }
+  function cashCard() { const k = d.core.cash, G = d.core.retest.gauge;
     const hav = cardOf(table([{h: 'Warnings on', tip: 'Average return over the twelve months after a month with that many warnings on, ' + k.havens_span + '.', f: (x) => x.on}, {h: 'S&P 500', f: (x) => sp(x.spy, 1), n: 1, cls: (x) => sgn(x.spy)}, {h: 'T-bills', tip: 'Three-month Treasury bills: what SGOV or a money-market fund holds.', f: (x) => sp(x.bills, 1), n: 1, cls: (x) => sgn(x.bills)},
       {h: 'Gold', f: (x) => sp(x.gld, 1), n: 1, cls: (x) => sgn(x.gld)}, {h: 'Treasuries, 7–10 yr', f: (x) => sp(x.ief, 1), n: 1, cls: (x) => sgn(x.ief)}, {h: 'Months', f: (x) => x.months, n: 1}], k.havens));
-    const rule = cardOf(table([{h: 'Period', f: (x) => { const e = el('span', '', x.period); e.style.whiteSpace = 'nowrap'; return e; }}, {h: 'Held', tip: 'Return a year from holding the S&P 500 throughout.', f: (x) => sp(x.hold, 1), n: 1}, {h: 'Rule', tip: 'Return a year from holding T-bills in place of stocks in any month that follows a 3-of-3 reading, and stocks otherwise.', f: (x) => sp(x.cash, 1), n: 1},
-      {h: 'Worst, held', tip: 'Largest fall from a peak when holding stocks throughout.', f: (x) => pc(x.hold_dd), n: 1, cls: () => 'down'}, {h: 'Worst, rule', tip: 'Largest fall from a peak under the rule.', f: (x) => pc(x.cash_dd), n: 1, cls: () => 'down'}, {h: 'In T-bills', tip: 'Months the rule sat in T-bills, out of all months in the period.', f: (x) => x.months_cash + ' of ' + x.months, n: 1}], k.rule));
-    const two = el('div', 'two'), a = el('div'), b = el('div'); a.append(el('h3', '', 'The year after each reading, ' + k.havens_span), hav); b.append(el('h3', '', 'A rule that moves the stock funds to T-bills while 3 are on'), rule); two.append(a, b);
+    const rule = cardOf(table([{h: 'Period', f: (x) => { const e = el('span', '', x.period); e.style.whiteSpace = 'nowrap'; return e; }}, {h: 'Held', tip: 'Return a year from holding stocks throughout.', f: (x) => sp(x.hold, 1), n: 1}, {h: 'Rule', tip: 'Return a year from holding T-bills in any month after 2 or more price warnings were on, and stocks otherwise.', f: (x) => sp(x.rule, 1), n: 1, cls: (x) => x.rule >= x.hold ? 'up' : 'down'},
+      {h: 'Worst, held', tip: 'Largest fall from a peak when holding stocks throughout.', f: (x) => pc(x.hold_dd), n: 1}, {h: 'Worst, rule', tip: 'Largest fall from a peak under the rule.', f: (x) => pc(x.rule_dd), n: 1, cls: () => 'up'}, {h: 'In T-bills', tip: 'Months the rule sat in T-bills, out of all months in the period.', f: (x) => x.in_bills + ' of ' + x.months, n: 1}], G.rule));
+    const two = el('div', 'two'), a = el('div'), b = el('div'); a.append(el('h3', '', 'The year after each reading, ' + k.havens_span), hav); b.append(el('h3', '', 'A rule: T-bills while 2 or more price warnings are on'), rule); two.append(a, b);
     return pad('The cash option: T-bills (SGOV) yield about ' + k.bill_yield.toFixed(1) + '%, inflation is ' + k.cpi.toFixed(1) + '%', two,
-      el('p', '', 'After a 3-of-3 reading, T-bills beat stocks over the next year in ' + k.three_bills_win + '% of months: stocks ' + sp(k.three_stock, 1) + ', T-bills ' + sp(k.three_bills, 1) + ' (' + k.three_months + ' months since 1993, in ' + yrs + '). All three are on now.'),
-      el('p', 'mut', 'How far to trust it: not far yet. The three warnings were picked from 21 on this same history, so the rule is graded on its own homework, and it rests on four stretches. Cash dials on other triggers lost 2.8 points a year in 2015–26. It runs on paper from the Nov 10 close; no money moves unless you adopt it.')); }
-  function tactView() { const t = d.tact, COLS = ['var(--acc)', 'var(--up)', 'var(--warn)', 'var(--mut)'], pad = (title, ...kids) => { const x = el('div', 'card pad'); x.append(el('h3', '', title), ...kids); return x; };
+      el('p', '', 'The rule cut the worst drop in all four periods and earned less than holding in two of them. Gold did about as well as T-bills after a warning; longer Treasuries did worse.'),
+      el('p', 'mut', 'How far to trust it: the warning itself passed on 1955–92, years it was not chosen on, so the higher odds are real. As a full switch it is not clearly better than holding, and in a taxable account every switch realizes gains. It runs on paper; no money moves unless you adopt it.')); }
+
+  /* tactical */
+  function tactView() { const t = d.tact, COLS = ['var(--acc)', 'var(--up)', 'var(--warn)', 'var(--mut)'];
     const bar = el('div', 'split'), leg = el('div', 'legend'); t.rows.forEach((r, i) => { const s1 = el('i'); s1.style.width = (100 * r.w / t.cap) + '%'; s1.style.background = COLS[i % 4]; bar.appendChild(s1); const s2 = el('span'), i2 = el('i'); i2.style.background = COLS[i % 4]; s2.append(i2, r.label + ' ' + pc(r.w, 1)); leg.appendChild(s2); });
     bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', 'Your picks ' + pc(t.w, 1) + ' of the book against a ' + pc(t.cap) + ' cap');
-    const room = Math.max(0, t.cap - t.w), stocks = t.rows.filter((r) => r.stock && byT[r.t]).map((r) => Object.assign({w: r.w}, {r: byT[r.t]}));
-    const read = cardOf(table([{h: 'Ticker', f: (x) => tk(x.r)}, {h: 'Weight', tip: 'Share of your whole book.', f: (x) => pc(x.w, 1), n: 1}, {h: 'Technical', tip: D.tech, f: (x) => tech(x.r)}, {h: 'Funds holding', tip: D.nf, f: (x) => bar2(x.r)}, {h: 'Price, 6 mo', tip: D.p6, f: (x) => sp(x.r.p6), n: 1, cls: (x) => sgn(x.r.p6)},
-      {h: 'From high', tip: D.oh, f: (x) => sp(x.r.oh), n: 1}, {h: 'Sales growth', tip: D.g, f: (x) => sp(x.r.g), n: 1, cls: (x) => sgn(x.r.g)}, {h: 'On lists', tip: D.also, f: (x) => also('')(x.r), hs: 1}], stocks, {click: (x) => openPanel(() => stockPanel(x.r))}));
-    const why = cardOf(table([{h: 'Holding', f: (r) => el('span', 'tk', r.label)}, {h: 'Why you own it', f: (r) => r.why}, {h: 'Out if', f: (r) => { const u = el('ul'); u.style.margin = '0'; u.style.paddingLeft = '18px'; r.out.forEach((o) => u.appendChild(el('li', '', o))); return u; }}], t.rows));
-    const rules = el('ul', 'todo'); t.rules.forEach((x) => rules.appendChild(el('li', '', x)));
+    const room = Math.max(0, t.cap - t.w), stocks = t.rows.filter((r) => r.stock && byT[r.t]).map((r) => ({w: r.w, r: byT[r.t]}));
+    const read = cardOf(table([{h: 'Ticker', f: (x) => tk(x.r)}, {h: 'Weight', tip: 'Share of your whole book.', f: (x) => pc(x.w, 1), n: 1}, {h: 'Technical', tip: D.tech, f: (x) => tech(x.r)}].concat(hasAn ? [{h: 'Analysts', tip: D.an, f: (x) => an(x.r)}] : []).concat([{h: 'Funds holding', tip: D.nf, f: (x) => bar2(x.r)}, {h: 'Price, 6 mo', tip: D.p6, f: (x) => sp(x.r.p6), n: 1, cls: (x) => sgn(x.r.p6)},
+      {h: 'From high', tip: D.oh, f: (x) => sp(x.r.oh), n: 1}, {h: 'Sales growth', tip: D.g, f: (x) => sp(x.r.g), n: 1, cls: (x) => sgn(x.r.g)}, {h: 'On lists', tip: D.also, f: (x) => also('')(x.r), hs: 1}]), stocks, {click: (x) => openPanel(() => stockPanel(x.r))}));
+    const why = cardOf(table([{h: 'Holding', f: (r) => el('span', 'tk', r.label)}, {h: 'Now', f: (r) => pc(r.w, 1), n: 1}, {h: 'Why you own it', f: (r) => r.why}, {h: 'Out if', f: (r) => { const u = el('ul'); u.style.margin = '0'; u.style.paddingLeft = '18px'; r.out.forEach((o) => u.appendChild(el('li', '', o))); return u; }}], t.rows));
     const starred = U.filter((r) => stars.has(r.t) && !r.held), cand = (starred.length ? starred : U.filter((r) => r.on.length >= 2 && !r.held && !r.circ).sort((a, b) => b.on.length - a.on.length || a.k - b.k)).slice(0, 8);
-    const next = cardOf(table([{h: 'Ticker', f: tk}, {h: 'Company', f: co, hs: 1}, {h: 'Lists', tip: D.nlists, f: (r) => r.on.length, n: 1}, {h: 'On', f: also('')}, {h: 'Technical', tip: D.tech, f: tech}, {h: 'Funds adding', tip: D.add, f: (r) => r.nAdd, n: 1}, {h: 'Price, 6 mo', tip: D.p6, f: (r) => sp(r.p6), n: 1, cls: (r) => sgn(r.p6)}], cand, {click: (r) => openPanel(() => stockPanel(r))}));
-    const q3 = d.core.after.find((x) => x.on === 3), two = el('div', 'two');
-    two.append(pad('Before any new buy', rules), pad('Macro and your picks', el('p', '', 'With ' + d.home.shock_on + ' of ' + d.home.shock_total + ' price-shock warnings on, the Nasdaq 100 fell ' + pc(Math.abs(q3.qqq), 1) + ' and the S&P 500 ' + pc(Math.abs(q3.spy), 1) + ' on average over the next year (' + q3.months + ' months, ' + d.core.after_span + ').'),
-      el('p', 'mut', 'Single stocks fall with the market, growth names more than most. No rule sells on this. It is context for how large to make a new pick.')));
-    return [pad('Your picks: ' + pc(t.w, 1) + ' of the book, cap ' + pc(t.cap), bar, leg, el('p', 'mut', t.names + ' of ' + t.max + ' names. ' + pc(room, 1) + ' of the book is free under the cap.')),
-      pad('What the readings say about each stock', read, el('p', 'mut', 'Click a row for every number. Gold has no company readings.')), pad('Why you own each one, and what would end it', why), two,
-      pad(starred.length ? 'Your shortlist, for the next card' : 'Where a next pick could come from: stocks on the most lists', next, el('p', 'mut', starred.length ? 'Starred names you do not hold.' : 'Star any stock and this turns into your shortlist. Circular-financing names are left out.'))]; }
+    const next = cardOf(table([{h: 'Ticker', f: tk}, {h: 'Company', f: co, hs: 1}, {h: 'On lists', tip: D.also, f: also('')}, {h: 'Technical', tip: D.tech, f: tech}, {h: 'Funds adding', tip: D.add, f: (r) => r.nAdd, n: 1}, {h: 'Price, 6 mo', tip: D.p6, f: (r) => sp(r.p6), n: 1, cls: (r) => sgn(r.p6)}], cand, {click: (r) => openPanel(() => stockPanel(r))}));
+    const all = el('button', 'linkish', 'Open the full Ideas list'); all.onclick = () => pick('ideas'); const pn = el('p', 'mut', starred.length ? 'Starred names you do not hold. ' : 'Star any stock and this turns into your shortlist. Circular-financing names are left out. '); pn.appendChild(all);
+    const top = el('div', 'two'); top.append(pad('Macro now: ' + d.home.shock_on + ' of ' + d.home.shock_total + ' price-shock warnings on', keptTable(), el('p', '', oddsLine()), el('p', 'mut', 'Single stocks fall with the market, growth names more than most.')),
+      pad('What the readings say about each stock', read, el('p', 'mut', 'Click a row for every number. Gold has no company readings.')));
+    return [top, pad('Actions', ...sheet(t.actions)), pad('Your picks: ' + pc(t.w, 1) + ' of the book, cap ' + pc(t.cap), bar, leg, el('p', 'mut', t.names + ' of ' + t.max + ' names. ' + pc(room, 1) + ' of the book is free under the cap.'), why),
+      pad(starred.length ? 'Your shortlist, for the next card' : 'Where a next pick could come from: stocks on the most lists', next, pn)]; }
 
   /* drawer */
   const stack = [], drawer = $('#drawer'), veil = $('#veil'); let lastFocus = null;
@@ -337,7 +360,7 @@ function start(d) {
 
   function stockPanel(r) { const out = [], head = el('div');
     const h2 = el('h2'); h2.append(star(r, () => { paint(); draw(); }), r.t); head.append(h2, el('p', 'mut', r.n + ', ' + r.s + ', size rank ' + r.k)); out.push(head);
-    const chips = el('div'); if (r.held) chips.appendChild(chip('You hold it', 'new')); r.on.forEach((k) => { const b = el('button', 'chip'); b.textContent = LISTS.find((L) => L.id === k).name; b.style.border = '0'; b.onclick = () => { closePanel(); pick(k); }; chips.appendChild(b); });
+    const chips = el('div'); if (r.held) chips.appendChild(chip('You hold it', 'new')); r.on.forEach((k) => { const b = el('button', 'chip'); b.textContent = FILTERS.find((f) => f.id === k).name; b.style.border = '0'; b.onclick = () => { closePanel(); S.f = new Set([k]); S.min = 0; selN.value = '0'; pick('ideas'); }; chips.appendChild(b); });
     if (r.dk) chips.appendChild(chip('Druckenmiller: ' + MOVE[r.dk].toLowerCase(), r.dk, D.move)); if (r.burry) chips.appendChild(chip('Burry short', 'bad', D.burry));
     if (chips.childNodes.length) out.push(chips);
     if (r.circ) { const p = el('p'); p.append(chip('Circular financing', 'bad', D.circ), r.why + '. '); if (r.src) { const a = el('a', '', 'Source'); a.href = r.src; a.target = '_blank'; a.rel = 'noopener'; p.appendChild(a); } out.push(p); }
@@ -376,7 +399,7 @@ function start(d) {
   function defsPanel() { const head = el('div'); head.append(el('h2', '', 'Definitions'), el('p', 'mut', 'The same notes appear when you hover over or tap any underlined label.'));
     const items = [['Size rank', D.rank], ['Sales growth', D.g], ['Gross margin', D.gm], ['R&D / sales', D.rd], ['Cash flow / assets', D.cf], ['Cash less debt', D.nc], ['Share count', D.sh], ['Three rules', D.rules], ['Spending ÷ depreciation', D.cd], ['Stock pay / sales', D.sb],
       ['Price, 6 and 12 months', D.p], ['From 12-month high', D.oh], ['PLTR-like traits', TRAITS.map((t) => t[0]).join('; ') + '.'], ['Past odds', D.odds], ['Tracked funds', D.f13], ['Funds holding', D.nf], ['Top 10 for', D.top], ['Average weight', D.avgw], ['Held 4+ quarters', D.long],
-      ['New, Added, Held, Cut, Sold', D.move], ['Adding', D.add], ['Added twice running', D.twice], ['Technical', D.tech], ['Analysts', D.an], ['Circular financing', D.circ], ['Burry short', D.burry], ['Price-shock gauge', D.shock], ['Leader', D.lead], ['Thirds', D.thirds], ['Star and shortlist', D.star], ['2+ lists', D.nlists], ['Blue dot', D.held]];
+      ['New, Added, Held, Cut, Sold', D.move], ['Adding', D.add], ['Added twice running', D.twice], ['Technical', D.tech], ['Analysts', D.an], ['Circular financing', D.circ], ['Burry short', D.burry], ['Price-shock gauge', D.shock], ['From your rules / Your call', 'An action marked From your rules follows a rule you adopted. One marked Your call is not a rule: the evidence is shown and you decide.'], ['Leader', D.lead], ['Thirds', D.thirds], ['Star and shortlist', D.star], ['2+ lists', D.nlists], ['Blue dot', D.held]];
     const dlx = el('dl', 'defs'); items.forEach(([k, v]) => dlx.append(el('dt', '', k), el('dd', '', v))); return [head, dlx]; }
 
   /* top readouts and footer */
