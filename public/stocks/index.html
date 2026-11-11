@@ -76,6 +76,8 @@ footer{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut)
 @media (min-width:900px){.lists{flex-wrap:wrap;overflow:visible}}
 .chips{margin-bottom:12px}.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}.frow>b{font-weight:500;font-size:12px;color:var(--mut);min-width:86px}.frow select{padding:5px 8px;border-radius:999px}.fchip.quick{border-color:var(--acc);color:var(--acc)}.fchip.quick[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#fff}.fchip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px}.fchip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .act td{vertical-align:top}.act .what{font-weight:500;margin-bottom:6px}.act td:nth-child(1){min-width:230px;max-width:340px}.act td:nth-child(2){min-width:240px}.act .seg{flex-wrap:nowrap;white-space:nowrap}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin:14px 0}.opt{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}.opt.sel{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.opt h4{margin:0;font-size:15px;font-weight:600;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.opt h4 .linkish{font-weight:600;font-size:16px}.opt .card td,.opt .card th{padding:6px 10px}.opt p{margin:0}.opt ul{margin:0;padding-left:18px;color:var(--mut)}.opt li{margin:2px 0}.opt .lab{font-size:12px;font-weight:500}.opt button{margin-top:auto;align-self:flex-start}
 /* tooltip */
 #tip{position:fixed;z-index:40;max-width:300px;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;pointer-events:none;box-shadow:var(--shadow)}
 @media (max-width:640px){.readouts{margin-left:0;width:100%}.readout{flex:1}.kv{grid-template-columns:1fr}.hide-s{display:none}td,th{padding:9px 10px}}
@@ -287,7 +289,7 @@ function start(d) {
   const clearAll = () => { S.q = ''; $('#q').value = ''; apply({}); };
   function visible() { const L = cur(), q = S.q; return L.funds ? F.filter((f) => !q || f.name.toLowerCase().includes(q)) : U.filter((r) => (!q || r.t.toLowerCase().startsWith(q) || r.n.toLowerCase().includes(q)) && (!S.sector || r.s === S.sector) && match(r)); }
   function draw() { const L = cur(), ideas = L.id === 'ideas'; LISTS.forEach((x) => $('#l-' + x.id).setAttribute('aria-selected', x.id === L.id)); $('#l-' + L.id).scrollIntoView({block: 'nearest', inline: 'nearest'});
-    const open = (list) => list.filter((a) => !acts[a.id]).length; $('#l-core i').textContent = open(d.core.actions) ? open(d.core.actions) + ' to decide' : ''; $('#l-tact i').textContent = open(d.tact.actions) ? open(d.tact.actions) + ' to decide' : ''; $('#l-funds i').textContent = F.length; if (!ideas && !$('#l-ideas i').textContent) $('#l-ideas i').textContent = U.length;
+    $('#l-core i').textContent = acts['opt-core'] ? '' : 'choose an option'; $('#l-tact i').textContent = acts['opt-tact'] ? '' : 'choose an option'; $('#l-funds i').textContent = F.length; if (!ideas && !$('#l-ideas i').textContent) $('#l-ideas i').textContent = U.length;
     $('#def').innerHTML = L.def; selS.hidden = selN.hidden = dl.hidden = $('#chips').hidden = !ideas; $('#tcard').hidden = !!L.plan; $('#plan').hidden = !L.plan;
     const note = $('#notice'); note.hidden = true;
     if (L.plan) { $('#more').hidden = true; $('#plan').replaceChildren(...(L.id === 'tact' ? tactView() : coreView())); return; }
@@ -312,14 +314,20 @@ function start(d) {
 
   /* shared pieces of the Core and Tactical pages */
   const pad = (title, ...kids) => { const x = el('div', 'card pad'); x.append(el('h3', '', title), ...kids); return x; };
-  function sheet(list) { const t = table([
+  function sheet(list, m, key) { const t = table([
       {h: 'Action', f: (a) => { const w = el('div'); w.append(el('div', 'what', a.what), chip(a.kind === 'rule' ? 'From your rules' : 'Your call', a.kind === 'rule' ? 'new' : '', a.kind === 'rule' ? 'This follows from a rule you adopted. The desk writes it on the next order sheet unless you say no.' : 'Not a rule. The evidence is shown and you decide.')); return w; }},
       {h: 'Why', f: (a) => el('span', 'mut', a.why)}, {h: 'When', f: (a) => { const e = el('span', '', a.when); e.style.whiteSpace = 'nowrap'; return e; }},
       {h: 'Your decision', tip: 'Saved in this browser only. Tap the same button again to clear it.', f: (a) => { const s = el('div', 'seg'); [['yes', 'Doing it'], ['no', 'Not doing it']].forEach(([v, l]) => { const b = el('button', '', l); b.setAttribute('aria-pressed', acts[a.id] === v); b.onclick = () => decide(a.id, v); s.appendChild(b); }); return s; }}], list);
     t.classList.add('act'); const copy = el('button', 'ghost', 'Copy my decisions'), foot = el('div', 'tools'); foot.style.marginTop = '12px';
-    copy.onclick = async () => { const line = (v, label) => { const x = list.filter((a) => (acts[a.id] || '') === v); return x.length ? label + ':\n' + x.map((a) => '- ' + a.what).join('\n') : ''; }, txt = [line('yes', 'Doing'), line('no', 'Not doing'), line('', 'Undecided')].filter(Boolean).join('\n\n');
+    copy.onclick = async () => { const line = (v, label) => { const x = list.filter((a) => (acts[a.id] || '') === v); return x.length ? label + ':\n' + x.map((a) => '- ' + a.what).join('\n') : ''; }, pickd = m && m.options.find((o) => o.id === acts[key]), vk = key === 'opt-tact' ? d.tact.visions.cards.filter((c) => !c.held) : [], vl = (v, lab) => { const x = vk.filter((c) => (acts['vis-' + c.t] || '') === v).map((c) => c.t); return x.length ? lab + ': ' + x.join(', ') : ''; }, txt = [m ? 'Option chosen: ' + (pickd ? pickd.name + ' (' + pickd.what + ')' : 'none yet') : '', vl('yes', 'Visions to keep'), vl('no', 'Visions to drop'), vl('', 'Visions undecided'), line('yes', 'Doing'), line('no', 'Not doing'), line('', 'Undecided')].filter(Boolean).join('\n\n');
       try { await navigator.clipboard.writeText(txt); copy.textContent = 'Copied'; } catch (_) { openPanel(() => { const pre = el('pre', '', txt); pre.style.whiteSpace = 'pre-wrap'; pre.style.font = 'inherit'; return [el('h2', '', 'Your decisions'), pre]; }); } };
     foot.append(copy, el('span', 'mut', 'Saved in this browser only. Paste them to the desk and the order sheet follows what you chose.')); return [cardOf(t), foot]; }
+  function memo(m, key) { const grid = el('div', 'opts');
+    m.options.forEach((o) => { const c = el('div', 'opt' + (acts[key] === o.id ? ' sel' : '')), h = el('h4', '', o.name); if (o.id === m.pick) h.append(' ', chip('Fits the evidence best', 'new', m.read));
+      const ul = (items) => { const u = el('ul'); items.forEach((x) => u.appendChild(el('li', '', x))); return u; }, b = el('button', acts[key] === o.id ? 'btn' : 'ghost', acts[key] === o.id ? 'Chosen' : 'Choose this'); b.setAttribute('aria-pressed', acts[key] === o.id); b.onclick = () => decide(key, o.id);
+      c.append(h, el('p', '', o.what), el('span', 'lab', 'For'), ul(o.pros), el('span', 'lab', 'Against'), ul(o.cons), b); grid.appendChild(c); });
+    const rd = el('p', ''); rd.append(el('b', '', 'The desk’s read: '), m.read);
+    return pad('Your options', el('p', '', m.situation), grid, rd, el('p', 'mut', m.note)); }
   const oddsLine = () => { const G = d.core.retest.gauge; return 'With 2 or more on and stocks near their high, stocks were 15% or more lower within a year ' + G.a[0] + '% of the time in 1955–92 and ' + G.b[0] + '% since 1993, against ' + G.a[1] + '% and ' + G.b[1] + '% otherwise.'; };
   const keptTable = () => cardOf(table([{h: 'Warning', f: (m) => m.w}, {h: 'Now', f: (m) => chip(m.on ? 'On' : 'Off', m.on ? 'bad' : '')}], d.macro.filter((m) => m.kept)));
 
@@ -347,7 +355,7 @@ function start(d) {
       el('p', '', R.passes + ' of ' + R.n + ' passed in both periods (luck alone gives about ' + R.luck + '). ' + R.lags + ' are late: they switch on once the fall is under way, which is why most “recession signals” feel useless. The ones that lead are about prices: producer prices and inflation. Oil sits in the gauge with them (★) but fires too rarely to judge alone.'),
       el('p', 'mut', 'Two or more of the three ★ warnings flagged ' + G.caught + ' of ' + G.falls + ' falls early (' + G.flagged.join(', ') + ') and missed ' + G.missed.length + ' that did not start with prices (' + G.missed.join(', ') + '). It raises the odds; it does not call the date.'));
     card21.id = 'w21';
-    return [top, pad('Actions', ...sheet(c.actions)), pad('Your core holdings: stock funds ' + pc(c.equity, 1) + ' of the book, target ' + pc(c.target), hold, bar, leg), two, card21, cashCard()]; }
+    return [top, memo(c.memo, 'opt-core'), pad('Actions from your rules', ...sheet(c.actions, c.memo, 'opt-core')), pad('Your core holdings: stock funds ' + pc(c.equity, 1) + ' of the book, target ' + pc(c.target), hold, bar, leg), two, card21, cashCard()]; }
   function cashCard() { const k = d.core.cash, G = d.core.retest.gauge;
     const hav = cardOf(table([{h: 'Warnings on', tip: 'Average return over the twelve months after a month with that many warnings on, ' + k.havens_span + '.', f: (x) => x.on}, {h: 'S&P 500', f: (x) => sp(x.spy, 1), n: 1, cls: (x) => sgn(x.spy)}, {h: 'T-bills', tip: 'Three-month Treasury bills: what SGOV or a money-market fund holds.', f: (x) => sp(x.bills, 1), n: 1, cls: (x) => sgn(x.bills)},
       {h: 'Gold', f: (x) => sp(x.gld, 1), n: 1, cls: (x) => sgn(x.gld)}, {h: 'Treasuries, 7–10 yr', f: (x) => sp(x.ief, 1), n: 1, cls: (x) => sgn(x.ief)}, {h: 'Months', f: (x) => x.months, n: 1}], k.havens));
@@ -366,13 +374,22 @@ function start(d) {
     const read = cardOf(table([{h: 'Ticker', f: (x) => tk(x.r)}, {h: 'Weight', tip: 'Share of your whole book.', f: (x) => pc(x.w, 1), n: 1}, {h: 'Technical', tip: D.tech, f: (x) => tech(x.r)}].concat(hasAn ? [{h: 'Analysts', tip: D.an, f: (x) => an(x.r)}] : []).concat([{h: 'Funds holding', tip: D.nf, f: (x) => bar2(x.r)}, {h: 'Price, 6 mo', tip: D.p6, f: (x) => sp(x.r.p6), n: 1, cls: (x) => sgn(x.r.p6)},
       {h: 'From high', tip: D.oh, f: (x) => sp(x.r.oh), n: 1}, {h: 'Sales growth', tip: D.g, f: (x) => sp(x.r.g), n: 1, cls: (x) => sgn(x.r.g)}, {h: 'On lists', tip: D.also, f: (x) => also('')(x.r), hs: 1}]), stocks, {click: (x) => openPanel(() => stockPanel(x.r))}));
     const why = cardOf(table([{h: 'Holding', f: (r) => el('span', 'tk', r.label)}, {h: 'Now', f: (r) => pc(r.w, 1), n: 1}, {h: 'Why you own it', f: (r) => r.why}, {h: 'Out if', f: (r) => { const u = el('ul'); u.style.margin = '0'; u.style.paddingLeft = '18px'; r.out.forEach((o) => u.appendChild(el('li', '', o))); return u; }}], t.rows));
-    const starred = U.filter((r) => stars.has(r.t) && !r.held), cand = (starred.length ? starred : U.filter((r) => r.on.length >= 2 && !r.held && !r.circ).sort((a, b) => b.on.length - a.on.length || a.k - b.k)).slice(0, 8);
-    const next = cardOf(table([{h: 'Ticker', f: tk}, {h: 'Company', f: co, hs: 1}, {h: 'On lists', tip: D.also, f: also('')}, {h: 'Technical', tip: D.tech, f: tech}, {h: 'Funds adding', tip: D.add, f: (r) => r.nAdd, n: 1}, {h: 'Price, 6 mo', tip: D.p6, f: (r) => sp(r.p6), n: 1, cls: (r) => sgn(r.p6)}], cand, {click: (r) => openPanel(() => stockPanel(r))}));
-    const all = el('button', 'linkish', 'Open the full Ideas list'); all.onclick = () => pick('ideas'); const pn = el('p', 'mut', starred.length ? 'Starred names you do not hold. ' : 'Star any stock and this turns into your shortlist. Circular-financing names are left out. '); pn.appendChild(all);
+    const V = t.visions, ST = [['Intact', 'good', 'Every pillar holds.'], ['Watch', '', 'A pillar is close to its limit, or a leadership filing needs reading.'], ['Broken', 'bad', 'A pillar has failed: the reason to own it needs a fresh look.']];
+    const themes = el('ul', 'todo'); V.themes.forEach((x) => { const li = el('li'), s = el('span'); s.append(x.text + ' ', el('span', 'mut', '(' + x.source + ')')); li.appendChild(s); themes.appendChild(li); });
+    const vgrid = el('div', 'opts'); vgrid.style.gridTemplateColumns = 'repeat(auto-fit,minmax(min(100%,300px),1fr))'; V.cards.forEach((c) => { const r = byT[c.t], k = 'vis-' + c.t, box = el('div', 'opt' + (acts[k] === 'yes' ? ' sel' : '')), h = el('h4'); h.append(tlink(c.t), ' ', chip(ST[c.lvl][0], ST[c.lvl][1], ST[c.lvl][2]), chip(c.held ? 'You hold it' : 'Candidate', c.held ? 'new' : '', c.held ? D.held : 'A desk draft made by a rule, not a recommendation. Keep it, change it or drop it.'));
+      box.appendChild(h); if (c.does) box.appendChild(el('p', 'mut', c.does));
+      const line = (lab, txt) => { if (!txt) return; const p = el('p'); p.append(el('span', 'lab', lab + ' '), txt); box.appendChild(p); };
+      line('You would have to believe:', c.believe); line('Against:', c.against); if (c.out.length) line('Out if:', c.out.join('; ') + '.');
+      box.appendChild(cardOf(table([{h: 'Pillar', f: (x) => x.label}, {h: 'Now', f: (x) => x.now == null ? '–' : (x.unit !== '%' ? nm(x.now) : /growth|count/i.test(x.label) ? sp(x.now) : pc(x.now)), n: 1, cls: (x) => x.lvl === 2 ? 'down' : x.lvl === 1 ? 'warn' : ''}, {h: 'Holds while it', f: (x) => x.rule}], c.pillars)));
+      line('Who runs it:', c.runs ? c.runs + ' (desk draft: check). ' + c.lead : c.lead); line('AI spending:', c.ai);
+      if (!c.held) { const seg = el('div', 'seg'); [['yes', 'Keep, write the card'], ['no', 'Not for me']].forEach(([v, l]) => { const b = el('button', '', l); b.setAttribute('aria-pressed', acts[k] === v); b.onclick = () => decide(k, v); seg.appendChild(b); }); box.appendChild(seg); }
+      if (acts[k] === 'no') box.style.opacity = '.55'; vgrid.appendChild(box); });
+    const all = el('button', 'linkish', 'Look anything up in Ideas'); all.onclick = () => pick('ideas'); const pn = el('p', 'mut', 'This list stands still. A name changes only when a pillar breaks or recovers, the person running it changes, or you say so. Listed ' + V.listed + '; each is scored against the S&P from then. '); pn.appendChild(all);
+    const visCard = pad('Your long-term visions', el('p', '', 'What you have said you believe. Tell the desk to change any of it.'), themes, vgrid, pn);
     const top = el('div', 'two'); top.append(pad('Macro now: ' + d.home.shock_on + ' of ' + d.home.shock_total + ' price-shock warnings on', keptTable(), el('p', '', oddsLine()), el('p', 'mut', 'Single stocks fall with the market, growth names more than most.')),
       pad('What the readings say about each stock', read, el('p', 'mut', 'Click a row for every number. Gold has no company readings.')));
-    return [top, pad('Actions', ...sheet(t.actions)), pad('Your picks: ' + pc(t.w, 1) + ' of the book, cap ' + pc(t.cap), bar, leg, el('p', 'mut', t.names + ' of ' + t.max + ' names. ' + pc(room, 1) + ' of the book is free under the cap.'), why),
-      pad(starred.length ? 'Your shortlist, for the next card' : 'Where a next pick could come from: stocks on the most lists', next, pn)]; }
+    return [top, memo(t.memo, 'opt-tact'), pad('Actions from your rules', ...sheet(t.actions, t.memo, 'opt-tact')), pad('Your picks: ' + pc(t.w, 1) + ' of the book, cap ' + pc(t.cap), bar, leg, el('p', 'mut', t.names + ' of ' + t.max + ' names. ' + pc(room, 1) + ' of the book is free under the cap.'), why),
+      visCard]; }
 
   /* drawer */
   const stack = [], drawer = $('#drawer'), veil = $('#veil'); let lastFocus = null;
