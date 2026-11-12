@@ -250,12 +250,23 @@ function start(d) {
     ['Buybacks with cash', {f: ['buyback', 'netcash']}, 'Share count falling and more cash than debt. This pair was not in the rules of the test. The auditor scored it once afterwards: +4.7 points a year, ahead on 44 of 60 dates. It was chosen after seeing results, so it carries no verdict.']];
   const chg = (r) => { const f = document.createDocumentFragment(); CHG.forEach(([, name, short, tip], i) => { if (r.ch >> i & 1) f.appendChild(chip(short, i === 4 ? '' : 'good', name + '. ' + tip)); }); if (r.ins) f.appendChild(chip('Insiders ' + r.ins, 'new', TOG.insid[2])); if (r.ac != null && r.ac >= 0.1) f.appendChild(chip('Analysts ↑', 'new', TOG.warm[2])); return f; };
   const delta = (now, was) => now == null ? '–' : sp(now) + (was == null ? '' : now >= was + 5 ? ' ↑' : now <= was - 5 ? ' ↓' : '');
+  const yn = (b) => b ? 'yes' : 'no', SR = d.score || {}, sg1 = (k) => SR[k] ? (SR[k][0] > 0 ? '+' : '') + SR[k][0] : '?';
+  const SCT = 'The order of this list, 0 to 100: business 60 (20 each for top-third gross profit to assets, three years of 10%+ sales growth, not diluting) and price trend 40 (20 above its 10-month average, 20 above six months ago). On history, 1994 to 2023, stocks scoring under 40 lagged the average large stock by ' + Math.abs((SR['Score 0-39'] || [0])[0]) + ' points a year (reliable), those at 80 or more led by ' + sg1('Score 80-100') + ' (not reliable), and the ten highest were no better than the rest of the top. So it pushes weak names down the list; it does not name a winner. A measure that is not on file counts as no.';
+  const why = (r) => 'Business ' + 20 * [1, 2, 4].filter((b) => r.bz & b).length + ' of 60: top-third gross profit ' + (r.gpa == null ? 'not on file' : yn(r.bz & 1)) + ', steady growth ' + yn(r.bz & 2) + ', not diluting ' + yn(r.bz & 4) + '. Trend ' + 20 * (r.ma + r.m6) + ' of 40: above its 10-month average ' + yn(r.ma) + ', above six months ago ' + yn(r.m6) + '.';
+  const MEAS = {netcash: (r) => r.nc, cfp: (r) => r.cf, druck: (r) => { const o = DUQ < 0 ? null : r.own.find((x) => x[0] === DUQ); return o ? o[1] : null; }, frate: (r) => r.fr,
+    accel: (r) => r.g == null || r.g1 == null ? null : r.g - r.g1, widen: (r) => r.gm == null || r.gm1 == null ? null : r.gm - r.gm1, buyback: (r) => r.sh == null ? null : -r.sh, gpa: (r) => r.gpa,
+    steady: (r) => r.g == null || r.g1 == null || r.g2 == null ? null : Math.min(r.g, r.g1, r.g2), nodil: (r) => r.sh3 == null ? (r.sh == null ? null : -r.sh) : -r.sh3, g: (r) => r.g, gm: (r) => r.gm, rd: (r) => r.rd};
+  const order = (rows) => { const bySize = (a, b) => a.k - b.k, byScore = (a, b) => b.sc - a.sc || a.k - b.k; if (S.order === 'size') return rows.slice().sort(bySize);
+    const on = [...S.f].filter((k) => MEAS[k]).map((k) => MEAS[k]).concat(['g', 'gm', 'rd'].filter((k) => S[k]).map((k) => MEAS[k])); if (S.fund !== '') on.push((r) => { const o = r.own.find((x) => x[0] === +S.fund); return o ? o[1] : null; });
+    if (S.order !== 'match' || !on.length) return rows.slice().sort(byScore);
+    const st = new Map(rows.map((r) => [r.t, 0])); on.forEach((f) => { const v = rows.map((r) => [r.t, f(r)]).filter((x) => x[1] != null && isFinite(x[1])).sort((a, b) => a[1] - b[1]); v.forEach((x, i) => st.set(x[0], st.get(x[0]) + (v.length > 1 ? i / (v.length - 1) : 1) / on.length)); });
+    return rows.slice().sort((a, b) => st.get(b.t) - st.get(a.t) || byScore(a, b)); };
   const ICOLS = [C.t, {h: 'Company', f: (r) => { const w = el('span'); w.appendChild(co(r)); if (r.ai) w.append(' ', chip('AI', 'new', D.ai)); return w; }, v: (r) => r.n, hs: 1},
     {h: 'Sales growth', tip: D.g + ' An arrow shows it is 5 points or more above or below a year earlier.', f: (r) => delta(r.g, r.g1), v: (r) => r.g, n: 1, cls: (r) => r.g == null ? '' : r.g < 0 ? 'down' : 'up'},
     {h: 'Gross margin', tip: D.gm, f: (r) => pc(r.gm), v: (r) => r.gm, n: 1},
     {h: 'Changing', tip: 'What is changing at the company or around it. Hover a tag for its definition and its record.', f: chg, v: (r) => [0, 1, 2, 3, 4].reduce((a, i) => a + (r.ch >> i & 1), 0) + (r.ins ? 1 : 0)},
     {h: 'Technical', tip: D.tech, f: tech, v: (r) => r.te}, {h: 'Funds holding', tip: D.nf, f: bar, v: (r) => r.nf},
-    {h: 'From 3-yr high', tip: 'How far the price sits below its highest month-end close of the past three years.', f: (r) => sp(r.oh36), v: (r) => r.oh36, n: 1}];
+    {h: 'Score', tip: SCT, f: (r) => tipped(el('span', r.sc >= 80 ? 'up' : r.sc < 40 ? 'down' : '', String(r.sc)), why(r)), v: (r) => r.sc, n: 1}];
   const LISTS = [
     {id: 'core', name: 'Core', plan: 1, def: ''},
     {id: 'tact', name: 'Tactical', plan: 1, def: ''},
@@ -281,18 +292,19 @@ function start(d) {
   const sorted = (rows, cols, s) => { if (s.i < 0) return rows; const v = cols[s.i].v, dir = s.asc ? 1 : -1; return rows.slice().sort((a, b) => { const x = v(a), y = v(b); if (x == null) return 1; if (y == null) return -1; return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir; }); };
 
   /* view */
-  const S = {list: 'core', q: '', sector: '', n: 50, f: new Set(), min: 0, g: 0, gm: 0, rd: 0, size: '', ai: '', fund: '', fw: 0, fnew: false};
+  const S = {list: 'core', q: '', sector: '', n: 50, f: new Set(), min: 0, g: 0, gm: 0, rd: 0, size: '', ai: '', fund: '', fw: 0, fnew: false, order: 'score'};
   const sectors = [...new Set(U.map((r) => r.s))].sort(), selS = el('select', 'ghost'); selS.setAttribute('aria-label', 'Sector');
   [['', 'All sectors']].concat(sectors.map((x) => [x, x])).forEach(([v, t]) => { const o = el('option', '', t); o.value = v; selS.appendChild(o); }); selS.onchange = () => { S.sector = selS.value; S.n = 50; draw(); };
   const selN = el('select', 'ghost'); selN.setAttribute('aria-label', 'Number of lists'); [['0', 'On any number of lists'], ['2', 'On 2 or more lists'], ['3', 'On 3 or more'], ['4', 'On 4 or more']].forEach(([v, t]) => { const o = el('option', '', t); o.value = v; selN.appendChild(o); }); selN.onchange = () => { S.min = +selN.value; S.n = 50; draw(); };
   const dl = el('button', 'ghost', 'Download'); tipped(dl, 'Save the stocks shown as a spreadsheet file.');
   $('#tools').append(dl);
-  const fbtn = {}, fsel = {}, qbtn = [], aibtn = {}; let moreSum = null;
+  const fbtn = {}, fsel = {}, qbtn = [], aibtn = {}, obtn = {}, ideasList = () => LISTS.find((x) => x.id === 'ideas'); let moreSum = null;
   const apply = (p) => { S.f = new Set(p.f || []); S.g = p.g || 0; S.gm = p.gm || 0; S.rd = p.rd || 0; S.size = p.size || ''; S.ai = p.ai || ''; S.fund = p.fund == null ? '' : String(p.fund); S.fw = p.fw || 0; S.fnew = !!p.fnew; S.min = 0; S.sector = ''; S.n = 50; draw(); };
   const same = (p) => S.g === (p.g || 0) && S.gm === (p.gm || 0) && S.rd === (p.rd || 0) && S.size === (p.size || '') && S.f.size === (p.f || []).length && (p.f || []).every((k) => S.f.has(k)) && S.fund === (p.fund == null ? '' : String(p.fund)) && S.fw === (p.fw || 0) && S.fnew === !!p.fnew;
   (() => { const box = $('#chips'), row = (label, into) => { const r = el('div', 'frow'); r.appendChild(el('b', '', label)); (into || box).appendChild(r); return r; };
     const q = row('Quick filters'); QUICK.forEach(([name, p, tip]) => { const b = el('button', 'fchip quick', name); b.dataset.tip = tip; b.onclick = () => same(p) ? apply({ai: S.ai}) : apply(Object.assign({ai: S.ai}, p)); qbtn.push([b, p]); q.appendChild(b); });
     const a = row('AI'), seg = el('div', 'seg'); [['', 'All'], ['ai', 'AI'], ['non', 'Non-AI']].forEach(([v, l]) => { const b = el('button', '', l); b.dataset.tip = v ? D.ai : 'Every stock.'; b.onclick = () => { S.ai = v; S.n = 50; draw(); }; aibtn[v] = b; seg.appendChild(b); }); a.appendChild(seg);
+    const ob = row('Order'), oseg = el('div', 'seg'); [['score', 'Best evidence', 'Highest score first: business quality and price trend. In testing, low scores reliably lagged and high scores led by less. The larger company comes first on a tie.'], ['match', 'Strongest match', 'The most extreme on the filters you have on comes first: fastest growth for a growth filter, largest weight for a fund filter, the average standing when several are on. Analyst, insider, technical and fund-count filters are left out of the order because they showed no edge in testing; with only those on, this is the same as Best evidence.'], ['size', 'Size', 'Largest company first.']].forEach(([v, l, tip]) => { const b = el('button', '', l); b.dataset.tip = tip; b.onclick = () => { S.order = v; ideasList().s = {i: -1, asc: false}; S.n = 50; draw(); }; obtn[v] = b; oseg.appendChild(b); }); ob.appendChild(oseg);
     const det = el('details', 'moref'); moreSum = el('summary', '', 'More filters'); det.appendChild(moreSum); box.appendChild(det);
     GROUPS.forEach(([label, ids], gi) => { const r = row(label, det);
       if (gi === 0) { Object.keys(SEL).forEach((k) => { const [name, steps, , tip] = SEL[k], e = el('select', 'ghost'); e.setAttribute('aria-label', name); e.dataset.tip = tip; steps.forEach((v) => { const o = el('option', '', v ? name + ' above ' + v + '%' : name + ': any'); o.value = v; e.appendChild(o); }); e.onchange = () => { S[k] = +e.value; S.n = 50; draw(); }; fsel[k] = e; r.appendChild(e); });
@@ -304,7 +316,7 @@ function start(d) {
     sf.onchange = () => { S.fund = sf.value; S.n = 50; draw(); }; sw.onchange = () => { S.fw = +sw.value; S.n = 50; draw(); }; bn.onclick = () => { S.fnew = !S.fnew; S.n = 50; draw(); }; fsel.fund = sf; fsel.fw = sw; fbtn.__new = bn; fr.append(sf, sw, bn);
     const last = row('', det); last.append(selS, selN); })();
   const paintFilters = () => { Object.keys(fbtn).forEach((id) => fbtn[id].setAttribute('aria-pressed', id === '__new' ? S.fnew : S.f.has(id))); fsel.fund.value = S.fund; fsel.fw.value = String(S.fw); Object.keys(SEL).forEach((k) => { fsel[k].value = S[k]; }); fsel.size.value = S.size; selN.value = String(S.min); selS.value = S.sector; qbtn.forEach(([b, p]) => b.setAttribute('aria-pressed', same(p)));
-    Object.keys(aibtn).forEach((v) => aibtn[v].setAttribute('aria-pressed', S.ai === v)); const n = S.f.size + ['g', 'gm', 'rd'].filter((k) => S[k]).length + (S.size ? 1 : 0) + (S.sector ? 1 : 0) + (S.min ? 1 : 0) + (S.fund !== '' ? 1 : 0); moreSum.textContent = 'More filters' + (n ? ' (' + n + ' on)' : ''); };
+    Object.keys(aibtn).forEach((v) => aibtn[v].setAttribute('aria-pressed', S.ai === v)); Object.keys(obtn).forEach((v) => obtn[v].setAttribute('aria-pressed', S.order === v && ideasList().s.i < 0)); const n = S.f.size + ['g', 'gm', 'rd'].filter((k) => S[k]).length + (S.size ? 1 : 0) + (S.sector ? 1 : 0) + (S.min ? 1 : 0) + (S.fund !== '' ? 1 : 0); moreSum.textContent = 'More filters' + (n ? ' (' + n + ' on)' : ''); };
   LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.append(L.name, el('i')); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
   const cur = () => LISTS.find((L) => L.id === S.list);
   const pick = (id) => { S.list = id; S.n = 50; try { history.replaceState(null, '', '#' + id); } catch (_) {} draw(); };
@@ -323,7 +335,7 @@ function start(d) {
     if (ideas && (S.f.has('news') || S.f.has('insid')) && d.news_out.length) notes.push('Insiders are also buying at ' + d.news_out.length + ' companies too small for this list: ' + d.news_out.map((x) => x[0]).join(', ') + '.');
     if (ideas && S.f.has('druck') && d.druck.out.length) notes.push(d.druck.out.length + ' more of his positions are not on this list (smaller companies, foreign shares and funds). His whole filing is under Hedge funds.');
     if (notes.length) { note.hidden = false; note.textContent = notes.join(' '); }
-    let rows = visible(); rows = L.s.i < 0 && ideas ? rows.slice().sort((a, b) => a.k - b.k) : sorted(rows, cols, L.s); if (ideas) $('#l-ideas i').textContent = rows.length;
+    let rows = visible(); rows = L.s.i < 0 && ideas ? order(rows) : sorted(rows, cols, L.s); if (ideas) $('#l-ideas i').textContent = rows.length;
     const box = $('#box'), t = table(cols, rows.slice(0, S.n), {sorted: L.s, sort: (i) => { L.s = {i, asc: L.s.i === i ? !L.s.asc : !!cols[i].asc || (rows.length > 0 && typeof cols[i].v(rows[0]) === 'string')}; draw(); }, click: (r) => L.funds ? openPanel(() => fundPanel(F.indexOf(r))) : openPanel(() => stockPanel(r))});
     box.replaceChildren(t);
     if (!rows.length) { const e = el('div', 'empty'), hit = byT[S.q.toUpperCase()]; e.textContent = S.f.has('star') && !stars.size ? 'Nothing starred yet. Tap the star next to any ticker. ' : hit ? hit.t + ' does not pass the filters that are on. ' : 'No stock passes every filter that is on. ';
