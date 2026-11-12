@@ -231,7 +231,7 @@ function start(d) {
     anbuy: ['Analysts say buy', (r) => !!r.an && /buy/i.test(r.an[0]), D.an + ' About 86% of large companies pass, so it filters little.'], tech: ['Technical buy', (r) => r.te >= 1, D.tech],
     nocirc: ['Not circular financing', (r) => !r.circ, D.circ], insid: ['Insiders buying', (r) => r.ins > 0, 'Two or more insiders bought shares on the open market in the last 14 days.'],
     warm: ['Analysts warming', (r) => r.ac != null && r.ac >= 0.1, 'The average analyst rating improved over about three months.'], news: ['New this week', (r) => r.ins > 0 || (r.ac != null && r.ac >= 0.1), 'Insiders buying in the last 14 days, or analyst ratings improving.'],
-    gpa: ['High gross profit / assets', (r) => !!(r.bz & 1), 'Gross profit over the last four quarters divided by total assets, in the top third of this list: how much the business earns on what it owns.' + recTip('B1')],
+    gpa: ['High gross profit / assets', (r) => !!(r.bz & 1), 'Gross profit over the last four quarters divided by total assets, in the top third of this list: how much the business earns on what it owns. Unknown for about a third of the stocks here (banks, insurers and some filers), which count as a no, so the live cut is stricter than the tested one.' + recTip('B1')],
     steady: ['Steady growth', (r) => !!(r.bz & 2), 'Sales up more than 10% in each of the last three years.' + recTip('B3')],
     nodil: ['Not diluting', (r) => !!(r.bz & 4), 'Share count up no more than 2% a year over three years (over the last year when three years are not on file). Tested only as part of Great businesses.'],
     frate: ['Rated 80+ in a fund', (r) => r.fr != null && r.fr >= 80, 'At least one tracked fund’s position in it rates 80 or more. ' + RT],
@@ -242,7 +242,7 @@ function start(d) {
   const GROUPS = [['Business', ['netcash', 'cfp', 'gpa', 'steady', 'nodil']], ['Changing', CHG.map((c) => c[0])], ['Money', ['druck', 'core3', 'adding', 'frate', 'anbuy', 'tech', 'nocirc']], ['New', ['insid', 'warm', 'news']], ['Yours', ['star', 'held']]];
   const DUQ = F.findIndex((f) => /^Duquesne/.test(f.name));
   const QUICK = [
-    ['Great businesses', {f: ['gpa', 'steady', 'nodil']}, 'Turns on three filters: gross profit to assets in the top third, sales up 10%+ three years running, and not diluting. The one filter here that held up on history.' + recTip('B7')],
+    ['Great businesses', {f: ['gpa', 'steady', 'nodil']}, 'Turns on three filters: gross profit to assets in the top third, sales up 10%+ three years running, and not diluting. Gross profit to assets is the one measure here that held up on history; the full combination held up at one horizon and was mixed at the other.' + recTip('B7')],
     ['PLTR-like', {g: 20, gm: 50, rd: 10, size: 'mid', f: ['netcash']}, 'Turns on four filters at once: sales up more than 20%, gross margin above 50%, R&D above 10% of sales, more cash than debt, among mid-size companies. Loosen any of them below.' + recTip('pltr')],
     ...(DUQ < 0 ? [] : [['Druckenmiller new buys', {fund: DUQ, fw: 1, fnew: 1}, 'Stocks his fund newly bought last quarter at 1% of its book or more. Tested 2012–2023: +7.1 points over the next 12 months against the average stock, ahead in 57% of quarters (t 1.3). A lead from a small sample, not proof.']]),
     ['Analyst + technical', {size: 'top500', f: ['anbuy', 'tech', 'nocirc']}, 'Your old method: analysts say buy, the price trend is a buy, circular-financing names removed, among the 500 largest. Tested 1994–2024: no edge.'],
