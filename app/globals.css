@@ -1,238 +1,105 @@
-/* globals.css */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+/* Tinos is metric-compatible with Times New Roman. Times itself is installed on
+   macOS and Windows and is used when present; Tinos covers Linux and Android so
+   the page sets identically everywhere. */
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import './figures.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root { 
-  --background: 0 0% 8%; /* Neutral Dark Gray */ 
-  --foreground: 0 0% 95%; /* Neutral Light Gray */ 
-  --card: 0 0% 10%; 
-  --card-foreground: 0 0% 95%; 
-  --popover: 0 0% 10%; 
-  --popover-foreground: 0 0% 95%; 
-  --primary: 214 80% 45%; /* Lighter Blue */ 
-  --primary-foreground: 0 0% 100%; 
-  --secondary: 0 0% 15%; 
-  --secondary-foreground: 0 0% 80%; 
-  --muted: 0 0% 15%; 
-  --muted-foreground: 0 0% 60%; 
-  --accent: 214 80% 45%; /* Lighter Blue */ 
-  --accent-foreground: 0 0% 100%; 
-  --destructive: 0 63% 50%; 
-  --destructive-foreground: 0 0% 95%; 
-  --border: 0 0% 20%; 
-  --input: 0 0% 20%; 
-  --ring: 214 80% 45%; /* Lighter Blue */ 
-} 
+/* One palette, two themes. Four text/surface roles plus one hairline.
+   Values are space-separated RGB so Tailwind's `/opacity` modifiers work:
+   text-ink - text-body - text-meta - bg-page - border-hair
+
+   The page is locked to light in app/providers.tsx. The dark palette below is
+   kept intact and unused: delete `forcedTheme` there and remount ThemeToggle in
+   app/layout.tsx to bring it back. */
+:root {
+  color-scheme: light;
+
+  --page: 255 255 255;
+  --ink: 20 20 20;
+  --body: 42 42 42;
+  --meta: 102 102 102;
+  --hair: 219 219 219;
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 8%;
+  --border: 0 0% 86%;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --page: 10 10 10;
+  --ink: 245 245 245;
+  --body: 220 220 220;
+  --meta: 176 176 176;
+  --hair: 28 28 28;
+
+  --background: 0 0% 4%;
+  --foreground: 0 0% 96%;
+  --border: 0 0% 11%;
+}
 
 @layer base {
-  
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    /* Make background transparent so Vanta shows */
-    background: transparent;
-    color: rgb(var(--foreground));
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;
+    background: rgb(var(--page));
+    color: rgb(var(--body));
+    font-family: "Times New Roman", Tinos, Times, serif;
+    line-height: 1.62;
+    /* Serif stems are thinner than the sans this replaced; let the rasterizer
+       keep its weight rather than thinning it further. */
+    -webkit-font-smoothing: auto;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    letter-spacing: 0.05em;
-    line-height: 1.1;
+  /* Every clickable answers the pointer with a rule under the word, not a
+     colour change. Thickness and offset are set once here; the `hover:underline`
+     utility only decides when it appears. */
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: currentColor;
   }
 
-  .heading-text { letter-spacing: 0.05em; }
-  .body-text { line-height: 1.6; }
-}
-
-/* (The rest of your utilities and keyframes code remains the same) */
-@layer utilities {
-  .elegant-shadow {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  /* Dates and figures align in columns. */
+  time,
+  .tnum {
+    font-variant-numeric: tabular-nums;
   }
 
-  .elegant-shadow-lg {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* A wide measure is only worth having if the last line is not one stranded
+     word. `pretty` keeps the rag honest across the paragraph; `balance` evens
+     out headings that wrap. Both are ignored where unsupported, which costs
+     nothing. */
+  p,
+  li,
+  figcaption {
+    text-wrap: pretty;
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Animations */
-  .fade-in {
-    animation: fadeIn 1.5s ease-out forwards;
-  }
-
-  .slide-up {
-    animation: slideUp 1.5s ease-out forwards;
-  }
-
-  .animate-content-fade-in {
-    animation: contentFadeIn 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .logo-float {
-    animation: logoFloat 8s ease-in-out infinite;
-  }
-  
-  .animate-pulse-glow {
-    animation: pulse-glow 2.5s infinite ease-in-out;
-  }
-
-  /* === ADDED THIS CLASS FOR THE BUTTON ANIMATION === */
-  .animate-hover-up-down {
-    animation: hover-up-down 2s ease-in-out infinite;
-  }
-
-  /* Animation Stagger Delays */
-  .stagger-1 {
-    animation-delay: 0.1s;
-  }
-  .stagger-2 {
-    animation-delay: 0.2s;
-  }
-  .stagger-3 {
-    animation-delay: 0.3s;
-  }
-  .stagger-4 {
-    animation-delay: 0.4s;
-  }
-  .stagger-5 {
-    animation-delay: 0.5s;
-  }
-
-  /* Other Utilities */
-  .company-logo {
-    opacity: 0.08;
-    transition: all 0.3s ease;
-  }
-
-  .company-logo-hover {
-    opacity: 0.15;
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
   }
 }
 
-/* Keyframe Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes contentFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes logoFloat {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(1deg);
-  }
-}
-
-/* === ADDED THESE KEYFRAMES FOR THE BUTTON ANIMATION === */
-@keyframes hover-up-down {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-
-/* Base styles for elements before animation */
-.experience-logo,
-.experience-card {
-  opacity: 0; /* Start hidden */
-}
-
-/* Keyframe animations */
-@keyframes animate-logo {
-  from {
-    opacity: 0;
-    transform: translateX(-50px) rotate(-90deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) rotate(0);
-  }
-}
-
-@keyframes animate-card {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Trigger class to start animations */
-.timeline-in-view .experience-logo {
-  animation: animate-logo 0.75s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-.timeline-in-view .experience-card {
-  animation: animate-card 0.75s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px 5px hsl(var(--primary) / 0.5), 0 0 5px 1px hsl(var(--primary) / 0.7);
-  }
-  50% {
-    box-shadow: 0 0 35px 10px hsl(var(--primary) / 0.7), 0 0 10px 3px hsl(var(--primary) / 0.9);
+@layer components {
+  /* A part title in a printed volume: small caps, opened up, on the baseline. */
+  .display-caps {
+    font-variant-caps: small-caps;
+    letter-spacing: 0.085em;
   }
 }

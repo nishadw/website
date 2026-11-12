@@ -1,0 +1,192 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Nishad Wajge" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Experience" [ref=e5] [cursor=pointer]:
+        - /url: /experience
+      - link "Off Hours" [ref=e6] [cursor=pointer]:
+        - /url: /now
+      - link "LinkedIn" [ref=e7] [cursor=pointer]:
+        - /url: https://linkedin.com/in/nishadwajge
+      - link "GitHub" [ref=e8] [cursor=pointer]:
+        - /url: https://github.com/nishadw
+  - main [ref=e9]:
+    - generic [ref=e11]:
+      - heading "Off Hours" [level=1] [ref=e13]
+      - generic [ref=e14]:
+        - heading "Pastimes" [level=2] [ref=e15]
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - generic [ref=e18]: Reading
+            - generic [ref=e19]: "Currently: The Brothers Karamazov, Letters from a Stoic"
+          - generic [ref=e20]:
+            - generic [ref=e21]: Golf
+            - generic [ref=e22]: "A constant work in progress (Handicap: 6.4)"
+          - generic [ref=e23]:
+            - generic [ref=e24]: Movies
+            - generic [ref=e25]: Godfather, Schindler's List, 12 Angry Men, Ratatouille
+      - generic [ref=e26]:
+        - heading "Investing" [level=2] [ref=e27]
+        - generic [ref=e28]:
+          - figure "Two years to 22 September 2026, against the S&P 500 with dividends reinvested. 30.1% a year against 17.5%; two years is a sample, not a record." [ref=e29]:
+            - img "Cumulative return of the portfolio versus the S&P 500 from Sep '24 to Sep '26, both indexed to zero at the start. The portfolio ends at +69.3% and the benchmark at +37.9%." [ref=e30]:
+              - generic [ref=e31]: 0%
+              - generic [ref=e33]: +25%
+              - generic [ref=e35]: +50%
+              - generic [ref=e37]: +75%
+              - generic [ref=e39]: Sep '24
+              - generic [ref=e40]: Jan '25
+              - generic [ref=e41]: May
+              - generic [ref=e42]: Sep
+              - generic [ref=e43]: Jan '26
+              - generic [ref=e44]: May
+              - generic [ref=e45]: Sep '26
+              - generic [ref=e50]: Portfolio +69.3%
+              - generic [ref=e51]: S&P 500 +37.9%
+              - generic [ref=e52]:
+                - generic:
+                  - generic: Sep '24
+                  - generic: Portfolio +0.0%
+                  - generic: S&P 500 +0.0%
+              - generic [ref=e54]:
+                - generic:
+                  - generic: Oct
+                  - generic: Portfolio +8.4%
+                  - generic: S&P 500 −0.9%
+              - generic [ref=e56]:
+                - generic:
+                  - generic: Nov
+                  - generic: Portfolio +16.1%
+                  - generic: S&P 500 +5.0%
+              - generic [ref=e58]:
+                - generic:
+                  - generic: Dec
+                  - generic: Portfolio +20.1%
+                  - generic: S&P 500 +2.5%
+              - generic [ref=e60]:
+                - generic:
+                  - generic: Jan '25
+                  - generic: Portfolio +17.9%
+                  - generic: S&P 500 +5.2%
+              - generic [ref=e62]:
+                - generic:
+                  - generic: Feb
+                  - generic: Portfolio +18.3%
+                  - generic: S&P 500 +3.9%
+              - generic [ref=e64]:
+                - generic:
+                  - generic: Mar
+                  - generic: Portfolio +5.5%
+                  - generic: S&P 500 −1.9%
+              - generic [ref=e66]:
+                - generic:
+                  - generic: Apr
+                  - generic: Portfolio −0.1%
+                  - generic: S&P 500 −2.7%
+              - generic [ref=e68]:
+                - generic:
+                  - generic: May
+                  - generic: Portfolio +10.6%
+                  - generic: S&P 500 +3.4%
+              - generic [ref=e70]:
+                - generic:
+                  - generic: Jun
+                  - generic: Portfolio +14.0%
+                  - generic: S&P 500 +8.7%
+              - generic [ref=e72]:
+                - generic:
+                  - generic: Jul
+                  - generic: Portfolio +10.1%
+                  - generic: S&P 500 +11.2%
+              - generic [ref=e74]:
+                - generic:
+                  - generic: Aug
+                  - generic: Portfolio +15.0%
+                  - generic: S&P 500 +13.5%
+              - generic [ref=e76]:
+                - generic:
+                  - generic: Sep
+                  - generic: Portfolio +35.4%
+                  - generic: S&P 500 +17.5%
+              - generic [ref=e78]:
+                - generic:
+                  - generic: Oct
+                  - generic: Portfolio +45.4%
+                  - generic: S&P 500 +20.3%
+              - generic [ref=e80]:
+                - generic:
+                  - generic: Nov
+                  - generic: Portfolio +52.8%
+                  - generic: S&P 500 +20.6%
+              - generic [ref=e82]:
+                - generic:
+                  - generic: Dec
+                  - generic: Portfolio +48.5%
+                  - generic: S&P 500 +20.7%
+              - generic [ref=e84]:
+                - generic:
+                  - generic: Jan '26
+                  - generic: Portfolio +61.1%
+                  - generic: S&P 500 +22.4%
+              - generic [ref=e86]:
+                - generic:
+                  - generic: Feb
+                  - generic: Portfolio +48.4%
+                  - generic: S&P 500 +21.4%
+              - generic [ref=e88]:
+                - generic:
+                  - generic: Mar
+                  - generic: Portfolio +38.2%
+                  - generic: S&P 500 +15.4%
+              - generic [ref=e90]:
+                - generic:
+                  - generic: Apr
+                  - generic: Portfolio +65.1%
+                  - generic: S&P 500 +27.5%
+              - generic [ref=e92]:
+                - generic:
+                  - generic: May
+                  - generic: Portfolio +60.8%
+                  - generic: S&P 500 +34.2%
+              - generic [ref=e94]:
+                - generic:
+                  - generic: Jun
+                  - generic: Portfolio +60.8%
+                  - generic: S&P 500 +32.8%
+              - generic [ref=e96]:
+                - generic:
+                  - generic: Jul
+                  - generic: Portfolio +57.8%
+                  - generic: S&P 500 +32.9%
+              - generic [ref=e98]:
+                - generic:
+                  - generic: Aug
+                  - generic: Portfolio +72.8%
+                  - generic: S&P 500 +36.4%
+              - generic [ref=e100]:
+                - generic:
+                  - generic: Sep '26
+                  - generic: Portfolio +69.3%
+                  - generic: S&P 500 +37.9%
+          - paragraph [ref=e103]: My approach is fairly simple. I own a small number of easily understandable companies, usually because I suspect macroeconomic catalysts ahead of them are not priced in. However, I'm wrong enough that I've started building statistical methods to check my own judgment.
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - link "LinkedIn" [ref=e106] [cursor=pointer]:
+            - /url: https://linkedin.com/in/nishadwajge
+          - link "GitHub" [ref=e109] [cursor=pointer]:
+            - /url: https://github.com/nishadw
+        - generic [ref=e112]: © Nishad Wajge 2026
+  - button "Switch to light mode" [ref=e113] [cursor=pointer]
+  - generic [ref=e121] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e122]
+    - generic [ref=e126]:
+      - button "Open issues overlay" [ref=e127]:
+        - generic [ref=e128]:
+          - generic [aria-hidden] [ref=e129]: "1"
+          - generic [ref=e130]: "2"
+        - generic [ref=e131]:
+          - text: Issue
+          - generic [aria-hidden] [ref=e132]: s
+      - button "Collapse issues badge" [ref=e133]
+  - alert [ref=e136]

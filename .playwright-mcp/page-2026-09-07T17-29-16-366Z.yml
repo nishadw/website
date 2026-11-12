@@ -1,0 +1,70 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Nishad Wajge" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Experience" [ref=e5] [cursor=pointer]:
+        - /url: /experience
+      - link "Other" [ref=e6] [cursor=pointer]:
+        - /url: /now
+      - link "LinkedIn" [ref=e7] [cursor=pointer]:
+        - /url: https://linkedin.com/in/nishadwajge
+      - link "GitHub" [ref=e8] [cursor=pointer]:
+        - /url: https://github.com/nishadw
+  - main [ref=e9]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - heading "Nishad Wajge" [level=1] [ref=e13]
+        - paragraph [ref=e14]: Researcher and engineer interested in the areas of software, game theory, statistics, and ml.
+        - paragraph [ref=e15]: "Best way to reach me is linkedin or alternatively by email: [firstname] dot [lastname] at gmail dot com"
+      - generic [ref=e16]:
+        - heading "Experience" [level=2] [ref=e18]
+        - generic [ref=e19]:
+          - link "Amazon Software Engineer Intern Jun 2026 — Sep 2026" [ref=e20] [cursor=pointer]:
+            - /url: /experience#amazon
+            - generic [ref=e21]:
+              - generic [ref=e22]: Amazon
+              - generic [ref=e23]: Software Engineer Intern
+            - generic [ref=e24]: Jun 2026 — Sep 2026
+          - link "Amazon Machine Learning Engineer Jan 2026 — May 2026" [ref=e25] [cursor=pointer]:
+            - /url: /experience#amazon-leo
+            - generic [ref=e26]:
+              - generic [ref=e27]: Amazon
+              - generic [ref=e28]: Machine Learning Engineer
+            - generic [ref=e29]: Jan 2026 — May 2026
+          - link "General Dynamics Software Engineer Intern Jun 2025 — Aug 2025" [ref=e30] [cursor=pointer]:
+            - /url: /experience#gdit
+            - generic [ref=e31]:
+              - generic [ref=e32]: General Dynamics
+              - generic [ref=e33]: Software Engineer Intern
+            - generic [ref=e34]: Jun 2025 — Aug 2025
+        - link "3 more roles →" [ref=e35] [cursor=pointer]:
+          - /url: /experience
+      - generic [ref=e36]:
+        - heading "Research" [level=2] [ref=e38]
+        - generic [ref=e39]:
+          - link "* Bayesian estimation and statistical benchmarking for large language models Neural Information Processing Systems" [ref=e40] [cursor=pointer]:
+            - /url: https://neurips.cc/virtual/2024/poster/97554
+            - generic [ref=e41]: "* Bayesian estimation and statistical benchmarking for large language models"
+            - generic [ref=e42]: Neural Information Processing Systems
+          - link "* Dynamic strategy optimization in turn-based stochastic games via Markov decision processes Institute of Operations Research and Management Sciences" [ref=e43] [cursor=pointer]:
+            - /url: https://link.springer.com/article/10.1007/s00180-024-01555-5
+            - generic [ref=e44]: "* Dynamic strategy optimization in turn-based stochastic games via Markov decision processes"
+            - generic [ref=e45]: Institute of Operations Research and Management Sciences
+          - link "Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers Stanford Medicine" [ref=e46] [cursor=pointer]:
+            - /url: https://www.biomedscijournal.com/journals/abse/abse-aid1022.php
+            - generic [ref=e47]: Game-theoretic interpretability via Shapley additive explanations in ensemble classifiers
+            - generic [ref=e48]: Stanford Medicine
+          - link "Statistical modeling of decision theory and risk-aversion under uncertainty" [ref=e49] [cursor=pointer]:
+            - /url: https://terra-docs.s3.us-east-2.amazonaws.com/IJHSR/Articles/volume6-issue5/IJHSR_2024_65_93.pdf
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - link "LinkedIn" [ref=e53] [cursor=pointer]:
+            - /url: https://linkedin.com/in/nishadwajge
+          - link "GitHub" [ref=e54] [cursor=pointer]:
+            - /url: https://github.com/nishadw
+        - generic [ref=e55]:
+          - text: © Nishad Wajge
+          - link "2026" [ref=e56] [cursor=pointer]:
+            - /url: /now
+  - alert [ref=e57]

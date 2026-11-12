@@ -20,11 +20,25 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-bebas)", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Calibri", "Segoe UI", "Tahoma", "Geneva", "Verdana", "sans-serif"],
-        heading: ["var(--font-bebas)", "ui-sans-serif", "system-ui", "sans-serif"],
+        // One face for the whole site. Times New Roman is installed on macOS and
+        // Windows; Tinos is metric-compatible and covers everything else, so the
+        // page sets identically wherever it is read. Every alias points at the
+        // same stack on purpose — there is no second typeface to fall back to.
+        serif: ['"Times New Roman"', "Tinos", "Times", "serif"],
+        sans: ['"Times New Roman"', "Tinos", "Times", "serif"],
+        body: ['"Times New Roman"', "Tinos", "Times", "serif"],
+        heading: ['"Times New Roman"', "Tinos", "Times", "serif"],
+
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
+        // Theme-aware roles — see app/globals.css
+        page: "rgb(var(--page) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        body: "rgb(var(--body) / <alpha-value>)",
+        meta: "rgb(var(--meta) / <alpha-value>)",
+        hair: "rgb(var(--hair) / <alpha-value>)",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
