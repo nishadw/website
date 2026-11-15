@@ -85,7 +85,7 @@ footer{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut)
 @media (max-width:640px){.readouts{margin-left:0;width:100%}.readout{flex:1}.kv{grid-template-columns:1fr}.hide-s{display:none}td,th{padding:9px 10px}}
 </style></head><body>
 <div class="page">
-<form id="gate" class="gate"><h1>Norman</h1><div class="rowf"><input id="pw" class="field" type="password" inputmode="numeric" autocomplete="current-password" aria-label="Password" placeholder="Password" autofocus><button class="btn" type="submit">Open</button></div><span id="msg" class="mut" role="status"></span></form>
+<form id="gate" class="gate"><h1>Norman</h1><div class="rowf"><input id="pw" class="field" type="password" autocomplete="off" aria-label="Password" placeholder="Password" autofocus><button class="btn" type="submit">Open</button></div><span id="msg" class="mut" role="status"></span></form>
 <div id="app" hidden>
 <header class="top"><div class="brand">Norman</div><label class="search"><input id="q" class="field" type="search" placeholder="Find a ticker or company" aria-label="Find a ticker or company"></label><div class="readouts" id="readouts"></div></header>
 <nav class="lists" id="lists" role="tablist" aria-label="Lists"></nav>
@@ -120,12 +120,14 @@ async function unlock(pw) {
   const key = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(e.salt), iterations: e.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
   return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(e.iv)}, key, b64(e.ct))));
 }
+/* The password is never stored (2026-11-14). A reload within the tab reopens from the decrypted data kept in sessionStorage. */
+const enter = (d) => { $('#gate').hidden = true; $('#app').hidden = false; start(d); };
 $('#gate').addEventListener('submit', async (ev) => {
   ev.preventDefault(); $('#msg').textContent = 'Opening…';
-  try { const d = await unlock($('#pw').value); try { sessionStorage.setItem('n', $('#pw').value); } catch (_) {} $('#gate').hidden = true; $('#app').hidden = false; start(d); }
+  try { const d = await unlock($('#pw').value); $('#pw').value = ''; try { sessionStorage.setItem('nd', JSON.stringify(d)); } catch (_) {} enter(d); }
   catch (err) { $('#msg').textContent = (err && err.message === 'nodata') ? 'The data file did not load. Reload the page.' : 'That password did not open it.'; }
 });
-try { const s = sessionStorage.getItem('n'); if (s) { $('#pw').value = s; $('#gate').requestSubmit(); } } catch (_) {}
+try { sessionStorage.removeItem('n'); const s = sessionStorage.getItem('nd'); if (s) enter(JSON.parse(s)); } catch (_) {}
 
 /* tooltips: hover, keyboard focus, or tap */
 (() => { const tip = $('#tip'); let cur = null;
@@ -206,7 +208,6 @@ function start(d) {
   const traits = (r) => { const w = el('span', 'traits'); TRAITS.forEach((t, i) => { const on = r.tb >> i & 1; w.appendChild(tipped(el('i', on ? 'on' : ''), t[0] + (on ? ': yes' : ': no'))); }); const s = el('span'); s.append(w, el('span', 'mut', r.gt + ' of 6')); return s; };
   const bar = (r) => { const s = el('span'); s.appendChild(document.createTextNode(String(r.nf))); const b = el('span', 'bar'); const add = (n, c) => { for (let i = 0; i < n; i++) b.appendChild(el('i', c)); };
     add(r.nNew + r.nAdd, 'u'); add(r.nFlat, ''); add(r.nCut, 'd'); tipped(b, (r.nNew + r.nAdd) + ' bought, ' + r.nFlat + ' held, ' + r.nCut + ' cut or sold'); s.appendChild(b); return s; };
-  const bar2 = (r) => bar(r);
   const chip = (txt, cls, tip) => tipped(el('span', 'chip ' + (cls || ''), txt), tip);
   const also = (cur) => (r) => { const f = document.createDocumentFragment(); r.on.filter((k) => k !== cur).forEach((k) => f.appendChild(el('span', 'chip', SHORT[k]))); if (r.circ) f.appendChild(chip('Circular', 'bad', r.why || D.circ)); if (r.burry) f.appendChild(chip('Burry short', 'bad', D.burry)); return f; };
   const tech = (r) => r.te === 2 ? chip('Strong buy', 'good') : r.te === 1 ? chip('Buy', 'good') : el('span', 'mut', '–');
@@ -393,10 +394,10 @@ function start(d) {
     return [el('h2', '', 'What has worked in each warning state'), el('p', '', 'The number of price warnings on at a month-end, and how each kind of stock did the next month against the whole market, in points a year. The fund named is the nearest one you could buy.'), seg, t,
       el('p', '', 'After 2 or more warnings, energy, value and health care beat the market in all three periods and technology lagged in two. With none on, technology led and energy lagged. T-bills and Treasuries did not help.'), sec('Playbooks set before scoring', bt),
       el('p', 'mut', 'How far to trust it: on years it was not chosen on, the edge is 4 to 6 points a year with t 1.4 to 1.8, and a random warning passes the same bar 1 time in 3. Suggestive, not proven. It runs on paper and changes nothing unless you adopt it.')]; }
-  function riskPanel() { const R = d.core.risk, rows = R.rows.concat([{t: 'Whole book', w: null, r: R.book, note: [], b: 1}].concat(R.after ? [{t: 'Whole book once QSPNX is in stock funds', w: null, r: R.after, note: [], b: 1}] : [], [{t: 'S&P 500', w: null, r: R.spx, note: [], b: 1}]));
+  function riskPanel() { const R = d.core.risk, rows = R.rows.concat([{t: 'Whole book', w: null, r: R.book, note: [], b: 1}].concat(R.after ? [{t: R.after_label || 'Whole book once the in-transit fund is in stock funds', w: null, r: R.after, note: [], b: 1}] : [], [{t: 'S&P 500', w: null, r: R.spx, note: [], b: 1}]));
     const t = cardOf(table([{h: 'Holding', f: (x) => el('span', x.b ? '' : 'tk', x.t)}, {h: 'Weight', f: (x) => x.w == null ? '' : pc(x.w, 1), n: 1}, ...R.eps.map((e, i) => ({h: e[0], tip: e[1] + ', month-end closes.', f: (x) => { const s = el('span', '', x.r[i] == null ? '–' : sp(x.r[i], 1)); return x.note[i] ? tipped(s, x.note[i]) : s; }, n: 1, cls: (x) => sgn(x.r[i])}))], rows));
     return [el('h2', '', 'Risk sheet'), el('p', '', 'Today’s weights run through three past falls. The whole book: ' + R.eps.map((e, i) => sp(R.book[i], 1) + ' in ' + e[0] + ' (S&P ' + sp(R.spx[i], 1) + ')').join(', ') + '.'), t,
-      el('p', 'mut', 'Stand-ins: IOT listed in Dec 2021, so the Nasdaq 100 stands in before that. DBMF and QSPNX did not exist in 2008 and are counted as flat. LLY in 2008, DBMF and QSPNX are price changes without dividends. Month-end closes miss the worst day: in March 2020 the S&P was down 34% at its low. A single stock can do far worse than its own past.')]; }
+      el('p', 'mut', (R.note ? 'Stand-ins: ' + R.note + ' ' : '') + 'Month-end closes miss the worst day: in March 2020 the S&P was down 34% at its low. A single stock can do far worse than its own past.')]; }
   function betsPanel() { const B = d.core.bets, a = B.tot[B.asof], b = B.tot[B.prev];
     const t = cardOf(table([{h: 'Fund', f: (x) => x[0]}, {h: 'Bet', tip: 'A put gains when the price falls; a call gains when it rises. A put can also be insurance on stocks the fund owns.', f: (x) => chip(x[1], x[1] === 'Put' ? 'bad' : 'good')}, {h: 'On', f: (x) => x[3] ? x[3] : x[2]}, {h: '$B', tip: 'Value of the shares the options cover, as filed. It overstates the money at risk.', f: (x) => nm(x[4], 2), n: 1}], B.top));
     const f = cardOf(table([{h: 'Market', f: (x) => x.name}, {h: 'Hedge funds, net', tip: 'Leveraged funds’ long minus short futures contracts, as a share of all open contracts. Below zero means net short.', f: (x) => sp(x.lev, 1), n: 1, cls: (x) => sgn(x.lev)},
