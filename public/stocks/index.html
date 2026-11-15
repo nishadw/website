@@ -21,11 +21,8 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer}
 .ghost{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:7px 12px}
 /* top bar */
 .top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-bottom:18px}
-.brand{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.brand{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:0}
 .search{flex:1 1 220px;max-width:340px}.search input{width:100%}
-.readouts{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
-.readout{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 12px;text-align:left;display:flex;flex-direction:column;line-height:1.25;min-width:104px}
-.readout b{font-size:16px;font-weight:600}.readout span{font-size:12px;color:var(--mut)}
 /* list buttons */
 .lists{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin:0 -2px;scrollbar-width:thin}
 .list{flex:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:500;display:flex;gap:8px;align-items:baseline;white-space:nowrap}
@@ -78,18 +75,20 @@ footer{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut)
 .act td{vertical-align:top}.act .what{font-weight:500;margin-bottom:6px}.act td:nth-child(1){min-width:230px;max-width:340px}.act td:nth-child(2){min-width:240px}.act .seg{flex-wrap:nowrap;white-space:nowrap}
 .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin:14px 0}.opt{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}.opt.sel{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
 .opt h4{margin:0;font-size:15px;font-weight:600;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.opt h4 .linkish{font-weight:600;font-size:16px}.opt .card td,.opt .card th{padding:6px 10px}.opt p{margin:0}.opt ul{margin:0;padding-left:18px;color:var(--mut)}.opt li{margin:2px 0}.opt .lab{font-size:12px;font-weight:500}.opt button{margin-top:auto;align-self:flex-start}
+.reco{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}.reco b{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.caveat{border-left:3px solid var(--warn);padding-left:10px}
 .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;line-height:1.3}.stat b{font-size:18px;font-weight:600}.stat .lab,.stat .mut,.small{font-size:12px}
 .sm{padding:5px 11px;border-radius:8px}.vtop td{vertical-align:top}.plan .act td:nth-child(1){max-width:none}.plan{max-width:880px}.links{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;margin-top:10px}.moref summary{cursor:pointer;color:var(--mut);margin:2px 0 10px}.moref[open] summary{margin-bottom:10px}
 /* tooltip */
 #tip{position:fixed;z-index:40;max-width:300px;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;pointer-events:none;box-shadow:var(--shadow)}
-@media (max-width:640px){.readouts{margin-left:0;width:100%}.readout{flex:1}.kv{grid-template-columns:1fr}.hide-s{display:none}td,th{padding:9px 10px}}
+@media (max-width:640px){.kv{grid-template-columns:1fr}.hide-s{display:none}td,th{padding:9px 10px}}
 </style></head><body>
 <div class="page">
 <form id="gate" class="gate"><h1>Norman</h1><div class="rowf"><input id="pw" class="field" type="password" autocomplete="off" aria-label="Password" placeholder="Password" autofocus><button class="btn" type="submit">Open</button></div><span id="msg" class="mut" role="status"></span></form>
 <div id="app" hidden>
-<header class="top"><div class="brand">Norman</div><label class="search"><input id="q" class="field" type="search" placeholder="Find a ticker or company" aria-label="Find a ticker or company"></label><div class="readouts" id="readouts"></div></header>
+<header class="top"><h1 class="brand">Norman</h1><label class="search"><input id="q" class="field" type="search" placeholder="Find a ticker or company" aria-label="Find a ticker or company"></label></header>
 <nav class="lists" id="lists" role="tablist" aria-label="Lists"></nav>
-<section>
+<section id="view" role="tabpanel" aria-labelledby="l-core">
 <div class="viewhead"><p class="def" id="def"></p><div class="tools" id="tools"></div></div>
 <div class="chips" id="chips" hidden></div>
 <div class="notice" id="notice" hidden></div>
@@ -322,13 +321,13 @@ function start(d) {
     const last = row('', det); last.append(selS, selN); })();
   const paintFilters = () => { Object.keys(fbtn).forEach((id) => fbtn[id].setAttribute('aria-pressed', id === '__new' ? S.fnew : S.f.has(id))); fsel.fund.value = S.fund; fsel.fw.value = String(S.fw); Object.keys(SEL).forEach((k) => { fsel[k].value = S[k]; }); fsel.size.value = S.size; selN.value = String(S.min); selS.value = S.sector; qbtn.forEach(([b, p], i) => { if (S.quick.has(i) && !covers(p)) S.quick.delete(i); }); if (!S.quick.size) qbtn.forEach(([, p], i) => { if (!S.quick.size && same(p)) S.quick.add(i); }); qbtn.forEach(([b], i) => b.setAttribute('aria-pressed', S.quick.has(i)));
     Object.keys(aibtn).forEach((v) => aibtn[v].setAttribute('aria-pressed', S.ai === v)); Object.keys(obtn).forEach((v) => obtn[v].setAttribute('aria-pressed', S.order === v && ideasList().s.i < 0)); const n = S.f.size + ['g', 'gm', 'rd'].filter((k) => S[k]).length + (S.size ? 1 : 0) + (S.sector ? 1 : 0) + (S.min ? 1 : 0) + (S.fund !== '' ? 1 : 0); moreSum.textContent = 'More filters' + (n ? ' (' + n + ' on)' : ''); };
-  LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.append(L.name, el('i')); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
+  LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'view'); b.append(L.name, el('i')); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
   const cur = () => LISTS.find((L) => L.id === S.list);
   const pick = (id) => { S.list = id; S.n = 50; try { history.replaceState(null, '', '#' + id); } catch (_) {} draw(); };
   const match = (r) => [...S.f].every((k) => TOG[k][1](r)) && Object.keys(SEL).every((k) => !S[k] || SEL[k][2](r, S[k])) && SIZE[S.size][1](r) && r.on.length >= S.min && (!S.ai || (S.ai === 'ai') === !!r.ai) && (S.fund === '' || r.own.some((o) => o[0] === +S.fund && o[2] !== 'sold' && o[1] >= S.fw && (!S.fnew || o[2] === 'new')));
   const clearAll = () => { S.q = ''; $('#q').value = ''; apply({}); };
   function visible() { const L = cur(), q = S.q; return L.funds ? F.filter((f) => !q || f.name.toLowerCase().includes(q)) : U.filter((r) => (!q || r.t.toLowerCase().startsWith(q) || r.n.toLowerCase().includes(q)) && (!S.sector || r.s === S.sector) && match(r)); }
-  function draw() { const L = cur(), ideas = L.id === 'ideas'; LISTS.forEach((x) => $('#l-' + x.id).setAttribute('aria-selected', x.id === L.id)); $('#l-' + L.id).scrollIntoView({block: 'nearest', inline: 'nearest'});
+  function draw() { const L = cur(), ideas = L.id === 'ideas'; LISTS.forEach((x) => $('#l-' + x.id).setAttribute('aria-selected', x.id === L.id)); $('#l-' + L.id).scrollIntoView({block: 'nearest', inline: 'nearest'}); $('#view').setAttribute('aria-labelledby', 'l-' + L.id);
     $('#l-core i').textContent = acts['opt-core'] ? '' : 'choose an option'; $('#l-tact i').textContent = acts['opt-tact'] ? '' : 'choose an option'; $('#l-funds i').textContent = F.length; if (!ideas && !$('#l-ideas i').textContent) $('#l-ideas i').textContent = U.length;
     $('#def').innerHTML = L.def; dl.hidden = $('#chips').hidden = !ideas; $('#def').hidden = !L.def; $('#tcard').hidden = !!L.plan; $('#plan').hidden = !L.plan;
     const note = $('#notice'); note.hidden = true;
@@ -354,6 +353,7 @@ function start(d) {
     const a = el('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'norman-ideas.csv'; a.click(); URL.revokeObjectURL(a.href); };
 
   /* shared pieces of the Core and Tactical pages */
+  const ORDER_RULE = (d.tact.rules || []).find((r) => /order sheet/.test(r)) || '';      /* his own rule, from the payload: the desk recommends, he trades */
   const pad = (title, ...kids) => { const x = el('div', 'card pad'); if (title) x.appendChild(el('h3', '', title)); x.append(...kids); return x; };
   const stat = (label, big, small, tip, cls) => { const x = el('div', 'stat'); x.append(el('span', 'lab', label), el('b', cls || '', big), el('span', 'mut', small)); return tipped(x, tip); };
   const more = (label, fn) => { const b = el('button', 'linkish', label); b.onclick = () => openPanel(fn); return b; };
@@ -361,11 +361,20 @@ function start(d) {
   const ul = (items) => { const u = el('ul'); u.style.margin = '0'; u.style.paddingLeft = '18px'; items.forEach((x) => u.appendChild(el('li', '', x))); return u; };
   function optionPanel(m, o, key) { const b = el('button', acts[key] === o.id ? 'btn' : 'ghost', acts[key] === o.id ? 'Chosen' : 'Choose this'); b.style.alignSelf = 'flex-start'; b.onclick = () => { decide(key, o.id); paint(); };
     return [el('h2', '', o.name), el('p', '', o.what), sec('For', ul(o.pros)), sec('Against', ul(o.cons)), b].concat(o.id === m.pick ? [el('p', '', 'The desk’s read: ' + m.read)] : [], [el('p', 'mut', m.note)]); }
+  /* The desk’s recommendation, first thing in the Core and Tactical sections (2026-11-15: it used to sit under the options table,
+     a screen and a half down on a phone). It recommends and never instructs a trade: the order sheet is the desk’s, the trade his. */
+  function recommend(m, key) { const o = (m.options || []).find((x) => x.id === m.pick);
+    if (!o) return pad('The desk’s recommendation', el('p', '', 'No recommendation for this sleeve today. The options below are the desk’s, unranked.'));
+    const head = el('div', 'reco'); head.append(el('b', '', o.name), chip('Best fit', 'new', 'The option the desk reads the evidence as supporting. Yours to take or leave.'));
+    const rd = el('p'); rd.append(el('b', '', 'Why: '), m.read_short || m.read);
+    const out = [head, el('p', '', o.short || o.what), rd];
+    if (m.caveat) { const c = el('p', 'caveat'); c.append(el('b', 'warn', m.caveat.what + ' '), el('span', 'mut', m.caveat.why)); out.push(c); }
+    out.push(links(more('The case for and against', () => optionPanel(m, o, key)), el('span', 'mut', ORDER_RULE + ' Not licensed advice; your call.')));
+    return pad('The desk’s recommendation', ...out); }
   function choose(m, key) { const t = table([{h: 'Option', f: (o) => { const w = el('span'); w.appendChild(el('span', 'tk', o.name)); if (o.id === m.pick) w.append(' ', chip('Best fit', 'new', m.read)); return w; }}, {h: 'In short', f: (o) => o.short || o.what},
       {h: '', f: (o) => { const b = el('button', (acts[key] === o.id ? 'btn' : 'ghost') + ' sm', acts[key] === o.id ? 'Chosen' : 'Choose'); b.onclick = (e) => { e.stopPropagation(); decide(key, o.id); }; return b; }}], m.options, {click: (o) => openPanel(() => optionPanel(m, o, key))});
-    const rd = el('p'); rd.append(el('b', '', 'The desk’s read: '), (m.read_short || m.read) + ' ', el('span', 'mut', 'Not licensed advice; your call. Click an option for the case for and against.'));
     const fl = el('p', 'mut'); if (m.funds) fl.append(m.funds + ' ', more('What the funds share', sharedPanel));
-    return pad('Your options', el('p', '', m.short || m.situation), m.funds ? fl : '', cardOf(t), rd); }
+    return pad('Your options', el('p', '', m.short || m.situation), m.funds ? fl : '', cardOf(t), el('p', 'mut', 'Click an option for the case for and against.')); }
   function todo(list, m, key) { const t = table([{h: 'To do', f: (a) => { const w = el('div'); w.append(el('div', '', a.what), el('div', 'mut small', a.why)); return w; }}, {h: 'When', f: (a) => { const e = el('span', '', a.when); e.style.whiteSpace = 'nowrap'; return e; }},
       {h: '', f: (a) => { const x = el('div', 'seg'); [['yes', 'Do'], ['no', 'Skip']].forEach(([v, l]) => { const b = el('button', '', l); b.setAttribute('aria-pressed', acts[a.id] === v); b.dataset.tip = 'Saved in this browser only. Tap again to clear.'; b.onclick = () => decide(a.id, v); x.appendChild(b); }); return x; }}], list); t.classList.add('act');
     const copy = el('button', 'ghost sm', 'Copy my decisions'); tipped(copy, 'Copies your option, your Do and Skip marks and your vision choices, to paste to the desk. They are saved in this browser only.');
@@ -381,7 +390,7 @@ function start(d) {
       stat('Book since ' + h.since.slice(5), sp(h.book, 1), 'S&P ' + sp(h.spx, 1), D.book), stat('Stock funds', pc(c.equity, 1), 'target ' + pc(c.target), 'Share of your whole book in the three stock funds.'),
       stat('Leader', c.leader, sp(lead.m12, 1) + ' in 12 months', D.lead));
     const hold = cardOf(table([{h: 'Holding', f: (x) => el('span', 'tk', x[0])}, {h: 'Part of', f: (x) => x[1], hs: 1}, {h: 'Now', tip: 'Share of your whole book.', f: (x) => pc(x[2], 1), n: 1}, {h: 'Target', f: (x) => x[3]}], c.hold));
-    return [strip, choose(c.memo, 'opt-core'), pad('To do, from your rules', ...todo(c.actions, c.memo, 'opt-core')), pad('What you hold', hold),
+    return [recommend(c.memo, 'opt-core'), strip, choose(c.memo, 'opt-core'), pad('To do, from your rules', ...todo(c.actions, c.memo, 'opt-core')), pad('What you hold', hold),
       links(more('What the funds share', sharedPanel), more('What works in each warning state', playPanel), more('Risk sheet', riskPanel), more('What funds are betting', betsPanel), more('The 21 warnings, retested', warnPanel), more('The cash test', cashPanel), more('The race and your thirds', racePanel))]; }
   let pstate = null;
   function playPanel() { const P = d.core.playbook, ST = ['2 or more on', '1 on', '0 on']; if (!pstate) pstate = P.state;
@@ -438,7 +447,7 @@ function start(d) {
       {h: 'You would have to believe', f: (c) => c.believe, hs: 1}, {h: '', f: (c) => { if (c.held) return ''; const x = el('div', 'seg'); [['yes', 'Keep'], ['no', 'Drop']].forEach(([v, l]) => { const b = el('button', '', l); b.setAttribute('aria-pressed', acts['vis-' + c.t] === v); b.onclick = (e) => { e.stopPropagation(); decide('vis-' + c.t, v); }; x.appendChild(b); }); return x; }}],
       V.cards, {click: (c) => openPanel(() => visionPanel(c))})); vt.querySelector('table').classList.add('vtop');
     const beliefs = () => { const u = el('ul', 'todo'); V.themes.forEach((x) => { const li = el('li'), s2 = el('span'); s2.append(x.text + ' ', el('span', 'mut', '(' + x.source + ')')); li.appendChild(s2); u.appendChild(li); }); return [el('h2', '', 'What you have said you believe'), u, el('p', 'mut', 'Tell the desk to change any of these. The candidates are matched to them.')]; };
-    return [strip, choose(t.memo, 'opt-tact'), pad('To do, from your rules', ...todo(t.actions, t.memo, 'opt-tact')),
+    return [recommend(t.memo, 'opt-tact'), strip, choose(t.memo, 'opt-tact'), pad('To do, from your rules', ...todo(t.actions, t.memo, 'opt-tact')),
       pad('Your long-term visions', vt, el('p', 'mut', 'Click a row for the full case. The list stands still: a name changes only when a pillar breaks, the person running it changes, or you say so. Candidates are desk drafts, not recommendations.')),
       links(more('What the funds share', sharedPanel), more('Following the funds, tested', followPanel), more('Your ' + V.themes.length + ' beliefs', beliefs))]; }
   function followPanel() { const W = d.tact.follow, vs = (a, b) => pc(a) + ' vs ' + pc(b), NM = {F1: 'Any fund’s big new buy', F2: 'A concentrated fund’s big new buy', F3: 'Three or more funds buying new', F4: 'A biotech-like new buy', F5: 'Druckenmiller’s new buys', F6: 'Druckenmiller’s biotech-like buys'};
@@ -547,9 +556,7 @@ function start(d) {
       ['New, Added, Held, Cut, Sold', D.move], ['Adding', D.add], ['Added twice running', D.twice], ['Technical', D.tech], ['Analysts', D.an], ['Circular financing', D.circ], ['Burry short', D.burry], ['Price-shock gauge', D.shock], ['From your rules / Your call', 'An action marked From your rules follows a rule you adopted. One marked Your call is not a rule: the evidence is shown and you decide.'], ['Leader', D.lead], ['Thirds', D.thirds], ['Star and shortlist', D.star], ['2+ lists', D.nlists], ['Blue dot', D.held]];
     const dlx = el('dl', 'defs'); items.forEach(([k, v]) => dlx.append(el('dt', '', k), el('dd', '', v))); return [head, dlx]; }
 
-  /* top readouts and footer */
-  const h = d.home, ro = (label, big, small, tip, fn, cls) => { const b = el('button', 'readout'); b.append(el('span', '', label), el('b', cls || '', big), el('span', '', small)); tipped(b, tip); b.onclick = () => openPanel(fn); $('#readouts').appendChild(b); };
-  $('#readouts').hidden = true;
+  /* footer */
   $('#f-defs').onclick = () => openPanel(defsPanel); $('#f-tests').onclick = () => openPanel(testsPanel);
   $('#built').textContent = 'Readings, not signals. Fund filings as of ' + asof + ', prices through ' + through + ', built ' + d.built.slice(0, 10) + '.';
   const hash = (location.hash || '').slice(1); if (LISTS.some((L) => L.id === hash)) S.list = hash; draw();
