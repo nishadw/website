@@ -474,7 +474,13 @@ function start(d) {
     const hold = cardOf(table([{h: 'Holding', f: (x) => el('span', 'tk', x[0])}, {h: 'Part of', f: (x) => x[1], hs: 1}, {h: 'Now', tip: 'Share of your whole book.', f: (x) => pc(x[2], 1), n: 1}, {h: 'Target', f: (x) => x[3]}], c.hold));
     return [recommend(c.memo, 'opt-core'), strip, choose(c.memo, 'opt-core'), pad('To do, from your rules', ...todo(c.actions, c.memo, 'opt-core')), pad('What you hold', hold),
       ...outlookSection(c.outlook, 'core'),
-      links(more('What the funds share', sharedPanel), more('What works in each warning state', playPanel), more('Risk sheet', riskPanel), more('What funds are betting', betsPanel), more('The 21 warnings, retested', warnPanel), more('The cash test', cashPanel), more('The race and your thirds', racePanel))]; }
+      /* Two links dropped on 2026-11-17: "What the funds share" and "What funds are betting" are both about
+         which individual STOCKS the tracked funds hold, and the core holds none -- it holds index funds on a
+         dated schedule. Both still sit on Tactical, where owning a single name is the question. Everything
+         kept here bears on choosing between the core's own funds or on sizing the sleeve: the playbook and the
+         race inform the choice, the risk sheet and the cash test are the evidence behind two of the five
+         options above, and the 21-warnings retest is the caveat the conditions section depends on. */
+      links(more('What works in each warning state', playPanel), more('Risk sheet', riskPanel), more('The 21 warnings, retested', warnPanel), more('The cash test', cashPanel), more('The race and your thirds', racePanel))]; }
   /* The quarter ahead as a cascade (norman/judge/outlook.py), one per sleeve: which conditions are on, what
      the next twelve months actually did when each was on against when it was off, where quality sits and
      where the funds moved, one level below that, and then the names the pipeline already holds there.
