@@ -192,7 +192,7 @@ function start(d) {
     sb: 'Pay handed out in shares, as a share of sales.',
     p6: 'Price change over six months, month-end closes through ' + through + '.', p: 'Price change over twelve months, month-end closes through ' + through + '.',
     oh: 'How far the price sits below its highest month-end close of the past year.',
-    rules: 'Three rules: sales up more than 10%, cash flow above 10% of assets, share count not up more than 3%. A reading list; the test found no reliable edge.',
+    rules: 'Three rules: sales up more than 10%, cash flow above 10% of assets, share count not up more than 3%. A reading list; the test found no reliable edge. A rule whose number is not on file is not counted as passed, and the count that could be read at all is shown beside it: "2 of 3, 1 not on file" is not the same statement as a measured 2 of 3 (2026-11-17).',
     traits: 'Six traits that small companies which became giants tended to share. Each square is one trait; hover a square to see which.',
     odds: 'Of past companies in the same size band with this many traits, the share that entered the 150 largest within five years (2009–2022 starts). Starting size drives most of it, so read it as rough.',
     nf: 'How many of the ' + NF + ' tracked funds owned it on ' + asof + '. The bar shows their last move: green bought, grey held, red cut or sold.',
@@ -290,7 +290,12 @@ function start(d) {
   const delta = (now, was) => now == null ? '–' : sp(now) + (was == null ? '' : now >= was + 5 ? ' ↑' : now <= was - 5 ? ' ↓' : '');
   const yn = (b) => b ? 'yes' : 'no', SR = d.score || {}, sg1 = (k) => SR[k] ? (SR[k][0] > 0 ? '+' : '') + SR[k][0] : '?';
   const SCT = 'The order of this list, 0 to 100: business 60 (20 each for top-third gross profit to assets, three years of 10%+ sales growth, not diluting) and price trend 40 (20 above its 10-month average, 20 above six months ago). On history, 1994 to 2023, stocks scoring under 40 lagged the average large stock by ' + Math.abs((SR['Score 0-39'] || [0])[0]) + ' points a year (reliable), those at 80 or more led by ' + sg1('Score 80-100') + ' (not reliable), and the ten highest were no better than the rest of the top. So it pushes weak names down the list; it does not name a winner. A measure that is not on file counts as no.';
-  const why = (r) => 'Business ' + 20 * [1, 2, 4].filter((b) => r.bz & b).length + ' of 60: top-third gross profit ' + (r.gpa == null ? 'not on file' : yn(r.bz & 1)) + ', steady growth ' + yn(r.bz & 2) + ', not diluting ' + yn(r.bz & 4) + '. Trend ' + 20 * (r.ma + r.m6) + ' of 40: above its 10-month average ' + yn(r.ma) + ', above six months ago ' + yn(r.m6) + '.';
+  // "2 of 3" when all three could be read, "2 of 3, 1 not on file" when one could not. Unknown is its own
+  // state as of 2026-11-17: a missing number is still not a pass, but it is no longer reported as a failure
+  // the reader cannot tell from a measured one. r.rr is absent on a payload built before that date.
+  const unread = (n) => n == null ? 0 : Math.max(0, 3 - n);
+  const rulesRead = (r) => r.ru + ' of 3' + (unread(r.rr) ? ', ' + unread(r.rr) + ' not on file' : '');
+  const why = (r) => 'Business ' + 20 * [1, 2, 4].filter((b) => r.bz & b).length + ' of 60: top-third gross profit ' + (r.gpa == null ? 'not on file' : yn(r.bz & 1)) + ', steady growth ' + yn(r.bz & 2) + ', not diluting ' + yn(r.bz & 4) + '. Trend ' + 20 * (r.ma + r.m6) + ' of 40: above its 10-month average ' + yn(r.ma) + ', above six months ago ' + yn(r.m6) + '.' + (unread(r.bzr) ? ' ' + unread(r.bzr) + ' of the three business measures could not be read for this name, and an unreadable measure counts as a no.' : '');
   const MEAS = {netcash: (r) => r.nc, cfp: (r) => r.cf, druck: (r) => { const o = DUQ < 0 ? null : r.own.find((x) => x[0] === DUQ); return o ? o[1] : null; }, frate: (r) => r.fr,
     accel: (r) => r.g == null || r.g1 == null ? null : r.g - r.g1, widen: (r) => r.gm == null || r.gm1 == null ? null : r.gm - r.gm1, buyback: (r) => r.sh == null ? null : -r.sh, gpa: (r) => r.gpa,
     steady: (r) => r.g == null || r.g1 == null || r.g2 == null ? null : Math.min(r.g, r.g1, r.g2), nodil: (r) => r.sh3 == null ? (r.sh == null ? null : -r.sh) : -r.sh3, g: (r) => r.g, gm: (r) => r.gm, rd: (r) => r.rd};
@@ -613,7 +618,7 @@ function start(d) {
     if (chips.childNodes.length) out.push(chips);
     if (r.circ) { const p = el('p'); p.append(chip('Circular financing', 'bad', D.circ), r.why + '. '); if (r.src) { const a = el('a', '', 'Source'); a.href = r.src; a.target = '_blank'; a.rel = 'noopener'; p.appendChild(a); } out.push(p); }
     out.push(sec('Growth and quality', kv([['Sales growth', sp(r.g), D.g, sgn(r.g)], ['Sales, $B', nm(r.sl), D.sl], ['Gross margin', pc(r.gm), D.gm], ['Gross profit / assets', pc(r.gpa), TOG.gpa[2]], ['R&D / sales', pc(r.rd), D.rd], ['Cash flow / assets', pc(r.cf), D.cf], ['Cash less debt, $B', nm(r.nc), D.nc, sgn(r.nc)],
-      ['Share count, 1 yr', sp(r.sh, 1), D.sh], ['Share count, 3 yr', sp(r.sh3, 1), TOG.nodil[2]], ['Three rules', r.ru + ' of 3', D.rules], ['Spending ÷ depreciation', nm(r.cd, 1, '×'), D.cd], ['Stock pay / sales', pc(r.sb), D.sb]])));
+      ['Share count, 1 yr', sp(r.sh, 1), D.sh], ['Share count, 3 yr', sp(r.sh3, 1), TOG.nodil[2]], ['Three rules', rulesRead(r), D.rules], ['Spending ÷ depreciation', nm(r.cd, 1, '×'), D.cd], ['Stock pay / sales', pc(r.sb), D.sb]])));
     out.push(sec('Price and ratings', kv([['Price, 6 mo', sp(r.p6), D.p6, sgn(r.p6)], ['Price, 12 mo', sp(r.p), D.p, sgn(r.p)], ['From 12-mo high', sp(r.oh), D.oh], ['Technical', r.te === 2 ? 'Strong buy' : r.te === 1 ? 'Buy' : 'Not a buy', D.tech],
       ['Analysts', r.an ? r.an[0] + ' (' + r.an[1] + ')' : 'Not connected', D.an], ['Latest quarter', r.q, 'End of the latest quarter in the company’s filings.']])));
     const ul = el('ul', 'checks'); TRAITS.forEach((t, i) => { const li = el('li', r.tb >> i & 1 ? 'on' : ''); const tx = el('span'); tx.append(t[0] + '. ', el('span', 'mut', t[1])); li.append(el('i'), tx); ul.appendChild(li); });
