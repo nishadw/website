@@ -503,7 +503,24 @@ function start(d) {
       {h: 'Funds last quarter', tip: 'Positions the tracked funds opened plus added, less those cut, in the latest 13F quarter.',
        f: (x) => (x.net > 0 ? '+' : '') + x.net, v: (x) => x.net, n: 1, cls: (x) => sgn(x.net)},
       {h: 'Read', tip: 'Computed from the two columns to its left, not written by hand.', f: (x) => x.stance}], secs));
+    const fr = (o.fund_reads || []);
+    const frTable = fr.length ? pad('What the conditions mean for each core fund',
+      el('p', '', 'The conditions above are measured. Which way each fund leans on them is a stated reading, not a '
+        + 'measurement, and it switches nothing: a third changes only at its own check month. This is here so the '
+        + 'choice can be yours on the conditions rather than on the momentum number alone.'),
+      cardOf(table([
+        {h: 'Fund', f: (x) => el('span', 'tk', x.fund)},
+        {h: 'Lean', tip: 'Counting the conditions on now that bear on this fund, one each way.',
+         f: (x) => (x.net > 0 ? '+' : '') + x.net, v: (x) => x.net, n: 1, cls: (x) => sgn(x.net)},
+        {h: 'Read', f: (x) => x.read},
+        {h: 'On which conditions', f: (x) => { const w = el('span');
+          (x.conditions || []).forEach((c, i) => { if (i) w.append(' '); w.appendChild(
+            chip(c.event.split('(')[0].trim(), c.direction === 'with it' ? 'good' : '',
+                 c.direction + ' \u2014 ' + sp(c.gap, 1) + ' points over the next twelve months when this was on, '
+                 + c.episodes + ' episodes' + (c.thin ? ', too few to call a base rate' : ''))); });
+          return w.childNodes.length ? w : el('span', 'mut', 'none on now'); }}], fr))) : null;
     const out = [pad('The quarter ahead: conditions', head, cond),
+                 ...(frTable ? [frTable] : []),
                  pad('The quarter ahead: where the two measures point', el('p', '', 'Quality and fund flow are different '
                    + 'questions and are allowed to disagree. Where they do, that is the finding rather than a problem.'), sect)];
     if (o.themes && o.themes.length) {
@@ -617,6 +634,17 @@ function start(d) {
     if (r.dk) chips.appendChild(chip('Druckenmiller: ' + MOVE[r.dk].toLowerCase(), r.dk, D.move)); if (r.burry) chips.appendChild(chip('Burry short', 'bad', D.burry));
     if (chips.childNodes.length) out.push(chips);
     if (r.circ) { const p = el('p'); p.append(chip('Circular financing', 'bad', D.circ), r.why + '. '); if (r.src) { const a = el('a', '', 'Source'); a.href = r.src; a.target = '_blank'; a.rel = 'noopener'; p.appendChild(a); } out.push(p); }
+    const sc3 = [['Fundamentals', r.fs == null ? '\u2013' : r.fs + ' of 100',
+                  'Strict fundamentals from the filings only \u2014 no price, no momentum. Five legs of 20: returns on '
+                  + 'assets, cash generation, three-year growth, gross margin, and not diluting. Scored out of what '
+                  + 'could be READ: ' + (r.fsr == null ? 'unknown' : r.fsr + ' of the 100 points were on file') + '.'],
+                 ['Judgement', r.js == null ? 'none on file' : r.js + ' of 100',
+                  'A language model\u2019s qualitative read. There is none on file: it cannot be backtested, so it '
+                  + 'carries no weight until it has a forward record.'],
+                 ['Global', r.gs == null ? '\u2013' : r.gs + ' of 100',
+                  'The two blended at the weight in config, which is ' + (100 * (r.jw || 0)).toFixed(0) + '% judgement. '
+                  + 'At zero the global score is simply the fundamentals score.']];
+    out.push(sec('Scores', kv(sc3)));
     out.push(sec('Growth and quality', kv([['Sales growth', sp(r.g), D.g, sgn(r.g)], ['Sales, $B', nm(r.sl), D.sl], ['Gross margin', pc(r.gm), D.gm], ['Gross profit / assets', pc(r.gpa), TOG.gpa[2]], ['R&D / sales', pc(r.rd), D.rd], ['Cash flow / assets', pc(r.cf), D.cf], ['Cash less debt, $B', nm(r.nc), D.nc, sgn(r.nc)],
       ['Share count, 1 yr', sp(r.sh, 1), D.sh], ['Share count, 3 yr', sp(r.sh3, 1), TOG.nodil[2]], ['Three rules', rulesRead(r), D.rules], ['Spending ÷ depreciation', nm(r.cd, 1, '×'), D.cd], ['Stock pay / sales', pc(r.sb), D.sb]])));
     out.push(sec('Price and ratings', kv([['Price, 6 mo', sp(r.p6), D.p6, sgn(r.p6)], ['Price, 12 mo', sp(r.p), D.p, sgn(r.p)], ['From 12-mo high', sp(r.oh), D.oh], ['Technical', r.te === 2 ? 'Strong buy' : r.te === 1 ? 'Buy' : 'Not a buy', D.tech],
