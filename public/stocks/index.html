@@ -110,23 +110,53 @@ const sp = (v, d = 0) => v == null ? '–' : (v > 0 ? '+' : '') + v.toFixed(d) +
 const nm = (v, d = 1, u = '') => v == null ? '–' : v.toFixed(d) + u;
 const tipped = (node, tip, focus) => { if (tip) { node.dataset.tip = tip; if (focus) node.tabIndex = 0; } return node; };
 
+const DATA = () => (location.pathname.endsWith('.html') ? location.pathname.replace(/[^/]*$/, '') : location.pathname.replace(/\/?$/, '/')) + 'data.enc.json';
+
+/* How one build of the payload is told from another without the password. The ETag is what Vercel serves and
+   is exact; Last-Modified is the fallback so the check also works behind a plain static server, which sends no
+   ETag at all. Either is enough, because both change on every deploy. */
+const ident = (r) => (r && (r.headers.get('etag') || r.headers.get('last-modified'))) || '';
+
 async function unlock(pw) {
-  const dir = location.pathname.endsWith('.html') ? location.pathname.replace(/[^/]*$/, '') : location.pathname.replace(/\/?$/, '/');
-  const res = await fetch(dir + 'data.enc.json', {cache: 'no-store'});
+  const res = await fetch(DATA(), {cache: 'no-store'});
   if (!res.ok) throw new Error('nodata');
   const e = await res.json();
   const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
   const key = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(e.salt), iterations: e.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
-  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(e.iv)}, key, b64(e.ct))));
+  const d = JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(e.iv)}, key, b64(e.ct))));
+  /* Kept with the decrypted copy so a reopen can tell whether the server still holds this same build. The
+     envelope's iv is random per build, so it names one without needing the password; the ETag is the cheap
+     way to ask the same question. */
+  return {d: d, tag: ident(res), iv: e.iv || ''};
 }
-/* The password is never stored (2026-11-14). A reload within the tab reopens from the decrypted data kept in sessionStorage. */
+/* The password is never stored (2026-11-14). A reload within the tab reopens from the decrypted data kept in
+   sessionStorage -- but only once the payload on the server is confirmed to be the one that was decrypted.
+   Until 2026-11-16 it reopened unconditionally, so a tab left open across a deploy kept showing the old data
+   for as long as it stayed open, with nothing on screen to say so: the page served 2026-06-30 fund books for
+   an hour after the 2026-09-30 quarter went live, and looked exactly like a deploy that had not happened. */
 const enter = (d) => { $('#gate').hidden = true; $('#app').hidden = false; start(d); };
 $('#gate').addEventListener('submit', async (ev) => {
   ev.preventDefault(); $('#msg').textContent = 'Opening…';
-  try { const d = await unlock($('#pw').value); $('#pw').value = ''; try { sessionStorage.setItem('nd', JSON.stringify(d)); } catch (_) {} enter(d); }
+  try { const c = await unlock($('#pw').value); $('#pw').value = ''; try { sessionStorage.setItem('nd', JSON.stringify(c)); } catch (_) {} enter(c.d); }
   catch (err) { $('#msg').textContent = (err && err.message === 'nodata') ? 'The data file did not load. Reload the page.' : 'That password did not open it.'; }
 });
-try { sessionStorage.removeItem('n'); const s = sessionStorage.getItem('nd'); if (s) enter(JSON.parse(s)); } catch (_) {}
+(async () => {
+  let s = null;
+  try { sessionStorage.removeItem('n'); s = sessionStorage.getItem('nd'); } catch (_) { return; }
+  if (!s) return;
+  let c = null;
+  try { c = JSON.parse(s); } catch (_) {}
+  if (!c || !c.d) { try { sessionStorage.removeItem('nd'); } catch (_) {} return; }   // a copy from before this check
+  let head = null;
+  try { head = await fetch(DATA(), {method: 'HEAD', cache: 'no-store'}); } catch (_) {}
+  const tag = head && head.ok ? ident(head) : '';
+  if (tag && c.tag && tag !== c.tag) {           // positively a different build: do not show the old one
+    try { sessionStorage.removeItem('nd'); } catch (_) {}
+    $('#msg').textContent = 'The page was updated. Enter the password to load the new data.';
+    return;
+  }
+  enter(c.d);                                    // same build, or no answer at all (offline), so show what we have
+})();
 
 /* tooltips: hover, keyboard focus, or tap */
 (() => { const tip = $('#tip'); let cur = null;
