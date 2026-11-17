@@ -134,7 +134,13 @@ async function unlock(pw) {
    Until 2026-11-16 it reopened unconditionally, so a tab left open across a deploy kept showing the old data
    for as long as it stayed open, with nothing on screen to say so: the page served 2026-06-30 fund books for
    an hour after the 2026-09-30 quarter went live, and looked exactly like a deploy that had not happened. */
-const enter = (d) => { $('#gate').hidden = true; $('#app').hidden = false; start(d); };
+/* start() declares its own state and appends its own filter controls, so calling it twice leaves two
+   independent states both drawing into #view and two of every dropdown in #chips -- and a dropdown belonging
+   to the losing state looks like a control that does nothing. That is what happened: the reopen check below is
+   async, so the gate stayed submittable while it ran, and a password entered in that window entered the app a
+   second time. The gate is hidden while the check runs, and this guard is the backstop (2026-11-16). */
+let started = false;
+const enter = (d) => { if (started) return; started = true; $('#gate').hidden = true; $('#app').hidden = false; start(d); };
 $('#gate').addEventListener('submit', async (ev) => {
   ev.preventDefault(); $('#msg').textContent = 'Opening…';
   try { const c = await unlock($('#pw').value); $('#pw').value = ''; try { sessionStorage.setItem('nd', JSON.stringify(c)); } catch (_) {} enter(c.d); }
@@ -144,15 +150,17 @@ $('#gate').addEventListener('submit', async (ev) => {
   let s = null;
   try { sessionStorage.removeItem('n'); s = sessionStorage.getItem('nd'); } catch (_) { return; }
   if (!s) return;
+  $('#gate').hidden = true;                      // nothing submittable while the check runs, so it cannot race
+  const regate = (m) => { $('#gate').hidden = false; $('#msg').textContent = m || ''; };
   let c = null;
   try { c = JSON.parse(s); } catch (_) {}
-  if (!c || !c.d) { try { sessionStorage.removeItem('nd'); } catch (_) {} return; }   // a copy from before this check
+  if (!c || !c.d) { try { sessionStorage.removeItem('nd'); } catch (_) {} regate(); return; }   // a copy from before this check
   let head = null;
   try { head = await fetch(DATA(), {method: 'HEAD', cache: 'no-store'}); } catch (_) {}
   const tag = head && head.ok ? ident(head) : '';
   if (tag && c.tag && tag !== c.tag) {           // positively a different build: do not show the old one
     try { sessionStorage.removeItem('nd'); } catch (_) {}
-    $('#msg').textContent = 'The page was updated. Enter the password to load the new data.';
+    regate('The page was updated. Enter the password to load the new data.');
     return;
   }
   enter(c.d);                                    // same build, or no answer at all (offline), so show what we have
@@ -329,27 +337,66 @@ function start(d) {
   const dl = el('button', 'ghost', 'Download'); tipped(dl, 'Save the stocks shown as a spreadsheet file.');
   $('#tools').append(dl);
   const fbtn = {}, fsel = {}, qbtn = [], aibtn = {}, obtn = {}, ideasList = () => LISTS.find((x) => x.id === 'ideas'); let moreSum = null;
-  const apply = (p) => { S.f = new Set(p.f || []); S.g = p.g || 0; S.gm = p.gm || 0; S.rd = p.rd || 0; S.size = p.size || ''; S.ai = p.ai || ''; S.fund = p.fund == null ? '' : String(p.fund); S.fw = p.fw || 0; S.fnew = !!p.fnew; S.min = 0; S.sector = ''; S.n = 50; draw(); };
+  /* Filters come from two layers, kept apart on purpose. `S.man` is what was set by hand in More filters;
+     `S.quick` is which presets are pressed. The effective filter, which everything else reads off S, is the
+     stricter of the two (sync below).
+     Before 2026-11-16 there was one layer: pressing a quick filter overwrote the whole state and releasing one
+     rebuilt the state from the presets still pressed. So releasing a preset silently discarded every filter
+     set by hand, and the sector and list-count with them, because nothing recorded which layer a value came
+     from. Nishad: "if the quick filters is undone, then the filters not affected should be left." */
+  const blank = () => ({f: new Set(), g: 0, gm: 0, rd: 0, size: '', fund: null, fw: 0, fnew: false});
+  const spec = (m) => ({f: [...m.f], g: m.g, gm: m.gm, rd: m.rd, size: m.size, fund: m.fund, fw: m.fw, fnew: m.fnew});
+  S.man = blank();
+  const sync = () => { const e = merge([spec(S.man)].concat([...S.quick].map((j) => QUICK[j][1])));
+    S.f = new Set(e.f); S.g = e.g; S.gm = e.gm; S.rd = e.rd; S.size = e.size;
+    S.fund = e.fund == null ? '' : String(e.fund); S.fw = e.fw; S.fnew = e.fnew; };
+  /* A change made by hand wins over a pressed preset, because the layers combine by taking the stricter of the
+     two and an active preset would otherwise re-impose the value just loosened, leaving the control looking
+     stuck. But releasing the preset outright would drop its other filters too, and "loosen any of them below"
+     offers the opposite. So the preset is first folded into the manual layer, then released, and only then is
+     the new value written: everything it contributed stays, except the one thing just changed.
+     This is deliberately not what releasing the chip itself does. Pressing a quick filter off removes its whole
+     contribution and leaves the hand-set filters alone; loosening one of its controls keeps the rest. */
+  const fold = (asksMore) => [...S.quick].forEach((i) => { const p = QUICK[i][1]; if (!asksMore(p)) return;
+    (p.f || []).forEach((k) => S.man.f.add(k));
+    S.man.g = Math.max(S.man.g, p.g || 0); S.man.gm = Math.max(S.man.gm, p.gm || 0); S.man.rd = Math.max(S.man.rd, p.rd || 0);
+    S.man.size = stricter(S.man.size, p.size || '');
+    if (S.man.fund == null && p.fund != null) S.man.fund = String(p.fund);
+    S.man.fw = Math.max(S.man.fw, p.fw || 0); S.man.fnew = S.man.fnew || !!p.fnew;
+    S.quick.delete(i); });
+  const sameSpec = (a, b) => (a.g || 0) === (b.g || 0) && (a.gm || 0) === (b.gm || 0) && (a.rd || 0) === (b.rd || 0)
+    && (a.size || '') === (b.size || '') && (a.fund == null ? '' : String(a.fund)) === (b.fund == null ? '' : String(b.fund))
+    && (a.fw || 0) === (b.fw || 0) && !!a.fnew === !!b.fnew
+    && (a.f || []).length === (b.f || []).length && (a.f || []).every((k) => (b.f || []).includes(k));
+  /* Replace every filter with exactly this one set. Used by Clear and by the links that jump into the Ideas
+     list with a filter already on, where leaving anything over from before would be wrong. A set that is one
+     of the presets is recorded as that preset, so its chip lights up. */
+  const apply = (p) => { const i = QUICK.findIndex(([, q]) => sameSpec(q, p));
+    S.quick.clear(); S.man = blank();
+    if (i >= 0) S.quick.add(i);
+    else S.man = {f: new Set(p.f || []), g: p.g || 0, gm: p.gm || 0, rd: p.rd || 0, size: p.size || '',
+                  fund: p.fund == null ? null : String(p.fund), fw: p.fw || 0, fnew: !!p.fnew};
+    S.ai = p.ai || ''; S.min = 0; S.sector = ''; S.n = 50; sync(); draw(); };
   // Quick filters combine: toggles add up, thresholds take the higher, and of two size groups the one that lets fewer stocks through wins.
   const sizeCount = {}, sizeN = (k) => sizeCount[k] == null ? (sizeCount[k] = U.filter(SIZE[k][1]).length) : sizeCount[k], stricter = (a, b) => !a ? b : !b ? a : sizeN(b) < sizeN(a) ? b : a;
   const merge = (ps) => ps.reduce((o, p) => ({f: [...new Set(o.f.concat(p.f || []))], g: Math.max(o.g, p.g || 0), gm: Math.max(o.gm, p.gm || 0), rd: Math.max(o.rd, p.rd || 0), size: stricter(o.size, p.size || ''), fund: o.fund != null ? o.fund : p.fund, fw: Math.max(o.fw, p.fw || 0), fnew: o.fnew || !!p.fnew}), {f: [], g: 0, gm: 0, rd: 0, size: '', fund: null, fw: 0, fnew: false});
-  const covers = (p) => (p.f || []).every((k) => S.f.has(k)) && S.g >= (p.g || 0) && S.gm >= (p.gm || 0) && S.rd >= (p.rd || 0) && (!p.size || (!!S.size && sizeN(S.size) <= sizeN(p.size))) && (p.fund == null || S.fund === String(p.fund)) && S.fw >= (p.fw || 0) && (!p.fnew || S.fnew);
-  const same = (p) => S.g === (p.g || 0) && S.gm === (p.gm || 0) && S.rd === (p.rd || 0) && S.size === (p.size || '') && S.f.size === (p.f || []).length && (p.f || []).every((k) => S.f.has(k)) && S.fund === (p.fund == null ? '' : String(p.fund)) && S.fw === (p.fw || 0) && S.fnew === !!p.fnew;
   (() => { const box = $('#chips'), row = (label, into) => { const r = el('div', 'frow'); r.appendChild(el('b', '', label)); (into || box).appendChild(r); return r; };
-    const q = row('Quick filters'); q.firstChild.dataset.tip = 'Turn on more than one to combine them: a stock must pass all of them. Where two set the same filter, the stricter setting applies.'; QUICK.forEach(([name, p, tip], i) => { const b = el('button', 'fchip quick', name); b.dataset.tip = tip; b.onclick = () => { S.quick.has(i) && covers(p) ? S.quick.delete(i) : S.quick.add(i); apply(Object.assign({ai: S.ai}, merge([...S.quick].map((j) => QUICK[j][1])))); }; qbtn.push([b, p]); q.appendChild(b); });
+    const q = row('Quick filters'); q.firstChild.dataset.tip = 'Turn on more than one to combine them: a stock must pass all of them. Where two set the same filter, the stricter setting applies.'; QUICK.forEach(([name, p, tip], i) => { const b = el('button', 'fchip quick', name); b.dataset.tip = tip; b.onclick = () => { S.quick.has(i) ? S.quick.delete(i) : S.quick.add(i); S.n = 50; sync(); draw(); }; qbtn.push([b, p]); q.appendChild(b); });
     const a = row('AI'), seg = el('div', 'seg'); [['', 'All'], ['ai', 'AI'], ['non', 'Non-AI']].forEach(([v, l]) => { const b = el('button', '', l); b.dataset.tip = v ? D.ai : 'Every stock.'; b.onclick = () => { S.ai = v; S.n = 50; draw(); }; aibtn[v] = b; seg.appendChild(b); }); a.appendChild(seg);
     const ob = row('Order'), oseg = el('div', 'seg'); [['score', 'Best evidence', 'Highest score first: business quality and price trend. In testing, low scores reliably lagged and high scores led by less. The larger company comes first on a tie.'], ['match', 'Strongest match', 'The most extreme on the filters you have on comes first: fastest growth for a growth filter, largest weight for a fund filter, the average standing when several are on. Analyst, insider, technical and fund-count filters are left out of the order because they showed no edge in testing; with only those on, this is the same as Best evidence.'], ['size', 'Size', 'Largest company first.']].forEach(([v, l, tip]) => { const b = el('button', '', l); b.dataset.tip = tip; b.onclick = () => { S.order = v; ideasList().s = {i: -1, asc: false}; S.n = 50; draw(); }; obtn[v] = b; oseg.appendChild(b); }); ob.appendChild(oseg);
     const det = el('details', 'moref'); moreSum = el('summary', '', 'More filters'); det.appendChild(moreSum); box.appendChild(det);
     GROUPS.forEach(([label, ids], gi) => { const r = row(label, det);
-      if (gi === 0) { Object.keys(SEL).forEach((k) => { const [name, steps, , tip] = SEL[k], e = el('select', 'ghost'); e.setAttribute('aria-label', name); e.dataset.tip = tip; steps.forEach((v) => { const o = el('option', '', v ? name + ' above ' + v + '%' : name + ': any'); o.value = v; e.appendChild(o); }); e.onchange = () => { S[k] = +e.value; S.n = 50; draw(); }; fsel[k] = e; r.appendChild(e); });
-        const e = el('select', 'ghost'); e.setAttribute('aria-label', 'Size'); e.dataset.tip = D.rank; Object.keys(SIZE).forEach((k) => { const o = el('option', '', SIZE[k][0]); o.value = k; e.appendChild(o); }); e.onchange = () => { S.size = e.value; S.n = 50; draw(); }; fsel.size = e; r.appendChild(e); }
-      ids.forEach((id) => { const b = el('button', 'fchip', TOG[id][0]); b.dataset.tip = TOG[id][2]; b.onclick = () => { S.f.has(id) ? S.f.delete(id) : S.f.add(id); S.n = 50; draw(); }; fbtn[id] = b; r.appendChild(b); }); });
+      if (gi === 0) { Object.keys(SEL).forEach((k) => { const [name, steps, , tip] = SEL[k], e = el('select', 'ghost'); e.setAttribute('aria-label', name); e.dataset.tip = tip; steps.forEach((v) => { const o = el('option', '', v ? name + ' above ' + v + '%' : name + ': any'); o.value = v; e.appendChild(o); }); e.onchange = () => { const v = +e.value; fold((q) => (q[k] || 0) > v); S.man[k] = v; S.n = 50; sync(); draw(); }; fsel[k] = e; r.appendChild(e); });
+        const e = el('select', 'ghost'); e.setAttribute('aria-label', 'Size'); e.dataset.tip = D.rank; Object.keys(SIZE).forEach((k) => { const o = el('option', '', SIZE[k][0]); o.value = k; e.appendChild(o); }); e.onchange = () => { const v = e.value; fold((q) => q.size && (!v || sizeN(q.size) < sizeN(v))); S.man.size = v; S.n = 50; sync(); draw(); }; fsel.size = e; r.appendChild(e); }
+      ids.forEach((id) => { const b = el('button', 'fchip', TOG[id][0]); b.dataset.tip = TOG[id][2]; b.onclick = () => { if (S.f.has(id)) { fold((q) => (q.f || []).includes(id)); S.man.f.delete(id); } else { S.man.f.add(id); } S.n = 50; sync(); draw(); }; fbtn[id] = b; r.appendChild(b); }); });
     const fr = row('Fund', det), sf = el('select', 'ghost'), sw = el('select', 'ghost'), bn = el('button', 'fchip', 'New buys only'); sf.setAttribute('aria-label', 'Fund'); sw.setAttribute('aria-label', 'Smallest share of the fund’s book');
     sf.dataset.tip = 'Show only stocks this fund held on ' + asof + '.'; sw.dataset.tip = 'The stock must be at least this share of the fund’s reported stock holdings.'; bn.dataset.tip = 'Only stocks the fund did not hold the quarter before.';
     [['', 'Any fund']].concat(F.map((f, i) => [String(i), f.name])).forEach(([v, t]) => { const o = el('option', '', t); o.value = v; sf.appendChild(o); }); [0, 1, 2, 3, 5, 10].forEach((v) => { const o = el('option', '', v ? v + '% of its book or more' : 'any weight'); o.value = v; sw.appendChild(o); });
-    sf.onchange = () => { S.fund = sf.value; S.n = 50; draw(); }; sw.onchange = () => { S.fw = +sw.value; S.n = 50; draw(); }; bn.onclick = () => { S.fnew = !S.fnew; S.n = 50; draw(); }; fsel.fund = sf; fsel.fw = sw; fbtn.__new = bn; fr.append(sf, sw, bn);
+    sf.onchange = () => { const v = sf.value; fold((q) => q.fund != null && String(q.fund) !== v); S.man.fund = v === '' ? null : v; S.n = 50; sync(); draw(); };
+    sw.onchange = () => { const v = +sw.value; fold((q) => (q.fw || 0) > v); S.man.fw = v; S.n = 50; sync(); draw(); };
+    bn.onclick = () => { if (S.fnew) { fold((q) => !!q.fnew); S.man.fnew = false; } else { S.man.fnew = true; } S.n = 50; sync(); draw(); }; fsel.fund = sf; fsel.fw = sw; fbtn.__new = bn; fr.append(sf, sw, bn);
     const last = row('', det); last.append(selS, selN); })();
-  const paintFilters = () => { Object.keys(fbtn).forEach((id) => fbtn[id].setAttribute('aria-pressed', id === '__new' ? S.fnew : S.f.has(id))); fsel.fund.value = S.fund; fsel.fw.value = String(S.fw); Object.keys(SEL).forEach((k) => { fsel[k].value = S[k]; }); fsel.size.value = S.size; selN.value = String(S.min); selS.value = S.sector; qbtn.forEach(([b, p], i) => { if (S.quick.has(i) && !covers(p)) S.quick.delete(i); }); if (!S.quick.size) qbtn.forEach(([, p], i) => { if (!S.quick.size && same(p)) S.quick.add(i); }); qbtn.forEach(([b], i) => b.setAttribute('aria-pressed', S.quick.has(i)));
+  const paintFilters = () => { Object.keys(fbtn).forEach((id) => fbtn[id].setAttribute('aria-pressed', id === '__new' ? S.fnew : S.f.has(id))); fsel.fund.value = S.fund; fsel.fw.value = String(S.fw); Object.keys(SEL).forEach((k) => { fsel[k].value = S[k]; }); fsel.size.value = S.size; selN.value = String(S.min); selS.value = S.sector; qbtn.forEach(([b], i) => b.setAttribute('aria-pressed', S.quick.has(i)));
     Object.keys(aibtn).forEach((v) => aibtn[v].setAttribute('aria-pressed', S.ai === v)); Object.keys(obtn).forEach((v) => obtn[v].setAttribute('aria-pressed', S.order === v && ideasList().s.i < 0)); const n = S.f.size + ['g', 'gm', 'rd'].filter((k) => S[k]).length + (S.size ? 1 : 0) + (S.sector ? 1 : 0) + (S.min ? 1 : 0) + (S.fund !== '' ? 1 : 0); moreSum.textContent = 'More filters' + (n ? ' (' + n + ' on)' : ''); };
   LISTS.forEach((L) => { const b = el('button', 'list'); b.id = 'l-' + L.id; b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'view'); b.append(L.name, el('i')); b.onclick = () => pick(L.id); $('#lists').appendChild(b); });
   const cur = () => LISTS.find((L) => L.id === S.list);
