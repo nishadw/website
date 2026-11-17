@@ -468,7 +468,61 @@ function start(d) {
       stat('Leader', c.leader, sp(lead.m12, 1) + ' in 12 months', D.lead));
     const hold = cardOf(table([{h: 'Holding', f: (x) => el('span', 'tk', x[0])}, {h: 'Part of', f: (x) => x[1], hs: 1}, {h: 'Now', tip: 'Share of your whole book.', f: (x) => pc(x[2], 1), n: 1}, {h: 'Target', f: (x) => x[3]}], c.hold));
     return [recommend(c.memo, 'opt-core'), strip, choose(c.memo, 'opt-core'), pad('To do, from your rules', ...todo(c.actions, c.memo, 'opt-core')), pad('What you hold', hold),
+      ...outlookSection(c.outlook, 'core'),
       links(more('What the funds share', sharedPanel), more('What works in each warning state', playPanel), more('Risk sheet', riskPanel), more('What funds are betting', betsPanel), more('The 21 warnings, retested', warnPanel), more('The cash test', cashPanel), more('The race and your thirds', racePanel))]; }
+  /* The quarter ahead as a cascade (norman/judge/outlook.py), one per sleeve: which conditions are on, what
+     the next twelve months actually did when each was on against when it was off, where quality sits and
+     where the funds moved, one level below that, and then the names the pipeline already holds there.
+     Every row is a measurement. There is no size anywhere in it and there never will be: the payload carries
+     none, so nothing on this page can turn it into an order. Added 2026-11-17. */
+  function outlookSection(o, sleeve) {
+    if (!o || !o.conditions) return [];
+    const kept = o.conditions.filter((c) => c.kept);
+    const head = el('p', '', kept.length + ' of the warnings that passed their own test ' + (kept.length === 1 ? 'is' : 'are')
+      + ' on now, out of ' + o.conditions.length + ' on in total. The points column is what the next twelve months did when the '
+      + 'warning was on, less what they did when it was off, 2010\u20132026 \u2014 a measured conditional and not a forecast.');
+    const cond = cardOf(table([
+      {h: 'Condition on now', f: (c) => { const w = el('span'); w.append(document.createTextNode(c.event));
+        if (c.kept) w.append(' ', chip('Passed its test', 'good', 'This warning cleared its own retest; most did not.')); return w; }},
+      {h: 'Points', tip: 'Next twelve months when on, less when off. Negative means the twelve months after this reading were worse.',
+       f: (c) => c.gap == null ? '\u2013' : sp(c.gap, 1), v: (c) => c.gap, n: 1, cls: (c) => sgn(c.gap)},
+      {h: 'Episodes', tip: 'How many times this has happened since 2010. Under ten is a reading, not a base rate.',
+       f: (c) => { const w = el('span'); w.append(document.createTextNode(String(c.eps)));
+         if (c.thin) w.append(' ', chip('thin', '', 'Fewer than ten episodes: too few to call a base rate.')); return w; },
+       v: (c) => c.eps, n: 1}], o.conditions));
+    const secs = o.sectors.filter((x) => x.names >= 8).slice(0, 8);
+    const sect = cardOf(table([
+      {h: 'Sector', f: (x) => el('span', 'tk', x.sector)},
+      {h: 'Quality here', tip: 'Share of the sector scoring 80 or more on the evidence score, which is business quality plus price trend.',
+       f: (x) => pc(x.quality, 0) + ' (' + x.high + ' of ' + x.names + ')', v: (x) => x.quality, n: 1},
+      {h: 'Funds last quarter', tip: 'Positions the tracked funds opened plus added, less those cut, in the latest 13F quarter.',
+       f: (x) => (x.net > 0 ? '+' : '') + x.net, v: (x) => x.net, n: 1, cls: (x) => sgn(x.net)},
+      {h: 'Read', tip: 'Computed from the two columns to its left, not written by hand.', f: (x) => x.stance}], secs));
+    const out = [pad('The quarter ahead: conditions', head, cond),
+                 pad('The quarter ahead: where the two measures point', el('p', '', 'Quality and fund flow are different '
+                   + 'questions and are allowed to disagree. Where they do, that is the finding rather than a problem.'), sect)];
+    if (o.themes && o.themes.length) {
+      out.push(pad('One level down', el('p', '', 'Inside the leading sectors, the lines of business that hold the quality.'),
+        cardOf(table([{h: 'Line of business', f: (t) => t.theme}, {h: 'Sector', f: (t) => el('span', 'mut', t.sector)},
+          {h: 'Scoring 80+', f: (t) => t.high + ' of ' + t.names, v: (t) => t.high, n: 1}], o.themes))));
+    }
+    if (o.names && o.names.length && o.names[0].ticker) {
+      out.push(pad('And then the names', el('p', '', 'Where the pipeline already is in those places, a few from each sector. '
+        + 'This is a reading and not a list to buy: the score\u2019s own round found the order good for pushing weak names '
+        + 'down, not for naming a winner at the top. A name here has earned a thesis card, which is the next step.'),
+        cardOf(table([{h: 'Name', f: (n) => tlink(n.ticker)}, {h: 'Company', f: (n) => n.name, hs: 1},
+          {h: 'Sector', f: (n) => el('span', 'mut', n.sector)},
+          {h: 'Score', tip: 'Business 60 plus trend 40.', f: (n) => n.score, v: (n) => n.score, n: 1},
+          {h: 'Business measures', tip: 'How many of the three great-business measures it meets.',
+           f: (n) => [1, 2, 4].filter((b) => n.business_bits & b).length + ' of 3', v: (n) => n.business_bits, n: 1}],
+          o.names))));
+    } else if (o.names && o.names.length) {
+      out.push(pad('And then the funds', el('p', '', 'The core holds index funds on a dated schedule, so the cascade stops here.'),
+        cardOf(table([{h: 'Fund', f: (n) => el('span', 'tk', n.fund)}], o.names))));
+    }
+    out.push(pad('', ...o.notes.map((n) => el('p', 'mut', n))));
+    return out;
+  }
   let pstate = null;
   function playPanel() { const P = d.core.playbook, ST = ['2 or more on', '1 on', '0 on']; if (!pstate) pstate = P.state;
     const seg = el('div', 'seg'); ST.forEach((k) => { const b = el('button', '', k + (k === P.state ? ' (now)' : '')); b.setAttribute('aria-pressed', k === pstate); b.onclick = () => { pstate = k; paint(); }; seg.appendChild(b); });
@@ -525,6 +579,7 @@ function start(d) {
       V.cards, {click: (c) => openPanel(() => visionPanel(c))})); vt.querySelector('table').classList.add('vtop');
     const beliefs = () => { const u = el('ul', 'todo'); V.themes.forEach((x) => { const li = el('li'), s2 = el('span'); s2.append(x.text + ' ', el('span', 'mut', '(' + x.source + ')')); li.appendChild(s2); u.appendChild(li); }); return [el('h2', '', 'What you have said you believe'), u, el('p', 'mut', 'Tell the desk to change any of these. The candidates are matched to them.')]; };
     return [recommend(t.memo, 'opt-tact'), strip, choose(t.memo, 'opt-tact'), pad('To do, from your rules', ...todo(t.actions, t.memo, 'opt-tact')),
+      ...outlookSection(t.outlook, 'tactical'),
       pad('Your long-term visions', vt, el('p', 'mut', 'Click a row for the full case. The list stands still: a name changes only when a pillar breaks, the person running it changes, or you say so. Candidates are desk drafts, not recommendations.')),
       links(more('What the funds share', sharedPanel), more('Following the funds, tested', followPanel), more('Your ' + V.themes.length + ' beliefs', beliefs))]; }
   function followPanel() { const W = d.tact.follow, vs = (a, b) => pc(a) + ' vs ' + pc(b), NM = {F1: 'Any fund’s big new buy', F2: 'A concentrated fund’s big new buy', F3: 'Three or more funds buying new', F4: 'A biotech-like new buy', F5: 'Druckenmiller’s new buys', F6: 'Druckenmiller’s biotech-like buys'};
