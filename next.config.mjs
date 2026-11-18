@@ -17,14 +17,18 @@ const nextConfig = {
   // work done inside a role moved under that role on /experience. Keep the old
   // path working for anything already linking to it.
   async redirects() {
-    return [{ source: '/projects', destination: '/research', permanent: true }]
+    return [
+      { source: '/projects', destination: '/research', permanent: true },
+      // /stocks moved to GitHub Pages on 2026-11-17 and its files were removed from this repository.
+      // They were a password gate plus an AES-GCM payload, and this repo is PUBLIC, so the encrypted
+      // file was downloadable by anyone and could be attacked offline at leisure. It now lives in the
+      // private stock-forecasting repo and is published from there. Not permanent: the host may move again.
+      { source: '/stocks', destination: 'https://nishadw.github.io/stock-forecasting/stocks/', permanent: false },
+      { source: '/stocks/:path*', destination: 'https://nishadw.github.io/stock-forecasting/stocks/', permanent: false },
+    ]
   },
   async rewrites() {
     return [
-      // /stocks is a self-contained static page in public/stocks (password prompt + encrypted data file,
-      // rebuilt from the stock-forecasting repo: python -m norman.site_build). Nothing in it is readable
-      // without the password.
-      { source: '/stocks', destination: '/stocks/index.html' },
       { source: '/ingest/static/:path*', destination: 'https://us-assets.i.posthog.com/static/:path*' },
       { source: '/ingest/:path*', destination: 'https://us.i.posthog.com/:path*' },
     ]
